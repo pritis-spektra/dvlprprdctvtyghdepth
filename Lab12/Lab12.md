@@ -34,13 +34,13 @@ By completing this lab, you will learn how to:
 1.  Create a new project folder Lab12 in your C:/drive and open it in
     Visual Studio code .Open Terminal-\>GitBash and run below commands
 
-mkdir customer-health-dashboard && cd customer-health-dashboard
++++mkdir customer-health-dashboard && cd customer-health-dashboard+++
 
-python -m venv venv
++++python -m venv venv+++
++
++++source venv/Scripts/activate+++
 
-source venv/Scripts/activate
-
-pip install flask
++++pip install flask++
 
 ![](./media/image1.png)
 

@@ -70,15 +70,13 @@ your review is informed.
 2.  Type the following **intent-driven comment** at the top of the file
     and press **Enter**:
 
-> \# Mock customer data for a Customer Health Dashboard prototype.
++++\# Mock customer data for a Customer Health Dashboard prototype.+++
+
++++\# Each customer has: name (str), industry (str), health_score (int 0-100),+++
+
++++and risk_level (one of "healthy", "at-risk", "critical").+++
 >
-> \# Each customer has: name (str), industry (str), health_score (int
-> 0-100),
->
-> \# and risk_level (one of "healthy", "at-risk", "critical").
->
-> \# Generate a list of exactly 10 diverse customers across different
-> industries.
++++\# Generate a list of exactly 10 diverse customers across different industries.+++
 
 3.  **Pause and observe.** Copilot offers dimmed ghost text suggestions
     as you type: sometimes the completion of the current line, sometimes
@@ -139,15 +137,15 @@ mislead stakeholders. **You own the data contract.**
 2.  Type the following comment block and let Copilot suggest the
     implementation:
 
-> \# Flask application for Customer Health Dashboard
->
-> \# - Import customers from data.py
->
-> \# - Single route "/" renders dashboard.html with the customer list
->
-> \# - Server-rendered HTML only, no REST API
->
-> \# - Run on port 5000 in debug mode
+ +++\# Flask application for Customer Health Dashboard+++
+
++++\# - Import customers from data.py+++
+
++++\# - Single route "/" renders dashboard.html with the customer list+++
+
++++\# - Server-rendered HTML only, no REST API+++
+
++++\# - Run on port 5000 in debug mode+++
 
 ![](./media/image8.png)
 
@@ -190,7 +188,7 @@ This step uses **Copilot Chat** for a larger, multi-concern generation
 
 1.  Create the folder structure in the root folder
 
-> templates/
++++templates/+++
 
 2.  Create a new file: **templates/dashboard.html**
 
@@ -201,36 +199,21 @@ This step uses **Copilot Chat** for a larger, multi-concern generation
 
 4.  Enter the following **detailed prompt** in Agent mode.
 
-> Generate a Jinja2 HTML template called dashboard.html for a Flask app.
->
-> Requirements:
->
-> \- Use Bootstrap 5 via CDN (no local files)
->
-> \- Page title: "Customer Health Dashboard"
->
-> \- Display a responsive Bootstrap table with columns: \#, Customer
-> Name, Industry, Health Score, Risk Level
->
-> \- Iterate over a \`customers\` list passed from Flask
->
-> \- Each customer dict has keys: name, industry, health_score,
-> risk_level
->
-> \- Color-code the Risk Level column using Bootstrap badges:
->
-> \- "healthy" → badge bg-success
->
-> \- "at-risk" → badge bg-warning text-dark
->
-> \- "critical" → badge bg-danger
->
-> \- Add a container with margin-top, a heading, and a brief subtitle
->
-> \- Use loop.index for the row number
->
-> \- Clean, production-quality HTML
->
+ ```Generate a Jinja2 HTML template called dashboard.html for a Flask app.
+ Requirements:
+ - Use Bootstrap 5 via CDN (no local files)
+ - Page title: "Customer Health Dashboard"
+ - Display a responsive Bootstrap table with columns: \#, CustomerName, Industry, Health Score, Risk Level
+ - Iterate over a \`customers\` list passed from Flask
+ - Each customer dict has keys: name, industry, health_score,> risk_level
+ - Color-code the Risk Level column using Bootstrap badges:
+ - "healthy" → badge bg-success
+ - "at-risk" → badge bg-warning text-dark
+ - "critical" → badge bg-danger
+ - Add a container with margin-top, a heading, and a brief subtitle
+ - Use loop.index for the row number
+ - Clean, production-quality HTML```
+
 > ![](./media/image13.png)
 
 5.  Review the Copilot Chat output carefully before pasting it into your
@@ -264,19 +247,19 @@ prompt would be insufficient.
 
 ## Task 5: Validate Results — Run the Application
 
-1.  Open the VS Code **integrated terminal** (Ctrl+\`\` or **Terminal →
-    New Terminal**) -\> GitBash.
+1.  Open the VS Code **integrated terminal** (Ctrl+\`\` or **Terminal → New Terminal**) -\> GitBash.
 
 2.  Ensure your virtual environment is activated, then run:
 
-> python app.py
++++python app.py+++
 
 3.  You should see output similar to:
 
 > ![](./media/image15.png)
 
-4.  Open your browser and navigate
-    to **​**[**http://127.0.0.1:5000**![](./media/image2.gif)](http://127.0.0.1:5000/)**​**
+4.  Open your browser and navigate to +++http://127.0.0.1:5000+++
+
+![](./media/image2.gif)](http://127.0.0.1:5000/)**​**
 
 ![](./media/image16.png)
 
@@ -287,7 +270,7 @@ prompt would be insufficient.
 6.  **If errors occur**, use Copilot to debug. Select the error in the
     terminal, press **Ctrl+I**, and type:
 
-7.  /fix Explain this Flask error and suggest a fix
++++/fix Explain this Flask error and suggest a fix+++
 
 Copilot works even better if you give it an error message or highlight
 the part of the code that's broken.​

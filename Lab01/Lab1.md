@@ -13,7 +13,7 @@ retaining full developer judgment and control.
 
 By completing this lab, you will be able to:
 
-- Analyze an existing Java REST API
+- Analyse an existing Java REST API
 
 - Document API endpoints using sample curl commands
 
@@ -23,7 +23,7 @@ By completing this lab, you will be able to:
 
 - Use mocks correctly for isolated unit testing
 
-- Customize GitHub Copilot behavior using custom instructions
+- Customise GitHub Copilot behaviour using custom instructions
 
 - Improve test coverage and test quality
 
@@ -62,7 +62,7 @@ to test or enhance code they did not write. This task focuses on using
 **GitHub Copilot as a comprehension assistant** to analyze an existing
 REST API, identify endpoints, and document expected behavior.
 
-1.  Open Visual Studio code form Desktop and sign in with your GitHub
+1.  Open Visual Studio Code from the desktop and sign in with your GitHub
     Copilot license account
 
 2.  Click on **File-\> Open Folder-\>C:\Labfiles** and select the
@@ -76,7 +76,7 @@ REST API, identify endpoints, and document expected behavior.
 > ![](./media/image2.png)
 
 4.  Read the controller classes (example - @RestController
-    ,@RequestMapping ,getMapping etc)) of the API and identify
+    ,@RequestMapping, getMapping, etc.) of the API and identify
 
     - **Base URL** (common path prefix used by all APIs in this
       controller)

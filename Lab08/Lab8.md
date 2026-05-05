@@ -62,29 +62,29 @@ what's wrong. This trains the code review mindset.
 
 > **Note:** Spend 5 minutes and identify as many issues as you can.
 
-\# === CODE REVIEW NOTES ===
+# === CODE REVIEW NOTES ===
 
-\# 1. Variable names: d, o, t, p, q, r, s, tt — all cryptic,
+# 1. Variable names: d, o, t, p, q, r, s, tt — all cryptic,
 single-letter
 
-\# 2. proc() and proc_batch() contain nearly identical logic (copy-paste
+# 2. proc() and proc_batch() contain nearly identical logic (copy-paste
 duplication)
 
-\# 3. Discount rates are hardcoded magic numbers (0.1, 0.2, 0.25)
+# 3. Discount rates are hardcoded magic numbers (0.1, 0.2, 0.25)
 
-\# 4. Tax rate (0.08) is a magic number buried in logic
+# 4. Tax rate (0.08) is a magic number buried in logic
 
-\# 5. No docstrings, no type hints, no meaningful comments
+# 5. No docstrings, no type hints, no meaningful comments
 
 \# 6. Empty order check happens AFTER calculation (wrong order of
 operations)
 
-\# 7. gen_report() uses string concatenation instead of f-strings or
+# 7. gen_report() uses string concatenation instead of f-strings or
 templates
 
-\# 8. No unit tests exist
+# 8. No unit tests exist
 
-\# 9. No README or module-level documentation
+# 9. No README or module-level documentation
 
 ![](./media/image3.png)
 
@@ -191,11 +191,11 @@ imperfect.
     folder**.** Type the following comment at the top and let Copilot
     help:
 
-+++\\ Characterization tests for order_processor.py+++
++++# Characterization tests for order_processor.py+++
 
-+++\\ These tests capture the CURRENT behavior of the code before refactoring+++
++++# These tests capture the CURRENT behavior of the code before refactoring+++
 
-+++\\ Purpose: ensure refactoring does not change observable behavior+++
++++# Purpose: ensure refactoring does not change observable behavior+++
 
 ![](./media/image11.png)
 
@@ -312,17 +312,17 @@ test-then-refactor-then-test cycle is the core discipline of this lab.
 1.  At the top of order_processor.py, type the following comment and let
     Copilot suggest:
 
-+++\\ Constants for discount rates and tax+++
++++# Constants for discount rates and tax+++
 
-+++\\ VIP customers get 10% discount+++
++++# VIP customers get 10% discount+++
 
-+++\\ Employee customers get 20% discount+++
++++# Employee customers get 20% discount+++
 
-+++\\ Wholesale customers get 25% discount+++
++++# Wholesale customers get 25% discount+++
 
-+++\\ Tax rate is 8%+++
++++# Tax rate is 8%+++
 
-+++\\ Orders over $1000 require review+++
++++# Orders over $1000 require review+++
 
 ![](./media/image19.png)
 

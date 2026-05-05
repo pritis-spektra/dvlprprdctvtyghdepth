@@ -40,7 +40,6 @@ By the end of this lab, you will be able to:
 7.  Experience an end-to-end debugging workflow powered by GitHub
     Copilot
 
-###  
 
 ## Task 1: Understand the Problem (Human Reasoning First)
 
@@ -53,9 +52,9 @@ developer.
 
 2.  Attempt to start the server:
 
-> cd buggy-order-api/
->
-> npm start
++++cd buggy-order-api/+++
+
++++npm start+++
 
 3.  The server will crash on startup due to a route configuration
     errors.
@@ -80,8 +79,8 @@ developer.
 
 7.  Open terminal and run below command to create a new branch for your
     fixes:
-
-> git checkout -b fix/debug-with-copilot
+ 
+ +++git checkout -b fix/debug-with-copilot+++
 
 ## Task 2: Use GitHub Copilot to Analyze and Explore the Codebase
 
@@ -91,7 +90,7 @@ you debug issues with natural language queries.​
 1.  Open **src/models/order.js** in the editor.Select **all the
     code** in the file.Open Copilot Chat and type:
 
-> /explain
+ +++/explain+++
 
 ![](./media/image2.png)
 
@@ -114,7 +113,7 @@ you debug issues with natural language queries.​
 4.  Highlight the **findByStatus** method in order.js.In Copilot Chat,
     ask:
 
-> Why does this filter method always return an empty array?
++++Why does this filter method always return an empty array?+++
 
 ![](./media/image4.png)
 
@@ -126,8 +125,7 @@ you debug issues with natural language queries.​
 
 6.  Open **src/middleware/auth.js**.In Copilot Chat, type:
 
-> Analyze this authentication middleware for security vulnerabilities
-> and best practice violations
++++Analyze this authentication middleware for security vulnerabilities and best practice violations+++
 
 ![](./media/image6.png)
 
@@ -158,8 +156,7 @@ suggestions
 1.  **Open** **src/app.js** in the editor.**Select all code** in the
     file and type in Copilot Chat in Agent mode.
 
-> /fix Review this Express app configuration. It is missing critical
-> middleware and has a route prefix typo. Fix all issues.
++++/fix Review this Express app configuration. It is missing critical middleware and has a route prefix typo. Fix all issues.+++
 
 ![](./media/image8.png)
 
@@ -178,9 +175,9 @@ suggestions
 
 3.  Open Terminal and Install the CORS package if Copilot suggested it:
 
-> npm install cors
->
-> ![](./media/image10.png)
+ +++npm install cors+++
+
+ ![](./media/image10.png)
 
 4.  **Update your Bug Tracker:** Mark Bugs \#1–#4 as and note which
     Copilot feature you used.
@@ -194,9 +191,7 @@ origins. **This decision is yours**, not Copilot's.
 1.  **Open** src/server.js.**Select all code** and use Copilot Chat
     Agent mode
 
-> /fix This server file has a hardcoded port and no graceful shutdown.
->
-> Add environment variable support and proper signal handling.
++++/fix This server file has a hardcoded port and no graceful shutdown.Add environment variable support and proper signal handling.+++
 
 ![](./media/image11.png)
 
@@ -211,17 +206,11 @@ origins. **This decision is yours**, not Copilot's.
 ## Task 6 — Use Copilot to Generate Fixes in src/models/order.js  — The Most Critical File
 
 This file contains **10 bugs** and is the core of the application. We'll
-fix it in stages.
-
-**Fix Critical Crashes (Bugs \#7, \#8)**
+fix it in stages.**Fix Critical Crashes (Bugs \#7, \#8)**
 
 1.  **Highlight the constructor** of the Order class.In Copilot Chat:
 
-> /fix This constructor crashes because uuid is never imported and
-> Date.now
->
-> is missing parentheses. Also, totalPrice should be calculated from
-> items.
++++/fix This constructor crashes because uuid is never imported and  Date.now is missing parentheses. Also, totalPrice should be calculated from items.+++
 
 ![](./media/image14.png)
 
@@ -237,10 +226,7 @@ fix it in stages.
 1.  **Highlight** the update method.Use **inline
     chat** (press Ctrl+I / Cmd+I on the selection):
 
-> Fix this: it overwrites the entire order with updateData, losing the
-> original
->
-> fields like id and createdAt. It should merge properties instead.
++++Fix this: it overwrites the entire order with updateData, losing the original fields like id and createdAt. It should merge properties instead.+++
 
 ![](./media/image17.png)
 
@@ -253,34 +239,33 @@ fix it in stages.
 1.  **Highlight** the findByStatus method. Copilot should have fixed it
     as shown
 
-![](./media/image19.png)Note**:** The bug was curly braces without
+![](./media/image19.png)
+
+Note**:** The bug was curly braces without
 a return statement. Copilot should explain that =\> { expression
 } needs return, while =\> expression returns implicitly.
 
 **Stage F: Add Missing Methods (Bugs \#15, \#16)**
 
-1.  Place your cursor at the bottom of the class, **before the
-    closing }**.
+1.  Place your cursor at the bottom of the class, **before the closing }**.
 
 2.  Type the following **comment prompt** to trigger Copilot inline
     suggestions:
 
-> // Calculate the total price of an order by summing price \* quantity
-> for each item
++++// Calculate the total price of an order by summing price quantity for each item+++
 
 3.  **Wait for Copilot's ghost text suggestion** and press Tab to accept
     if it looks correct.
 
-> ![](./media/image20.png)
+ ![](./media/image20.png)
 
 4.  Then type another comment:
 
-> // Validate order data: customerName, items (non-empty array), and
-> shippingAddress are required
++++// Validate order data: customerName, items (non-empty array), and shippingAddress are required+++
 
 5.  Accept or refine Copilot's suggestion.
 
-6.  **Update Bug Tracker:** Mark Bugs \#7–#16 as 🔧.
+6.  **Update Bug Tracker:** Mark Bugs \#7–#16 with the status
 
 ## Task 7 — Use Copilot to Generate Fixes src/controllers/orderController.js 
 
@@ -288,12 +273,7 @@ a return statement. Copilot should explain that =\> { expression
 
 1.  **Highlight** the createOrder method.In Copilot Chat:
 
-> /fix This createOrder method has no input validation, returns wrong
-> HTTP
->
-> status code (200 instead of 201), and has incorrect error handling.
->
-> Fix all issues and add proper validation using the helpers module.
+ +++/fix This createOrder method has no input validation, returns wrong HTTP status code (200 instead of 201), and has incorrect error handling.Fix all issues and add proper validation using the helpers module.+++
 
 ![](./media/image21.png)
 
@@ -309,19 +289,14 @@ a return statement. Copilot should explain that =\> { expression
 
 3.  Fixed code should like
 
-> ![](./media/image22.png)
+ ![](./media/image22.png)
 
 **Stage C: Fix getOrdersByStatus (Bugs \#27–#28)**
 
 1.  **Highlight** the getOrdersByStatus method.In Copilot Chat in Agent
     mode
 
-> /fix This reads status from req.params but the route sends it as a
-> query
->
-> parameter. Also add validation for allowed status values:
->
-> pending, processing, shipped, delivered, cancelled.
++++/fix This reads status from req.params but the route sends it as a query parameter. Also add validation for allowed status values: pending, processing, shipped, delivered, cancelled.+++
 
 ![](./media/image23.png)
 
@@ -335,16 +310,13 @@ a return statement. Copilot should explain that =\> { expression
 
 2.  In Copilot Chat:
 
-> /fix This method has three bugs:
->
-> 1\. reduce() crashes on empty array (no initial value)
->
-> 2\. .length() is called as a method instead of a property
->
-> 3\. 'pending' is not in quotes - it's a ReferenceError
->
-> Fix all three.
-
+```
+/fix This method has three bugs: >
+1. reduce() crashes on empty array (no initial value)
+2. .length() is called as a method instead of a property
+3. 'pending' is not in quotes - it's a ReferenceError
+Fix all three.
+```
 ![](./media/image25.png)
 
 3.  Review and accept the fix
@@ -357,21 +329,14 @@ a return statement. Copilot should explain that =\> { expression
 
 1.  **Open** orderRoutes.js and **select all code**.In Copilot Chat, use
     a comprehensive prompt:
-
-> /fix This route file has the following issues:
->
-> 1\. GET and POST methods are swapped on the root route
->
-> 2\. Route parameter is :orderId but controllers expect :id
->
-> 3\. /status route conflicts with /:orderId pattern (Express matches
-> "status" as an orderId)
->
-> 4\. Summary route references wrong controller method name
-> (orderSummary vs getOrderSummary)
->
-> Fix all issues and ensure route ordering prevents conflicts.
-
+```
+/fix This route file has the following issues:
+ 1. GET and POST methods are swapped on the root route
+ 2. Route parameter is :orderId but controllers expect :id
+ 3. /status route conflicts with /:orderId pattern (Express matches status" as an orderId)
+ 4\ Summary route references wrong controller method name  (orderSummary vs getOrderSummary)
+ Fix all issues and ensure route ordering prevents conflicts.
+```
 ![](./media/image27.png)
 
 2.  Review the fix and accept it.
@@ -384,25 +349,20 @@ learned.​[**2**![](./media/image29.gif)](https://github.blog/ai-and-ml/github-
 But understanding **why** /status must come before /:id requires your
 knowledge of Express route matching.
 
-1.  **Update Bug Tracker:** Mark Bugs \#32–#35 as 🔧.
+1.  **Update Bug Tracker:** Mark Bugs \#32–#35 with the status.
 
 ## Task 3.6 — Use Copilot to Generate Fixes  src/middleware/auth.js 
 
 1.  **Open** auth.js and **select all code**.In Copilot Chat:
 
-> /fix This auth middleware has security issues:
->
-> 1\. req.headers\['Authorization'\] should be lowercase 'authorization'
->
-> 2\. Returns 403 when it should return 401 (no token = unauthorized,
-> not forbidden)
->
-> 3\. No actual token verification — just checks if token exists
->
-> 4\. Never extracts user info from token
->
-> Implement proper JWT token verification using jsonwebtoken library.
-
+```
+/fix This auth middleware has security issues:
+1. req.headers\['Authorization'\] should be lowercase 'authorization'
+2. Returns 403 when it should return 401 (no token = unauthorized,not forbidden)
+3. No actual token verification — just checks if token exists
+4. Never extracts user info from token
+Implement proper JWT token verification using jsonwebtoken library.
+```
 ![](./media/image30.png)
 
 2.  Review and accept the fix.
@@ -411,11 +371,11 @@ knowledge of Express route matching.
 
 3.  **Open termina and run below command to Install jsonwebtoken**
 
-> npm install jsonwebtoken
->
-> ![](./media/image32.png)
->
-> **Update Bug Tracker:** Mark Bugs \#36–#39 as 🔧.
++++npm install jsonwebtoken+++
+
+ ![](./media/image32.png)
+
+ **Update Bug Tracker:** Mark Bugs \#36–#39 withthe status
 
 **Note:** Copilot may suggest different JWT configurations. For this
 lab, a simple HS256 token with environment-variable secret is fine. In
@@ -434,25 +394,14 @@ edits.​[**3**![](./media/image29.gif)](https://code.visualstudio.com/blogs/202
 
 1.  Select the full code from src/utils/helpers.js toand enter below
     prompt in Agent mode
-
-> Fix all bugs in helpers.js:
->
-> 1\. calculateTotal: uses for...in instead of for...of, multiplies
-> price\*price instead of price\*quantity, has floating point issues
->
-> 2\. validateOrderData: validation logic is completely inverted
-> (returns true for invalid, false for valid)
->
-> 3\. isValidStatus: has typos ("shiped", "cancled"), and is
-> case-sensitive without toLowerCase()
->
-> 4\. paginate: off-by-one error, page should be 1-based for users,
-> slice end index is wrong
->
-> 5\. formatOrderResponse: calls toISOString() on a function reference
->
-> Add input sanitization to formatOrderResponse to prevent XSS.
->
+```
+Fix all bugs in helpers.js:
+1. calculateTotal: uses for...in instead of for...of, multiplies price\*price instead of price\*quantity, has floating point issues
+2. validateOrderData: validation logic is completely inverted (returns true for invalid, false for valid)
+3. isValidStatus: has typos ("shiped", "cancled"), and is case-sensitive without toLowerCase()
+4. paginate: off-by-one error, page should be 1-based for users,slice end index is wrong
+5. formatOrderResponse: calls toISOString() on a function reference Add input sanitization to formatOrderResponse to prevent XSS.
+```
 > ![](./media/image33.png)
 
 2.  Review the proposed changes — every tool invocation is transparently
@@ -464,29 +413,31 @@ edits.​[**3**![](./media/image29.gif)](https://code.visualstudio.com/blogs/202
 
 4.  Now , run the server
 
-> npm start
->
+ +++npm start+++
+
 > ![](./media/image35.png)
 
 5.  Duplicate a workspace and run below command to create order
 
+```
 curl -i -X POST http://localhost:3000/api/v1/orders -H "Content-Type:
 application/json" -d
 '{"customerName":"Alice","items":\[{"name":"Book","price":10.5,"quantity":2}\],"shippingAddress":"123
 Main St"}'
-
+```
 ![](./media/image36.png)
 
-6.  run below command to read all orders
+6.  Repalce <<YOUR WORKBENCH PATH>> with your workbenach path and run below command to read all orders
 
-> curl
-> -i [http://localhost:3000/api/v1/orders](vscode-file://vscode-app/c:/Users/ManjulaChintharla.AzureAD/AppData/Local/Programs/Microsoft%20VS%20Code/034f571df5/resources/app/out/vs/code/electron-browser/workbench/workbench.html)
->
+```
+curl
+ -i [http://localhost:3000/api/v1/orders](vscode-file://vscode-app/c:<<YOUR WROKBENCHURL>>)
+```
 > ![](./media/image37.png)
 
 3.  Validate summary route  
     curl
-    -i [http://localhost:3000/api/v1/orders/summary](vscode-file://vscode-app/c:/Users/ManjulaChintharla.AzureAD/AppData/Local/Programs/Microsoft%20VS%20Code/034f571df5/resources/app/out/vs/code/electron-browser/workbench/workbench.html)
+    -i [http://localhost:3000/api/v1/orders/summary](vscode-file://vscode-app/c:/Users/<<YOUR WORKBENCH PATH>>)
 
 Expected: 200 OK with totals
 

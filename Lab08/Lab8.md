@@ -53,8 +53,7 @@ what's wrong. This trains the code review mindset.
 
 2.  Run below command and clone the repo
 
-git clone
-<https://github.com/technofocus-pte/GitHub-Copilot-orderflow-cleanup>
++++git clone https://github.com/technofocus-pte/GitHub-Copilot-orderflow-cleanup+++
 
 ![](./media/image2.png)
 
@@ -98,8 +97,9 @@ Now let's validate and deepen your understanding using Copilot.
 Select the **entire proc() function** in the editor. Open Copilot Chat
 (Ctrl+Shift+I / Cmd+Shift+I) and type:
 
+```
 /explain
-
+```
 ![](./media/image4.png)
 
 2.  Copilot should provide a plain-English explanation of what the
@@ -126,16 +126,13 @@ behavior*. The developer must judge correctness.
 1.  With order_processor.py open, type in Copilot Chat:
 
 **Prompt:**
-
+```
 @workspace Review order_processor.py for code quality issues.
-
 List all code smells including: poor naming, duplication, magic numbers,
-
 missing error handling, structural problems, and maintainability
 concerns.
-
 Rank them by severity.
-
+```
 ![](./media/image6.png)
 
 2.   Copilot should identify most (or all) of the issues you noted in
@@ -164,11 +161,10 @@ coverage is far more complete.
     response
 
 **Prompt:**
-
+```
 Compare the proc() and proc_batch() functions in order_processor.py.
-
 Identify duplicated logic and explain how they could be consolidated.
-
+```
 ![](./media/image9.png)
 
 4.   Copilot should note that proc_batch() contains an **exact
@@ -195,12 +191,11 @@ imperfect.
     folder**.** Type the following comment at the top and let Copilot
     help:
 
-\# Characterization tests for order_processor.py
++++\\ Characterization tests for order_processor.py+++
 
-\# These tests capture the CURRENT behavior of the code before
-refactoring
++++\\ These tests capture the CURRENT behavior of the code before refactoring+++
 
-\# Purpose: ensure refactoring does not change observable behavior
++++\\ Purpose: ensure refactoring does not change observable behavior+++
 
 ![](./media/image11.png)
 
@@ -209,26 +204,18 @@ refactoring
 2.  Now open Copilot Chat, and type:
 
 **Prompt:**
-
+```
 @workspace Generate characterization tests for the proc() function
-
 in order_processor.py. These tests should capture the current behavior,
-
 not the ideal behavior. Include tests for:
-
-1\. A standard order with 2 items and no discount
-
-2\. A VIP order (customer type "VIP")
-
-3\. An EMPLOYEE order
-
-4\. An order with an empty items list
-
-5\. An order where item quantity is negative
-
+1. A standard order with 2 items and no discount
+2. A VIP order (customer type "VIP")
+3. An EMPLOYEE order
+4. An order with an empty items list
+5. An order where item quantity is negative
 Use pytest. Calculate the expected values manually to match current code
 behavior.
-
+```
 ![](./media/image13.png)
 
 3.   Copilot should generate 5 test functions with hardcoded expected
@@ -254,9 +241,9 @@ behavior.
 
 5.  **Open Terminal and run the tests:**
 
-cd GitHub-Copilot-orderflow-cleanup/
++++cd GitHub-Copilot-orderflow-cleanup/+++
 
-pytest test_order_processor.py -v
++++pytest test_order_processor.py -v+++
 
 ![](./media/image15.png)
 
@@ -277,14 +264,12 @@ values mean your safety net has holes.
     / Cmd+I) and type:
 
 **Prompt:**
-
+```
 Improve all variable names in this function to be descriptive and
 readable.
-
 Rename: d→discount_rate, o→order, t→subtotal, p→price, q→quantity,
-
 r→result, i→item. Keep the exact same logic and behavior.
-
+```
 ![](./media/image16.png)
 
 2.  Chat can help by suggesting improvements to variable names.​ It
@@ -311,7 +296,7 @@ r→result, i→item. Keep the exact same logic and behavior.
 
 5.  Then immediately **run tests:**
 
-pytest test_order_processor.py -v
++++pytest test_order_processor.py -v+++
 
 ![](./media/image18.png)
 
@@ -327,17 +312,17 @@ test-then-refactor-then-test cycle is the core discipline of this lab.
 1.  At the top of order_processor.py, type the following comment and let
     Copilot suggest:
 
-\# Constants for discount rates and tax
++++\\ Constants for discount rates and tax+++
 
-\# VIP customers get 10% discount
++++\\ VIP customers get 10% discount+++
 
-\# Employee customers get 20% discount
++++\\ Employee customers get 20% discount+++
 
-\# Wholesale customers get 25% discount
++++\\ Wholesale customers get 25% discount+++
 
-\# Tax rate is 8%
++++\\ Tax rate is 8%+++
 
-\# Orders over $1000 require review
++++\\ Orders over $1000 require review+++
 
 ![](./media/image19.png)
 
@@ -365,22 +350,19 @@ But wait — let's ask Copilot to help. Select the proc() function and use
 inline chat:
 
 **Prompt:**
-
+```
 Replace all magic numbers in this function with the constants defined
-
 at the top of the file: VIP_DISCOUNT_RATE, EMPLOYEE_DISCOUNT_RATE,
-
 WHOLESALE_DISCOUNT_RATE, TAX_RATE, REVIEW_THRESHOLD.
-
 Do not change any logic.
-
+```
 ![](./media/image21.png)
 
 ![](./media/image22.png)
 
 6.  **Review and accept.** Then immediately:
 
-pytest test_order_processor.py -v
++++pytest test_order_processor.py -v+++
 
 ![](./media/image23.png)
 
@@ -394,16 +376,13 @@ pytest test_order_processor.py -v
     chat
 
 **Prompt:**
-
+```
 @workspace The proc_batch() function in order_processor.py contains
-
 duplicated logic from proc(). Refactor proc_batch() so it simply calls
-
 proc() for each order in the list. Keep the return type the same (list
 of results).
-
 Do not modify proc() itself.
-
+```
 ![](./media/image24.png)
 
 2.  Copilot should suggest:
@@ -418,17 +397,17 @@ return \[proc(order) for order in orders\]
     In Copilot Chat:
 
 **Prompt:**
-
+```
 /tests Generate a pytest test for proc_batch() that processes 3 orders
 (one standard, one VIP, one EMPLOYEE) and verifies that the result is a
 list of 3 results with correct order_ids.
-
+```
 ![](./media/image26.png)
 
 4.  Add the generated test to test_order_processor.py, review it, and
     run:
 
-pytest test_order_processor.py -v
++++pytest test_order_processor.py -v+++
 
 ![](./media/image27.png)
 
@@ -449,13 +428,11 @@ identified the duplication and proposed the right architectural fix.
     chat:
 
 **Prompt:**
-
+```
 Extract the discount calculation into a separate function called
-
 calculate_discount(subtotal, customer_type) that returns the discounted
-
 subtotal. Use a dictionary mapping instead of if/elif chains.
-
+```
 ![](./media/image28.png)
 
 3.   Copilot suggests using a dictionary to map the animal types to

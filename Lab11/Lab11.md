@@ -98,12 +98,11 @@ response.
 1.  Open Copilot Chat and type:
 
 **Prompt:**
+
 ```@workspace I'm investigating a production incident. Read incident_log.txt and cross-reference it with payout_models.py and payout_api.py.
 For each error in the log, identify:
 1. The exact line of code causing the error
-
 2. The root cause
-
 3. Suggested severity (critical/high/medium/low)
 Present as a table.```
 

@@ -48,9 +48,10 @@ developer.
 
 **Instructions:**
 
-1.  Open the project in VS Code.Open Terminal -\>GitBash
+1.  Open the project in VS Code.Open Terminal ->GitBash and run below command to clone the repo
 
-2.  Attempt to start the server:
++++ git clone https://github.com/technofocus-pte/buggy-order-api-lab.git+++
+3.  Attempt to start the server:
 
 +++cd buggy-order-api/+++
 

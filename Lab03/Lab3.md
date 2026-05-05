@@ -53,33 +53,27 @@ Before starting this lab, ensure the following:
 
 ## Task 1 – Understand and Document the API
 
-Before generating documentation, you must understand **what the API
-does**.  
+Before generating documentation, you must understand **what the API does**.  
 This task reinforces API comprehension using **GitHub Copilot as a code
 understanding assistant**, not a replacement for developer reasoning.
 
 1.  Open Visual studio code and navigate to folder
-    -**lab-03-documentation/java/
-    src/main/java/com/example/demo/controller**,and open
+    -**lab-03-documentation/java/src/main/java/com/example/demo/controller**,and open
     **EmployeeController.java** class
 
-> ![](./media/image1.png)
+    ![](./media/image1.png)
 
-2.  Ask Copilot to explain with the /explain and create
-    api-functional.md file with below values(refer Lab 1/Lab2 for
+2.  Ask Copilot to explain with the **/explain** and create
+    api-functional.md file with below values (refer Lab 1/Lab2 for
     similar on how to prepare the md file)
 
-> **Base URL**
->
-> **Endpoint descriptions**
->
-> **HTTP methods**
->
-> **Sample curl commands**
->
-> **Expected responses**
->
-> ![](./media/image2.png)
+    **Base URL**
+    **Endpoint descriptions**
+    **HTTP methods**
+    **Sample curl commands**
+    **Expected responses**
+
+    ![](./media/image2.png)
 
 ## Task 2 – Add Swagger (OpenAPI) Documentation
 
@@ -89,44 +83,47 @@ easier to explore and test endpoints without external tools.
 This task demonstrates how Copilot assists in **framework specific
 documentation setup**.
 
-1.  Open Copilot chat and ask - Add Swagger/OpenAPI support to this
-    Spring Boot project using springdoc-openapi.
+1.  Open Copilot chat and ask - 
 
-![](./media/image3.png)
+    +++Add Swagger/OpenAPI support to this Spring Boot project using springdoc-openapi+++
 
-2.  Copilot edit the pom.xml, review the changes and click on keep to
-    accept the dependency or manally add it to pom.xml and save the
+    ![](./media/image3.png)
+
+2.  Copilot edit the pom.xml, review the changes and click on **keep** to
+    accept the dependency or manually add it to pom.xml and save the
     file.
 
-![](./media/image4.png)
+    ![](./media/image4.png)
 
-![](./media/image5.png)
+    ![](./media/image5.png)
 
 3.  Open the Terminal and open Git Bash and run below command to
     navigate to the folder.
 
-cd lab-03-documentation/java
+    +++cd lab-03-documentation/java+++
 
-![](./media/image6.png)
+    ![](./media/image6.png)
 
 4.  After making changes to the poml.xml, reload the maven with the
     command
 
-> mvn clean compile
->
-> ![](./media/image7.png)
->
-> ![](./media/image8.png)
+    +++mvn clean compile+++
 
-5.  Now run the application - mvn spring-boot:run
+    ![](./media/image7.png)
 
-![](./media/image9.png)
+    ![](./media/image8.png)
 
-6.  Open the browser and enter - http://localhost:8080/swagger-ui.html
+5.  Now run the application - 
+    
+    +++mvn spring-boot:run+++
 
-![](./media/image10.png)
+    ![](./media/image9.png)
 
-Note : GitHub Copilot suggests changes but does not automatically apply
+6.  Open the browser and enter - +++http://localhost:8080/swagger-ui.html+++
+
+    ![](./media/image10.png)
+
+Note: GitHub Copilot suggests changes but does not automatically apply
 them.Always verify files such as pom.xml and accept or apply changes
 explicitly.
 
@@ -146,68 +143,59 @@ In real projects:
 This task shows how **GitHub Copilot helps generate high‑quality
 JavaDoc**, while developers validate accuracy.
 
-1.  Open the file EmployeeController.java.Select the **entire class**
+1.  Open the file **EmployeeController.java** and select the **entire class**
     and open **GitHub Copilot Chat**
 
-> Generate JavaDoc for this controller class and all its public methods.
->
-> Explain the purpose of each endpoint, parameters, and return values.
->
-> ![](./media/image11.png)
+    +++Generate JavaDoc for this controller class and all its public methods. Explain the purpose of each endpoint, parameters, and return values.+++
 
-2.  Copilot Add a class‑level JavaDoc ,Add method‑level documentation
+    ![](./media/image11.png)
+
+2.  Copilot Add a class‑level JavaDoc , Add method‑level documentation
     and Describe endpoints in developer language.
 
-> ![](./media/image12.png)
+    ![](./media/image12.png)
 
 3.  Before accepting check below checklist and accept or make changes
-    manually fi required.
+    manually if required.
 
-- Does the JavaDoc match the actual endpoint?
+    - Does the JavaDoc match the actual endpoint?
+    - Are parameter names correct?
+    - Does it avoid claiming behavior that doesn’t exist (e.g., 404 handling)?
 
-- Are parameter names correct?
-
-- Does it avoid claiming behavior that doesn’t exist (e.g., 404
-  handling)?
-
-> ![](./media/image12.png)
+    ![](./media/image12.png)
 
 4.  Repeat above step for other classes as well
 
-- **EmployeeService.java**
+    - **EmployeeService.java**
 
-- **Employee.java**
+    - **Employee.java**
 
-- **EmployeeRepository.java**
+    - **EmployeeRepository.java**
 
-> Prompt :
->
-> **Add clear JavaDoc explaining the responsibility of this class and
-> its methods.Keep the documentation technical and concise.**
->
-> ![](./media/image13.png)
->
-> ![](./media/image14.png)
->
-> ![](./media/image15.png)
+    Prompt :
+
+    +++Add clear JavaDoc explaining the responsibility of this class and its methods.Keep the documentation technical and concise.+++
+
+    ![](./media/image13.png)
+
+    ![](./media/image14.png)
+
+    ![](./media/image15.png)
 
 5.  Repeat above steps to add documentation to test class with the
-    prompt
+    prompt: 
 
-EmployeeControllerTest.java
+    - EmployeeControllerTest.java
+    - EmployeeRepositoryTest.java
+    - EmployeeServiceTest.java
 
-EmployeeRepositoryTest.java
+    +++Generate JavaDoc for this test class. Explain what behavior is being validated and why?+++
 
-EmployeeServiceTest.java
+    ![](./media/image16.png)
 
-> Generate JavaDoc for this test class.Explain what behavior is being
-> validated and why.
+    ![](./media/image17.png)
 
-![](./media/image16.png)
-
-![](./media/image17.png)
-
-![](./media/image18.png)
+    ![](./media/image18.png)
 
 ## Task 4 – Update API with Functional and Technical documentation structuring
 
@@ -215,89 +203,83 @@ Update the API documentation with the new information. Generate two
 different markdown files on with the functional documentation and
 another with the technical documentation.
 
-1.  Go to the root folder and create two md file - docs/api-technical.md
+1.  Go to the root folder and create two md files - **docs/api-technical.md** and **docs/api-functional.md**
 
-![](./media/image19.png)
+    ![](./media/image19.png)
 
-2.  Open api-functional.md, select the content of the file and ask
-    copilot.reveiw and accept the changes
+2.  Open **api-functional.md**, select the content of the file and ask
+    copilot. Review and accept the changes.
 
-> Convert the existing API documentation into functional documentation.
->
-> Focus only on endpoints, requests, responses, and usage examples.
+    +++Convert the existing API documentation into functional documentation. Focus only on endpoints, requests, responses, and usage examples.+++
 
-![](./media/image20.png)
+    ![](./media/image20.png)
 
-3.  Open api-technicala.md file and ask Copilot.Review the response and
-    accept the changes
+3.  Open **api-technical.md** file and ask Copilot. Review the response and
+    accept the changes:
+    
+    +++Generate technical documentation describing the internal architecture of this project. Explain the responsibility of each layer and how components interact.+++
 
-> Generate technical documentation describing the internal architecture
-> of this project.
->
-> Explain the responsibility of each layer and how components interact.
-
-![](./media/image21.png)
+    ![](./media/image21.png)
 
 ## Task 5 : Testing Employee API with curl
 
-1.  Open terminal and run below command to run the app.(use /fix and fix
-    if you encounter any errors)
+1.  Open terminal and run below command to run the app.(use /fix and fix if you encounter any errors)
 
-> mvn spring-boot:run
+    +++mvn spring-boot:run+++
 
-![](./media/image22.png)
+    ![](./media/image22.png)
 
-2.  Duplicate the workspace(File-\> Duplicate Workspace) and run below
-    command in Git Bash
+2.  Duplicate the workspace (File-\> Duplicate Workspace) and run below
+    command in Git Bash:
 
-curl -X GET <http://localhost:8080/api/employees>
+    +++curl -X GET <http://localhost:8080/api/employees>+++
 
-![](./media/image23.png)
+    ![](./media/image23.png)
 
 3.  **Run below curl command to add new Employee**
 
-curl -X POST http://localhost:8080/api/employees -H "Content-Type:
-application/json" -d '{
+    ```
+    curl -X POST http://localhost:8080/api/employees -H "Content-Type:
+    application/json" -d '{
+    "name": "John",
+    "surname": "Doe",
+    "email": "john.doe@example.com"
+    }'
+    ```
 
-"name": "John",
-
-"surname": "Doe",
-
-"email": "john.doe@example.com"
-
-}'
-
-![](./media/image24.png)
+    ![](./media/image24.png)
 
 4.  Run below command to get Employee by ID. Replace {id} with the
     actual employee ID.
 
-curl -X GET http://localhost:8080/api/employees/{id}
+    ```
+    curl -X GET http://localhost:8080/api/employees/{id}
+    ```
 
-![](./media/image25.png)
+    ![](./media/image25.png)
 
 5.  Run below command to update the employee record. Replace {id} with
     the actual employee ID.
 
-curl -X PUT http://localhost:8080/api/employees/{id} -H "Content-Type:
-application/json" -d '{
+    ```
+    curl -X PUT http://localhost:8080/api/employees/{id} -H "Content-Type:
+    application/json" -d '{
+    "name": "Jane",
+    "surname": "Doe",
+    "email": "jane.doe@example.com"
+    }'
+    ```
 
-"name": "Jane",
-
-"surname": "Doe",
-
-"email": "jane.doe@example.com"
-
-}'
-
-![](./media/image26.png)
+    ![](./media/image26.png)
 
 6.  Run below curl command to delete employee. Replace {id} with the
     actual employee ID.
 
-curl -X DELETE http://localhost:8080/api/employees/{id}
+    ```
+    curl -X DELETE http://localhost:8080/api/employees/{id}
+    ```
 
-![](./media/image27.png)
+    ![](./media/image27.png)
 
 ## Summary :
 

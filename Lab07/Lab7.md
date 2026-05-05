@@ -1,4 +1,4 @@
-# **Lab 7: Building a task management REST API with GitHub Copilot as an AI pair programmer**
+# Lab 7: Building a task management REST API with GitHub Copilot as an AI pair programmer
 
 **Scenario :**
 

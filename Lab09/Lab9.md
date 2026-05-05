@@ -52,15 +52,15 @@ the point — we're testing Copilot's ability to scaffold from zero.
 
 > ![](./media/image1.png)
 
-2.  Open a terminal -\> GitBash and run below command
+2.  Open a terminal -> GitBash and run below command
 
-mkdir customer-health-demo && cd customer-health-demo
++++mkdir customer-health-demo && cd customer-health-demo+++
 
-python -m venv venv
++++python -m venv venv+++
 
-source venv/Scripts/activate
++++source venv/Scripts/activate+++
 
-pip install flask
++++pip install flask+++
 
 ![](./media/image2.png)
 
@@ -118,19 +118,15 @@ destination** before asking Copilot to drive.
 
 **Ask Mode Prompt:**
 
+```
 I'm building a Flask prototype with a customer health score dashboard.
-
 Each customer has a health score from 0-100.
-
 I want to color-code risk levels: Green (70-100), Yellow (40-69), Red
 (0-39).
-
 What's the cleanest way to implement this color logic —
-
 in the Python backend, in the Jinja2 template, or in CSS classes?
-
 Give me pros and cons of each approach for a quick prototype.
-
+```
 ![](./media/image3.png)
 
 2.   Copilot should outline 3 approaches and recommend one. Likely
@@ -162,65 +158,33 @@ answers, right when you need them.​
     following carefully structured prompt:
 
 **Prompt:**
-
+```
 Build a Flask web application prototype for a Customer Health Score
 Dashboard.
-
 PROJECT STRUCTURE:
-
-\- app.py (Flask application with routes)
-
-\- data.py (mock customer data — 10 customers)
-
-\- templates/base.html (Bootstrap 5 base layout via CDN)
-
-\- templates/dashboard.html (customer list with health scores)
-
-\- templates/customer_detail.html (single customer detail view)
-
+- app.py (Flask application with routes)
+- data.py (mock customer data — 10 customers)
+- templates/base.html (Bootstrap 5 base layout via CDN)
+- templates/dashboard.html (customer list with health scores)
+- templates/customer_detail.html (single customer detail view)
 REQUIREMENTS:
-
-1\. data.py should contain a list of 10 mock customers. Each customer
-dict
-
-should have: id, name, industry, health_score (0-100), risk_level
-
-("healthy"/"at-risk"/"critical"), risk_class
-("success"/"warning"/"danger"),
-
-revenue (string like "$1.2M"), last_contact_date, and account_manager.
-
-Make the data realistic — use real-sounding company names and varied
-industries.
-
-2\. app.py should have two routes:
-
-\- GET / → renders dashboard.html showing all customers in a table
-
-\- GET /customer/\<customer_id\> → renders customer_detail.html for one
+1. data.py should contain a list of 10 mock customers. Each customer dict should have: id, name, industry, health_score (0-100), risk_level
+("healthy"/"at-risk"/"critical"), risk_class ("success"/"warning"/"danger"),revenue (string like "$1.2M"), last_contact_date, and account_manager.Make the data realistic — use real-sounding company names and varied industries.
+2. app.py should have two routes:
+- GET  → renders dashboard.html showing all customers in a table
+- GET customer/\<customer_id\> → renders customer_detail.html for one
 customer
-
 Return 404 if customer not found.
-
-3\. templates/base.html should include Bootstrap 5 via CDN, a navbar
-with
-
-"CustomerIQ" as the brand name, and a content block.
-
-4\. templates/dashboard.html should show a Bootstrap table with columns:
-
+3. templates/base.html should include Bootstrap 5 via CDN, a navbar with "CustomerIQ" as the brand name, and a content block.
+4. templates/dashboard.html should show a Bootstrap table with columns:
 Customer Name (clickable link to detail page), Industry, Health Score,
-
 Risk Level (displayed as a colored Bootstrap badge using risk_class),
 Revenue.
-
-5\. templates/customer_detail.html should show all customer fields in a
-
+5. templates/customer_detail.html should show all customer fields in a
 Bootstrap card layout with a "Back to Dashboard" link.
-
 Do NOT use any database. Do NOT create a REST API. This is
 server-rendered HTML only.
-
+```
 ![](./media/image5.png)
 
 ![](./media/image6.png)
@@ -263,7 +227,6 @@ press **Continue** or guide it.
 
 While the app runs, quickly scan each file:
 
-[TABLE]
 
 **Note:** Like working with any other developer, the more context you
 give and the more specific you are about your intended outcome, the
@@ -277,7 +240,7 @@ something much less useful.
 
 ## Task 4: Validate and Fix — The Developer Is Still the Pilot 
 
-1.  Open your browser to http://localhost:5000. Check:
+1.  Open your browser to +++http://localhost:5000+++. Check:
 
 - Dashboard table renders with 10 customers
 
@@ -303,9 +266,9 @@ something much less useful.
     type the standardized prompt:
 
 **Prompt:**
-
+```
 /explain What does this code do and why might it fail?
-
+```
 ![](./media/image13.png)
 
 3.   Copilot should explain the data structure and may flag that:
@@ -326,15 +289,13 @@ something much less useful.
     are broken), select the problematic template and type:
 
 **Prompt — Fix Code:**
-
+```
 /fix Identify and fix only the issues causing this failure. Do not
 rewrite unrelated logic.
-
+```
 ![](./media/image15.png)
 
 6.  **Common fixes needed:**
-
-[TABLE]
 
 ![](./media/image16.png)
 
@@ -354,31 +315,23 @@ Select **dashboard.html** and **app.py** to the **Working Set** (drag
 the file tabs into the Edit panel).
 
 **Prompt:**
-
+```
 Add a summary metrics bar at the top of the dashboard page, above the
 table.
-
 Show 4 Bootstrap cards in a row:
-
 \- Total Customers (count)
-
 \- Average Health Score (calculated from data, rounded to 1 decimal)
-
 \- At-Risk Customers (count where risk_level is "at-risk" or "critical")
-
 \- Total Revenue (sum of all customer revenue — parse from strings)
-
 Calculate these metrics in app.py and pass them to the template.
-
 Style the cards with Bootstrap's card component. Use a colored top
 border:
-
 blue for total, green for average score, orange for at-risk, purple for
 revenue.
-
+```
 ![](./media/image17.png)
 
-**2. Agent** Mode should show inline diffs in both app.py (new metric
+2. Agent Mode should show inline diffs in both app.py (new metric
 calculations) and dashboard.html (new card row).
 
 ![](./media/image18.png)
@@ -387,20 +340,14 @@ calculations) and dashboard.html (new card row).
     exercise developer judgment:**
 
 **Follow-up Edit Prompt:**
-
+```
 The revenue parsing is incorrect. Revenue strings are formatted like
-"$1.2M"
-
-or "$850K". Parse them by:
-
+"$1.2M" or "$850K". Parse them by:
 \- Removing the $ sign
-
 \- Converting M to multiply by 1,000,000 and K to multiply by 1,000
-
 \- Display total as formatted currency like "$12.5M"
-
 Fix only the revenue parsing in app.py. Do not change other metrics.
-
+```
 5.  After accepting edits, **refresh the browser** and verify the
     metrics display correctly.
 
@@ -411,9 +358,9 @@ Fix only the revenue parsing in app.py. Do not change other metrics.
 1.  Select the **entire app.py** file. In Copilot Chat, type:
 
 **Prompt — Documentation:**
-
+```
 /doc Generate clear documentation explaining this module's behavior.
-
+```
 ![](./media/image20.png)
 
 2.   Copilot should generate:

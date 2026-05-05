@@ -51,7 +51,9 @@ By the end of this capstone, you will be able to:
 
 ### Task1 — Human Reasoning: Read the Incident Log FIRST
 
-Open **incident_log.txt** and read every line. Before touching Copilot,
+1. Open Visual Studio code -> Terminla- > Git Bash and run below command to clone the repo
+    +++git clone https://github.com/technofocus-pte/paystream-incident.git+++
+2. Open **incident_log.txt** and read every line. Before touching Copilot,
 create a triage list.
 
 Categorize the issues by severity:
@@ -96,25 +98,18 @@ response.
 1.  Open Copilot Chat and type:
 
 **Prompt:**
-
-@workspace I'm investigating a production incident. Read
-incident_log.txt
-
-and cross-reference it with payout_models.py and payout_api.py.
-
+```@workspace I'm investigating a production incident. Read incident_log.txt and cross-reference it with payout_models.py and payout_api.py.
 For each error in the log, identify:
+1. The exact line of code causing the error
 
-1\. The exact line of code causing the error
+2. The root cause
 
-2\. The root cause
-
-3\. Suggested severity (critical/high/medium/low)
-
-Present as a table.
+3. Suggested severity (critical/high/medium/low)
+Present as a table.```
 
 ![](./media/image3.png)
 
-2.   Copilot should produce a table mapping each log entry to specific
+2. Copilot should produce a table mapping each log entry to specific
     code lines and root causes.
 
 **Developer Action:**
@@ -143,9 +138,7 @@ triage *priority* is a human decision based on business impact.
     in Copilot Chat:
 
 **Prompt:**
-
-/explain What happens when an unsupported currency like "GBP" is passed
-to this function? Trace the downstream impact.
++++/explain What happens when an unsupported currency like "GBP" is passed to this function? Trace the downstream impact.+++
 
 ![](./media/image6.png)
 
@@ -166,31 +159,19 @@ to this function? Trace the downstream impact.
     enter below prompt
 
 **Prompt:**
-
+```
 INCIDENT FIX - CRITICAL PRIORITY
-
 In payout_models.py, the create_payout function accepts negative
 amounts.
-
 This is a security vulnerability — negative payouts credit merchants
-
 instead of debiting them (see incident_log.txt).
-
 Fix this by:
-
-1\. Adding input validation in create_payout() to reject amounts \<= 0
-
-2\. Adding input validation to reject empty or None merchant_id
-
-3\. Raising a ValueError with clear messages for invalid inputs
-
-4\. In payout_api.py, catching ValueError in the POST /payouts endpoint
-
-and returning a 400 response with the error message
-
-5\. Do NOT change any existing test expectations
-
-6\. After making changes, run: pytest test_payouts.py -v
+1. Adding input validation in create_payout() to reject amounts \<= 0
+2. Adding input validation to reject empty or None merchant_id
+3. Raising a ValueError with clear messages for invalid inputs
+4. In payout_api.py, catching ValueError in the POST /payouts endpoint and returning a 400 response with the error message
+5. Do NOT change any existing test expectations
+6. After making changes, run: pytest test_payouts.py -v```
 
 ![](./media/image9.png)
 
@@ -207,34 +188,25 @@ vs. what needed correction. This feeds into the final reflection.
 
 ![](./media/image10.png)
 
-3\. Allow copilot to run
+4. Allow copilot to run
 
 ![](./media/image11.png)
 
 ### Task3 — Agent Mode: Fix the Fee Calculation Bug
 
 1.  Run below Agent mode prompt.
-
+```
 INCIDENT FIX - CRITICAL
-
 The calculate_fee function in payout_models.py returns None for
 unsupported
-
 currencies (like GBP). This causes a TypeError downstream in
 process_payout().
-
 Fix this by:
-
-1\. Adding a default fee calculation for unsupported currencies (4% +
-$1.00)
-
-2\. OR raising a ValueError for unsupported currencies
-
-3\. Handling this error gracefully in process_payout()
-
-4\. Update the POST /payouts/\<id\>/process endpoint in payout_api.py
-
-to return a 400 error if the fee calculation fails
+1. Adding a default fee calculation for unsupported currencies (4% + 1.00)
+2. OR raising a ValueError for unsupported currencies
+3. Handling this error gracefully in process_payout()
+4. Update the POST /payouts/\<id\>/process endpoint in payout_api.py
+to return a 400 error if the fee calculation fails```
 
 ![](./media/image12.png)
 
@@ -247,8 +219,6 @@ to return a 400 error if the fee calculation fails
 Agent Mode may choose Option 1 (default fee) or Option 2 (raise
 ValueError). **Which is correct?**
 
-[TABLE]
-
 ![](./media/image14.png)
 
 4.  **If Agent chose the default fee:** Override and ask it to use
@@ -256,19 +226,13 @@ ValueError). **Which is correct?**
     financial calculations.
 
 **Follow-up Prompt:**
-
-Actually, for a financial system, it's safer to reject unknown
-currencies
-
-with a ValueError rather than applying a default fee. Please change the
-
-approach to raise ValueError for unsupported currencies and handle it
-
-in the API layer with a 400 response.
+```
+Actually, for a financial system, it's safer to reject unknown currencies with a ValueError rather than applying a default fee. Please change the
+approach to raise ValueError for unsupported currencies and handle it in the API layer with a 400 response.```
 
 5.  Run tests:
 
-pytest test_payouts.py -v
++++pytest test_payouts.py -v+++
 
 ### Task 4 — Agent Mode: Fix the Key Mismatch Bug (amt vs amount)
 
@@ -277,28 +241,18 @@ pytest test_payouts.py -v
 
 **Agent Mode Prompt:**
 
-INCIDENT FIX - HIGH PRIORITY
-
+```INCIDENT FIX - HIGH PRIORITY
 There is a key naming inconsistency across the codebase:
-
-\- payout_models.py stores the amount as "amt"
-
-\- payout_api.py references "amount" in the merchant_payouts endpoint
-
-\- This causes a KeyError crash on GET /merchants/\<id\>/payouts
-
+- payout_models.py stores the amount as "amt"
+- payout_api.py references "amount" in the merchant_payouts endpoint
+- This causes a KeyError crash on GET /merchants/\<id\>/payouts
 Fix this across ALL files consistently. The canonical key should be
 "amount"
-
 (not "amt") because it is more readable. Update:
-
-1\. payout_models.py - change "amt" to "amount" everywhere
-
-2\. payout_api.py - verify all references use "amount"
-
-3\. test_payouts.py - update any test assertions referencing "amt"
-
-4\. Run all tests after changes.
+1. payout_models.py - change "amt" to "amount" everywhere
+2. payout_api.py - verify all references use "amount"
+3. test_payouts.py - update any test assertions referencing "amt"
+4. Run all tests after changes.```
 
 ![](./media/image15.png)
 
@@ -339,7 +293,7 @@ own.​[![](./media/image2.gif)](https://github.blog/ai-and-ml/github-copilot/ag
 
 Run:
 
-pytest test_payouts.py::test_api_missing_fields -v
++++pytest test_payouts.py::test_api_missing_fields -v+++
 
 ![](./media/image18.png)
 
@@ -349,11 +303,5 @@ pytest test_payouts.py::test_api_missing_fields -v
 
 **Prompt:**
 
-/fix This test expects a 400 status code when 'currency' is missing from
-
-the POST /payouts request body. The endpoint should validate required
-fields
-
-and return 400 with a descriptive error. Fix either the test or the
-
-endpoint as needed.
+```/fix This test expects a 400 status code when 'currency' is missing fromthe POST /payouts request body. The endpoint should validate required
+fields and return 400 with a descriptive error. Fix either the test or the endpoint as needed.```

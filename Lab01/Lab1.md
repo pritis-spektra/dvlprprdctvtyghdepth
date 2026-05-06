@@ -99,8 +99,10 @@ configured:
 
     Http: Methods:
 
-    |--|--|--|
+    
+    
     |**HTTP Method**|	**Purpose**|	**Endpoint**|
+    |--|--|--|
     |GET|Retrieve data|/api/employees|
     |GET|Retrieve one record|/api/employees/{id}|
     |POST|Create new record|/api/employees|
@@ -116,7 +118,7 @@ configured:
     Get all employees - public List<Employee> getAllEmployees()—(@GetMapping)
 
 
-6.  Select the entire EmployeeController.java file . Open **Copilot
+7.  Select the entire EmployeeController.java file . Open **Copilot
     Chat** .Paste the following prompt:
 
     ```

@@ -139,16 +139,18 @@ configured:
    - **Base URL**
     Employee Model (Request/Response shape)
     All endpoints consume and produce Employee objects serialized as JSON:
-    |--|--|--|
+    
     |**Field**|**Type**|**Notes**|
+    |--|--|--|
     |id|Long|Auto-generated (DB identity), not sent on create|
     |name|string|Required for meaningful data|
     |Surname|String|Required for meaningful data|
     |email|String|Required for meaningful data|
     **Endpoints**
   - **Get All Employees**
-    |--|--|
+    
     |**Method**|**GET**|
+    |--|--|
     |URL|/api/employees|
     |Request body|None|
     |Response|200 OK + JSON array of Employee objects (empty array [] if none exist)|

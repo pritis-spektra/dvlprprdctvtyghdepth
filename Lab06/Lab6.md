@@ -1,3 +1,5 @@
+# Lab 06 – Building and Using MCP Servers with GitHub Copilot
+
 **Objective**
 
 In this lab, you will learn how to:
@@ -15,109 +17,104 @@ In this lab, you will learn how to:
 
 ## Exercise 1 : Creating Your Own MCP Server
 
-### Task 1 : Create Your First MCP Servet using GitHub Copilot
+### Task 1 : Create Your First MCP Server using GitHub Copilot
 
 Create a minimal MCP server that Copilot can connect to.
 
 1.  Open Visual Studio Code and navigate to
-    src/main/java/com/example/mcp/ and create a file **MCPServer.java**
+    **src/main/java/com/example/mcp/** and create a file **MCPServer.java**
 
-> ![](./media/image1.png)
+    ![](./media/image1.png)
 
 2.  Enter below prompt in agent mode of GitHub Copilot chat
 
-> Create a minimal MCP server using the MCP Java SDK (0.16.0).
->
-> Use STDIO transport.
->
-> Set server name to demo-mcp-server and version 1.0.0.
->
-> Extend MCPServer.java to register the following tools:
->
-> add, subtract, multiply, divide.
->
-> Each tool:
->
-> \- Accepts two numbers
->
-> \- Returns the result
->
-> \- Handles division by zero as an error
+    ```
+    Create a minimal MCP server using the MCP Java SDK (0.16.0).
+    Use STDIO transport.
+    Set server name to demo-mcp-server and version 1.0.0.
+    Extend MCPServer.java to register the following tools:
+    add, subtract, multiply, divide.
+    Each tool:
+    - Accepts two numbers
+    - Returns the result
+    - Handles division by zero as an error
+    ```
 
-![](./media/image2.png)
+    ![](./media/image2.png)
 
 3.  Keep allowing the response request as Copilot perform:
 
-- Analyzed MCP SDK structure
+    - Analyzed MCP SDK structure
 
-- Adjusted JSON mapper usage
+    - Adjusted JSON mapper usage
 
-- Updated pom.xml
+    - Updated pom.xml
 
-- Created MCPServer.java
+    - Created MCPServer.java
 
-- Removed .gitkeep placeholders
+    - Removed .gitkeep placeholders
 
-> ![](./media/image3.png)
->
-> ![](./media/image4.png)
+    ![](./media/image3.png)
+    
+    ![](./media/image4.png)
 
-4.  Allow the Copilot to create below tools
+4.  Allow the Copilot to create below tools:
 
-- add - adds two numbers
+    - add - adds two numbers
 
-- subtract - subtracts two numbers
+    - subtract - subtracts two numbers
 
-- multiply - multiplies two numbers
+    - multiply - multiplies two numbers
 
-- divide - divides two numbers (with error handling for division by
-  zero)
+    - divide - divides two numbers (with error handling for division by
+    zero)
 
-> ![](./media/image5.png)
+    ![](./media/image5.png)
 
-5.  Open the terminal and run below command to run the server.Server is
-    up and running
+5.  Open the terminal and run below command to run the server. Make sure Server is
+    up and running:
 
-> mvn exec:java
->
-> ![](./media/image6.png)
+    ```
+    mvn exec:java
+    ```
+
+    ![](./media/image6.png)
 
 ## Task 2 : Create MCPClient.java 
 
 1.  Enter the below prompt in Copilot
 
-> Create a Java MCP client in package com.example.mcp that:
->
-> \- Connects to the MCP server via STDIO
->
-> \- Lists available tools
->
-> \- Calls each math tool
->
-> \- Demonstrates division by zero error handling
+    ```
+    Create a Java MCP client in package com.example.mcp that:
+    - Connects to the MCP server via STDIO
+    - Lists available tools
+    - Calls each math tool
+    - Demonstrates division by zero error handling
+    ```
 
-![](./media/image7.png)
+    ![](./media/image7.png)
 
-2.  Allow tool results to create
+2.  Allow tool results to create:
 
-> ![](./media/image8.png)
->
-> ![](./media/image9.png)
+    ![](./media/image8.png)
+    
+    ![](./media/image9.png)
 
-![](./media/image10.png)
+    ![](./media/image10.png)
 
-3.  MCPClinet got created.Allow Copilot to compile
+3.  MCPClient got created. Allow Copilot to compile:
 
-![](./media/image11.png)
+    ![](./media/image11.png)
 
 4.  now run the client:
 
-> cd lab-06-mcp/java
->
-> mvn package -q; mvn exec:java
-> '-Dexec.mainClass=com.example.mcp.MCPClient'
+    +++cd lab-06-mcp/java+++
 
-![](./media/image12.png)
+    ```
+    mvn package -q; mvn exec:java '-Dexec.mainClass=com.example.mcp.MCPClient'
+    ```
+
+    ![](./media/image12.png)
 
 ## Summary :
 

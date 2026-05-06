@@ -2,8 +2,7 @@
 
 ### Objective
 
-In this lab, you will learn how GitHub Copilot improves **developer
-productivity** by:
+In this lab, you will learn how GitHub Copilot improves **developer productivity** by:
 
 - Migrating code from documentation into a working project
 
@@ -15,8 +14,7 @@ productivity** by:
 
 - Enhancing documentation and tests
 
-This mirrors real‑world development, where **documentation exists before
-or alongside code**.
+This mirrors real‑world development, where **documentation exists before or alongside code**.
 
 ### Prerequisites
 
@@ -35,187 +33,190 @@ or alongside code**.
 1.  Open Visual Studio code and navigate to the folder-
     **lab-04-refactoring/java** and review below files
 
-- README.md → exercises
+    - README.md → exercises
 
-- READMEFUNC.md → functional API documentation
+    - READMEFUNC.md → functional API documentation
 
-- READMETECH.md → technical design documentation
+    - READMETECH.md → technical design documentation
 
-- copilot-instructions.md → currently empty
+    - copilot-instructions.md → currently empty
 
-![](./media/image1.png)
+    ![](./media/image1.png)
 
 2.  Open **copilot-instructions.md** , add the following content and
     save the file.
 
-> You are building a Spring Boot REST API using layered architecture.
->
-> Follow this structure:
->
-> \- Controller layer for REST endpoints
->
-> \- Service layer for business logic
->
-> \- Repository layer using Spring Data JPA
->
-> \- Model layer for entity classes
->
-> Follow best practices:
->
-> \- Use dependency injection
->
-> \- Keep methods small and readable
->
-> \- Follow REST conventions
->
-> \- Apply basic error handling
->
-> \- Do not add features not described in the documentation
->
-> Use an H2 in-memory database.
->
-> ![](./media/image2.png)
+    ```
+    You are building a Spring Boot REST API using layered architecture.
+
+    Follow this structure:
+    - Controller layer for REST endpoints
+    - Service layer for business logic
+    - Repository layer using Spring Data JPA
+    - Model layer for entity classes
+
+    Follow best practices:
+    - Use dependency injection
+    - Keep methods small and readable
+    - Follow REST conventions
+    - Apply basic error handling
+    - Do not add features not described in the documentation
+
+    Use an H2 in-memory database.
+    ```
+
+    ![](./media/image2.png)
 
 ## Task 2 : Generate Code from Documentation
 
 Migrate documentation as working code using Copilot.
 
-1.  Open **Copilot Chat** (Agent mode) and enter the below prompt
+1.  Open **Copilot Chat** (Agent mode) and enter the below prompt:
 
-> Using READMEFUNC.md and READMETECH.md,
->
-> generate a Spring Boot application for this project.
->
-> Create the required Controller, Service, Repository, and Model
-> classes.
->
-> Follow the architecture defined in copilot-instructions.md.
->
-> Do not add behavior not mentioned in the documentation.
->
-> ![](./media/image3.png)
+    ```
+    Using READMEFUNC.md and READMETECH.md,
+    generate a Spring Boot application for this project.
+
+    Create the required Controller, Service, Repository, and Model classes.
+    Follow the architecture defined in copilot-instructions.md.
+    Do not add behavior not mentioned in the documentation.
+    ```
+
+    ![](./media/image3.png)
 
 2.  Copilot followed instructions and extracted the code from md file
-    and created below files.Review them and click on Keep to accept.
+    and created below files. Review them and click on **Keep** to accept.
 
-- Employee.java
+    - Employee.java
 
-- EmployeeRepository.java
+    - EmployeeRepository.java
 
-- EmployeeService.java
+    - EmployeeService.java
 
-- EmployeeController.java
+    - EmployeeController.java
 
-- Required package structure
+    - Required package structure
 
-> ![](./media/image4.png)
+    ![](./media/image4.png)
 
 3.  Open the terminal and run the app with the below commands. The app
-    will be up and running
+    will be up and running:
 
-cd lab-04-refactoring/java
+    Change the directory -- cd lab-04-refactoring/java
 
-mvn spring-boot:run
+    +++mvn spring-boot:run+++
+    
+    ![](./media/image5.png)
 
-> ![](./media/image5.png)
->
-> Note: if you see any errors use Copilot capabilitites /explain and
-> /fix..revewi before accepting fixes
+    Note: if you see any errors use Copilot capabilities /explain and
+    /fix. Review before accepting fixes.
 
 ## Task 3 : Method Refactoring
 
 Improve readability without changing behavior. 
 
-1.  Navigate to src/main/java/com/examples/demo/service and open the
+1.  Navigate to **src/main/java/com/examples/demo/service** and open the
     file EmployeeService.java.Select the method *getAllEmployees*  and
-    enter below prompt in Copilot to refactor
+    enter below prompt in Copilot to refactor.
 
 Refactor this method to use a private helper method   for employee
 retrieval. Keep behavior unchanged. 
 
-![](./media/image6.png)
+    ![](./media/image6.png)
 
-2.  Select the method  *saveEmployee* enter below prompt in copilot to
+2.  Select the method  **saveEmployee** and enter below prompt in copilot to
     refactor. Review the change and accept.
 
-Refactor this method to extract saving logic  into a private method.
-Keep behavior unchanged. 
+    ```
+    Refactor this method to extract saving logic into a private method.
+    Keep behavior unchanged.
+    ```
 
- ![](./media/image7.png)
+    ![](./media/image7.png)
 
 ## Task 5 – Add Error Handling 
 
 Improve robustness with minimal changes. 
 
-1.  Select *getEmployeeById* and enter below prompt in Copilot
-    chat.Review and accept the change
+1.  Select **getEmployeeById** and enter below prompt in Copilot
+    chat.Review and accept the change:
 
-Add error handling for the case when the employee does not exist.  Do
-not change external API contracts. 
+    ```
+    Add error handling for the case when the employee does not exist.  Do
+    not change external API contracts. 
+    ```
 
-![](./media/image8.png)
+    ![](./media/image8.png)
 
 2.  *Select the deleteEmployee* method and enter below prompt in Copilot
-    chat.review the change and accept
+    chat. Review the change and accept:
 
-Add error handling when deleting a non-existent employee. Keep behavior
-consistent with the current design. 
+    ```
+    Add error handling when deleting a non-existent employee. Keep behavior
+    consistent with the current design. 
+    ```
 
-![](./media/image9.png)
+    ![](./media/image9.png)
 
 ## Task 6 – Function Extraction 
 
-Reduce duplication and improve reuse. 
+Reduce duplication and improve reuse.
 
-1.  Keep open the EmployeeService.java and enter below prompt in copilot
-    chat to reduce duplication and improve reuse    in finding employees
-    method
+1.  Keep open the **EmployeeService.java** and enter below prompt in copilot
+    chat to reduce duplication and improve reuse in finding employees method.
 
-Extract the logic for finding employees by email  into a reusable
-private method. 
+    ```
+    Extract the logic for finding employees by email into a reusable
+    private method.
+    ```
 
-![](./media/image10.png)
+    ![](./media/image10.png)
 
 2.  Enter below prompt in Copilot chat for sorting employees by last
     name.review the change and accept.
 
- Extract the logic for sorting employees by last name  into a reusable
-private method. 
+    ```
+    Extract the logic for sorting employees by last name into a reusable
+    private method.
+    ```
 
-![](./media/image11.png)
+    ![](./media/image11.png)
 
 ## Step 7 – Add Repository Features 
 
 Extend functionality safely. 
 
-1.  Open EmployeeRepository.java under repository folder and enter below
-    prompt.Review the change and accept
+1.  Open **EmployeeRepository.java** under repository folder and enter below
+    prompt. Review the change and accept:
 
- Add Spring Data JPA repository methods to search employees by name and
-sort by last name. 
+    ```
+    Add Spring Data JPA repository methods to search employees by name and
+    sort by last name.
+    ```
 
-![](./media/image12.png)
+    ![](./media/image12.png)
 
-2.  Etner below prompt     to implement new features.It adds new methods
-    io employeesService.java .Review and accept the features
+2.  Enter below prompt to implement new features. It adds new methods
+    io employeesService.java. Review and accept the features
 
- Use these repository methods in the service to implement a new
-feature. 
+    ```
+    Use these repository methods in the service to implement a new
+    feature.
+    ```
 
-![](./media/image13.png)
+    ![](./media/image13.png)
 
 ##  Task 8 – Add Documentation with Copilot
 
 JavaDoc for service methods 
 
-1.  Select *EmployeeService* and enter to add Javadoc for all
-    undocumented methods
+1.  Select *EmployeeService* and enter to add Javadoc for all undocumented methods
 
-   /doc
+    +++/doc+++
 
-![](./media/image14.png)
+    ![](./media/image14.png)
 
-Note : If tests are missing or failing use     /setupTests and   /tests 
+Note : If tests are missing or failing use +++/setupTests+++ and +++/tests+++
 
 ## Summary :
 

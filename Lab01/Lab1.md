@@ -130,7 +130,7 @@ configured:
     - Request bodies
     - Response payloads
     Explain it as if I am preparing to write tests.
-    ``
+    ```
     ![](./media/image4.png)
 
 6.  You can see response similar to below response .Read the Copilot
@@ -167,17 +167,17 @@ configured:
 
     - Describe expected behavior
 
-![](./media/image6.png)
+    ![](./media/image6.png)
 
-![](./media/image7.png)
+    ![](./media/image7.png)
 
 - Document “Create Employee”
 
-![](./media/image8.png)
+    ![](./media/image8.png)
 
 - Delete records
 
-![](./media/image9.png)
+    ![](./media/image9.png)
 
 - **Deliverable**
 
@@ -212,15 +212,15 @@ Write unit tests for the repository layer.
 2.  At the top of **EmployeeRepositoryTest.java**, below comment manually.
     Stop typing and wait,Copilot will start suggesting:
 
-- @DataJpaTest
-
-- Autowired repository
-
-- Sample save and find tests
-```
-// Write JUnit tests for EmployeeRepository using @DataJpaTest.
-```
-![](./media/image13.png)
+    - @DataJpaTest
+    
+    - Autowired repository
+    
+    - Sample save and find tests
+    ```
+    // Write JUnit tests for EmployeeRepository using @DataJpaTest.
+    ```
+    ![](./media/image13.png)
 
 5. Open chat and enter below prompt
 
@@ -271,7 +271,7 @@ of infrastructure by mocking dependencies.
      - Follow JUnit 5 best practices
     ```
 
- ![](./media/image20.png)
+![](./media/image20.png)
 
 2.  Open GitHub Copilot chat and enter the below prompt
 
@@ -311,71 +311,68 @@ Test the REST API endpoints without starting the full application.
 1.  Navigate to src/test/java/com/example/demo and create a test class
     named **EmployeeControllerTest.java**
 
-![](./media/image27.png)
+    ![](./media/image27.png)
 
 2.  Open Copilot and enter below prompt
 
-```
-Create unit tests for EmployeeController.
+        ```
+        Create unit tests for EmployeeController.
+        Use:
+        - @WebMvcTest
+        - MockMvc
+        - Mock EmployeeService
+        Test:
+        - GET /api/employees
+        - GET /api/employees/{id}
+        - POST /api/employees
+        Validate:
+        - HTTP status codes
+        - JSON response content
+        ```
 
-Use:
-- @WebMvcTest
-- MockMvc
-- Mock EmployeeService
-
-Test:
-- GET /api/employees
-- GET /api/employees/{id}
-- POST /api/employees
-
-Validate:
-- HTTP status codes
-- JSON response content
-```
-
-![](./media/image28.png)
+    ![](./media/image28.png)
 
 3.  Review the tests and click on Keep to add the controller class.
 
-![](./media/image29.png)
+    ![](./media/image29.png)
 
 4.  When GitHub Copilot generates controller tests:
 
-1. Verify the test's `package` declaration
-2. It MUST match the main application package
+    1. Verify the test's `package` declaration
+    2. It MUST match the main application package
 
-For example:
-- Main application: `com.example.demo`
-- Test class MUST also be in: `com.example.demo`
+    For example:
+    - Main application: `com.example.demo`
+    - Test class MUST also be in: `com.example.demo`
 
-If packages do not match, Spring Boot will fail to locate
-`@SpringBootApplication` and tests will not start.
+    If packages do not match, Spring Boot will fail to locate
+    `@SpringBootApplication` and tests will not start.
 
 
-![](./media/image30.png)
+    ![](./media/image30.png)
 
 5.  Run below command to test – +++mvn test+++ ( it will fail if package
     deflation is not matching)
 
-![](./media/image31.png)
+    ![](./media/image31.png)
 
 6.  Select the test class and ask copilot to fix the error - +++/fix+++
 
-![](./media/image32.png)
+    ![](./media/image32.png)
 
 7.  GitHub Copilot may suggest improvements beyond fixing test failures,
 
- such as recommending better REST semantics (e.g., returning 404
- instead of 200).These suggestions are advisory.Only apply them if the
- lab explicitly asks for API refactoring.
+     such as recommending better REST semantics (e.g., returning 404
+     instead of 200).These suggestions are advisory.Only apply them if the
+     lab explicitly asks for API refactoring.
 
- Developers must decide scope and intent.
+     Developers must decide scope and intent.
 
-![](./media/image33.png)
+    ![](./media/image33.png)
 
 8.  Change the package from **package com.example;** to +++package com.example.demo;+++ and then run +++mvn test+++
 
- ![](./media/image34.png)
+     ![](./media/image34.png)
 
 ## Task 5 : Add a New API Operation
 
@@ -387,27 +384,27 @@ Add a new feature to the API:**Find employee by email**
 
 1.  Open Copilot chat and enter below prompt
 
-![](./media/image35.png)
+    ![](./media/image35.png)
 
 2.  Review the response and accept by clicking on keep
 
-![](./media/image36.png)
+    ![](./media/image36.png)
 
 3.  **Review and accept the test also**
 
-![](./media/image37.png)
+    ![](./media/image37.png)
 
 4.  Review and accept the code changes to repository and service classes
 
-![](./media/image38.png)
+    ![](./media/image38.png)
 
-![](./media/image39.png)
+    ![](./media/image39.png)
 
 5.  Now run the command mvn clean test to clean the build
 
-![](./media/image40.png)
+    ![](./media/image40.png)
 
-![](./media/image41.png)
+    ![](./media/image41.png)
 
 ## Summary :
 

@@ -78,7 +78,7 @@ and correct them.
 
     - Expected input/output
 
-4.  Open Copilot chat and enter +++/explain+++ .Read the response and
+4.  Open Copilot chat and enter +++/explain+++ in Ask mode.Read the response and
     understand the api to prepare md file.
 
     ![](./media/image2.png)
@@ -230,12 +230,12 @@ assistant** to:
 
 - Confirm a clean build using Maven
 
-1.  Open terminal and navigate to the **lab2** folder with below command.
+1.  Open terminal->Git Bash and navigate to the **lab2** folder with below command.
     The build fails as Maven prints one or more **COMPILATION ERROR** messages .Tests do not
     start running. Do not immediately try to “fix by guessing”. First,
     understand the error.
 
-    +++cd lab-02-debugging\java+++
+    +++cd "github-copilot-workshops-labs-java/lab-02-debugging/"+++
 
     ```
     mvn clean test
@@ -246,21 +246,20 @@ assistant** to:
     ![](./media/image6.png)
 
 2.  Select the Maven error message, open Copilot chat and enter the
-    command +++/explain+++ ( or you can also copy the maven error message and
+    command +++/terminalexplain+++ ( or you can also copy the maven error message and
     ask Copilot in chat to explain the error )
 
     ![](./media/image7.png)
 
 3.  To fix the error, you can Copilot to fix it by entering the command
-    +++/fix+++ . Copilot provide fix and also give extra suggestions. Review
+    +++/fix+++ or +++/terminalfix+++ . Copilot provide fix and also give extra suggestions. Review
     the response 
     
     ![](./media/image8.png)
 
     ![](./media/image9.png)
 
-4.  GitHub Copilot does not automatically fix compiler errors.
-    Developers must first identify the compilation issue and explicitly
+4.  Developers must first identify the compilation issue and explicitly
     ask Copilot for assistance if needed.
 
 5.  Open **DemoApplicaiton.java** file and add +++;+++ at the end of line 10 ,save
@@ -282,16 +281,16 @@ assistant** to:
 
     ![](./media/image12.png)
 
-Copilot found the error and fixed the issue email field from long to
-string on setEmail and getEmail methods in **Employee.java** class.You
-can press keep to accept the fix . lets not accept it for now and lets
-try /refactor capability for better understanding.
+   Copilot found the error and fixed the issue email field from long to
+   string on setEmail and getEmail methods in **Employee.java** class.You
+   can press keep to accept the fix . lets not accept it for now and lets
+   try /refactor capability for better understanding.
 
-![](./media/image13.png)
-
-![](./media/image14.png)
-
-![](./media/image14.png)
+   ![](./media/image13.png)
+   
+   ![](./media/image14.png)
+   
+   ![](./media/image14.png)
 
 7.  If you undo then Copilot revert changes back in the class file.
 
@@ -307,7 +306,7 @@ try /refactor capability for better understanding.
 
     ![](./media/image17.png)
 
-10. Copilot suggest to compile with the command -mvn clean compile . run
+10. Copilot suggest to compile with the command - +++mvn clean compile+++ . run
     the command
 
     ![](./media/image18.png)
@@ -316,8 +315,7 @@ try /refactor capability for better understanding.
 
     ![](./media/image19.png)
 
-11. To see functional errors, run the application with the command - mvn
-    spring-boot:run . application will start:
+11. To see functional errors, run the application with the command - +++mvn spring-boot:run+++ . application will start
 
     ![](./media/image20.png)
 
@@ -333,8 +331,7 @@ see functional error and its not a crash ,it is **missing root endpoint**.
     response
 
     ```
-    Why am I getting a Whitelabel Error Page when accessing
-    http://localhost:8080? Check this Spring Boot project and explain.
+    Why am I getting a Whitelabel Error Page when accessing http://localhost:8080? Check this Spring Boot project and explain.
     ```
 
     ![](./media/image23.png)
@@ -356,8 +353,7 @@ see functional error and its not a crash ,it is **missing root endpoint**.
 
     ![](./media/image27.png)
 
-16. Now lets validate the tests. Run +++mvn clean test+++ .**Build fail and
-    lets fix issues with the hep of copilot .
+16. Now lets validate the tests. Run +++mvn clean test+++ .**Build fail and lets fix issues with the hep of copilot .
 
     ![](./media/image28.png)
 
@@ -366,8 +362,7 @@ see functional error and its not a crash ,it is **missing root endpoint**.
 
     ![](./media/image29.png)
 
-18. Run test with **mvn clean test** again and take copilot help to fix
-    the issues
+18. Run test with +++mvn clean test+++ again and take copilot help to fix    the issues
 
     ![](./media/image29.png)
 
@@ -377,13 +372,11 @@ see functional error and its not a crash ,it is **missing root endpoint**.
 
     ![](./media/image31.png)
 
-20. Now, re-run the mvn clean test. The build is successful now and all
-    tests passed.
+20. Now, re-run the mvn clean test. The build is successful now and all tests passed.
 
     ![](./media/image32.png)
 
-21. Run the application now with - mvn spring-boot:run . Application
-    will start up and running
+21. Run the application now with - +++mvn spring-boot:run+++ . Application  will start up and running
 
     ![](./media/image33.png)
 
@@ -394,7 +387,7 @@ see functional error and its not a crash ,it is **missing root endpoint**.
 23. Open Git Bash from terminal .Run below command in the terminal and
     run below commands to create a new employee
 
-    cd 02-debugging\java
+    +++cd Lab-02-debugging\java+++
 
     ```
     curl -X POST http://localhost:8080/api/employees \
@@ -460,11 +453,9 @@ see functional error and its not a crash ,it is **missing root endpoint**.
 
     ![](./media/image40.png)
 
-20\. Run below command to delete the employee record
+20. Run below command to delete the employee record
 
-    ```
-    curl -X DELETE http://localhost:8080/api/employees/{2}
-    ```
+    +++curl -X DELETE http://localhost:8080/api/employees/{2}+++
 
     ![](./media/image41.png)
 

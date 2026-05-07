@@ -83,7 +83,7 @@ easier to explore and test endpoints without external tools.
 This task demonstrates how Copilot assists in **framework specific
 documentation setup**.
 
-1.  Open Copilot chat and ask - 
+1.  Open Copilot chat enter the below prompt in Agent mode with Claude Sonnet 4.5 model
 
     +++Add Swagger/OpenAPI support to this Spring Boot project using springdoc-openapi+++
 
@@ -97,15 +97,13 @@ documentation setup**.
 
     ![](./media/image5.png)
 
-3.  Open the Terminal and open Git Bash and run below command to
-    navigate to the folder.
+3.  Open the Terminal->Git Bash and run below command to navigate to the folder.
 
-    +++cd lab-03-documentation/java+++
+    +++cd github-copilot-workshops-labs-java/lab-03-documentation/java/+++
 
     ![](./media/image6.png)
 
-4.  After making changes to the poml.xml, reload the maven with the
-    command
+4.  After making changes to the poml.xml, reload the maven with the  command
 
     +++mvn clean compile+++
 
@@ -119,7 +117,8 @@ documentation setup**.
 
     ![](./media/image9.png)
 
-6.  Open the browser and enter - +++http://localhost:8080/swagger-ui.html+++
+6.  Open cmd run as adminstrator and run +++netstat -ano | findstr :8080+++ to check if 8080 port is busy and kill the process with +++taskkill /F /PID XXX+++
+7.  Open the browser and enter - +++http://localhost:8080/swagger-ui.html+++
 
     ![](./media/image10.png)
 
@@ -203,7 +202,7 @@ Update the API documentation with the new information. Generate two
 different markdown files on with the functional documentation and
 another with the technical documentation.
 
-1.  Go to the root folder and create two md files - **docs/api-technical.md** and **docs/api-functional.md**
+1.  Go to the root folder and create folder - +++docs/+++ and create two md files - +++api-technical.md+++ and +++api-functional.md+++
 
     ![](./media/image19.png)
 
@@ -232,7 +231,7 @@ another with the technical documentation.
 2.  Duplicate the workspace (File-\> Duplicate Workspace) and run below
     command in Git Bash:
 
-    +++curl -X GET <http://localhost:8080/api/employees>+++
+    +++curl -X GET http://localhost:8080/api/employees+++
 
     ![](./media/image23.png)
 
@@ -280,7 +279,7 @@ another with the technical documentation.
     ```
 
     ![](./media/image27.png)
-
+7. Close all the open files
 ## Summary :
 
 In this lab, you learned how to use GitHub Copilot to efficiently

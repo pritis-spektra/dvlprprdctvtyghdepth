@@ -379,24 +379,33 @@ employee by email and ensure it is properly tested at every layer.**
 Add a new feature to the API:**Find employee by email**
 
 1.  Open Copilot chat and enter below prompt
+   ```
+    Adda new features to find an employee by email
+    Requirements:
+    -	Add a repository method to find employee by email
+    -	Add a corresponding service method
+    -	Add a REST endpoint to fetch employee by email
+    -	Generate unit tests for repository service and controller layers
+    -	Follow existing coding style
+    ```
 
     ![](./media/image35.png)
 
-2.  Review the response and accept by clicking on keep
+3.  Review the response and accept by clicking on keep
 
     ![](./media/image36.png)
 
-3.  **Review and accept the test also**
+4.  **Review and accept the test also**
 
     ![](./media/image37.png)
 
-4.  Review and accept the code changes to repository and service classes
+5.  Review and accept the code changes to repository and service classes
 
     ![](./media/image38.png)
 
     ![](./media/image39.png)
 
-5.  Now run the command mvn clean test to clean the build
+6.  Now run the command +++mvn clean+++ test to clean the build
 
     ![](./media/image40.png)
 

@@ -219,7 +219,7 @@ Write unit tests for the repository layer.
     ```
     ![](./media/image13.png)
 
-5. Open chat and enter below prompt
+5. Open chat,select agent mode and claude sonet 4.5 model and then enter below prompt
 
     ```
     Create JUnit 5 tests for EmployeeRepository.
@@ -242,7 +242,11 @@ Write unit tests for the repository layer.
     
     ![](./media/image17.png)
 
-5.  Run test
+5.  Open Terminal and run below commands
+   +++cd "github-copilot-workshops-labs-java/lab-01-testing/java"+++
+   +++export MAVEN_HOME="/c/Users/Admin/Documents/maven-mvnd-1.0.5-windows-amd64/maven-mvnd-1.0.5-windows-amd64"+++
+    +++export PATH="$MAVEN_HOME/bin:$PATH"+++
+7.  Run test with mvn command
 
     +++mvn test+++
 
@@ -257,7 +261,8 @@ with the repository. This task teaches how to test logic independently
 of infrastructure by mocking dependencies.
 
 1.  Navigate to **src/test/java/com/example/demo** and create file with
-    the name **EmployeeServiceTest.java**
+    the name +++EmployeeServiceTest.java+++ and enter the below prompt in Copilot chat Agent mode.
+    
     ```
     Create unit tests for EmployeeService.
      Requirements:

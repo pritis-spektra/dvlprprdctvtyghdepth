@@ -115,10 +115,10 @@ configured:
     Get all employees - public List<Employee> getAllEmployees()—(@GetMapping)
 
 
-7.  Select the entire EmployeeController.java file . Open **Copilot Chat in Agent mode with Claude sonnet 4.5 model selected** .Paste the following prompt:
+7.  Select the entire EmployeeController.java file . Open **Copilot Chat in Ask mode with Claude sonnet 4.5 model selected** .Paste the following prompt:
 
     ```
-    Explain this Spring Boot REST controller.
+    Explain this Spring Boot REST controller
     Identify:
     - Base URL
     - All endpoints
@@ -220,7 +220,7 @@ Write unit tests for the repository layer.
 5. Open chat,select agent mode and Claude sonnet 4.5 model and then enter below prompt
 
     ```
-    Create JUnit 5 tests for EmployeeRepository.
+    Create JUnit 5 tests for EmployeeRepository
     Requirements:
     - Use @DataJpaTest
     - Test basic CRUD operations (save, findAll, findById, delete)
@@ -262,7 +262,7 @@ of infrastructure by mocking dependencies.
     the name +++EmployeeServiceTest.java+++ and enter the below prompt in Copilot chat Agent mode.
     
     ```
-    Create unit tests for EmployeeService.
+    Create unit tests for EmployeeService
      Requirements:
      - Use Mockito
      - Mock EmployeeRepository
@@ -278,7 +278,7 @@ of infrastructure by mocking dependencies.
 2.  Review and validate the generated tests and click on **Keep**
 
     ```
-    When GitHub Copilot generates unit tests:
+    When GitHub Copilot generates unit tests
     - Always verify package declarations
     - Always verify import statements
     - Ensure imported classes exist in src/main/java
@@ -311,20 +311,20 @@ Test the REST API endpoints without starting the full application.
 
 2.  Open Copilot and enter below prompt
 
-   ```
-   Create unit tests for EmployeeController.
-   Use:
-   - @WebMvcTest
-   - MockMvc
-   - Mock EmployeeService
-   Test:
-   - GET /api/employees
-   - GET /api/employees/{id}
-   - POST /api/employees
-   Validate:
-   - HTTP status codes
-   - JSON response content
-   ```
+       ```
+       Create unit tests for EmployeeController
+       Use:
+       - @WebMvcTest
+       - MockMvc
+       - Mock EmployeeService
+       Test:
+       - GET /api/employees
+       - GET /api/employees/{id}
+       - POST /api/employees
+       Validate:
+       - HTTP status codes
+       - JSON response content
+       ```
 
     ![](./media/image28.png)
 
@@ -352,7 +352,7 @@ Test the REST API endpoints without starting the full application.
 
     ![](./media/image31.png)
 
-6.  Select the test class and ask copilot to fix the error - +++/fix+++
+6.  Select the test class and ask copilot in Agent mode to fix the error with the command  - +++/fix+++
 
     ![](./media/image32.png)
 
@@ -395,7 +395,7 @@ Add a new feature to the API:**Find employee by email**
 
     ![](./media/image36.png)
 
-4.  **Review and accept the test also**
+4.  **Review and accept the tests**
 
     ![](./media/image37.png)
 
@@ -405,7 +405,7 @@ Add a new feature to the API:**Find employee by email**
 
     ![](./media/image39.png)
 
-6.  Now run the command +++mvn clean+++ test to clean the build
+6.  Now run the command +++mvn clean test+++ to clean the build
 
     ![](./media/image40.png)
 

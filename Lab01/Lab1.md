@@ -240,7 +240,7 @@ Write unit tests for the repository layer.
     
     ![](./media/image17.png)
 
-5.  Open Terminal and run below commands
+5.  Open Terminal->Git Bash and run below commands
    +++cd "github-copilot-workshops-labs-java/lab-01-testing/java"+++
    +++export MAVEN_HOME="/c/Users/Admin/Documents/maven-mvnd-1.0.5-windows-amd64/maven-mvnd-1.0.5-windows-amd64"+++
    +++export PATH="$MAVEN_HOME/bin:$PATH"+++

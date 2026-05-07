@@ -56,10 +56,8 @@ configured:
 
 ## Task 1: Understand the API
 
-    Before writing any tests, developers must clearly understand **what the
-    application does**. In real-world projects, developers are often asked
-    to test or enhance code they did not write. This task focuses on using
-    **GitHub Copilot as a comprehension assistant** to analyze an existing
+    Before writing any tests, developers must clearly understand **what the application does**. In real-world projects, developers are often asked
+    to test or enhance code they did not write. This task focuses on using  **GitHub Copilot as a comprehension assistant** to analyze an existing
     REST API, identify endpoints, and document expected behavior.
 
 1.  Open Visual Studio Code from the desktop and sign in with your GitHub
@@ -196,14 +194,12 @@ configured:
 
 ## Task 2: Create Repository Layer Unit Tests
 
-The repository layer is responsible for data persistence. This task
-focuses on testing data access logic in isolation, without involving
+The repository layer is responsible for data persistence. This task focuses on testing data access logic in isolation, without involving
 business logic or REST endpoints.
 
 Write unit tests for the repository layer.
 
-1.  Navigate to src/test/java/com/example/demo and
-    **EmployeeRepositoryTest.java** file
+1.  Navigate to src/test/java/com/example/demo and create file +++EmployeeRepositoryTest.java+++ file
 
     ![](./media/image11.png)
     
@@ -217,6 +213,7 @@ Write unit tests for the repository layer.
     - Autowired repository
     
     - Sample save and find tests
+      
     ```
     // Write JUnit tests for EmployeeRepository using @DataJpaTest.
     ```

@@ -66,12 +66,11 @@ configured:
 2.  Click on **File-\> Open Folder-\>C:\Labfiles** and select the
     folder - **github-copilot-workshops-labs-java**
 
- ![](./media/image1.png)
+     ![](./media/image1.png)
 
-3.  Open the 01-testing-\> java-\>src->main-\>controller-\>
-    EmployeeController.java api
+3.  Open the 01-testing-\> java-\>src->main-\>controller-\> EmployeeController.java api
 
- ![](./media/image2.png)
+     ![](./media/image2.png)
 
 4.  Read the controller classes (example - @RestController
     ,@RequestMapping, getMapping, etc.) of the API and identify
@@ -88,7 +87,7 @@ configured:
     - **Response** (The Response is what the API sends back to the
       client.)
 
-![](./media/image3.png)
+    ![](./media/image3.png)
 
 5.  Below are the base URL, HTTP methods, Request body and response from
     EmployeeController.java api
@@ -116,8 +115,7 @@ configured:
     Get all employees - public List<Employee> getAllEmployees()—(@GetMapping)
 
 
-7.  Select the entire EmployeeController.java file . Open **Copilot
-    Chat** .Paste the following prompt:
+7.  Select the entire EmployeeController.java file . Open **Copilot Chat in Agent mode with Claude sonnet 4.5 model selected** .Paste the following prompt:
 
     ```
     Explain this Spring Boot REST controller.
@@ -155,7 +153,7 @@ configured:
     - Similarllly prepare for all other endpoints as shown in image
 
 
- ![](./media/image5.png)
+     ![](./media/image5.png)
 
 2.  Select the controller class.Open **Copilot Chat and ask**
 
@@ -173,11 +171,11 @@ configured:
 
     ![](./media/image8.png)
 
-- Delete records
+    - Delete records
 
     ![](./media/image9.png)
 
-- **Deliverable**
+    - **Deliverable**
 
     Create a Markdown file (for example, api-docs.md) containing:
     
@@ -190,7 +188,7 @@ configured:
     Explain this API. What endpoints does it expose, what are the request
     and response formats?
 
-![](./media/image10.png)
+    ![](./media/image10.png)
 
 ## Task 2: Create Repository Layer Unit Tests
 
@@ -219,7 +217,7 @@ Write unit tests for the repository layer.
     ```
     ![](./media/image13.png)
 
-5. Open chat,select agent mode and claude sonet 4.5 model and then enter below prompt
+5. Open chat,select agent mode and Claude sonnet 4.5 model and then enter below prompt
 
     ```
     Create JUnit 5 tests for EmployeeRepository.
@@ -230,7 +228,7 @@ Write unit tests for the repository layer.
     - Follow Spring Boot testing best practices
     ```
 
-![](./media/image14.png)
+    ![](./media/image14.png)
 
 3.  Copilot generate and update your test file .
 
@@ -245,7 +243,7 @@ Write unit tests for the repository layer.
 5.  Open Terminal and run below commands
    +++cd "github-copilot-workshops-labs-java/lab-01-testing/java"+++
    +++export MAVEN_HOME="/c/Users/Admin/Documents/maven-mvnd-1.0.5-windows-amd64/maven-mvnd-1.0.5-windows-amd64"+++
-    +++export PATH="$MAVEN_HOME/bin:$PATH"+++
+   +++export PATH="$MAVEN_HOME/bin:$PATH"+++
 7.  Run test with mvn command
 
     +++mvn test+++
@@ -273,14 +271,11 @@ of infrastructure by mocking dependencies.
      - Follow JUnit 5 best practices
     ```
 
-![](./media/image20.png)
+    ![](./media/image20.png)
 
-2.  Open GitHub Copilot chat and enter the below prompt
+    ![](./media/image22.png)
 
-
- ![](./media/image22.png)
-
-3.  Review and validate the generated tests and click on **Keep**
+2.  Review and validate the generated tests and click on **Keep**
 
     ```
     When GitHub Copilot generates unit tests:
@@ -289,17 +284,17 @@ of infrastructure by mocking dependencies.
     - Ensure imported classes exist in src/main/java
     - Fix any mismatches before running tests
     ```
-Copilot suggestions must be reviewed before execution.
-![](./media/image23.png)
+    Copilot suggestions must be reviewed before execution.
+    ![](./media/image23.png)
 
-![](./media/image24.png)
+    ![](./media/image24.png)
 
 4.  Open the terminal and navigate to the path suggested byb Copilot and
-    run **mvn test**
+    run +++mvn test+++
 
- ![](./media/image25.png)
+     ![](./media/image25.png)
 
- ![](./media/image26.png)
+     ![](./media/image26.png)
 
 ## Task 4 : Create Controller Layer Unit Tests
 
@@ -308,29 +303,28 @@ verifying HTTP behavior without starting the full application.**
 
 Test the REST API endpoints without starting the full application.
 
-**Tasks**
 
 1.  Navigate to src/test/java/com/example/demo and create a test class
-    named **EmployeeControllerTest.java**
+    named +++EmployeeControllerTest.java+++
 
     ![](./media/image27.png)
 
 2.  Open Copilot and enter below prompt
 
-        ```
-        Create unit tests for EmployeeController.
-        Use:
-        - @WebMvcTest
-        - MockMvc
-        - Mock EmployeeService
-        Test:
-        - GET /api/employees
-        - GET /api/employees/{id}
-        - POST /api/employees
-        Validate:
-        - HTTP status codes
-        - JSON response content
-        ```
+   ```
+   Create unit tests for EmployeeController.
+   Use:
+   - @WebMvcTest
+   - MockMvc
+   - Mock EmployeeService
+   Test:
+   - GET /api/employees
+   - GET /api/employees/{id}
+   - POST /api/employees
+   Validate:
+   - HTTP status codes
+   - JSON response content
+   ```
 
     ![](./media/image28.png)
 

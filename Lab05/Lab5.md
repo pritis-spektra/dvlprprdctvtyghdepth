@@ -77,10 +77,7 @@ Use Copilot Chat to ask questions, learn concepts, and debug issues.
 
     ![](./media/image7.png)
 
-5.  Open **EmployeeService.java** and **set an object to null** and then try
-    to use it.  This causes a **NullPointerException**, a very common Java runtime
-    error.
-    Modify **getAllEmployees()** method and save the file
+5.  Open **EmployeeService.java** under **service**  folder and **set an object to null** and then try to use it.  This causes a **NullPointerException**, a very common Java runtime error.    Modify **getAllEmployees()** method and save the file
     (Note: we are introducing bug and checking how copilot helps us to fix this )
 
     ```
@@ -94,15 +91,15 @@ Use Copilot Chat to ask questions, learn concepts, and debug issues.
 
     Note : We created a variable (repo) and explicitly set it to null .When we try to call a method on it then this will fail.
 
-6.  Open terminal and run the app with below commands. Application will  run
+6.  Open terminal-GitBash and run the app with below commands. Application will  run
 
-   +++cd lab-05-agents\java+++
+   +++cd github-copilot-workshops-labs-java/lab-05-agents/java/+++
    
    +++mvn spring-boot:run+++
    
     ![](./media/image9.png)
 
-7.  Open a browser and navigate to +++http://localhost:8080/api/employees.you+++ can see a **500 Internal Server Error** in the browser
+7.  Open a browser and navigate to +++http://localhost:8080/api/employees+++ .You can see a **500 Internal Server Error** in the browser
 
     ![](./media/image10.png)
 
@@ -120,13 +117,14 @@ Use Copilot Chat to ask questions, learn concepts, and debug issues.
 
     ![](./media/image13.png)
 
-12. Review and accept the fix and then re-run the application to check the fix
+12. Review and accept the fix and then re-run the application to check the fix -(Stop the server with Ctrl+ c in terminal)
 
+    
     +++mvn spring-boot:run+++
 
     ![](./media/image14.png)
 
-13. Open a browser and navigate to +++http://localhost:8080/api/employees+++
+14. Open a browser and navigate to +++http://localhost:8080/api/employees+++
 
     ![](./media/image15.png)
 

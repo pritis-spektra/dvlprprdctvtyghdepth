@@ -21,12 +21,24 @@ In this lab, you will learn how to:
 
 Create a minimal MCP server that Copilot can connect to.
 
-1.  Open Visual Studio Code and navigate to
-    **src/main/java/com/example/mcp/** and create a file **MCPServer.java**
+1. Open GitHub Copilot Chat and ask copilot below prompt
+  ```
+  @workspace I need to create a Maven project structure for lab-06-mcp. 
+  The project should be a Model Context Protocol (MCP) server in Java.
+  Please create:
+  - src/main/java/com/example/mcp directory structure
+  - src/test/java/com/example/mcp directory structure
+  - Basic McpServer.java main class
+  - Sample tool implementation
+  ```
+2. Copilot will provide terminal commands or file creation instruction
+
+3.  Open Visual Studio Code and navigate to
+    **src/main/java/com/example/mcp/** and create a file +++MCPServer.java+++
 
     ![](./media/image1.png)
 
-2.  Enter below prompt in agent mode of GitHub Copilot chat
+4.  Enter below prompt in agent mode of GitHub Copilot chat
 
     ```
     Create a minimal MCP server using the MCP Java SDK (0.16.0).
@@ -42,7 +54,7 @@ Create a minimal MCP server that Copilot can connect to.
 
     ![](./media/image2.png)
 
-3.  Keep allowing the response request as Copilot perform:
+5.  Keep allowing the response request as Copilot perform:
 
     - Analyzed MCP SDK structure
 
@@ -58,7 +70,7 @@ Create a minimal MCP server that Copilot can connect to.
     
     ![](./media/image4.png)
 
-4.  Allow the Copilot to create below tools:
+6.  Allow the Copilot to create below tools:
 
     - add - adds two numbers
 
@@ -71,7 +83,7 @@ Create a minimal MCP server that Copilot can connect to.
 
     ![](./media/image5.png)
 
-5.  Open the terminal and run below command to run the server. Make sure Server is
+7.  Open the terminal and run below command to run the server. Make sure Server is
     up and running:
 
     ```

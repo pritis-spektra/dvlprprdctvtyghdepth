@@ -43,7 +43,7 @@ This mirrors real‑world development, where **documentation exists before or al
 
     ![](./media/image1.png)
 
-2.  Open **copilot-instructions.md** , add the following content and
+2.  Open **copilot-instructions.md** under .github folder, add the following content and
     save the file.
 
     ```
@@ -71,12 +71,10 @@ This mirrors real‑world development, where **documentation exists before or al
 
 Migrate documentation as working code using Copilot.
 
-1.  Open **Copilot Chat** (Agent mode) and enter the below prompt:
+1.  Open **Copilot Chat** (Agent mode-Claude Sonnet 4.5 model) and enter the below prompt:
 
     ```
-    Using READMEFUNC.md and READMETECH.md,
-    generate a Spring Boot application for this project.
-
+    Using READMEFUNC.md and READMETECH.md,generate a Spring Boot application for this project.
     Create the required Controller, Service, Repository, and Model classes.
     Follow the architecture defined in copilot-instructions.md.
     Do not add behavior not mentioned in the documentation.
@@ -99,17 +97,20 @@ Migrate documentation as working code using Copilot.
 
     ![](./media/image4.png)
 
-3.  Open the terminal and run the app with the below commands. The app
+3.   Open Powershell and kill if any service running on 8080 port
+   +++netstat -ano | findstr :8080+++
+   +++taskkill /PID XXXX /F+++ (Replace XXXX with your PID)
+
+5.  Open the **Terminal-Git Bash** and run the app with the below commands. The app
     will be up and running:
 
-    Change the directory -- cd lab-04-refactoring/java
+    +++cd "github-copilot-workshops-labs-java/lab-04-refactoring/java/"+++
 
     +++mvn spring-boot:run+++
     
     ![](./media/image5.png)
 
-    Note: if you see any errors use Copilot capabilities /explain and
-    /fix. Review before accepting fixes.
+    Note: if you see any errors use Copilot capabilities /explain and  /fix. Review before accepting fixes.
 
 ## Task 3 : Method Refactoring
 
@@ -117,20 +118,15 @@ Improve readability without changing behavior. 
 
 1.  Navigate to **src/main/java/com/examples/demo/service** and open the
     file EmployeeService.java.Select the method *getAllEmployees*  and
-    enter below prompt in Copilot to refactor.
+    enter below prompt in Copilot Agent mode to refactor.
 
-Refactor this method to use a private helper method   for employee
-retrieval. Keep behavior unchanged. 
+   +++Refactor this method to use a private helper method   for employee retrieval. Keep behavior unchanged.+++ 
 
-    ![](./media/image6.png)
+   ![](./media/image6.png)
 
-2.  Select the method  **saveEmployee** and enter below prompt in copilot to
-    refactor. Review the change and accept.
+2.  Select the method  **saveEmployee** and enter below prompt in copilot to refactor. Review the change and accept.
 
-    ```
-    Refactor this method to extract saving logic into a private method.
-    Keep behavior unchanged.
-    ```
+    +++Refactor this method to extract saving logic into a private method.Keep behavior unchanged.+++
 
     ![](./media/image7.png)
 
@@ -138,85 +134,62 @@ retrieval. Keep behavior unchanged. 
 
 Improve robustness with minimal changes. 
 
-1.  Select **getEmployeeById** and enter below prompt in Copilot
-    chat.Review and accept the change:
+1.  Select **getEmployeeById** and enter below prompt in Copilot chat.Review and accept the change:
 
-    ```
-    Add error handling for the case when the employee does not exist.  Do
-    not change external API contracts. 
-    ```
-
+    +++Add error handling for the case when the employee does not exist.Do not change external API contracts.+++ 
+   
     ![](./media/image8.png)
 
-2.  *Select the deleteEmployee* method and enter below prompt in Copilot
-    chat. Review the change and accept:
+2.  *Select the deleteEmployee* method and enter below prompt in Copilot chat. Review the change and accept:
 
-    ```
-    Add error handling when deleting a non-existent employee. Keep behavior
-    consistent with the current design. 
-    ```
-
+    +++Add error handling when deleting a non-existent employee. Keep behavior consistent with the current design.+++ 
+   
     ![](./media/image9.png)
 
 ## Task 6 – Function Extraction 
 
 Reduce duplication and improve reuse.
 
-1.  Keep open the **EmployeeService.java** and enter below prompt in copilot
-    chat to reduce duplication and improve reuse in finding employees method.
+1.  Keep open the **EmployeeService.java** and enter below prompt in copilot chat to reduce duplication and improve reuse in finding employees method.
 
-    ```
-    Extract the logic for finding employees by email into a reusable
-    private method.
-    ```
-
+    +++Extract the logic for finding employees by email into a reusable private method.+++
+  
     ![](./media/image10.png)
 
-2.  Enter below prompt in Copilot chat for sorting employees by last
-    name.review the change and accept.
+2.  Enter below prompt in Copilot chat for sorting employees by last name.review the change and accept.
 
-    ```
-    Extract the logic for sorting employees by last name into a reusable
-    private method.
-    ```
-
+    +++Extract the logic for sorting employees by last name into a reusable  private method.+++
+    
     ![](./media/image11.png)
 
 ## Step 7 – Add Repository Features 
 
 Extend functionality safely. 
 
-1.  Open **EmployeeRepository.java** under repository folder and enter below
-    prompt. Review the change and accept:
+1.  Open **EmployeeRepository.java** under repository folder and enter below prompt. Review the change and accept:
 
-    ```
-    Add Spring Data JPA repository methods to search employees by name and
-    sort by last name.
-    ```
-
+    +++Add Spring Data JPA repository methods to search employees by name and  sort by last name.+++
+    
     ![](./media/image12.png)
 
-2.  Enter below prompt to implement new features. It adds new methods
-    io employeesService.java. Review and accept the features
+2.  Enter below prompt to implement new features. It adds new methods to employeesService.java. Review and accept the features
 
-    ```
-    Use these repository methods in the service to implement a new
-    feature.
-    ```
-
+    +++Use these repository methods in the service to implement a new  feature.+++
+    
     ![](./media/image13.png)
 
 ##  Task 8 – Add Documentation with Copilot
 
 JavaDoc for service methods 
 
-1.  Select *EmployeeService* and enter to add Javadoc for all undocumented methods
+1.  Select **EmployeeService** and enter /doc in Copilot Chat Agent mode  to add Javadoc for all undocumented methods
 
     +++/doc+++
 
     ![](./media/image14.png)
 
-Note : If tests are missing or failing use +++/setupTests+++ and +++/tests+++
+>Note : If tests are missing or failing use +++/setupTests+++ and +++/tests+++
+>Close all the Lab 04 files and terminal to continue with Lab 05
 
 ## Summary :
 

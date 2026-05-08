@@ -165,11 +165,11 @@ Copilot Chat and execute the slash command /\<prompt-name\> that matches
 the file name (without extension). Prompts can request inputs
 using ${input:key:label} and run in agent mode.
 
-1.  Navigate to **lab-05-agents/java/github** and create a folder **prompts/**
+1.  Navigate to **lab-05-agents/java/.github** and create a folder +++prompts/+++
 
     ![](./media/image21.png)
 
-2.  Create a new file with the name **explain-java.prompt.md** and paste
+2.  Create a new file with the name +++explain-java.prompt.md+++ and paste
     the below prompt:
 
     ```
@@ -206,7 +206,7 @@ using ${input:key:label} and run in agent mode.
 
     ![](./media/image24.png)
 
-5.  Create another file name **review-java.prompt.md** and paste the
+5.  Create another file name +++review-java.prompt.md+++ and paste the
     below content:
 
     ```
@@ -252,8 +252,7 @@ using ${input:key:label} and run in agent mode.
 
     ![](./media/image28.png)
 
-8.  Create a file called .github/prompts/generate-tests-java.prompt.md
-    and paste the below content
+8.  Create a file called +++generate-tests-java.prompt.md+++ in **.github/prompts/generate-tests-java.prompt.md** and paste the below content
 
     ```
     ---
@@ -274,7 +273,7 @@ using ${input:key:label} and run in agent mode.
 
     ![](./media/image29.png)
 
-9.  Run in Copilot Chat: **/generate-tests-java**
+9.  Enter  in Copilot Chat Agent mode: +++/generate-tests-java+++
 
     ![](./media/image30.png)
 
@@ -288,7 +287,7 @@ using ${input:key:label} and run in agent mode.
 
     ![](./media/image31.png)
 
-11. Enter test matrix – zero division, negative numbers, large numbers
+11. Enter test matrix – +++zero division, negative numbers, large numbers+++
 
     ![](./media/image32.png)
 

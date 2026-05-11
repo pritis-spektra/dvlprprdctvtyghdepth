@@ -163,17 +163,17 @@ Starting with a clean requirements.txt sets the foundation.
     following comment block **exactly** — then **pause** and let Copilot
     suggest code:
 
-    +++\\ Task Management REST API+++
+    +++# Task Management REST API+++
 
-    +++\\ Built with Flask+++
+    +++# Built with Flask+++
 
-    +++\\ This application provides CRUD endpoints for managing tasks+++
+    +++# This application provides CRUD endpoints for managing tasks+++
 
-    +++\\ Each task has: id, title, description, status, created_at+++
+    +++# Each task has: id, title, description, status, created_at+++
 
-    +++\\ Status can be: pending, in-progress, completed+++
+    +++# Status can be: pending, in-progress, completed+++
 
-    +++\\ Data is stored in-memory using a Python list for simplicity from flask import Flask, jsonify, request+++
+    +++# Data is stored in-memory using a Python list for simplicity from flask import Flask, jsonify, request+++
 
     ![](./media/image10.png)
 
@@ -205,9 +205,9 @@ once.
 1.  Below the data store, type the following comment and wait for
     Copilot. Press Tab to accept the suggestions.
 
-    +++\\ Helper function to find a task by its ID from the tasks list+++
+    +++# Helper function to find a task by its ID from the tasks list+++
 
-    +++\\ Returns the task dict if found, or None if not found+++
+    +++# Returns the task dict if found, or None if not found+++
 
     ![](./media/image14.png)
 
@@ -251,15 +251,15 @@ surfaces.
 1.  In **app.py**, below the helper function, type manually below inline
     comments to create task endpoint.
 
-    +++\\ POST /tasks - Create a new task+++
+    +++# POST /tasks - Create a new task+++
 
-    +++\\ Accept JSON body with 'title' (required) and 'description' (optional)+++
+    +++# Accept JSON body with 'title' (required) and 'description' (optional)+++
 
-    +++\\ Auto-generate 'id' using uuid4, set 'status' to 'pending', set'created_at' to current UTC time+++
+    +++# Auto-generate 'id' using uuid4, set 'status' to 'pending', set'created_at' to current UTC time+++
 
-    +++\\ Return the created task with 201 status code+++
+    +++# Return the created task with 201 status code+++
 
-    +++\\ If 'title' is missing, return a 400 error with a message+++
+    +++# If 'title' is missing, return a 400 error with a message+++
 
     ![](./media/image18.png)
 
@@ -319,11 +319,11 @@ feature code too — @workspace helps Copilot match existing patterns.
 
 1.  Type below comments manually in app.py:
 
-    +++\\ GET /tasks/\<task_id\> - Get a single task by ID+++
+    +++# GET /tasks/\<task_id\> - Get a single task by ID+++
 
-    +++\\ Use the find_task helper function+++
+    +++# Use the find_task helper function+++
 
-    +++\\ Return 404 with error message if task not found+++
+    +++# Return 404 with error message if task not found+++
 
     ![](./media/image23.png)  
     ![](./media/image24.png)
@@ -410,7 +410,7 @@ detailed prompt produced a more accurate result than a vague one would.
 
 1.  Type at the bottom of app.py. Accept Copilot's suggestion for the if \_\_name\_\_ == '\_\_main\_\_': block.
 
-    +++\\ Run the Flask app in debug mode on port 5000+++
+    +++# Run the Flask app in debug mode on port 5000+++
 
     ![](./media/image30.png)
 
@@ -491,13 +491,13 @@ for bugs and propose corrections. Always review the fix before applying
     comment manually at the top. Pause and observe Copilot's
     suggestions. It may try to generate all tests at once.
 
-    +++\\ Unit tests for the Task Management REST API+++
+    +++# Unit tests for the Task Management REST API+++
     
-    +++\\ Using pytest and Flask's test client+++
+    +++# Using pytest and Flask's test client+++
     
-    +++\\ Test all CRUD operations: create, read, update, delete+++
+    +++# Test all CRUD operations: create, read, update, delete+++
     
-    +++\\ Include edge cases: missing title, invalid status, task not found+++
+    +++# Include edge cases: missing title, invalid status, task not found+++
     
     ![](./media/image38.png)
     

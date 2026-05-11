@@ -46,7 +46,7 @@ By the end of this lab, you will be able to:
 Before asking Copilot anything, **read the code yourself** and note
 what's wrong. This trains the code review mindset.
 
-1.  Create a folder in your C:/Lab08 and open it in Visual Studio Code.
+1.  Create a folder in your C:/Lab08 and open it in Visual Studio Code and sign in with your GitHub account with Copilot license.
     Open terminal-\>GitBash
 
     ![](./media/image1.png)
@@ -57,34 +57,34 @@ what's wrong. This trains the code review mindset.
 
     ![](./media/image2.png)
 
-3.   Open **order_processor.py **and create a list of code smells on
+3.   Open **order_processor.py** and create a list of code smells on
     paper or in a scratch comment block at the bottom of the file.
 
     > **Note:** Spend 5 minutes and identify as many issues as you can.
 
-    # === CODE REVIEW NOTES ===
+    \# === CODE REVIEW NOTES ===
 
-    # 1. Variable names: d, o, t, p, q, r, s, tt — all cryptic,
+    \# 1. Variable names: d, o, t, p, q, r, s, tt — all cryptic,
 single-letter
 
-    # 2. proc() and proc_batch() contain nearly identical logic (copy-paste
+    \# 2. proc() and proc_batch() contain nearly identical logic (copy-paste
 duplication)
 
-    # 3. Discount rates are hardcoded magic numbers (0.1, 0.2, 0.25)
+    \# 3. Discount rates are hardcoded magic numbers (0.1, 0.2, 0.25)
 
-    # 4. Tax rate (0.08) is a magic number buried in logic
+   \ # 4. Tax rate (0.08) is a magic number buried in logic
     
-    # 5. No docstrings, no type hints, no meaningful comments
+    \# 5. No docstrings, no type hints, no meaningful comments
     
     \# 6. Empty order check happens AFTER calculation (wrong order of
     operations)
     
-    # 7. gen_report() uses string concatenation instead of f-strings or
+    \# 7. gen_report() uses string concatenation instead of f-strings or
     templates
     
-    # 8. No unit tests exist
+    \# 8. No unit tests exist
     
-    # 9. No README or module-level documentation
+    \# 9. No README or module-level documentation
 
 
 ![](./media/image3.png)
@@ -95,8 +95,7 @@ Now let's validate and deepen your understanding using Copilot.
 
 1.  **Explain the proc() Function Using /explain**
 
-    Select the **entire proc() function** in the editor. Open Copilot Chat
-(Ctrl+Shift+I / Cmd+Shift+I) and type:
+    Select the **entire proc() function** in the editor. Open Copilot Chat (Ctrl+Shift+I / Cmd+Shift+I) and type:
 
     ```
     /explain
@@ -123,7 +122,7 @@ behavior*. The developer must judge correctness.
 
 ## Task 3 — Ask Copilot to Identify Code Smells
 
-1.  With order_processor.py open, type in Copilot Chat:
+1.  With **order_processor.py** open, type in Copilot Chat in Agent mode with Claude Sonnet 4.6 model:
 
     **Prompt:**
     ```
@@ -187,7 +186,7 @@ imperfect.
 
 ### Create a Characterization Test (Safety Net)
 
-1.  Create a new file: **test_order_processor.py** in the root
+1.  Create a new file: +++test_order_processor.py+++ in the root
     folder**.** Type the following comment at the top and let Copilot
     help:
 

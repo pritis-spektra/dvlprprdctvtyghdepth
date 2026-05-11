@@ -54,6 +54,72 @@ configured:
 
 - Testing Libraries: JUnit, Mockito
 
+## Lab 0: Activate and Configure GitHub Copilot Subscription
+
+Firstly, you will activate GitHub Copilot and configure it within
+Visual Studio Code to enable AI-assisted software development. You will
+sign in with your GitHub account, authenticate your access, and install
+the GitHub Copilot Chat extension in VS Code. This setup prepares your
+development environment for upcoming labs focused on code generation,
+productivity, security, and DevOps automation using GitHub Copilot.
+
+**If you still do not have an active Copilot license, a 30-day trial can
+be requested with the following steps. Make sure to cancel your license
+before the trial ends to avoid getting billed**.
+
+**Note:** This task is intended only for users who have not yet activated
+or configured GitHub Copilot. If your setup is already complete, you may
+skip these steps.
+
+1.  Open a new tab in your browser and go to Signup to GitHub Copilot - +++https://github.com/github-copilot/signup+++
+
+2.  Click on the "**Get access to GitHub Copilot”** button. 
+
+   ![Screenshot](./media/image42.png)
+
+3.  Enter billing information with your personal credit card and
+    then click on **Save**. 
+
+   ![Screenshot](./media/image43.png)
+
+4.  Enter your billing information and then click on the **Save payment
+    information** button. 
+
+   ![Screenshot](./media/image44.png)
+  
+   **IMPORTANT:** Make sure to deactivate the account after you complete
+   the labs to avoid billing for usage. 
+
+5.  Open Visual Studio Code from the Windows Start menu.
+    Click on **Accounts > Backup and Sync Settings** and select **Sign in.** 
+
+   ![Screenshot](./media/image45.png)
+
+6.  Select the **Sign in with GitHub** option.
+
+   ![Screenshot](./media/image46.png)
+
+7.  Select the Browser and Sign in with your Copilot
+    enabled Github account. 
+
+   ![Screenshot](./media/image47.png)
+  
+   ![Screenshot](./media/image48.png)
+
+8.  Authenticate and verify with the code to
+    complete Two-factor authentication. 
+
+   ![Screenshot](./media/image49.png)
+
+9.  Click on Visual Studio Code. 
+
+   ![Screenshot](./media/image50.png)
+
+10. Click on Extension from the left navigation menu, search
+    for +++GitHub Copilot+++ chat, select it and click on **Install**. 
+
+   ![Screenshot](./media/image51.png)
+
 ## Task 1: Understand the API
 
     Before writing any tests, developers must clearly understand **what the application does**. In real-world projects, developers are often asked

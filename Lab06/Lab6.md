@@ -21,20 +21,19 @@ In this lab, you will learn how to:
 
 Create a minimal MCP server that Copilot can connect to.
 
-1. Open GitHub Copilot Chat and ask copilot below prompt
-  ```
-  @workspace I need to create a Maven project structure for lab-06-mcp. 
-  The project should be a Model Context Protocol (MCP) server in Java.
-  Please create:
-  - src/main/java/com/example/mcp directory structure
-  - src/test/java/com/example/mcp directory structure
-  - Basic McpServer.java main class
-  - Sample tool implementation
-  ```
+1. Navigate to lab-06-MCP and then open GitHub Copilot Chat and ask Copilot below prompt in Agent mode+ Claude Sonnet 4.6 model.
+    ```
+    @workspace I need to create a Maven project structure for lab-06-mcp. 
+    The project should be a Model Context Protocol (MCP) server in Java.
+    Please create:
+    - src/main/java/com/example/mcp directory structure
+    - src/test/java/com/example/mcp directory structure
+    - Basic McpServer.java main class
+    - Sample tool implementation
+    ```
 2. Copilot will provide terminal commands or file creation instruction
 
-3.  Open Visual Studio Code and navigate to
-    **src/main/java/com/example/mcp/** and create a file +++MCPServer.java+++
+3.  In Visual Studio Code and navigate to **Lab-06-mcp-java-src/main/java/com/example/mcp/** and create a file +++MCPServer.java+++
 
     ![](./media/image1.png)
 
@@ -70,7 +69,7 @@ Create a minimal MCP server that Copilot can connect to.
     
     ![](./media/image4.png)
 
-6.  Allow the Copilot to create below tools:
+6.  Review the response and then Allow the Copilot to create below tools:
 
     - add - adds two numbers
 
@@ -83,8 +82,9 @@ Create a minimal MCP server that Copilot can connect to.
 
     ![](./media/image5.png)
 
-7.  Open the terminal and run below command to run the server. Make sure Server is
+7.  Open the **Terminal-Git Bash** and run below command to run the server. Make sure Server is
     up and running:
+    ++++cd github-copilot-workshops-labs-java/lab-06-mcp/java/+++
 
     ```
     mvn exec:java
@@ -119,8 +119,6 @@ Create a minimal MCP server that Copilot can connect to.
     ![](./media/image11.png)
 
 4.  now run the client:
-
-    +++cd lab-06-mcp/java+++
 
     ```
     mvn package -q; mvn exec:java '-Dexec.mainClass=com.example.mcp.MCPClient'

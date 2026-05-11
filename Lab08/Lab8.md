@@ -86,7 +86,8 @@ duplication)
     
     # 9. No README or module-level documentation
 
-    ![](./media/image3.png)
+
+![](./media/image3.png)
 
 ## Task 2: Use GitHub Copilot to Analyze and Explain the Code
 

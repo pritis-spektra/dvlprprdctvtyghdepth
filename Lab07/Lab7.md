@@ -45,12 +45,11 @@ By the end of this lab, you will be able to:
 
     ![](./media/image1.png)
 
-2.  Open the folder in Visual Studio code.
+2.  Open the folder in Visual Studio code.Sign in with your GitHub Copilot license account
 
 ![](./media/image2.png)
 
-3.  Open Terminal and select Git Bash and run below command to create a
-    folder
+3.  Open Terminal and select Git Bash and run below command to create a    folder
 
     +++mkdir cloudtask-api && cd cloudtask-api+++
 
@@ -74,9 +73,7 @@ By the end of this lab, you will be able to:
 
 ##  Task 1: Understand the Problem (Human Reasoning — No Copilot Yet)
 
-Before touching Copilot, take a moment to reason about the architecture.
-
-Answer these questions in your OneNote/Notebook
+Before touching Copilot, take a moment to reason about the architecture.Answer these questions in your OneNote/Notebook
 
 1.  What endpoints does a Task Management API need?
 
@@ -121,8 +118,7 @@ developer's understanding of the problem.
 
 Now let's use Copilot to scaffold the project structure.
 
-1.  Open Copilot Chat (Ctrl+Shift+I / Cmd+Shift+I) and type the
-    following prompt.
+1.  Open Copilot Chat (Ctrl+Shift+I / Cmd+Shift+I),select Agent mode and Claude Sonnet 4.6 model and type thefollowing prompt.
 
     **Prompt:**
     ```
@@ -144,7 +140,7 @@ Now let's use Copilot to scaffold the project structure.
 
     ![](./media/image7.png)
 
-4.  Run the requirements file to install
+4.  Open Terminal and run the requirements file to install require dpacakges.
 
     +++pip install -r requirements.txt+++
 
@@ -159,7 +155,7 @@ Starting with a clean requirements.txt sets the foundation.
 
 ## Task 2 — Create app.py with comment-driven scaffolding
 
-1.  Create a new file called **app.py** in the root folder. **Type** the
+1.  Create a new file called +++app.py+++ in the root folder. **Type** the
     following comment block **exactly** — then **pause** and let Copilot
     suggest code:
 
@@ -319,7 +315,7 @@ feature code too — @workspace helps Copilot match existing patterns.
 
 1.  Type below comments manually in app.py:
 
-    +++# GET /tasks/\<task_id\> - Get a single task by ID+++
+    +++# GET /tasks/<task_id> - Get a single task by ID+++
 
     +++# Use the find_task helper function+++
 
@@ -338,7 +334,7 @@ feature code too — @workspace helps Copilot match existing patterns.
 
 1.  Enter below prompt in Copilot chat
 
-    +++Write a PUT /tasks/<task_id> endpoint for app.py.+++
+    +++Write a PUT /tasks/task_id endpoint for app.py.+++
 
     ![](./media/image27.png)
 
@@ -396,15 +392,15 @@ detailed prompt produced a more accurate result than a vague one would.
     
     **Hint — Example Comment**
     
-    # DELETE /tasks/\<task_id\> - Delete a task by ID
+    +++# DELETE /tasks/\<task_id\> - Delete a task by ID+++
     
-    # Use the find_task helper to locate the task
+    +++# Use the find_task helper to locate the task+++
     
-    # Remove the task from the tasks list
+    +++# Remove the task from the tasks list+++
     
-    # Return 404 if task not found
+    +++# Return 404 if task not found+++
     
-    # Return 204 No Content on successful deletion
+    +++# Return 204 No Content on successful deletion+++
 
 ## Task 9— Add the Application Entry Point
 
@@ -428,10 +424,8 @@ detailed prompt produced a more accurate result than a vague one would.
 
 4.  Open a second terminal (ro duplicate workspace) and run below command to test
     ```
-    curl -X POST http://localhost:5000/tasks 
-    
-    -H "Content-Type: application/json" 
-    
+    curl -X POST http://localhost:5000/tasks     
+    -H "Content-Type: application/json"     
     -d '{"title": "My first task", "description": "Testing the API"}'
     curl http://localhost:5000/tasks
     ```
@@ -475,11 +469,9 @@ Now let's use Copilot to improve what we've built.
 
 ## Task 11 — Use /fix for Any Issues
 
-    If you notice any linter warnings or bugs, highlight the code and typein Copilot Chat:
+1. If you notice any linter warnings or bugs, highlight the code and typein Copilot Chat:
 
-    **Copilot Chat Prompt:**
-    
-    +++/fix+++
+        +++/fix+++
 
 **Note:** The /fix command tells Copilot to analyze the selected code
 for bugs and propose corrections. Always review the fix before applying
@@ -487,7 +479,7 @@ for bugs and propose corrections. Always review the fix before applying
 
 ## Task 12: : Generate Unit Tests with Copilot
 
-1.  Create a new file **test_app.py** in root folder. Type the following
+1.  Create a new file +++test_app.py+++ in root folder. Type the following
     comment manually at the top. Pause and observe Copilot's
     suggestions. It may try to generate all tests at once.
 

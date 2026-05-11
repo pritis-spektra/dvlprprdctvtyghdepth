@@ -43,7 +43,7 @@ By the end of this lab, you will be able to:
 
 1.  **Create a new empty folder** - Lab07 in C folder
 
-![](./media/image1.png)
+    ![](./media/image1.png)
 
 2.  Open the folder in Visual Studio code.
 
@@ -52,23 +52,23 @@ By the end of this lab, you will be able to:
 3.  Open Terminal and select Git Bash and run below command to create a
     folder
 
-+++mkdir cloudtask-api && cd cloudtask-api+++
+    +++mkdir cloudtask-api && cd cloudtask-api+++
 
 ![](./media/image3.png)
 
 4.  **Initialize a Git repository:**
 
-+++git init+++
+    +++git init+++
 
-![](./media/image4.png)
+    ![](./media/image4.png)
 
 5.  **Create a Python virtual environment:**
 
-+++python -m venv venv+++
+    +++python -m venv venv+++
 
-+++source venv/Scripts/activate+++
+    +++source venv/Scripts/activate+++
 
-![](./media/image5.png)
+    ![](./media/image5.png)
 
 6.  Make sure GitHub Copilot is enabled.
 
@@ -124,31 +124,31 @@ Now let's use Copilot to scaffold the project structure.
 1.  Open Copilot Chat (Ctrl+Shift+I / Cmd+Shift+I) and type the
     following prompt.
 
-**Prompt:**
-```
-I'm building a Task Management REST API using Python and Flask.I need a
-requirements.txt file with Flask, pytest, and any essential dependencies
-for a production-ready Flask REST API.
-```
-![](./media/image6.png)
+    **Prompt:**
+    ```
+    I'm building a Task Management REST API using Python and Flask.I need a
+    requirements.txt file with Flask, pytest, and any essential dependencies
+    for a production-ready Flask REST API.
+    ```
+    ![](./media/image6.png)
 
 2.   Copilot should suggest a requirements.txt with packages such y
     ys flask, pytest, flask-cors, and possibly python-dotenv.
 
- ![](./media/image7.png)
+     ![](./media/image7.png)
 
 3.  Review the list. Accept packages you recognize.**Remove** any
     package you don't understand or don't need yet.Create the
     file requirements.txt and paste the accepted content or selecting
     Agent mode will create the file and add the content
 
-> ![](./media/image7.png)
+    ![](./media/image7.png)
 
 4.  Run the requirements file to install
 
-+++pip install -r requirements.txt+++
+    +++pip install -r requirements.txt+++
 
-![](./media/image8.png)
+    ![](./media/image8.png)
 
 Note :  Follow good coding practices. If you aren't getting the
 responses you want when you ask Copilot for suggestions or explanations
@@ -163,19 +163,19 @@ Starting with a clean requirements.txt sets the foundation.
     following comment block **exactly** — then **pause** and let Copilot
     suggest code:
 
-+++\\ Task Management REST API+++
+    +++\\ Task Management REST API+++
 
-+++\\ Built with Flask+++
+    +++\\ Built with Flask+++
 
-+++\\ This application provides CRUD endpoints for managing tasks+++
+    +++\\ This application provides CRUD endpoints for managing tasks+++
 
-+++\\ Each task has: id, title, description, status, created_at+++
+    +++\\ Each task has: id, title, description, status, created_at+++
 
-+++# Status can be: pending, in-progress, completed+++
+    +++\\ Status can be: pending, in-progress, completed+++
 
-+++# Data is stored in-memory using a Python list for simplicity from flask import Flask, jsonify, request+++
+    +++\\ Data is stored in-memory using a Python list for simplicity from flask import Flask, jsonify, request+++
 
-![](./media/image10.png)
+    ![](./media/image10.png)
 
 2.   After typing the import, Copilot should begin suggesting the Flask
     app initialization (app = Flask(\_\_name\_\_)), an in-memory data
@@ -184,11 +184,11 @@ Starting with a clean requirements.txt sets the foundation.
 3.  Press **Tab** to accept the app = Flask(\_\_name\_\_) line.If
     Copilot suggests a full data store (e.g., tasks = \[\]), accept it.
 
-> ![](./media/image11.png)
->
-> ![](./media/image12.png)
->
-> ![](./media/image13.png)
+    ![](./media/image11.png)
+
+    ![](./media/image12.png)
+
+    ![](./media/image13.png)
 
 4.  **STOP here.** Do not accept any route definitions yet.
 
@@ -205,37 +205,37 @@ once.
 1.  Below the data store, type the following comment and wait for
     Copilot. Press Tab to accept the suggestions.
 
-+++# Helper function to find a task by its ID from the tasks list+++
+    +++\\ Helper function to find a task by its ID from the tasks list+++
 
-+++# Returns the task dict if found, or None if not found+++
+    +++\\ Returns the task dict if found, or None if not found+++
 
-![](./media/image14.png)
+    ![](./media/image14.png)
 
-![](./media/image15.png)
+    ![](./media/image15.png)
 
-![](./media/image16.png)
+    ![](./media/image16.png)
 
 2.   Copilot should suggest a function like:
 
-def find_task(task_id):
+    def find_task(task_id):
 
-for task in tasks:
+    for task in tasks:
 
-return next((task for task in tasks if task\['id'\] == task_id), None)
+    return next((task for task in tasks if task\['id'\] == task_id), None)
 
-![](./media/image16.png)
+    ![](./media/image16.png)
 
 3.  Review the suggestion. Does it use a for loop or next() with a
     generator? Either is acceptable. imports should always be at the top
     of the file.Move them up
 
-> ![](./media/image17.png)
+    ![](./media/image17.png)
 
 4.  If Copilot suggests both a
     loop **and** next() redundantly, **reject** and retype a cleaner
     comment:
 
-  +++# Find and return a task by ID using next() with a generator expression, return None if not found+++
+      +++# Find and return a task by ID using next() with a generator expression, return None if not found+++
 
 **Note:**  If you don't get the result that you want, iterate on your
 prompt and try again.​Refining the comment gives better results.
@@ -251,22 +251,21 @@ surfaces.
 1.  In **app.py**, below the helper function, type manually below inline
     comments to create task endpoint.
 
-+++# POST /tasks - Create a new task+++
+    +++\\ POST /tasks - Create a new task+++
 
-+++# Accept JSON body with 'title' (required) and 'description' (optional)+++
+    +++\\ Accept JSON body with 'title' (required) and 'description' (optional)+++
 
-+++# Auto-generate 'id' using uuid4, set 'status' to 'pending', set'created_at' to current UTC time+++
+    +++\\ Auto-generate 'id' using uuid4, set 'status' to 'pending', set'created_at' to current UTC time+++
 
-+++# Return the created task with 201 status code+++
+    +++\\ Return the created task with 201 status code+++
 
-+++# If 'title' is missing, return a 400 error with a message+++
+    +++\\ If 'title' is missing, return a 400 error with a message+++
 
-![](./media/image18.png)
+    ![](./media/image18.png)
 
-![](./media/image19.png)
+    ![](./media/image19.png)
 
-2.   Copilot should generate a full @app.route('/tasks',
-    methods=\['POST'\]) function.
+2.   Copilot should generate a full @app.route('/tasks', methods=\['POST'\]) function.
 
 3.  Review the generated code line-by-line:
 
@@ -281,34 +280,33 @@ surfaces.
 
     - Accept the function if it meets requirements.
 
-**Note :**  Copilot may generate code using uuid4 and datetime but
-may **not** add the import statements at the top of the file. **This is
-intentional.** Ask learners:
+    **Note :**  Copilot may generate code using uuid4 and datetime but
+    may **not** add the import statements at the top of the file. **This is
+    intentional.** Ask learners:
 
 4.  Add the missing imports manually:
-```
-from uuid import uuid4
-from datetime import datetime, timezone
-```
+    ```
+    from uuid import uuid4
+    from datetime import datetime, timezone
+    ```
 ## Task 5 — Get All Tasks Endpoint (Copilot Chat)
 
 1.  Open Copilot Chat(agent mode) and enter the below prompt
-```
-@workspace Add a GET /tasks endpoint to app.py that returns all tasks as
-JSON with a 200 status code. Follow the existing code patterns in the
-file.
-```
-![](./media/image20.png)
+    ```
+    @workspace Add a GET /tasks endpoint to app.py that returns all tasks as
+    JSON with a 200 status code. Follow the existing code patterns in the
+    file.
+    ```
+    ![](./media/image20.png)
 
-![](./media/image21.png)
+    ![](./media/image21.png)
 
-2.   Copilot should generate a GET /tasks route that
-    returns jsonify(tasks).
+2.   Copilot should generate a GET /tasks route that returns jsonify(tasks).
 
 3.  Review the suggestion in the Chat panel.Click **Keep** to accept the
     change
 
-> ![](./media/image22.png)
+    ![](./media/image22.png)
 
 4.  Verify it follows the same style (decorator pattern, response
     format) as the POST endpoint.
@@ -321,18 +319,18 @@ feature code too — @workspace helps Copilot match existing patterns.
 
 1.  Type below comments manually in app.py:
 
-+++# GET /tasks/\<task_id\> - Get a single task by ID+++
+    +++\\ GET /tasks/\<task_id\> - Get a single task by ID+++
 
-+++# Use the find_task helper function+++
+    +++\\ Use the find_task helper function+++
 
-+++# Return 404 with error message if task not found+++
+    +++\\ Return 404 with error message if task not found+++
 
-![](./media/image23.png)  
-![](./media/image24.png)
+    ![](./media/image23.png)  
+    ![](./media/image24.png)
 
-![](./media/image25.png)
+    ![](./media/image25.png)
 
-![](./media/image26.png)
+    ![](./media/image26.png)
 
 2.  Let Copilot generate the function. Accept if correct.
 
@@ -340,38 +338,37 @@ feature code too — @workspace helps Copilot match existing patterns.
 
 1.  Enter below prompt in Copilot chat
 
-+++Write a PUT /tasks/\<task_id\> endpoint for app.py.+++
+    +++Write a PUT /tasks/<task_id> endpoint for app.py.+++
 
-![](./media/image27.png)
+    ![](./media/image27.png)
 
 2.  It should:
 
-\- Accept JSON with optional fields: title, description, status
+    - Accept JSON with optional fields: title, description, status
 
-\- Only update fields that are provided in the request body
+    - Only update fields that are provided in the request body
 
-\- Validate that 'status' is one of: pending, in-progress, completed
+    - Validate that 'status' is one of: pending, in-progress, completed
 
-\- Return 404 if task not found
+    - Return 404 if task not found
 
-\- Return 400 if invalid status value
+    - Return 400 if invalid status value
 
-\- Return the updated task with 200 status
+    - Return the updated task with 200 status
 
-Follow the coding patterns already in the file.
+    Follow the coding patterns already in the file.
 
-![](./media/image28.png)
+    ![](./media/image28.png)
 
 3.   A complete PUT route with field-level updates and
     validation.**Critically review** the status validation logic. Does
     Copilot use an if check? A set? An enum?
 
-- If Copilot hardcodes the valid statuses as a list inside the function,
-  consider refactoring:
+    - If Copilot hardcodes the valid statuses as a list inside the function,consider refactoring:
 
-- VALID_STATUSES = {"pending", "in-progress", "completed"}
+    - VALID_STATUSES = {"pending", "in-progress", "completed"}
 
-> ![](./media/image29.png)
+    ![](./media/image29.png)
 
 4.  Move this constant to the top of the file. This
     is **your** architectural decision, not Copilot's.
@@ -382,68 +379,65 @@ prompt for Copilot, first give Copilot a broad description of the goal
 or scenario. Then list any specific requirements.​ Notice how the
 detailed prompt produced a more accurate result than a vague one would.
 
-## Task 8 — Delete Task Endpoint **(Task for students)**
+## Task 8 — Delete Task Endpoint (Task for pariticipants)
 
-1.   Write the comment-driven prompt yourself for a DELETE
-    /tasks/\<task_id\> endpoint.
+1.   Write the comment-driven prompt yourself for a DELETE /tasks/\<task_id\> endpoint.
 
-Requirements:
-
-- Remove the task from the in-memory list
-
-- Return 404 if not found
-
-- Return 204 (No Content) on success
-
-Write your own comment block in app.py and let Copilot generate the
-code. Review before accepting.
-
-**Hint — Example Comment**
-
-# DELETE /tasks/\<task_id\> - Delete a task by ID
-
-# Use the find_task helper to locate the task
-
-# Remove the task from the tasks list
-
-# Return 404 if task not found
-
-# Return 204 No Content on successful deletion
+    Requirements:
+    
+    - Remove the task from the in-memory list
+    
+    - Return 404 if not found
+    
+    - Return 204 (No Content) on success
+    
+    Write your own comment block in app.py and let Copilot generate the
+    code. Review before accepting.
+    
+    **Hint — Example Comment**
+    
+    # DELETE /tasks/\<task_id\> - Delete a task by ID
+    
+    # Use the find_task helper to locate the task
+    
+    # Remove the task from the tasks list
+    
+    # Return 404 if task not found
+    
+    # Return 204 No Content on successful deletion
 
 ## Task 9— Add the Application Entry Point
 
-1.  Type at the bottom of app.py. Accept Copilot's suggestion for the if
-    \_\_name\_\_ == '\_\_main\_\_': block.
+1.  Type at the bottom of app.py. Accept Copilot's suggestion for the if \_\_name\_\_ == '\_\_main\_\_': block.
 
-+++# Run the Flask app in debug mode on port 5000+++
+    +++\\ Run the Flask app in debug mode on port 5000+++
 
-![](./media/image30.png)
+    ![](./media/image30.png)
 
-![](./media/image31.png)
+    ![](./media/image31.png)
 
 2.  Update the code at line \#50 from 200 to 201
 
 3.  Save the file and open terminal and run the App:
 
-+++cd cloudtask-api/+++
+    +++cd cloudtask-api/+++
 
-+++python app.py+++
+    +++python app.py+++
 
-![](./media/image32.png)
+    ![](./media/image32.png)
 
-4.  Open a second terminal (ro duplicate workspace) and run below
-    command to test
-```
-curl -X POST http://localhost:5000/tasks 
+4.  Open a second terminal (ro duplicate workspace) and run below command to test
+    ```
+    curl -X POST http://localhost:5000/tasks 
+    
+    -H "Content-Type: application/json" 
+    
+    -d '{"title": "My first task", "description": "Testing the API"}'
+    curl http://localhost:5000/tasks
+    ```
+    ![](./media/image33.png)
 
--H "Content-Type: application/json" 
-
--d '{"title": "My first task", "description": "Testing the API"}'
-curl http://localhost:5000/tasks
-```
-![](./media/image33.png)
-
-![](./media/image34.png)
+    ![](./media/image34.png)
 
 ## ![](./media/image35.png)Task 10 - Review and Refine Copilot Output — Refactoring
 
@@ -452,26 +446,26 @@ Now let's use Copilot to improve what we've built.
 1.  Select all the code in app.py, then open Copilot Chat and enter
     below prompt
 
-**Prompt:**
-```
-Review this Flask application for code quality improvements.
-Suggest refactoring for:
-1. Extracting repeated validation logic into helper functions
-2. Consistent error response formatting
-3. Improving readability and maintainability
-- Do not change the API contract or endpoints.
-```
-![](./media/image36.png)
+    **Prompt:**
+    ```
+    Review this Flask application for code quality improvements.
+    Suggest refactoring for:
+    1. Extracting repeated validation logic into helper functions
+    2. Consistent error response formatting
+    3. Improving readability and maintainability
+    - Do not change the API contract or endpoints.
+    ```
+    ![](./media/image36.png)
 
 2.  Copilot should suggest:
 
-- A make_error_response(message, status_code) helper
+    - A make_error_response(message, status_code) helper
+    
+    - Possibly extracting validation into a validate_task_data() function
+    
+    - Consistent JSON error format like {"error": "message"}
 
-- Possibly extracting validation into a validate_task_data() function
-
-- Consistent JSON error format like {"error": "message"}
-
-> ![](./media/image37.png)
+    ![](./media/image37.png)
 
 3.  Accept helpers that **reduce duplication**.**Reject** any suggestion
     that changes the API contract (e.g., changing route paths or HTTP
@@ -481,12 +475,11 @@ Suggest refactoring for:
 
 ## Task 11 — Use /fix for Any Issues
 
-If you notice any linter warnings or bugs, highlight the code and type
-in Copilot Chat:
+    If you notice any linter warnings or bugs, highlight the code and typein Copilot Chat:
 
-**Copilot Chat Prompt:**
-
-+++/fix+++
+    **Copilot Chat Prompt:**
+    
+    +++/fix+++
 
 **Note:** The /fix command tells Copilot to analyze the selected code
 for bugs and propose corrections. Always review the fix before applying
@@ -498,21 +491,21 @@ for bugs and propose corrections. Always review the fix before applying
     comment manually at the top. Pause and observe Copilot's
     suggestions. It may try to generate all tests at once.
 
-+++# Unit tests for the Task Management REST API+++
-
-+++# Using pytest and Flask's test client+++
-
-+++# Test all CRUD operations: create, read, update, delete+++
-
-+++# Include edge cases: missing title, invalid status, task not found+++
-
-![](./media/image38.png)
-
-![](./media/image39.png)
-
-![](./media/image40.png)
-
-![](./media/image41.png)
+    +++\\ Unit tests for the Task Management REST API+++
+    
+    +++\\ Using pytest and Flask's test client+++
+    
+    +++\\ Test all CRUD operations: create, read, update, delete+++
+    
+    +++\\ Include edge cases: missing title, invalid status, task not found+++
+    
+    ![](./media/image38.png)
+    
+    ![](./media/image39.png)
+    
+    ![](./media/image40.png)
+    
+    ![](./media/image41.png)
 
 2.   Do **NOT** accept the full block. Instead, proceed with one test at
     a time.
@@ -522,27 +515,27 @@ for bugs and propose corrections. Always review the fix before applying
 1.  Open app.py, select the **Create Task** endpoint function. Then in
     Copilot Chat:
 
-**Prompt:**
-```
-/tests Generate pytest unit tests for the selected create_task function.
-Include tests for:
-- Successfully creating a task with title and description
-- Creating a task with only a title (no description)
-- Attempting to create a task without a title (expect 400)
-Use Flask's test client.
-```
-![](./media/image42.png)
+    **Prompt:**
+    ```
+    /tests Generate pytest unit tests for the selected create_task function.
+    Include tests for:
+    - Successfully creating a task with title and description
+    - Creating a task with only a title (no description)
+    - Attempting to create a task without a title (expect 400)
+    Use Flask's test client.
+    ```
+    ![](./media/image42.png)
 
 2.   Copilot should generate a test file with:
 
-- A client fixture using app.test_client()
+    - A client fixture using app.test_client()
+    
+    - Three test functions following the Arrange-Act-Assert pattern
+    
+    The prompt file generates focused unit tests for specific functions or
+    methods, emphasizing practical test cases and maintainable code.​
 
-- Three test functions following the Arrange-Act-Assert pattern
-
-The prompt file generates focused unit tests for specific functions or
-methods, emphasizing practical test cases and maintainable code.​
-
-![](./media/image43.png)
+    ![](./media/image43.png)
 
 3.  Review each test:
 
@@ -554,7 +547,7 @@ methods, emphasizing practical test cases and maintainable code.​
 
     - Copy accepted tests into test_app.py.
 
-![](./media/image44.png)
+    ![](./media/image44.png)
 
 **Note:** Review suggestions carefully. Just like with human-generated
 code, never trust any tests Copilot generates without going through your
@@ -565,29 +558,29 @@ linters, and check the code.​
 
 1.   Use Copilot Chat to generate tests for:
 
-Use prompts like:
-```
-/tests Generate pytest tests for the GET /tasks endpoint. Include a test
-for an empty task list and a test after creating two tasks.
-```
-![](./media/image45.png)
+    Use prompts like:
+    ```
+    /tests Generate pytest tests for the GET /tasks endpoint. Include a test
+    for an empty task list and a test after creating two tasks.
+    ```
+    ![](./media/image45.png)
 
 2.  Run test with command +++pytest test_app.py -v+++. All tests pass.
 
-![](./media/image46.png)
+    ![](./media/image46.png)
 
-**If tests fail:**
-
-- Read the error message.
-
-- Highlight the failing test in VS Code.
-
-- Ask Copilot Chat:
-
-- /fix This test is failing with the following error: \[paste
-  error\].The test is for the create_task endpoint. Fix the test.
-
-- Review the fix, apply it, re-run.
+    **If tests fail:**
+    
+    - Read the error message.
+    
+    - Highlight the failing test in VS Code.
+    
+    - Ask Copilot Chat:
+    
+    - /fix This test is failing with the following error: \[paste
+      error\].The test is for the create_task endpoint. Fix the test.
+    
+    - Review the fix, apply it, re-run.
 
 **Note:** Be flexible and iterative. At the end of the day, unit tests
 are code that effectively describe code. The first iteration of

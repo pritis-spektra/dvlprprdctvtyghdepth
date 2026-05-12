@@ -54,7 +54,7 @@ configured:
 
 - Testing Libraries: JUnit, Mockito
 
-## Lab 0: Activate and Configure GitHub Copilot Subscription
+## Task 0: Activate and Configure GitHub Copilot Subscription
 
 Firstly, you will activate GitHub Copilot and configure it within
 Visual Studio Code to enable AI-assisted software development. You will
@@ -121,10 +121,9 @@ skip these steps.
    ![Screenshot](./media/image51.png)
 
 ## Task 1: Understand the API
-
-    Before writing any tests, developers must clearly understand **what the application does**. In real-world projects, developers are often asked
-    to test or enhance code they did not write. This task focuses on using  **GitHub Copilot as a comprehension assistant** to analyze an existing
-    REST API, identify endpoints, and document expected behavior.
+Before writing any tests, developers must clearly understand **what the application does**. In real-world projects, developers are often asked
+to test or enhance code they did not write. This task focuses on using  **GitHub Copilot as a comprehension assistant** to analyze an existing
+REST API, identify endpoints, and document expected behavior.
 
 1.  Open Visual Studio Code from the desktop and sign in with your GitHub Copilot license account.Navigate to C:\Labfile and extract the github-copilot-workshops-labs-java file
 

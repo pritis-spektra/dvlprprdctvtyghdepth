@@ -126,11 +126,9 @@ skip these steps.
     to test or enhance code they did not write. This task focuses on using  **GitHub Copilot as a comprehension assistant** to analyze an existing
     REST API, identify endpoints, and document expected behavior.
 
-1.  Open Visual Studio Code from the desktop and sign in with your GitHub
-    Copilot license account
+1.  Open Visual Studio Code from the desktop and sign in with your GitHub Copilot license account.Navigate to C:\Labfile and extract the github-copilot-workshops-labs-java file
 
-2.  Click on **File-\> Open Folder-\>C:\Labfiles** and select the
-    folder - **github-copilot-workshops-labs-java**
+2.  Click on **File-\> Open Folder-\>C:\Labfiles** and select the  folder - **github-copilot-workshops-labs-java** 
 
      ![](./media/image1.png)
 

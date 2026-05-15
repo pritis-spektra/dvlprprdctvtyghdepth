@@ -1,4 +1,4 @@
-# Lab 5: Exploring GitHub Copilot modes — Autocomplete, Chat, Agent, and Custom Prompts
+# Lab 5: Exploring GitHub Copilot modes — Autocomplete, Chat, Agent, and Custom Prompts (Optional)
 
 In this lab, you will learn how to use **GitHub Copilot** effectively by
 working through a series of hands‑on challenges. You will practice using

@@ -1,4 +1,4 @@
-# Lab 11 - Fixing a production incident using GitHub Copilot Agent mode
+# Lab 11 - Fixing a production incident using GitHub Copilot Agent mode (Optional)
 
 ### Scenario 
 

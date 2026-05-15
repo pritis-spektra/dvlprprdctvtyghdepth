@@ -1,4 +1,4 @@
-# Lab 06 – Building and Using MCP Servers with GitHub Copilot
+# Lab 06 – Building and Using MCP Servers with GitHub Copilot (Optional)
 
 **Objective**
 

@@ -1,4 +1,4 @@
-# Lab 12 — Building a Flask customer health dashboard using GitHub Copilot
+# Lab 12 — Building a Flask customer health dashboard using GitHub Copilot (Optional)
 
 ### Scenario 
 

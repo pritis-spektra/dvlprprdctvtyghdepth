@@ -50,7 +50,7 @@ developer.
 
 1.  Open the project in VS Code.Open Terminal ->GitBash and run below command to clone the repo
 
-    +++ git clone https://github.com/technofocus-pte/buggy-order-api-lab.git+++
+    +++git clone https://github.com/technofocus-pte/buggy-order-api-lab.git+++
 2.  Attempt to start the server:
 
     +++cd buggy-order-api/+++
@@ -183,13 +183,13 @@ suggestions
 4.  **Update your Bug Tracker:** Mark Bugs \#1–#4 as and note which
     Copilot feature you used.
 
-Note**:** Copilot may suggest various CORS configurations. For a
+Note: Copilot may suggest various CORS configurations. For a
 development API, permissive CORS is fine. For production, you'd restrict
 origins. **This decision is yours**, not Copilot's.
 
 ## Task 4 — Use Copilot to Generate Fixes  src/server.js 
 
-1.  **Open** src/server.js.**Select all code** and use Copilot Chat
+1.  Open src/server.js.**Select all code** and use Copilot Chat
     Agent mode
 
     +++/fix This server file has a hardcoded port and no graceful shutdown.Add environment variable support and proper signal handling.+++
@@ -410,7 +410,7 @@ edits.​[**3**![](./media/image29.gif)](https://code.visualstudio.com/blogs/202
 
     ![](./media/image34.png)
 
-3.  Use +++/fix++ in Agent mode and fix the pending issues
+3.  Use +++/fix+++ in Agent mode and fix the pending issues
 
 4.  Now , run the server
 
@@ -437,8 +437,8 @@ edits.​[**3**![](./media/image29.gif)](https://code.visualstudio.com/blogs/202
     ![](./media/image37.png)
 
 3.  Validate summary route  
-    curl
-    -i [http://localhost:3000/api/v1/orders/summary](vscode-file://vscode-app/c:/Users/<<YOUR WORKBENCH PATH>>)
+
+    +++curl i http://localhost:3000/api/v1/orders/summary+++
 
     Expected: 200 OK with totals
     

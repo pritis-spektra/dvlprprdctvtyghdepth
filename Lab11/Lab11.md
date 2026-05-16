@@ -51,7 +51,7 @@ By the end of this capstone, you will be able to:
 
 ### Task1 — Human Reasoning: Read the Incident Log FIRST
 
-1. Open Visual Studio code -> Terminla- > Git Bash and run below command to clone the repo
+1. Open Visual Studio code -> Terminal- > Git Bash and run below command to clone the repo
     +++git clone https://github.com/technofocus-pte/paystream-incident.git+++
 2. Open **incident_log.txt** and read every line. Before touching Copilot,
 create a triage list.
@@ -115,8 +115,7 @@ create a triage list.
 
     **Developer Action:**
     
-    - Compare Copilot's table against your manual triage.
-    
+    - Compare Copilot's table against your manual triage.   
     - Does Copilot correctly identify the **negative amount security
       issue** as critical?
     
@@ -172,7 +171,8 @@ triage *priority* is a human decision based on business impact.
     3. Raising a ValueError with clear messages for invalid inputs
     4. In payout_api.py, catching ValueError in the POST /payouts endpoint and returning a 400 response with the error message
     5. Do NOT change any existing test expectations
-    6. After making changes, run: pytest test_payouts.py -v```
+    6. After making changes, run: pytest test_payouts.py -v
+    ```
     
     ![](./media/image9.png)
 
@@ -228,7 +228,8 @@ triage *priority* is a human decision based on business impact.
     **Follow-up Prompt:**
     ```
     Actually, for a financial system, it's safer to reject unknown currencies with a ValueError rather than applying a default fee. Please change the
-    approach to raise ValueError for unsupported currencies and handle it in the API layer with a 400 response.```
+    approach to raise ValueError for unsupported currencies and handle it in the API layer with a 400 response.
+    ```
 
 5.  Run tests:
 
@@ -241,7 +242,8 @@ triage *priority* is a human decision based on business impact.
 
     **Agent Mode Prompt:**
     
-    ```INCIDENT FIX - HIGH PRIORITY
+    ```
+    INCIDENT FIX - HIGH PRIORITY
     There is a key naming inconsistency across the codebase:
     - payout_models.py stores the amount as "amt"
     - payout_api.py references "amount" in the merchant_payouts endpoint
@@ -252,7 +254,8 @@ triage *priority* is a human decision based on business impact.
     1. payout_models.py - change "amt" to "amount" everywhere
     2. payout_api.py - verify all references use "amount"
     3. test_payouts.py - update any test assertions referencing "amt"
-    4. Run all tests after changes.```
+    4. Run all tests after changes.
+    ```
     
     ![](./media/image15.png)
     

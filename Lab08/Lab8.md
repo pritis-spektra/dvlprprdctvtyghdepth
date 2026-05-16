@@ -321,7 +321,7 @@ imperfect.
     
     +++# Tax rate is 8%+++
     
-    +++\\ Orders over $1000 require review+++
+    +++# Orders over $1000 require review+++
     
     ![](./media/image19.png)
 

@@ -68,11 +68,11 @@ By completing this lab, you will learn how to:
 
 2.  Type the following **intent-driven comment** at the top of the file  and press **Enter**:
 
-+++\\ Mock customer data for a Customer Health Dashboard prototype.+++
++++# Mock customer data for a Customer Health Dashboard prototype.+++
 
-+++\\ Each customer has: name (str), industry (str), health_score (int 0-100),and risk_level (one of "healthy", "at-risk", "critical").+++
++++# Each customer has: name (str), industry (str), health_score (int 0-100),and risk_level (one of "healthy", "at-risk", "critical").+++
 
-+++\\ Generate a list of exactly 10 diverse customers across different industries.+++
++++# Generate a list of exactly 10 diverse customers across different industries.+++
 
 3.  **Pause and observe.** Copilot offers dimmed ghost text suggestions
     as you type: sometimes the completion of the current line, sometimes
@@ -256,7 +256,7 @@ prompt would be insufficient.
 
 4.  Open your browser and navigate to +++http://127.0.0.1:5000+++
 
-    ![](./media/image2.gif)](http://127.0.0.1:5000/)**​**
+    ![](./media/image2.gif)
 
     ![](./media/image16.png)
 

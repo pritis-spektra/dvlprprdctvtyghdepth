@@ -1,10 +1,10 @@
-## Exercise 4: Refactoring Documentation and Technical Design Using GitHub Copilot
+﻿## Lab 4: Refactoring Documentation and Technical Design Using GitHub Copilot
 
 ### Estimated Duration: 75 Minutes
 
 ## Overview
 
-In this exercise, you will learn how GitHub Copilot improves **developer productivity** by:
+In this lab, you will learn how GitHub Copilot improves **developer productivity** by:
 
 - Migrating code from documentation into a working project
 
@@ -20,7 +20,7 @@ This mirrors real-world development, where **documentation exists before or alon
 
 ## Objectives
 
-In this exercise, you will complete the following tasks:
+In this lab, you will complete the following tasks:
 
    - Task 1: Prepare Copilot Instructions
    - Task 2: Generate Code from Documentation
@@ -245,7 +245,7 @@ Extend functionality safely.
 
 ## Review
 
-In this exercise, you have completed the following:
+In this lab, you have completed the following:
 
    - Prepared Copilot custom instructions using copilot-instructions.md
    - Generated a Spring Boot application from existing Markdown documentation
@@ -254,7 +254,7 @@ In this exercise, you have completed the following:
    - Extended repository capabilities using Spring Data JPA
    - Generated JavaDoc documentation with Copilot assistance
 
-### You have successfully completed the exercise!
-### In the Lab Guide section, click the **Next >>** button to proceed to Exercise 5.
+### You have successfully completed the lab!
+### In the Lab Guide section, click the **Next >>** button to proceed to Lab 5.
 
 ![](media/up4.png)

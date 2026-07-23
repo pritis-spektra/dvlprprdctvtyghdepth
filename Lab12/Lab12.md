@@ -1,4 +1,4 @@
-## Exercise 12: Building a Flask Customer Health Dashboard Using GitHub Copilot (Optional)
+﻿## Lab 12: Building a Flask Customer Health Dashboard Using GitHub Copilot (Optional)
 
 ### Estimated Duration: 60 Minutes
 
@@ -8,7 +8,7 @@ You are a developer on a Customer Success team. Your product manager has request
 
 ## Objectives
 
-In this exercise, you will complete the following tasks:
+In this lab, you will complete the following tasks:
 
    - Task 1: Understand the Problem (Human Reasoning)
    - Task 2: Use GitHub Copilot to Scaffold the Mock Data Module
@@ -260,7 +260,7 @@ This step uses **Copilot Chat** for a larger, multi-concern generation (HTML + B
 
 ## Review
 
-In this exercise, you have completed the following:
+In this lab, you have completed the following:
 
    - Reasoned about architecture and design decisions before writing any code
    - Used intent-driven comments to scaffold a mock customer data module with Copilot
@@ -269,6 +269,6 @@ In this exercise, you have completed the following:
    - Validated the running application against a structured checklist
    - Used /fix to debug any errors with Copilot assistance
 
-### You have successfully completed the exercise!
+### You have successfully completed the lab!
 
 ![](media/up4.png)

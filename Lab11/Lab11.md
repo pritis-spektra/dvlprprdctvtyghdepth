@@ -1,4 +1,4 @@
-## Exercise 11: Fixing a Production Incident Using GitHub Copilot Agent Mode (Optional)
+﻿## Lab 11: Fixing a Production Incident Using GitHub Copilot Agent Mode (Optional)
 
 ### Estimated Duration: 90 Minutes
 
@@ -26,7 +26,7 @@ You open VS Code. You have GitHub Copilot with Agent Mode.
 
 ## Objectives
 
-In this exercise, you will complete the following tasks:
+In this lab, you will complete the following tasks:
 
    - Exercise 1, Task 1: TRIAGE — Human Reasoning: Read the Incident Log First
    - Exercise 1, Task 2: Use Copilot Chat to Confirm the Diagnosis
@@ -293,7 +293,7 @@ In this exercise, you will complete the following tasks:
 
 ## Review
 
-In this exercise, you have completed the following:
+In this lab, you have completed the following:
 
    - Applied a triage-first approach to prioritize fixes by business impact
    - Used Copilot Chat to confirm the diagnosis by cross-referencing incident logs with source code
@@ -303,7 +303,7 @@ In this exercise, you have completed the following:
    - Fixed a key naming inconsistency across multiple files using Agent Mode's multi-file awareness
    - Restored failing unit tests after all fixes were applied
 
-### You have successfully completed the exercise!
-### In the Lab Guide section, click the **Next >>** button to proceed to Exercise 12.
+### You have successfully completed the lab!
+### In the Lab Guide section, click the **Next >>** button to proceed to Lab 12.
 
 ![](media/up4.png)

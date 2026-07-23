@@ -1,10 +1,10 @@
-## Exercise 6: Building and Using MCP Servers with GitHub Copilot (Optional)
+﻿## Lab 6: Building and Using MCP Servers with GitHub Copilot (Optional)
 
 ### Estimated Duration: 60 Minutes
 
 ## Overview
 
-In this exercise, you will learn how to:
+In this lab, you will learn how to:
 
 - Understand the **Model Context Protocol (MCP)**
 
@@ -18,7 +18,7 @@ In this exercise, you will learn how to:
 
 ## Objectives
 
-In this exercise, you will complete the following tasks:
+In this lab, you will complete the following tasks:
 
    - Task 1: Create Your First MCP Server using GitHub Copilot
    - Task 2: Create MCPClient.java
@@ -147,7 +147,7 @@ Create a minimal MCP server that Copilot can connect to.
 
 ## Review
 
-In this exercise, you have completed the following:
+In this lab, you have completed the following:
 
    - Understood MCP concepts and architecture
    - Used GitHub Copilot Agent Mode to create a custom Java-based MCP server
@@ -155,7 +155,7 @@ In this exercise, you have completed the following:
    - Created an MCP client to connect to the server, list available tools, and invoke them programmatically
    - Handled error scenarios such as division by zero
 
-### You have successfully completed the exercise!
-### In the Lab Guide section, click the **Next >>** button to proceed to Exercise 7.
+### You have successfully completed the lab!
+### In the Lab Guide section, click the **Next >>** button to proceed to Lab 7.
 
 ![](media/up4.png)

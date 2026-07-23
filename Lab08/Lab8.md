@@ -1,4 +1,4 @@
-## Exercise 8: Improving Code Quality and Maintainability with GitHub Copilot
+﻿## Lab 8: Improving Code Quality and Maintainability with GitHub Copilot
 
 ### Estimated Duration: 90 Minutes
 
@@ -10,11 +10,11 @@ Your tech lead's message reads:
 
 *"The order processor works, but it's a mess. No tests, no docs, cryptic names everywhere, copy-paste logic all over the place. We need you to clean it up before we can add the new discount feature next sprint. Don't break anything."*
 
-In this exercise, you'll use GitHub Copilot as your AI pair programmer to **understand, refactor, test, and document** inherited code while maintaining a **code review mindset** at every step.
+In this lab, you'll use GitHub Copilot as your AI pair programmer to **understand, refactor, test, and document** inherited code while maintaining a **code review mindset** at every step.
 
 ## Objectives
 
-In this exercise, you will complete the following tasks:
+In this lab, you will complete the following tasks:
 
    - Task 1: Understand the Problem — Human Reasoning First
    - Task 2: Use GitHub Copilot to Analyze and Explain the Code
@@ -364,7 +364,7 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
 ## Review
 
-In this exercise, you have completed the following:
+In this lab, you have completed the following:
 
    - Analyzed inherited code for code smells before using Copilot
    - Used Copilot /explain to understand existing behavior
@@ -373,7 +373,7 @@ In this exercise, you have completed the following:
    - Applied incremental refactoring passes: variable naming, constants, deduplication, and helper extraction
    - Validated all changes with a test-then-refactor-then-test cycle
 
-### You have successfully completed the exercise!
-### In the Lab Guide section, click the **Next >>** button to proceed to Exercise 9.
+### You have successfully completed the lab!
+### In the Lab Guide section, click the **Next >>** button to proceed to Lab 9.
 
 ![](media/up4.png)

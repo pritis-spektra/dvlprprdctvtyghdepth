@@ -1,14 +1,14 @@
-## Exercise 1: Using GitHub Copilot to Build and Improve Automated Tests for a Java REST API
+## Lab 1: Using GitHub Copilot to Build and Improve Automated Tests for a Java REST API
 
 ### Estimated Duration: 90 Minutes
 
 ## Overview
 
-This exercise helps developers learn how to **use GitHub Copilot effectively and responsibly** while working with an existing Java Spring Boot application. Rather than generating code blindly, learners will practice using Copilot to understand unfamiliar APIs, create unit tests across multiple layers, extend functionality, and improve test quality - while retaining full developer judgment and control.
+This Lab helps developers learn how to **use GitHub Copilot effectively and responsibly** while working with an existing Java Spring Boot application. Rather than generating code blindly, learners will practice using Copilot to understand unfamiliar APIs, create unit tests across multiple layers, extend functionality, and improve test quality - while retaining full developer judgment and control.
 
 ## Objectives
 
-In this exercise, you will complete the following tasks:
+In this Lab, you will complete the following tasks:
 
    - Task 0: Activate and Configure GitHub Copilot Subscription
    - Task 1: Understand the API
@@ -19,7 +19,7 @@ In this exercise, you will complete the following tasks:
 
 **Prerequisites**
 
-Before starting this exercise, ensure the following are installed and configured:
+Before starting this Lab, ensure the following are installed and configured:
 
 - Visual Studio Code (or another Copilot-supported IDE)
 
@@ -402,27 +402,44 @@ The controller layer exposes the REST API. This task focuses on verifying HTTP b
 
    ![Image](./media/image30.png)
 
-1. Run below command to test – `mvn test` (it will fail if package declaration is not matching).
+1. Run the following command to execute the tests:
+
+   ```
+   mvn test
+   ```
 
    ![Image](./media/image31.png)
 
-1. Select the test class and ask Copilot in Agent mode to fix the error with the command - `/fix`.
+   > **Two outcomes are possible depending on the package Copilot generated:**
+   >
+   >- **If the build passes (BUILD SUCCESS)** — Copilot already generated the correct package declaration (`com.example.demo`). You can proceed to the next task.
+   >
+   >- **If the build fails with an error** — This typically means Copilot used a wrong package (`com.example` instead of `com.example.demo`). Open `EmployeeControllerTest.java` and check line 1. If you see `package com.example;`, follow the steps below to fix it.
+
+1. *(Only if build failed)* Open `EmployeeControllerTest.java` and verify the package declaration on line 1. It must match the main application package:
+
+   - **Incorrect:** `package com.example;`
+   - **Correct:** `package com.example.demo;`
+
+   If the package is wrong, change it manually or ask Copilot to fix it:
+
+   - Select the test class, then in Copilot Chat (Agent mode) type `/fix` and let Copilot suggest the correction.
 
    ![Image](./media/image32.png)
 
-1. GitHub Copilot may suggest improvements beyond fixing test failures, such as recommending better REST semantics (e.g., returning 404 instead of 200). These suggestions are advisory. Only apply them if the lab explicitly asks for API refactoring.
+1. *(Only if build failed)* GitHub Copilot may suggest improvements beyond fixing the package error, such as recommending better REST semantics (e.g., returning 404 instead of 200). These suggestions are advisory — only apply them if the lab explicitly asks for API refactoring.
 
    ![Image](./media/image33.png)
 
-1. Change the package from **package com.example;** to `package com.example.demo;` and then run `mvn test`.
+1. *(Only if build failed)* Change line 1 from `package com.example;` to `package com.example.demo;`, save the file, and then re-run:
+
+   ```
+   mvn test
+   ```
+
+   The build should now pass with **BUILD SUCCESS**.
 
    ![Image](./media/image34.png)
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex1-task4-lab01-controller-tests" />
 
 ### Task 5: Add a New API Operation
 
@@ -462,15 +479,9 @@ This task simulates a real development scenario: extending an existing applicati
 
    ![Image](./media/image41.png)
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex1-task5-lab01-new-api-operation" />
-
 ## Review
 
-In this exercise, you have completed the following:
+In this Lab, you have completed the following:
 
    - Used Copilot to understand and document existing APIs
    - Written unit tests for repository, service, and controller layers
@@ -478,7 +489,7 @@ In this exercise, you have completed the following:
    - Extended an application with new functionality using Copilot assistance
    - Analyzed and improved test quality and coverage
 
-### You have successfully completed the exercise!
-### In the Lab Guide section, click the **Next >>** button to proceed to Exercise 2.
+### You have successfully completed the Lab!
+### In the Lab Guide section, click the **Next >>** button to proceed to Lab 2.
 
 ![](media/up4.png)

@@ -1,4 +1,4 @@
-## Exercise 9: Building Rapid Full-Stack Application Prototyping with GitHub Copilot
+﻿## Lab 9: Building Rapid Full-Stack Application Prototyping with GitHub Copilot
 
 ### Estimated Duration: 90 Minutes
 
@@ -14,7 +14,7 @@ This is exactly the kind of **rapid prototyping task** where GitHub Copilot tran
 
 ## Objectives
 
-In this exercise, you will complete the following tasks:
+In this lab, you will complete the following tasks:
 
    - Task 0: Environment Setup
    - Task 1: Understand the Problem — Think Before You Prompt
@@ -24,7 +24,7 @@ In this exercise, you will complete the following tasks:
    - Task 5: Iterative Enhancement — Add a Feature with Edit Mode
    - Task 6: Document the Prototype with /doc
 
-> **Note:** This exercise starts from a **completely empty folder**. That is the point — we're testing Copilot's ability to scaffold from zero.
+> **Note:** This lab starts from a **completely empty folder**. That is the point — we're testing Copilot's ability to scaffold from zero.
 
 ### Task 0: Environment Setup
 
@@ -334,7 +334,7 @@ The VP will be more impressed if the dashboard shows a **summary bar** at the to
 
 ## Review
 
-In this exercise, you have completed the following:
+In this lab, you have completed the following:
 
    - Decomposed a vague business request into a clear technical spec before using Copilot
    - Used Ask Mode to validate design decisions (color logic, data structure)
@@ -343,7 +343,7 @@ In this exercise, you have completed the following:
    - Iteratively enhanced the prototype by adding a summary metrics bar
    - Generated module and route documentation using /doc
 
-### You have successfully completed the exercise!
-### In the Lab Guide section, click the **Next >>** button to proceed to Exercise 10.
+### You have successfully completed the lab!
+### In the Lab Guide section, click the **Next >>** button to proceed to Lab 10.
 
 ![](media/up4.png)

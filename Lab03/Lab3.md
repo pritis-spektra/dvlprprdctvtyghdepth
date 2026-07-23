@@ -1,10 +1,10 @@
-## Exercise 3: Creating and Improving Documentation with GitHub Copilot
+﻿## Lab 3: Creating and Improving Documentation with GitHub Copilot
 
 ### Estimated Duration: 75 Minutes
 
 ## Overview
 
-In this exercise, you will focus on **documentation as a core developer skill**, using GitHub Copilot to assist with creating, reviewing, and improving documentation for a Java Spring Boot application.
+In this lab, you will focus on **documentation as a core developer skill**, using GitHub Copilot to assist with creating, reviewing, and improving documentation for a Java Spring Boot application.
 
 Good documentation is essential for:
 
@@ -16,11 +16,11 @@ Good documentation is essential for:
 
 - Reducing defects caused by incorrect assumptions
 
-Rather than writing documentation manually from scratch, this exercise demonstrates how **GitHub Copilot can accelerate documentation tasks** while developers remain responsible for accuracy, clarity, and correctness.
+Rather than writing documentation manually from scratch, this lab demonstrates how **GitHub Copilot can accelerate documentation tasks** while developers remain responsible for accuracy, clarity, and correctness.
 
 ## Objectives
 
-In this exercise, you will complete the following tasks:
+In this lab, you will complete the following tasks:
 
    - Task 1: Understand and Document the API
    - Task 2: Add Swagger (OpenAPI) Documentation
@@ -30,7 +30,7 @@ In this exercise, you will complete the following tasks:
 
 **Prerequisites**
 
-Before starting this exercise, ensure the following:
+Before starting this lab, ensure the following:
 
 - Visual Studio Code (or another Copilot-supported IDE)
 
@@ -278,7 +278,7 @@ Update the API documentation with the new information. Generate two different ma
 
 ## Review
 
-In this exercise, you have completed the following:
+In this lab, you have completed the following:
 
    - Used GitHub Copilot to understand the REST API and generate functional API documentation
    - Added Swagger (OpenAPI) support to the Spring Boot project
@@ -286,7 +286,7 @@ In this exercise, you have completed the following:
    - Structured documentation into functional and technical views for different audiences
    - Validated API behavior using curl commands
 
-### You have successfully completed the exercise!
-### In the Lab Guide section, click the **Next >>** button to proceed to Exercise 4.
+### You have successfully completed the lab!
+### In the Lab Guide section, click the **Next >>** button to proceed to Lab 4.
 
 ![](media/up4.png)

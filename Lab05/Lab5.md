@@ -1,10 +1,10 @@
-## Exercise 5: Exploring GitHub Copilot Modes — Autocomplete, Chat, Agent, and Custom Prompts (Optional)
+﻿## Lab 5: Exploring GitHub Copilot Modes — Autocomplete, Chat, Agent, and Custom Prompts (Optional)
 
 ### Estimated Duration: 75 Minutes
 
 ## Overview
 
-In this exercise, you will learn how to use **GitHub Copilot** effectively by working through a series of hands-on challenges. You will practice using different Copilot modes and features to:
+In this lab, you will learn how to use **GitHub Copilot** effectively by working through a series of hands-on challenges. You will practice using different Copilot modes and features to:
 
 - Write code using inline suggestions (Autocomplete)
 
@@ -14,11 +14,11 @@ In this exercise, you will learn how to use **GitHub Copilot** effectively by wo
 
 - Create reusable prompt files for explaining code, reviewing code, and generating tests
 
-This exercise focuses on **developer productivity** and **learning how to guide Copilot**, not just accepting suggestions.
+This lab focuses on **developer productivity** and **learning how to guide Copilot**, not just accepting suggestions.
 
 ## Objectives
 
-In this exercise, you will complete the following tasks:
+In this lab, you will complete the following tasks:
 
    - Task 1: Basic Copilot Autocomplete
    - Task 2: Copilot Chat
@@ -27,7 +27,7 @@ In this exercise, you will complete the following tasks:
 
 **Prerequisites**
 
-Before starting this exercise, make sure you have:
+Before starting this lab, make sure you have:
 
 - Visual Studio Code installed
 
@@ -330,14 +330,14 @@ Learn how to create reusable Markdown files (\*.prompt.md) that define prompts f
 
 ## Review
 
-In this exercise, you have completed the following:
+In this lab, you have completed the following:
 
    - Used Copilot Autocomplete (inline ghost text) driven by natural language comments
    - Used Copilot Chat to ask questions, understand errors, and debug a NullPointerException
    - Used Copilot Agent mode for multi-file refactoring and test generation
    - Created reusable custom prompt files for explaining, reviewing, and testing Java code
 
-### You have successfully completed the exercise!
-### In the Lab Guide section, click the **Next >>** button to proceed to Exercise 6.
+### You have successfully completed the lab!
+### In the Lab Guide section, click the **Next >>** button to proceed to Lab 6.
 
 ![](media/up4.png)

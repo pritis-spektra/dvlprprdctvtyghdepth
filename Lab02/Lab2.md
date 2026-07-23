@@ -1,23 +1,23 @@
-## Exercise 2: Diagnosing and Fixing Java Application Errors Using GitHub Copilot
+﻿## Lab 2: Diagnosing and Fixing Java Application Errors Using GitHub Copilot
 
 ### Estimated Duration: 90 Minutes
 
 ## Overview
 
-In this exercise, you will focus on **troubleshooting, debugging, and validating a Java Spring Boot application** with the assistance of GitHub Copilot. Rather than writing new functionality, the emphasis is on **understanding failures, identifying root causes, and applying fixes responsibly**.
+In this lab, you will focus on **troubleshooting, debugging, and validating a Java Spring Boot application** with the assistance of GitHub Copilot. Rather than writing new functionality, the emphasis is on **understanding failures, identifying root causes, and applying fixes responsibly**.
 
-Modern developers spend a significant portion of their time debugging broken builds, failing tests, and incorrect application behavior. This exercise demonstrates how **GitHub Copilot can act as a debugging partner** — helping developers analyze errors, explain failures, and propose fixes — while **developers retain decision-making authority**.
+Modern developers spend a significant portion of their time debugging broken builds, failing tests, and incorrect application behavior. This lab demonstrates how **GitHub Copilot can act as a debugging partner** — helping developers analyze errors, explain failures, and propose fixes — while **developers retain decision-making authority**.
 
 ## Objectives
 
-In this exercise, you will complete the following tasks:
+In this lab, you will complete the following tasks:
 
    - Task 1: Understand the API (Reinforcement)
    - Task 2: Debug and Solve Compile Errors Using GitHub Copilot
 
 **Prerequisites**
 
-Before starting this exercise, ensure the following are available:
+Before starting this lab, ensure the following are available:
 
 - Visual Studio Code (or another Copilot-supported IDE)
 
@@ -410,7 +410,7 @@ This task focuses on using **GitHub Copilot as a troubleshooting assistant** to:
 
 ## Review
 
-In this exercise, you have completed the following:
+In this lab, you have completed the following:
 
    - Analyzed API behavior and prepared documentation using GitHub Copilot
    - Interpreted Maven and Java compilation errors
@@ -418,7 +418,7 @@ In this exercise, you have completed the following:
    - Validated fixes using automated tests and curl commands
    - Applied responsible AI-assisted debugging in real-world development workflows
 
-### You have successfully completed the exercise!
-### In the Lab Guide section, click the **Next >>** button to proceed to Exercise 3.
+### You have successfully completed the lab!
+### In the Lab Guide section, click the **Next >>** button to proceed to Lab 3.
 
 ![](media/up4.png)

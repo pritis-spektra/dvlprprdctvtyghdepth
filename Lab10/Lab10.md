@@ -1,4 +1,4 @@
-## Exercise 10: Debugging and Fixing a Buggy Node.js REST API with GitHub Copilot
+﻿## Lab 10: Debugging and Fixing a Buggy Node.js REST API with GitHub Copilot
 
 ### Estimated Duration: 120 Minutes
 
@@ -12,7 +12,7 @@ Your task is to **use GitHub Copilot** as your AI pair-programming assistant to 
 
 ## Objectives
 
-In this exercise, you will complete the following tasks:
+In this lab, you will complete the following tasks:
 
    - Task 1: Understand the Problem (Human Reasoning First)
    - Task 2: Use GitHub Copilot to Analyze and Explore the Codebase
@@ -439,7 +439,7 @@ This file has **11 bugs**. Let's use Copilot Agent mode — the next evolution i
 
 ## Review
 
-In this exercise, you have completed the following:
+In this lab, you have completed the following:
 
    - Assessed buggy Node.js code as a developer before using Copilot
    - Used /explain to understand and analyze unfamiliar code and bugs
@@ -448,7 +448,7 @@ In this exercise, you have completed the following:
    - Used Agent Mode to fix complex multi-bug files in src/utils/helpers.js
    - Validated all fixes by running the API and testing endpoints with curl
 
-### You have successfully completed the exercise!
-### In the Lab Guide section, click the **Next >>** button to proceed to Exercise 11.
+### You have successfully completed the lab!
+### In the Lab Guide section, click the **Next >>** button to proceed to Lab 11.
 
 ![](media/up4.png)

@@ -1,4 +1,4 @@
-## Exercise 7: Building a Task Management REST API with GitHub Copilot as an AI Pair Programmer
+﻿## Lab 7: Building a Task Management REST API with GitHub Copilot as an AI Pair Programmer
 
 ### Estimated Duration: 120 Minutes
 
@@ -8,11 +8,11 @@ You have just joined **ZavaTask Inc.**, a mid-size SaaS company. Your team lead 
 
 Your manager says: *"Use GitHub Copilot to accelerate, but you own the quality. Every line of code ships under your name."*
 
-This exercise simulates that real-world scenario. You will scaffold, build, test, and document the service — using GitHub Copilot as your AI pair programmer at every step — while learning **when to accept, when to refine, and when to reject** its suggestions.
+This lab simulates that real-world scenario. You will scaffold, build, test, and document the service — using GitHub Copilot as your AI pair programmer at every step — while learning **when to accept, when to refine, and when to reject** its suggestions.
 
 ## Objectives
 
-In this exercise, you will complete the following tasks:
+In this lab, you will complete the following tasks:
 
    - Task 1: Understand the Problem (Human Reasoning — No Copilot Yet)
    - Task 2: Scaffold the Project Using Natural Language Comments
@@ -502,7 +502,7 @@ Now let's use Copilot to improve what we've built.
 
 ## Review
 
-In this exercise, you have completed the following:
+In this lab, you have completed the following:
 
    - Reasoned about architecture before using Copilot (human-first approach)
    - Scaffolded a Flask REST API using natural language comments and Copilot Chat
@@ -510,7 +510,7 @@ In this exercise, you have completed the following:
    - Refactored the application to improve code quality and consistency
    - Generated unit tests using Copilot's /tests command and inline suggestions
 
-### You have successfully completed the exercise!
-### In the Lab Guide section, click the **Next >>** button to proceed to Exercise 8.
+### You have successfully completed the lab!
+### In the Lab Guide section, click the **Next >>** button to proceed to Lab 8.
 
 ![](media/up4.png)

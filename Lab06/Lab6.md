@@ -1,8 +1,10 @@
-# Lab 06 – Building and Using MCP Servers with GitHub Copilot (Optional)
+## Exercise 6: Building and Using MCP Servers with GitHub Copilot (Optional)
 
-**Objective**
+### Estimated Duration: 60 Minutes
 
-In this lab, you will learn how to:
+## Overview
+
+In this exercise, you will learn how to:
 
 - Understand the **Model Context Protocol (MCP)**
 
@@ -12,132 +14,148 @@ In this lab, you will learn how to:
 
 - Use **GitHub Copilot Agent Mode** with MCP servers
 
-- Consume both **custom MCPs** and **prebuilt MCPs** (Playwright,
-  Microsoft Learn)
+- Consume both **custom MCPs** and **prebuilt MCPs** (Playwright, Microsoft Learn)
 
-## Exercise 1 : Creating Your Own MCP Server
+## Objectives
 
-### Task 1 : Create Your First MCP Server using GitHub Copilot
+In this exercise, you will complete the following tasks:
+
+   - Task 1: Create Your First MCP Server using GitHub Copilot
+   - Task 2: Create MCPClient.java
+
+### Task 1: Create Your First MCP Server using GitHub Copilot
 
 Create a minimal MCP server that Copilot can connect to.
 
-1. Navigate to lab-06-MCP and then open GitHub Copilot Chat and ask Copilot below prompt in Agent mode+ Claude Sonnet 4.6 model.
-    ```
-    @workspace I need to create a Maven project structure for lab-06-mcp. 
-    The project should be a Model Context Protocol (MCP) server in Java.
-    Please create:
-    - src/main/java/com/example/mcp directory structure
-    - src/test/java/com/example/mcp directory structure
-    - Basic McpServer.java main class
-    - Sample tool implementation
-    ```
-2. Copilot will provide terminal commands or file creation instruction
+1. Navigate to **lab-06-MCP** and then open GitHub Copilot Chat and ask Copilot the below prompt in Agent mode + Claude Sonnet 4.6 model:
 
-3.  In Visual Studio Code and navigate to **Lab-06-mcp-java-src/main/java/com/example/mcp/** and create a file +++MCPServer.java+++
+   ```
+   @workspace I need to create a Maven project structure for lab-06-mcp.
+   The project should be a Model Context Protocol (MCP) server in Java.
+   Please create:
+   - src/main/java/com/example/mcp directory structure
+   - src/test/java/com/example/mcp directory structure
+   - Basic McpServer.java main class
+   - Sample tool implementation
+   ```
 
-    ![](./media/image1.png)
+1. Copilot will provide terminal commands or file creation instructions.
 
-4.  Enter below prompt in agent mode of GitHub Copilot chat
+1. In Visual Studio Code, navigate to **Lab-06-mcp-java-src/main/java/com/example/mcp/** and create a file +++MCPServer.java+++.
 
-    ```
-    Create a minimal MCP server using the MCP Java SDK (0.16.0).
-    Use STDIO transport.
-    Set server name to demo-mcp-server and version 1.0.0.
-    Extend MCPServer.java to register the following tools:
-    add, subtract, multiply, divide.
-    Each tool:
-    - Accepts two numbers
-    - Returns the result
-    - Handles division by zero as an error
-    ```
+   ![Image](./media/image1.png)
 
-    ![](./media/image2.png)
+1. Enter the below prompt in Agent mode of GitHub Copilot Chat:
 
-5.  Keep allowing the response request as Copilot perform:
+   ```
+   Create a minimal MCP server using the MCP Java SDK (0.16.0).
+   Use STDIO transport.
+   Set server name to demo-mcp-server and version 1.0.0.
+   Extend MCPServer.java to register the following tools:
+   add, subtract, multiply, divide.
+   Each tool:
+   - Accepts two numbers
+   - Returns the result
+   - Handles division by zero as an error
+   ```
 
-    - Analyzed MCP SDK structure
+   ![Image](./media/image2.png)
 
-    - Adjusted JSON mapper usage
+1. Keep allowing the response request as Copilot performs:
 
-    - Updated pom.xml
+   - Analyzed MCP SDK structure
 
-    - Created MCPServer.java
+   - Adjusted JSON mapper usage
 
-    - Removed .gitkeep placeholders
+   - Updated pom.xml
 
-    ![](./media/image3.png)
-    
-    ![](./media/image4.png)
+   - Created MCPServer.java
 
-6.  Review the response and then Allow the Copilot to create below tools:
+   - Removed .gitkeep placeholders
 
-    - add - adds two numbers
+   ![Image](./media/image3.png)
 
-    - subtract - subtracts two numbers
+   ![Image](./media/image4.png)
 
-    - multiply - multiplies two numbers
+1. Review the response and then allow Copilot to create the below tools:
 
-    - divide - divides two numbers (with error handling for division by
-    zero)
+   - add - adds two numbers
 
-    ![](./media/image5.png)
+   - subtract - subtracts two numbers
 
-7.  Open the **Terminal-Git Bash** and run below command to run the server. Make sure Server is
-    up and running:
-    ++++cd github-copilot-workshops-labs-java/lab-06-mcp/java/+++
+   - multiply - multiplies two numbers
 
-    ```
-    mvn exec:java
-    ```
+   - divide - divides two numbers (with error handling for division by zero)
 
-    ![](./media/image6.png)
+   ![Image](./media/image5.png)
 
-## Task 2 : Create MCPClient.java 
+1. Open the **Terminal -> Git Bash** and run the below command to run the server. Make sure the server is up and running:
 
-1.  Enter the below prompt in Copilot
+   +++cd github-copilot-workshops-labs-java/lab-06-mcp/java/+++
 
-    ```
-    Create a Java MCP client in package com.example.mcp that:
-    - Connects to the MCP server via STDIO
-    - Lists available tools
-    - Calls each math tool
-    - Demonstrates division by zero error handling
-    ```
+   ```
+   mvn exec:java
+   ```
 
-    ![](./media/image7.png)
+   ![Image](./media/image6.png)
 
-2.  Allow tool results to create:
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex6-task1-lab06-mcp-server" />
 
-    ![](./media/image8.png)
-    
-    ![](./media/image9.png)
+### Task 2: Create MCPClient.java
 
-    ![](./media/image10.png)
+1. Enter the below prompt in Copilot:
 
-3.  MCPClient got created. Allow Copilot to compile:
+   ```
+   Create a Java MCP client in package com.example.mcp that:
+   - Connects to the MCP server via STDIO
+   - Lists available tools
+   - Calls each math tool
+   - Demonstrates division by zero error handling
+   ```
 
-    ![](./media/image11.png)
+   ![Image](./media/image7.png)
 
-4.  now run the client:
+1. Allow tool results to create:
 
-    ```
-    mvn package -q; mvn exec:java '-Dexec.mainClass=com.example.mcp.MCPClient'
-    ```
+   ![Image](./media/image8.png)
 
-    ![](./media/image12.png)
+   ![Image](./media/image9.png)
 
-## Summary :
+   ![Image](./media/image10.png)
 
-In this lab, you explored how GitHub Copilot can be extended beyond code
-suggestions by building and using Model Context Protocol (MCP) servers.
-You started by understanding MCP concepts and architecture, then used
-GitHub Copilot Agent Mode to create a custom Java-based MCP server.
-Copilot assisted with generating server code, configuring transports,
-handling dependencies, and exposing executable math tools that could be
-discovered and invoked by Copilot itself. You also created an MCP client
-to connect to the server, list available tools, invoke them
-programmatically, and handle error scenarios such as division by zero.
-Finally, you learned how MCP enables GitHub Copilot to act as an
-intelligent agent that can discover, call, and orchestrate external
-capabilities, demonstrating a significant leap in developer productivity
-and extensibility.
+1. MCPClient got created. Allow Copilot to compile:
+
+   ![Image](./media/image11.png)
+
+1. Now run the client:
+
+   ```
+   mvn package -q; mvn exec:java '-Dexec.mainClass=com.example.mcp.MCPClient'
+   ```
+
+   ![Image](./media/image12.png)
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex6-task2-lab06-mcp-client" />
+
+## Review
+
+In this exercise, you have completed the following:
+
+   - Understood MCP concepts and architecture
+   - Used GitHub Copilot Agent Mode to create a custom Java-based MCP server
+   - Exposed executable math tools (add, subtract, multiply, divide) discoverable by Copilot
+   - Created an MCP client to connect to the server, list available tools, and invoke them programmatically
+   - Handled error scenarios such as division by zero
+
+### You have successfully completed the exercise!
+### In the Lab Guide section, click the **Next >>** button to proceed to Exercise 7.
+
+![](media/up4.png)

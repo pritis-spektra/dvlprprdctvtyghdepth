@@ -1,24 +1,33 @@
-# Lab 5: Exploring GitHub Copilot modes — Autocomplete, Chat, Agent, and Custom Prompts (Optional)
+## Exercise 5: Exploring GitHub Copilot Modes — Autocomplete, Chat, Agent, and Custom Prompts (Optional)
 
-In this lab, you will learn how to use **GitHub Copilot** effectively by
-working through a series of hands‑on challenges. You will practice using
-different Copilot modes and features to:
+### Estimated Duration: 75 Minutes
+
+## Overview
+
+In this exercise, you will learn how to use **GitHub Copilot** effectively by working through a series of hands-on challenges. You will practice using different Copilot modes and features to:
 
 - Write code using inline suggestions (Autocomplete)
 
 - Ask questions and debug code using Copilot Chat
 
-- Perform multi‑file changes using Copilot Agent mode
+- Perform multi-file changes using Copilot Agent mode
 
-- Create reusable prompt files for explaining code, reviewing code, and
-  generating tests
+- Create reusable prompt files for explaining code, reviewing code, and generating tests
 
-This lab focuses on **developer productivity** and **learning how to
-guide Copilot**, not just accepting suggestions
+This exercise focuses on **developer productivity** and **learning how to guide Copilot**, not just accepting suggestions.
 
-### Prerequisites
+## Objectives
 
-Before starting this lab, make sure you have:
+In this exercise, you will complete the following tasks:
+
+   - Task 1: Basic Copilot Autocomplete
+   - Task 2: Copilot Chat
+   - Task 3: Copilot Agent Mode
+   - Task 4: Custom Prompt Files/Instructions
+
+**Prerequisites**
+
+Before starting this exercise, make sure you have:
 
 - Visual Studio Code installed
 
@@ -30,292 +39,305 @@ Before starting this lab, make sure you have:
 
 - Basic understanding of Java and Spring Boot concepts
 
-## Task 1 : Basic Copilot Autocomplete
+### Task 1: Basic Copilot Autocomplete
 
 Learn how Copilot generates code using **comments as intent**.
 
-1.  Navigate to **lab lab-05-agents\java\src\main\java\com\example\demo**
-    and open the file **EmployeeController.java.**
+1. Navigate to **lab-05-agents\java\src\main\java\com\example\demo** and open the file **EmployeeController.java**.
 
-    ![](./media/image1.png)
+   ![Image](./media/image1.png)
 
-2.  Scroll to an empty line inside the class. type the following comment.Press **Enter** and pause for a moment.
+1. Scroll to an empty line inside the class. Type the following comment. Press **Enter** and pause for a moment.
 
-    +++//Method to check if a number is prime+++
+   +++//Method to check if a number is prime+++
 
-    ![](./media/image2.png)
+   ![Image](./media/image2.png)
 
-3.  Observe Copilot’s inline suggestion. Press **Tab** to accept the suggestion.
+1. Observe Copilot's inline suggestion. Press **Tab** to accept the suggestion.
 
-    ![](./media/image3.png)
+   ![Image](./media/image3.png)
 
-4.  Try another function, for instance. Accept the suggested method. Edit the generated code and see if more relevant suggestions appear.
+1. Try another function, for instance. Accept the suggested method. Edit the generated code and see if more relevant suggestions appear.
 
-    +++//Method to compute factorial of a number+++
+   +++//Method to compute factorial of a number+++
 
-    ![](./media/image4.png)
+   ![Image](./media/image4.png)
 
-## Task 2 : Copilot Chat
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex5-task1-lab05-autocomplete" />
+
+### Task 2: Copilot Chat
 
 Use Copilot Chat to ask questions, learn concepts, and debug issues.
 
-1.  Open Copilot Chat (you can also press Ctrl+Shift+' in VS Code).
+1. Open Copilot Chat (you can also press Ctrl+Shift+' in VS Code).
 
-2.  Ask(Select ask mode) the following questions **one by one** and read
-    the responses carefully. Copilot should provide clear explanations
-    and example code.
+1. Ask (select ask mode) the following questions **one by one** and read the responses carefully. Copilot should provide clear explanations and example code.
 
-    +++How can I inject a service into this controller?+++
+   +++How can I inject a service into this controller?+++
 
-    +++Why am I getting a NullPointerException on line 25?+++
+   +++Why am I getting a NullPointerException on line 25?+++
 
-    +++Show me how to read a file line by line in Java.+++
+   +++Show me how to read a file line by line in Java.+++
 
-    ![](./media/image5.png)
+   ![Image](./media/image5.png)
 
-    ![](./media/image6.png)
+   ![Image](./media/image6.png)
 
-    ![](./media/image7.png)
+   ![Image](./media/image7.png)
 
-5.  Open **EmployeeService.java** under **service**  folder and **set an object to null** and then try to use it.  This causes a **NullPointerException**, a very common Java runtime error.    Modify **getAllEmployees()** method and save the file
-    (Note: we are introducing bug and checking how copilot helps us to fix this )
+1. Open **EmployeeService.java** under the **service** folder and **set an object to null** and then try to use it. This causes a **NullPointerException**, a very common Java runtime error. Modify the **getAllEmployees()** method and save the file (Note: we are introducing a bug and checking how Copilot helps us to fix it):
 
-    ```
-    public List<Employee> getAllEmployees() {
-    EmployeeRepository repo = null;   // intentionally introduced bug
-    return repo.findAll();             // this will cause NullPointerException
-    }   
-    ```
+   ```
+   public List<Employee> getAllEmployees() {
+   EmployeeRepository repo = null;   // intentionally introduced bug
+   return repo.findAll();             // this will cause NullPointerException
+   }
+   ```
 
-    ![](./media/image8.png)
+   ![Image](./media/image8.png)
 
-    Note : We created a variable (repo) and explicitly set it to null .When we try to call a method on it then this will fail.
+   > **Note:** We created a variable (repo) and explicitly set it to null. When we try to call a method on it, this will fail.
 
-6.  Open terminal-GitBash and run the app with below commands. Application will  run
+1. Open terminal -> Git Bash and run the app with the below commands. Application will run:
 
    +++cd github-copilot-workshops-labs-java/lab-05-agents/java/+++
-   
+
    +++mvn spring-boot:run+++
-   
-    ![](./media/image9.png)
 
-7.  Open a browser and navigate to +++http://localhost:8080/api/employees+++ .You can see a **500 Internal Server Error** in the browser
+   ![Image](./media/image9.png)
 
-    ![](./media/image10.png)
+1. Open a browser and navigate to +++http://localhost:8080/api/employees+++. You can see a **500 Internal Server Error** in the browser.
 
-8.  Switch back to terminal and **stack trace** in the terminal contains NullPointerException.
+   ![Image](./media/image10.png)
 
-    ![](./media/image11.png)
+1. Switch back to the terminal and the **stack trace** in the terminal contains NullPointerException.
 
-9.  Select the error message in the terminal or select the buggy method in EmployeeService.java and open Copilot Chat , enter +++/explain+++
+   ![Image](./media/image11.png)
 
-    ![](./media/image12.png)
+1. Select the error message in the terminal or select the buggy method in EmployeeService.java and open Copilot Chat, enter +++/explain+++.
 
-10. Copilot explains- what a NullPointerException is, Which object is null, why repo.findAll() fails and where the issue originates.
+   ![Image](./media/image12.png)
 
-11. Select the agent mode and ask Copilot to fix it with the command +++/terminalfix+++
+1. Copilot explains — what a NullPointerException is, which object is null, why repo.findAll() fails, and where the issue originates.
 
-    ![](./media/image13.png)
+1. Select the agent mode and ask Copilot to fix it with the command +++/terminalfix+++.
 
-12. Review and accept the fix and then re-run the application to check the fix -(Stop the server with Ctrl+ c in terminal)
+   ![Image](./media/image13.png)
 
-    
-    +++mvn spring-boot:run+++
+1. Review and accept the fix and then re-run the application to check the fix (stop the server with Ctrl+C in the terminal):
 
-    ![](./media/image14.png)
+   +++mvn spring-boot:run+++
 
-14. Open a browser and navigate to +++http://localhost:8080/api/employees+++
+   ![Image](./media/image14.png)
 
-    ![](./media/image15.png)
+1. Open a browser and navigate to +++http://localhost:8080/api/employees+++.
 
-## Task 3 : Copilot Agent Mode
+   ![Image](./media/image15.png)
 
-1.  Open the Command Palette: Ctrl + Shift + P .Search for **“Copilot Agent”** and activate it.(You can select Agent mode also)
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex5-task2-lab05-copilot-chat" />
 
-    ![](./media/image16.png)
+### Task 3: Copilot Agent Mode
 
-    ![](./media/image17.png)
+1. Open the Command Palette: Ctrl + Shift + P. Search for **"Copilot Agent"** and activate it (You can also select Agent mode directly).
 
-2.  Assign a high‑level task, for example. Review the **plan** proposed
-    by the Agent.Approve the plan to let Copilot apply changes across files.
+   ![Image](./media/image16.png)
 
-    +++Refactor all controllers to use constructor dependency injection.+++
+   ![Image](./media/image17.png)
 
-    ![](./media/image18.png)
+1. Assign a high-level task, for example. Review the **plan** proposed by the Agent. Approve the plan to let Copilot apply changes across files.
 
-3.  Ask follow‑up questions such as:
+   +++Refactor all controllers to use constructor dependency injection.+++
 
-    +++Explain why this refactor was necessary.+++
-    
-    ![](./media/image19.png)
+   ![Image](./media/image18.png)
 
-4.  Try another Agent task:
+1. Ask follow-up questions such as:
 
-    +++Generate unit tests for all public methods in the service package.+++
+   +++Explain why this refactor was necessary.+++
 
-    ![](./media/image20.png)
+   ![Image](./media/image19.png)
 
-## Task 4: Custom Prompt Files/Instructions 
+1. Try another Agent task:
 
-Learn how to create reusable Markdown files (\*.prompt.md) that define
-prompts for repetitive tasks such as explaining code, generating tests,
-or reviewing PRs. These files are typically stored
-in .github/prompts/ within your repository. In VS Code, you can open
-Copilot Chat and execute the slash command /\<prompt-name\> that matches
-the file name (without extension). Prompts can request inputs
-using ${input:key:label} and run in agent mode.
+   +++Generate unit tests for all public methods in the service package.+++
 
-1.  Navigate to **lab-05-agents/java/.github** and create a folder +++prompts/+++
+   ![Image](./media/image20.png)
 
-    ![](./media/image21.png)
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex5-task3-lab05-agent-mode" />
 
-2.  Create a new file with the name +++explain-java.prompt.md+++ and paste
-    the below prompt:
+### Task 4: Custom Prompt Files/Instructions
 
-    ```
-    ---
-    mode: 'agent'
-    description: 'Explain a Java method in a simple and structured way'
-    ---
-    Please explain the following Java code clearly for the selected audience.
-    **Java code to explain**:
-    ${input:code:Paste the Java code here}
-    **Target audience**:
-    ${input:audience:Who is this for? (beginner/intermediate/advanced)}
-    Your explanation must include:
-    - A short summary of what the code does
-    - A step-by-step breakdown
-    - Explanation of key Java concepts involved
-    - One simple usage example
-    - Common pitfalls or edge cases
-    ```
+Learn how to create reusable Markdown files (\*.prompt.md) that define prompts for repetitive tasks such as explaining code, generating tests, or reviewing PRs. These files are typically stored in `.github/prompts/` within your repository. In VS Code, you can open Copilot Chat and execute the slash command `/\<prompt-name\>` that matches the file name (without extension). Prompts can request inputs using `${input:key:label}` and run in agent mode.
 
-    ![](./media/image22.png)
+1. Navigate to **lab-05-agents/java/.github** and create a folder +++prompts/+++.
 
-3.  Open Copilot Chat and type - +++/explain-java+++ and Copilot recognize it as a custom prompt:
+   ![Image](./media/image21.png)
 
-    ![](./media/image23.png)
+1. Create a new file with the name +++explain-java.prompt.md+++ and paste the below prompt:
 
-4.  Paste this example code when asked and Set the audience to "beginner".
-
-    ```
-    public int fibonacci(int n) {
-    return n <= 1 ? n : fibonacci(n-1) + fibonacci(n-2);
-    }
-    ```
+   ```
+   ---
+   mode: 'agent'
+   description: 'Explain a Java method in a simple and structured way'
+   ---
+   Please explain the following Java code clearly for the selected audience.
+   **Java code to explain**:
+   ${input:code:Paste the Java code here}
+   **Target audience**:
+   ${input:audience:Who is this for? (beginner/intermediate/advanced)}
+   Your explanation must include:
+   - A short summary of what the code does
+   - A step-by-step breakdown
+   - Explanation of key Java concepts involved
+   - One simple usage example
+   - Common pitfalls or edge cases
+   ```
 
-    ![](./media/image24.png)
+   ![Image](./media/image22.png)
 
-5.  Create another file name +++review-java.prompt.md+++ and paste the
-    below content:
+1. Open Copilot Chat and type - +++/explain-java+++ and Copilot will recognize it as a custom prompt:
 
-    ```
-    ---
-    mode: 'agent'
-    description: 'Perform a structured code review for Java code'
-    ---
-    Perform a technical review of the following Java code.
-    **Code to review**:
-    ${input:code:Paste your Java code here}
-    **Focus areas**:
-    ${input:criteria:readability, performance, security, maintainability, testing}
-    Please respond with:
-    - Findings grouped by each selected area
-    - Potential risks and how to fix them
-    - Recommended refactors or Java best practice improvements
-    - Quick wins with priority levels (high/medium/low)
-    ```
+   ![Image](./media/image23.png)
 
-    ![](./media/image25.png)
+1. Paste this example code when asked and set the audience to **"beginner"**:
 
-6.  Go back to Copilot Chat and run: +++/review-java+++
+   ```
+   public int fibonacci(int n) {
+   return n <= 1 ? n : fibonacci(n-1) + fibonacci(n-2);
+   }
+   ```
 
-    ![](./media/image26.png)
+   ![Image](./media/image24.png)
 
-    ![](./media/image27.png)
+1. Create another file named +++review-java.prompt.md+++ and paste the below content:
 
-7.  Paste this code snippet (which has a common Java issue). Copilot
-    should flag potential issues like modifying the input parameter and
-    suggest best practices.
+   ```
+   ---
+   mode: 'agent'
+   description: 'Perform a structured code review for Java code'
+   ---
+   Perform a technical review of the following Java code.
+   **Code to review**:
+   ${input:code:Paste your Java code here}
+   **Focus areas**:
+   ${input:criteria:readability, performance, security, maintainability, testing}
+   Please respond with:
+   - Findings grouped by each selected area
+   - Potential risks and how to fix them
+   - Recommended refactors or Java best practice improvements
+   - Quick wins with priority levels (high/medium/low)
+   ```
 
-    ```
-    public List<Integer> addItems(List<Integer> items) {
-    if (items == null) {
-        items = new ArrayList<>();
-    }
-    for (int i = 0; i < 10; i++) {
-        items.add(i);
-    }
-    return items;
-    }
-    ```
+   ![Image](./media/image25.png)
 
-    ![](./media/image28.png)
+1. Go back to Copilot Chat and run: +++/review-java+++.
 
-8.  Create a file called +++generate-tests-java.prompt.md+++ in **.github/prompts/generate-tests-java.prompt.md** and paste the below content
+   ![Image](./media/image26.png)
 
-    ```
-    ---
-    description: 'Generate JUnit unit tests for a given Java method'
-    ---
-    Write a JUnit test suite for the following Java code.
-    **Code under test**:
-    ${input:code:Paste the Java method or class here}
-    **Test strategy**:
-    ${input:matrix:Describe the edge cases, invalid inputs, and expected failures}
-    Requirements:
-    - Use JUnit 5 conventions
-    - Cover success, edge, and failure scenarios
-    - Use clear and descriptive test names
-    - Include minimal setup and teardown (@BeforeEach, @AfterEach if needed)
-    - Highlight any missing test coverage areas
-    ```
+   ![Image](./media/image27.png)
 
-    ![](./media/image29.png)
+1. Paste this code snippet (which has a common Java issue). Copilot should flag potential issues like modifying the input parameter and suggest best practices:
 
-9.  Enter  in Copilot Chat Agent mode: +++/generate-tests-java+++
+   ```
+   public List<Integer> addItems(List<Integer> items) {
+   if (items == null) {
+       items = new ArrayList<>();
+   }
+   for (int i = 0; i < 10; i++) {
+       items.add(i);
+   }
+   return items;
+   }
+   ```
 
-    ![](./media/image30.png)
+   ![Image](./media/image28.png)
 
-10. Add the below method 
+1. Create a file called +++generate-tests-java.prompt.md+++ in **.github/prompts/generate-tests-java.prompt.md** and paste the below content:
 
-    ```
-    public double divide(double a, double b) {
-    return a / b;
-    }
-    ```
+   ```
+   ---
+   description: 'Generate JUnit unit tests for a given Java method'
+   ---
+   Write a JUnit test suite for the following Java code.
+   **Code under test**:
+   ${input:code:Paste the Java method or class here}
+   **Test strategy**:
+   ${input:matrix:Describe the edge cases, invalid inputs, and expected failures}
+   Requirements:
+   - Use JUnit 5 conventions
+   - Cover success, edge, and failure scenarios
+   - Use clear and descriptive test names
+   - Include minimal setup and teardown (@BeforeEach, @AfterEach if needed)
+   - Highlight any missing test coverage areas
+   ```
 
-    ![](./media/image31.png)
+   ![Image](./media/image29.png)
 
-11. Enter test matrix – +++zero division, negative numbers, large numbers+++
+1. Enter in Copilot Chat Agent mode: +++/generate-tests-java+++.
 
-    ![](./media/image32.png)
+   ![Image](./media/image30.png)
 
-12. Create a +++DivideTest.java+++ in **src/test/java** and save the above
-    results
+1. Add the below method:
 
-    ![](./media/image33.png)
+   ```
+   public double divide(double a, double b) {
+   return a / b;
+   }
+   ```
 
-13. Open terminal and run tests with below commands:
+   ![Image](./media/image31.png)
 
-    +++cd lab-05-agents\java+++
+1. Enter test matrix – +++zero division, negative numbers, large numbers+++.
 
-    +++mvn test+++
+   ![Image](./media/image32.png)
 
-    ![](./media/image34.png)
+1. Create a +++DivideTest.java+++ in **src/test/java** and save the above results.
 
-14. If you see any compilations error ask Copilot to fix with +++/terminalfix+++ command.Review and accept the fix:
+   ![Image](./media/image33.png)
 
-    ![](./media/image35.png)
+1. Open terminal and run tests with below commands:
 
-15. Save the file and run test again +++mvn test+++. Tests will run successfully.
+   +++cd lab-05-agents\java+++
 
-    ![](./media/image36.png)
+   +++mvn test+++
 
-## Summary :
+   ![Image](./media/image34.png)
 
-This lab explores GitHub Copilot modes—Autocomplete, Chat, Agent, and
-Custom Prompts—to boost developer productivity. Learners practice
-writing code, debugging, performing multi-file refactors, and creating
-reusable prompt files. The focus is on guiding Copilot effectively,
-not blindly accepting suggestions.
+1. If you see any compilation errors, ask Copilot to fix with +++/terminalfix+++ command. Review and accept the fix:
+
+   ![Image](./media/image35.png)
+
+1. Save the file and run the test again +++mvn test+++. Tests will run successfully.
+
+   ![Image](./media/image36.png)
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex5-task4-lab05-custom-prompts" />
+
+## Review
+
+In this exercise, you have completed the following:
+
+   - Used Copilot Autocomplete (inline ghost text) driven by natural language comments
+   - Used Copilot Chat to ask questions, understand errors, and debug a NullPointerException
+   - Used Copilot Agent mode for multi-file refactoring and test generation
+   - Created reusable custom prompt files for explaining, reviewing, and testing Java code
+
+### You have successfully completed the exercise!
+### In the Lab Guide section, click the **Next >>** button to proceed to Exercise 6.
+
+![](media/up4.png)

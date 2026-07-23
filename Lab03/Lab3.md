@@ -1,10 +1,10 @@
-# Lab 3 – Creating and Improving Documentation with GitHub Copilot 
+## Exercise 3: Creating and Improving Documentation with GitHub Copilot
 
-### Overview
+### Estimated Duration: 75 Minutes
 
-In this lab, you will focus on **documentation as a core developer
-skill**, using GitHub Copilot to assist with creating, reviewing, and
-improving documentation for a Java Spring Boot application.
+## Overview
+
+In this exercise, you will focus on **documentation as a core developer skill**, using GitHub Copilot to assist with creating, reviewing, and improving documentation for a Java Spring Boot application.
 
 Good documentation is essential for:
 
@@ -16,32 +16,23 @@ Good documentation is essential for:
 
 - Reducing defects caused by incorrect assumptions
 
-Rather than writing documentation manually from scratch, this lab
-demonstrates how **GitHub Copilot can accelerate documentation tasks**
-while developers remain responsible for accuracy, clarity, and
-correctness.
+Rather than writing documentation manually from scratch, this exercise demonstrates how **GitHub Copilot can accelerate documentation tasks** while developers remain responsible for accuracy, clarity, and correctness.
 
-### Objectives
+## Objectives
 
-By the end of this lab, you will be able to:
+In this exercise, you will complete the following tasks:
 
-- Understand and document an existing REST API using GitHub Copilot
+   - Task 1: Understand and Document the API
+   - Task 2: Add Swagger (OpenAPI) Documentation
+   - Task 3: Add Code Documentation to Classes with GitHub Copilot Help
+   - Task 4: Update API with Functional and Technical Documentation Structuring
+   - Task 5: Testing Employee API with curl
 
-- Generate Markdown API documentation with curl examples
+**Prerequisites**
 
-- Add Swagger/OpenAPI documentation to a Spring Boot application
+Before starting this exercise, ensure the following:
 
-- Document classes, methods, and test code using JavaDoc
-
-- Create functional and technical documentation as separate artifacts
-
-- Apply GitHub Copilot best practices when writing documentation
-
-### Prerequisites
-
-Before starting this lab, ensure the following:
-
-- Visual Studio Code (or another Copilot‑supported IDE)
+- Visual Studio Code (or another Copilot-supported IDE)
 
 - GitHub Copilot extension installed and authenticated
 
@@ -49,87 +40,87 @@ Before starting this lab, ensure the following:
 
 - Apache Maven (or Maven Wrapper mvnw)
 
-- Project successfully builds and runs (from previous labs)
+- Project successfully builds and runs (from previous exercises)
 
-## Task 1 – Understand and Document the API
+### Task 1: Understand and Document the API
 
-Before generating documentation, you must understand **what the API does**.  
-This task reinforces API comprehension using **GitHub Copilot as a code
-understanding assistant**, not a replacement for developer reasoning.
+Before generating documentation, you must understand **what the API does**. This task reinforces API comprehension using **GitHub Copilot as a code understanding assistant**, not a replacement for developer reasoning.
 
-1.  Open Visual studio code and navigate to folder
-    -**lab-03-documentation/java/src/main/java/com/example/demo/controller**,and open
-    **EmployeeController.java** class
+1. Open Visual Studio Code and navigate to the folder **lab-03-documentation/java/src/main/java/com/example/demo/controller**, and open **EmployeeController.java** class.
 
-    ![](./media/image1.png)
+   ![Image](./media/image1.png)
 
-2.  Ask Copilot to explain with the **/explain** and create
-    api-functional.md file with below values (refer Lab 1/Lab2 for
-    similar on how to prepare the md file)
+1. Ask Copilot to explain with the **/explain** command and create an `api-functional.md` file with the below values (refer to Exercise 1/Exercise 2 for similar guidance on how to prepare the md file):
 
-    **Base URL**
-    **Endpoint descriptions**
-    **HTTP methods**
-    **Sample curl commands**
-    **Expected responses**
+   - **Base URL**
+   - **Endpoint descriptions**
+   - **HTTP methods**
+   - **Sample curl commands**
+   - **Expected responses**
 
-    ![](./media/image2.png)
+   ![Image](./media/image2.png)
 
-## Task 2 – Add Swagger (OpenAPI) Documentation
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex3-task1-lab03-document-api" />
 
-Swagger (OpenAPI) provides **interactive API documentation**, making it
-easier to explore and test endpoints without external tools.
+### Task 2: Add Swagger (OpenAPI) Documentation
 
-This task demonstrates how Copilot assists in **framework specific
-documentation setup**.
+Swagger (OpenAPI) provides **interactive API documentation**, making it easier to explore and test endpoints without external tools.
 
-1.  Open Copilot chat enter the below prompt in Agent mode with Claude Sonnet 4.5 model
+This task demonstrates how Copilot assists in **framework-specific documentation setup**.
 
-    +++Add Swagger/OpenAPI support to this Spring Boot project using springdoc-openapi+++
+1. Open Copilot Chat and enter the below prompt in Agent mode with Claude Sonnet 4.5 model:
 
-    ![](./media/image3.png)
+   +++Add Swagger/OpenAPI support to this Spring Boot project using springdoc-openapi+++
 
-2.  Copilot edit the pom.xml, review the changes and click on **keep** to
-    accept the dependency or manually add it to pom.xml and save the
-    file.
+   ![Image](./media/image3.png)
 
-    ![](./media/image4.png)
+1. Copilot will edit the pom.xml. Review the changes and click on **Keep** to accept the dependency, or manually add it to pom.xml and save the file.
 
-    ![](./media/image5.png)
+   ![Image](./media/image4.png)
 
-3.  Open the Terminal->Git Bash and run below command to navigate to the folder.
+   ![Image](./media/image5.png)
 
-    +++cd github-copilot-workshops-labs-java/lab-03-documentation/java/+++
+1. Open the Terminal -> Git Bash and run the below command to navigate to the folder:
 
-    ![](./media/image6.png)
+   +++cd github-copilot-workshops-labs-java/lab-03-documentation/java/+++
 
-4.  After making changes to the poml.xml, reload the maven with the  command
+   ![Image](./media/image6.png)
 
-    +++mvn clean compile+++
+1. After making changes to the pom.xml, reload Maven with the command:
 
-    ![](./media/image7.png)
+   +++mvn clean compile+++
 
-    ![](./media/image8.png)
+   ![Image](./media/image7.png)
 
-5.  Now run the application - 
-    
-    +++mvn spring-boot:run+++
+   ![Image](./media/image8.png)
 
-    ![](./media/image9.png)
+1. Now run the application:
 
-6.  Open cmd run as adminstrator and run +++netstat -ano | findstr :8080+++ to check if 8080 port is busy and kill the process with +++taskkill /F /PID XXX+++
-7.  Open the browser and enter - +++http://localhost:8080/swagger-ui.html+++
+   +++mvn spring-boot:run+++
 
-    ![](./media/image10.png)
+   ![Image](./media/image9.png)
 
-Note: GitHub Copilot suggests changes but does not automatically apply
-them.Always verify files such as pom.xml and accept or apply changes
-explicitly.
+1. Open cmd as administrator and run +++netstat -ano | findstr :8080+++ to check if port 8080 is busy and kill the process with +++taskkill /F /PID XXX+++.
 
-## Task 3 – Add Code Documentation to classes with GitHub Copilot help
+1. Open the browser and enter - +++http://localhost:8080/swagger-ui.html+++.
 
-Code documentation explains **how the system works internally**, not
-just what the API does.
+   ![Image](./media/image10.png)
+
+> **Note:** GitHub Copilot suggests changes but does not automatically apply them. Always verify files such as pom.xml and accept or apply changes explicitly.
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex3-task2-lab03-swagger-docs" />
+
+### Task 3: Add Code Documentation to Classes with GitHub Copilot Help
+
+Code documentation explains **how the system works internally**, not just what the API does.
 
 In real projects:
 
@@ -139,159 +130,163 @@ In real projects:
 
 - Test code explains expected behavior
 
-This task shows how **GitHub Copilot helps generate high‑quality
-JavaDoc**, while developers validate accuracy.
+This task shows how **GitHub Copilot helps generate high-quality JavaDoc**, while developers validate accuracy.
 
-1.  Open the file **EmployeeController.java** and select the **entire class**
-    and open **GitHub Copilot Chat**
+1. Open the file **EmployeeController.java** and select the **entire class** and open **GitHub Copilot Chat**:
 
-    +++Generate JavaDoc for this controller class and all its public methods. Explain the purpose of each endpoint, parameters, and return values.+++
+   +++Generate JavaDoc for this controller class and all its public methods. Explain the purpose of each endpoint, parameters, and return values.+++
 
-    ![](./media/image11.png)
+   ![Image](./media/image11.png)
 
-2.  Copilot Add a class‑level JavaDoc , Add method‑level documentation
-    and Describe endpoints in developer language.
+1. Copilot will add a class-level JavaDoc, add method-level documentation, and describe endpoints in developer language.
 
-    ![](./media/image12.png)
+   ![Image](./media/image12.png)
 
-3.  Before accepting check below checklist and accept or make changes
-    manually if required.
+1. Before accepting, check the below checklist and accept or make changes manually if required:
 
-    - Does the JavaDoc match the actual endpoint?
-    - Are parameter names correct?
-    - Does it avoid claiming behavior that doesn’t exist (e.g., 404 handling)?
+   - Does the JavaDoc match the actual endpoint?
+   - Are parameter names correct?
+   - Does it avoid claiming behavior that doesn't exist (e.g., 404 handling)?
 
-    ![](./media/image12.png)
+   ![Image](./media/image12.png)
 
-4.  Repeat above step for other classes as well
+1. Repeat the above step for other classes as well:
 
-    - **EmployeeService.java**
+   - **EmployeeService.java**
 
-    - **Employee.java**
+   - **Employee.java**
 
-    - **EmployeeRepository.java**
+   - **EmployeeRepository.java**
 
-    Prompt :
+   Prompt:
 
-    +++Add clear JavaDoc explaining the responsibility of this class and its methods.Keep the documentation technical and concise.+++
+   +++Add clear JavaDoc explaining the responsibility of this class and its methods. Keep the documentation technical and concise.+++
 
-    ![](./media/image13.png)
+   ![Image](./media/image13.png)
 
-    ![](./media/image14.png)
+   ![Image](./media/image14.png)
 
-    ![](./media/image15.png)
+   ![Image](./media/image15.png)
 
-5.  Repeat above steps to add documentation to test class with the
-    prompt: 
+1. Repeat the above steps to add documentation to the test classes with the prompt:
 
-    - EmployeeControllerTest.java
-    - EmployeeRepositoryTest.java
-    - EmployeeServiceTest.java
+   - EmployeeControllerTest.java
+   - EmployeeRepositoryTest.java
+   - EmployeeServiceTest.java
 
-    +++Generate JavaDoc for this test class. Explain what behavior is being validated and why?+++
+   +++Generate JavaDoc for this test class. Explain what behavior is being validated and why?+++
 
-    ![](./media/image16.png)
+   ![Image](./media/image16.png)
 
-    ![](./media/image17.png)
+   ![Image](./media/image17.png)
 
-    ![](./media/image18.png)
+   ![Image](./media/image18.png)
 
-## Task 4 – Update API with Functional and Technical documentation structuring
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex3-task3-lab03-code-documentation" />
 
-Update the API documentation with the new information. Generate two
-different markdown files on with the functional documentation and
-another with the technical documentation.
+### Task 4: Update API with Functional and Technical Documentation Structuring
 
-1.  Go to the root folder and create folder - +++docs/+++ and create two md files - +++api-technical.md+++ and +++api-functional.md+++
+Update the API documentation with the new information. Generate two different markdown files — one with the functional documentation and another with the technical documentation.
 
-    ![](./media/image19.png)
+1. Go to the root folder and create a folder - +++docs/+++ and create two md files - +++api-technical.md+++ and +++api-functional.md+++.
 
-2.  Open **api-functional.md**, select the content of the file and ask
-    copilot. Review and accept the changes.
+   ![Image](./media/image19.png)
 
-    +++Convert the existing API documentation into functional documentation. Focus only on endpoints, requests, responses, and usage examples.+++
+1. Open **api-functional.md**, select the content of the file and ask Copilot. Review and accept the changes:
 
-    ![](./media/image20.png)
+   +++Convert the existing API documentation into functional documentation. Focus only on endpoints, requests, responses, and usage examples.+++
 
-3.  Open **api-technical.md** file and ask Copilot. Review the response and
-    accept the changes:
-    
-    +++Generate technical documentation describing the internal architecture of this project. Explain the responsibility of each layer and how components interact.+++
+   ![Image](./media/image20.png)
 
-    ![](./media/image21.png)
+1. Open **api-technical.md** file and ask Copilot. Review the response and accept the changes:
 
-## Task 5 : Testing Employee API with curl
+   +++Generate technical documentation describing the internal architecture of this project. Explain the responsibility of each layer and how components interact.+++
 
-1.  Open terminal and run below command to run the app.(use /fix and fix if you encounter any errors)
+   ![Image](./media/image21.png)
 
-    +++mvn spring-boot:run+++
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex3-task4-lab03-functional-technical-docs" />
 
-    ![](./media/image22.png)
+### Task 5: Testing Employee API with curl
 
-2.  Duplicate the workspace (File-\> Duplicate Workspace) and run below
-    command in Git Bash:
+1. Open terminal and run the below command to run the app (use /fix and fix if you encounter any errors):
 
-    +++curl -X GET http://localhost:8080/api/employees+++
+   +++mvn spring-boot:run+++
 
-    ![](./media/image23.png)
+   ![Image](./media/image22.png)
 
-3.  **Run below curl command to add new Employee**
+1. Duplicate the workspace (File -> Duplicate Workspace) and run below command in Git Bash:
 
-    ```
-    curl -X POST http://localhost:8080/api/employees -H "Content-Type:
-    application/json" -d '{
-    "name": "John",
-    "surname": "Doe",
-    "email": "john.doe@example.com"
-    }'
-    ```
+   +++curl -X GET http://localhost:8080/api/employees+++
 
-    ![](./media/image24.png)
+   ![Image](./media/image23.png)
 
-4.  Run below command to get Employee by ID. Replace {id} with the
-    actual employee ID.
+1. **Run below curl command to add a new Employee:**
 
-    ```
-    curl -X GET http://localhost:8080/api/employees/{id}
-    ```
+   ```
+   curl -X POST http://localhost:8080/api/employees -H "Content-Type: application/json" -d '{
+   "name": "John",
+   "surname": "Doe",
+   "email": "john.doe@example.com"
+   }'
+   ```
 
-    ![](./media/image25.png)
+   ![Image](./media/image24.png)
 
-5.  Run below command to update the employee record. Replace {id} with
-    the actual employee ID.
+1. Run below command to get Employee by ID. Replace {id} with the actual employee ID:
 
-    ```
-    curl -X PUT http://localhost:8080/api/employees/{id} -H "Content-Type:
-    application/json" -d '{
-    "name": "Jane",
-    "surname": "Doe",
-    "email": "jane.doe@example.com"
-    }'
-    ```
+   ```
+   curl -X GET http://localhost:8080/api/employees/{id}
+   ```
 
-    ![](./media/image26.png)
+   ![Image](./media/image25.png)
 
-6.  Run below curl command to delete employee. Replace {id} with the
-    actual employee ID.
+1. Run below command to update the employee record. Replace {id} with the actual employee ID:
 
-    ```
-    curl -X DELETE http://localhost:8080/api/employees/{id}
-    ```
+   ```
+   curl -X PUT http://localhost:8080/api/employees/{id} -H "Content-Type: application/json" -d '{
+   "name": "Jane",
+   "surname": "Doe",
+   "email": "jane.doe@example.com"
+   }'
+   ```
 
-    ![](./media/image27.png)
-7. Close all the open files
-## Summary :
+   ![Image](./media/image26.png)
 
-In this lab, you learned how to use GitHub Copilot to efficiently
-create, improve, and validate documentation for a Java Spring Boot
-application. You began by understanding the REST API and generating
-functional API documentation with endpoints, request and response
-examples, and curl commands. You then used Copilot to add Swagger
-(OpenAPI) support, enabling interactive API exploration. The lab also
-focused on documenting source code using JavaDoc, including controllers,
-services, models, repositories, and test classes, helping future
-developers understand system behavior. You structured documentation into
-functional and technical views for different audiences and validated API
-behavior using curl. Throughout the lab, you experienced how GitHub
-Copilot accelerates documentation tasks while developers remain
-responsible for accuracy, clarity, and design decisions.
+1. Run below curl command to delete employee. Replace {id} with the actual employee ID:
+
+   ```
+   curl -X DELETE http://localhost:8080/api/employees/{id}
+   ```
+
+   ![Image](./media/image27.png)
+
+1. Close all the open files.
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex3-task5-lab03-curl-testing" />
+
+## Review
+
+In this exercise, you have completed the following:
+
+   - Used GitHub Copilot to understand the REST API and generate functional API documentation
+   - Added Swagger (OpenAPI) support to the Spring Boot project
+   - Added JavaDoc documentation to controllers, services, models, repositories, and test classes
+   - Structured documentation into functional and technical views for different audiences
+   - Validated API behavior using curl commands
+
+### You have successfully completed the exercise!
+### In the Lab Guide section, click the **Next >>** button to proceed to Exercise 4.
+
+![](media/up4.png)

@@ -1,445 +1,454 @@
-# Lab 10 : Debugging and fixing a buggy Node.js REST API with GitHub Copilot
+## Exercise 10: Debugging and Fixing a Buggy Node.js REST API with GitHub Copilot
 
-### Scenario 
+### Estimated Duration: 120 Minutes
 
-You have just joined a mid-size development team as a backend developer.
-Your team lead has assigned you a **Node.js Express REST API** for an
-e-commerce **Order Management System** that a junior developer built
-before leaving the company. The API is riddled with bugs — it crashes on
-certain endpoints, returns incorrect data, has security vulnerabilities,
-lacks input validation, and has no unit tests.
+## Overview
 
-Your task is to **use GitHub Copilot** as your AI pair-programming
-assistant to systematically identify, understand, and fix all the bugs —
-then add proper test coverage and documentation before the next sprint
-review.
+You have just joined a mid-size development team as a backend developer. Your team lead has assigned you a **Node.js Express REST API** for an e-commerce **Order Management System** that a junior developer built before leaving the company. The API is riddled with bugs — it crashes on certain endpoints, returns incorrect data, has security vulnerabilities, lacks input validation, and has no unit tests.
 
-**This is NOT a coding fundamentals exercise.** You are expected to
-understand JavaScript/Node.js. The lab teaches you **how to leverage
-GitHub Copilot effectively** for real-world debugging workflows.
+Your task is to **use GitHub Copilot** as your AI pair-programming assistant to systematically identify, understand, and fix all the bugs — then add proper test coverage and documentation before the next sprint review.
 
-###  Objectives
+**This is NOT a coding fundamentals exercise.** You are expected to understand JavaScript/Node.js. The exercise teaches you **how to leverage GitHub Copilot effectively** for real-world debugging workflows.
 
-By the end of this lab, you will be able to:
+## Objectives
 
-1.  Use **Copilot Chat** (/explain) to rapidly understand unfamiliar,
-    buggy code
+In this exercise, you will complete the following tasks:
 
-2.  Use **/fix** slash command to generate targeted bug fixes
+   - Task 1: Understand the Problem (Human Reasoning First)
+   - Task 2: Use GitHub Copilot to Analyze and Explore the Codebase
+   - Task 3: Use Copilot to Generate Fixes in src/app.js
+   - Task 4: Use Copilot to Generate Fixes in src/server.js
+   - Task 5: Use Copilot to Generate Fixes in src/models/order.js
+   - Task 6: Use Copilot to Generate Fixes in src/controllers/orderController.js
+   - Task 7: Use Copilot to Generate Fixes in src/routes/orderRoutes.js
+   - Task 8: Use Copilot to Generate Fixes in src/middleware/auth.js
+   - Task 9: Use Copilot to Generate Fixes in src/utils/helpers.js
 
-3.  Write effective natural-language prompts to get Copilot to identify
-    security vulnerabilities
+### Task 1: Understand the Problem (Human Reasoning First)
 
-4.  Use **/tests** to generate comprehensive unit tests for fixed code
+Before using Copilot, assess the situation as a developer.
 
-5.  Use **/doc** to generate inline documentation
+1. Open the project in VS Code. Open Terminal -> GitBash and run the below command to clone the repo:
 
-6.  Evaluate Copilot suggestions critically — accepting, modifying, or
-    rejecting them
+   +++git clone https://github.com/technofocus-pte/buggy-order-api-lab.git+++
 
-7.  Experience an end-to-end debugging workflow powered by GitHub
-    Copilot
+1. Attempt to start the server:
 
+   +++cd buggy-order-api/+++
 
-## Task 1: Understand the Problem (Human Reasoning First)
+   +++npm start+++
 
-**Objective:** Before using Copilot, assess the situation as a
-developer.
+1. The server will crash on startup due to route configuration errors.
 
-**Instructions:**
+   ![Image](./media/image1.png)
 
-1.  Open the project in VS Code.Open Terminal ->GitBash and run below command to clone the repo
+1. Route handlers are validated during startup. An undefined controller method can crash the app before any API calls occur.
 
-    +++git clone https://github.com/technofocus-pte/buggy-order-api-lab.git+++
-2.  Attempt to start the server:
+1. **Before using Copilot**, write down:
 
-    +++cd buggy-order-api/+++
-    
-    +++npm start+++
+   - Does the server start? (No)
 
-3.  The server will crash on startup due to a route configuration
-    errors.
+   - What error occurs?
 
-    ![](./media/image1.png)
+   - Which file is referenced in the stack trace?
 
-4.  Route handlers are validated during startup.An undefined controller
-    method can crash the app before any API calls occur.
+   - Why would Express reject a route definition?
 
-5.  **Before using Copilot**, write down:
+1. Do not move on to endpoint testing until startup-level issues are resolved.
 
-    - Does the server start? (No)
-    
-    - What error occurs?
-    
-    - Which file is referenced in the stack trace?
-    
-    - Why would Express reject a route definition?
+1. Open terminal and run the below command to create a new branch for your fixes:
 
-6.  *Do not move on to endpoint testing until startup‑level issues are
-    resolved.*
+   +++git checkout -b fix/debug-with-copilot+++
 
-7.  Open terminal and run below command to create a new branch for your
-    fixes:
- 
-     +++git checkout -b fix/debug-with-copilot+++
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex10-task1-lab10-understand-problem" />
 
-## Task 2: Use GitHub Copilot to Analyze and Explore the Codebase
+### Task 2: Use GitHub Copilot to Analyze and Explore the Codebase
 
-**Objective:** Use Copilot Chat as an interactive AI assistant, helping
-you debug issues with natural language queries.​
+Use Copilot Chat as an interactive AI assistant, helping you debug issues with natural language queries.
 
-1.  Open **src/models/order.js** in the editor.Select **all the
-    code** in the file.Open Copilot Chat and type:
+1. Open **src/models/order.js** in the editor. Select **all the code** in the file. Open Copilot Chat and type:
 
-     +++/explain+++
+   +++/explain+++
 
-    ![](./media/image2.png)
+   ![Image](./media/image2.png)
 
-2.  Read Copilot's explanation carefully. It should identify:
+1. Read Copilot's explanation carefully. It should identify:
 
-    - Missing uuid import
+   - Missing uuid import
 
-    - Date.now vs Date.now()
+   - Date.now vs Date.now()
 
-    - findById returning index instead of object
+   - findById returning index instead of object
 
-    - splice misuse
+   - splice misuse
 
-3.   Use /explain for a step-by-step breakdown of a complex function.​
-    Does Copilot catch ALL the bugs? Note which ones it misses — this is
-    where developer expertise matters.
+1. Use /explain for a step-by-step breakdown of a complex function. Does Copilot catch ALL the bugs? Note which ones it misses — this is where developer expertise matters.
 
-    ![](./media/image3.png)
+   ![Image](./media/image3.png)
 
-4.  Highlight the **findByStatus** method in order.js.In Copilot Chat,
-    ask:
+1. Highlight the **findByStatus** method in order.js. In Copilot Chat, ask:
 
-    +++Why does this filter method always return an empty array?+++
+   +++Why does this filter method always return an empty array?+++
 
-    ![](./media/image4.png)
+   ![Image](./media/image4.png)
 
-5.  Copilot should explain that the arrow function body with curly
-    braces needs an explicit return statement, or the curly braces
-    should be removed.
+1. Copilot should explain that the arrow function body with curly braces needs an explicit return statement, or the curly braces should be removed.
 
-    ![](./media/image5.png)
+   ![Image](./media/image5.png)
 
-6.  Open **src/middleware/auth.js**.In Copilot Chat, type:
+1. Open **src/middleware/auth.js**. In Copilot Chat, type:
 
-    +++Analyze this authentication middleware for security vulnerabilities and best practice violations+++
+   +++Analyze this authentication middleware for security vulnerabilities and best practice violations+++
 
-    ![](./media/image6.png)
+   ![Image](./media/image6.png)
 
-7.  **Evaluate Copilot's response.** It should identify:
+1. **Evaluate Copilot's response.** It should identify:
 
-    - No actual token verification (JWT or otherwise)
+   - No actual token verification (JWT or otherwise)
 
-    - Wrong HTTP status code (403 vs 401)
+   - Wrong HTTP status code (403 vs 401)
 
-    - Case-sensitive header access
+   - Case-sensitive header access
 
-    - No user info extraction from token
+   - No user info extraction from token
 
-    ![](./media/image7.png)
+   ![Image](./media/image7.png)
 
-Note**:** Copilot may suggest implementing full JWT verification. For
-this lab, decide whether a simple token check is sufficient for a
-prototype or if you should implement proper JWT. **This is your call,
-not Copilot's.**
+> **Note:** Copilot may suggest implementing full JWT verification. For this exercise, decide whether a simple token check is sufficient for a prototype or if you should implement proper JWT. **This is your call, not Copilot's.**
 
-## Task 3 — Use Copilot to Generate Fixes src/app.js 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex10-task2-lab10-analyze-codebase" />
 
-**Objective:** Systematically fix each file using
-Copilot's /fix command, inline suggestions, and Copilot Chat prompts.
-Select the code causing issues, type /fix, and let Copilot Chat generate
-suggestions
+### Task 3: Use Copilot to Generate Fixes in src/app.js
 
-1.  **Open** **src/app.js** in the editor.**Select all code** in the
-    file and type in Copilot Chat in Agent mode.
+Systematically fix each file using Copilot's /fix command, inline suggestions, and Copilot Chat prompts. Select the code causing issues, type /fix, and let Copilot Chat generate suggestions.
 
-    +++/fix Review this Express app configuration. It is missing critical middleware and has a route prefix typo. Fix all issues.+++
+1. **Open** **src/app.js** in the editor. **Select all code** in the file and type in Copilot Chat in Agent mode:
 
-    ![](./media/image8.png)
+   +++/fix Review this Express app configuration. It is missing critical middleware and has a route prefix typo. Fix all issues.+++
 
-2.  **Review Copilot's suggestions.** It should propose and fix the
-    issues.
+   ![Image](./media/image8.png)
 
-    - Adding app.use(bodyParser.json()); before routes
+1. **Review Copilot's suggestions.** It should propose and fix the issues:
 
-    - Adding CORS middleware (either cors package or manual headers)
+   - Adding `app.use(bodyParser.json());` before routes
 
-    - Fixing '/api/v1/ordrs' → '/api/v1/orders'
+   - Adding CORS middleware (either cors package or manual headers)
 
-    - Adding a global error-handling middleware at the bottom
+   - Fixing '/api/v1/ordrs' → '/api/v1/orders'
 
-    ![](./media/image9.png)
+   - Adding a global error-handling middleware at the bottom
 
-3.  Open Terminal and Install the CORS package if Copilot suggested it:
+   ![Image](./media/image9.png)
 
-    +++npm install cors+++
+1. Open Terminal and install the CORS package if Copilot suggested it:
 
-    ![](./media/image10.png)
+   +++npm install cors+++
 
-4.  **Update your Bug Tracker:** Mark Bugs \#1–#4 as and note which
-    Copilot feature you used.
+   ![Image](./media/image10.png)
 
-Note: Copilot may suggest various CORS configurations. For a
-development API, permissive CORS is fine. For production, you'd restrict
-origins. **This decision is yours**, not Copilot's.
+1. **Update your Bug Tracker:** Mark Bugs #1–#4 as fixed and note which Copilot feature you used.
 
-## Task 4 — Use Copilot to Generate Fixes  src/server.js 
+> **Note:** Copilot may suggest various CORS configurations. For a development API, permissive CORS is fine. For production, you'd restrict origins. **This decision is yours**, not Copilot's.
 
-1.  Open src/server.js.**Select all code** and use Copilot Chat
-    Agent mode
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex10-task3-lab10-fix-appjs" />
 
-    +++/fix This server file has a hardcoded port and no graceful shutdown.Add environment variable support and proper signal handling.+++
+### Task 4: Use Copilot to Generate Fixes in src/server.js
 
-    ![](./media/image11.png)
+1. Open src/server.js. **Select all code** and use Copilot Chat Agent mode:
 
-2.  **Review and apply fixes.**
+   +++/fix This server file has a hardcoded port and no graceful shutdown. Add environment variable support and proper signal handling.+++
 
-    ![](./media/image12.png)
-    
-    ![](./media/image13.png)
+   ![Image](./media/image11.png)
 
-3.  **Update Bug Tracker:** Mark Bugs \#5–#6 as 🔧.
+1. **Review and apply fixes.**
 
-## Task 6 — Use Copilot to Generate Fixes in src/models/order.js  — The Most Critical File
+   ![Image](./media/image12.png)
 
-This file contains **10 bugs** and is the core of the application. We'll
-fix it in stages.**Fix Critical Crashes (Bugs \#7, \#8)**
+   ![Image](./media/image13.png)
 
-1.  **Highlight the constructor** of the Order class.In Copilot Chat:
+1. **Update Bug Tracker:** Mark Bugs #5–#6 as fixed.
 
-    +++/fix This constructor crashes because uuid is never imported and  Date.now is missing parentheses. Also, totalPrice should be calculated from items.+++
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex10-task4-lab10-fix-serverjs" />
 
-    ![](./media/image14.png)
+### Task 5: Use Copilot to Generate Fixes in src/models/order.js
 
-2.  **Verify** Copilot adds const { v4: uuidv4 } = require('uuid'); at
-    the top and changes Date.now to Date.now() or new Date().
+This file contains **10 bugs** and is the core of the application. We'll fix it in stages.
 
-    ![](./media/image15.png)
-    
-    ![](./media/image16.png)
+#### **Fix Critical Crashes (Bugs #7, #8)**
 
-**Stage C: Fix update Method (Bug \#12)**
+1. **Highlight the constructor** of the Order class. In Copilot Chat:
 
-1.  **Highlight** the update method.Use **inline
-    chat** (press Ctrl+I / Cmd+I on the selection):
+   +++/fix This constructor crashes because uuid is never imported and Date.now is missing parentheses. Also, totalPrice should be calculated from items.+++
 
-    +++Fix this: it overwrites the entire order with updateData, losing the original fields like id and createdAt. It should merge properties instead.+++
-    
-    ![](./media/image17.png)
+   ![Image](./media/image14.png)
 
-2.  Review the suggested fix and accept it
+1. **Verify** Copilot adds `const { v4: uuidv4 } = require('uuid');` at the top and changes `Date.now` to `Date.now()` or `new Date()`.
 
-    ![](./media/image18.png)
+   ![Image](./media/image15.png)
 
-**Stage E: Fix findByStatus (Bug \#14)**
+   ![Image](./media/image16.png)
 
-1.  **Highlight** the findByStatus method. Copilot should have fixed it
-    as shown
+#### **Fix update Method (Bug #12)**
 
-    ![](./media/image19.png)
+1. **Highlight** the update method. Use **inline chat** (press Ctrl+I / Cmd+I on the selection):
 
-Note**:** The bug was curly braces without
-a return statement. Copilot should explain that =\> { expression
-} needs return, while =\> expression returns implicitly.
+   +++Fix this: it overwrites the entire order with updateData, losing the original fields like id and createdAt. It should merge properties instead.+++
 
-**Stage F: Add Missing Methods (Bugs \#15, \#16)**
+   ![Image](./media/image17.png)
 
-1.  Place your cursor at the bottom of the class, **before the closing }**.
+1. Review the suggested fix and accept it.
 
-2.  Type the following **comment prompt** to trigger Copilot inline
-    suggestions:
+   ![Image](./media/image18.png)
 
-    +++// Calculate the total price of an order by summing price quantity for each item+++
+#### **Fix findByStatus (Bug #14)**
 
-3.  **Wait for Copilot's ghost text suggestion** and press Tab to accept
-    if it looks correct.
+1. **Highlight** the findByStatus method. Copilot should have fixed it as shown.
 
-     ![](./media/image20.png)
+   ![Image](./media/image19.png)
 
-4.  Then type another comment:
+> **Note:** The bug was curly braces without a return statement. Copilot should explain that `=> { expression }` needs return, while `=> expression` returns implicitly.
 
-    +++// Validate order data: customerName, items (non-empty array), and shippingAddress are required+++
+#### **Add Missing Methods (Bugs #15, #16)**
 
-5.  Accept or refine Copilot's suggestion.
+1. Place your cursor at the bottom of the class, **before the closing }**.
 
-6.  **Update Bug Tracker:** Mark Bugs \#7–#16 with the status
+1. Type the following **comment prompt** to trigger Copilot inline suggestions:
 
-## Task 7 — Use Copilot to Generate Fixes src/controllers/orderController.js 
+   +++// Calculate the total price of an order by summing price * quantity for each item+++
 
-**Stage A: Fix createOrder (Bugs \#20–#23)**
+1. **Wait for Copilot's ghost text suggestion** and press Tab to accept if it looks correct.
 
-1.  **Highlight** the createOrder method.In Copilot Chat:
+   ![Image](./media/image20.png)
 
-    +++/fix This createOrder method has no input validation, returns wrong HTTP status code (200 instead of 201), and has incorrect error handling.Fix all issues and add proper validation using the helpers module.+++
+1. Then type another comment:
 
-    ![](./media/image21.png)
+   +++// Validate order data: customerName, items (non-empty array), and shippingAddress are required+++
 
-2.  **Review** Copilot's output. Expected improvements:
+1. Accept or refine Copilot's suggestion.
 
-    - Import helpers at the top
+1. **Update Bug Tracker:** Mark Bugs #7–#16 as fixed.
 
-    - Validate customerName, items, shippingAddress before creating
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex10-task5-lab10-fix-orderjs" />
 
-    - Return 201 status code
+### Task 6: Use Copilot to Generate Fixes in src/controllers/orderController.js
 
-    - Proper error handling with 500 for server errors
+#### **Fix createOrder (Bugs #20–#23)**
 
-3.  Fixed code should like
+1. **Highlight** the createOrder method. In Copilot Chat:
 
-     ![](./media/image22.png)
+   +++/fix This createOrder method has no input validation, returns wrong HTTP status code (200 instead of 201), and has incorrect error handling. Fix all issues and add proper validation using the helpers module.+++
 
-**Stage C: Fix getOrdersByStatus (Bugs \#27–#28)**
+   ![Image](./media/image21.png)
 
-1.  **Highlight** the getOrdersByStatus method.In Copilot Chat in Agent
-    mode
+1. **Review** Copilot's output. Expected improvements:
 
-    +++/fix This reads status from req.params but the route sends it as a query parameter. Also add validation for allowed status values: pending, processing, shipped, delivered, cancelled.+++
+   - Import helpers at the top
 
-    ![](./media/image23.png)
+   - Validate customerName, items, shippingAddress before creating
 
-2.  Review and accept the fix.
+   - Return 201 status code
 
-    ![](./media/image24.png)
+   - Proper error handling with 500 for server errors
 
-**Stage D: Fix getOrderSummary (Bugs \#29–#31)**
+1. Fixed code should look like:
 
-1.  **Highlight** the **getOrderSummary** method.
+   ![Image](./media/image22.png)
 
-2.  In Copilot Chat:
+#### **Fix getOrdersByStatus (Bugs #27–#28)**
 
-    ```
-    /fix This method has three bugs: >
-    1. reduce() crashes on empty array (no initial value)
-    2. .length() is called as a method instead of a property
-    3. 'pending' is not in quotes - it's a ReferenceError
-    Fix all three.
-    ```
-    ![](./media/image25.png)
+1. **Highlight** the getOrdersByStatus method. In Copilot Chat in Agent mode:
 
-3.  Review and accept the fix
+   +++/fix This reads status from req.params but the route sends it as a query parameter. Also add validation for allowed status values: pending, processing, shipped, delivered, cancelled.+++
 
-    ![](./media/image26.png)
+   ![Image](./media/image23.png)
 
-**Update Bug Tracker:** Mark Bugs \#17–#31 as 🔧.
+1. Review and accept the fix.
 
-## Task 8 — Use Copilot to Generate Fixes src/routes/orderRoutes.js 
+   ![Image](./media/image24.png)
 
-1.  **Open** orderRoutes.js and **select all code**.In Copilot Chat, use
-    a comprehensive prompt:
-    ```
-    /fix This route file has the following issues:
-     1. GET and POST methods are swapped on the root route
-     2. Route parameter is :orderId but controllers expect :id
-     3. /status route conflicts with /:orderId pattern (Express matches status" as an orderId)
-     4\ Summary route references wrong controller method name  (orderSummary vs getOrderSummary)
-     Fix all issues and ensure route ordering prevents conflicts.
-    ```
-    ![](./media/image27.png)
+#### **Fix getOrderSummary (Bugs #29–#31)**
 
-2.  Review the fix and accept it.
+1. **Highlight** the **getOrderSummary** method.
 
-    ![](./media/image28.png)
+1. In Copilot Chat:
 
-    Note**:** Notice how route ordering matters in Express. Copilot is
-    recognizing patterns and suggesting solutions based on what it has
-    learned.​[**2**![](./media/image29.gif)](https://github.blog/ai-and-ml/github-copilot/how-to-debug-code-with-github-copilot/)​
-    But understanding **why** /status must come before /:id requires your
-    knowledge of Express route matching.
+   ```
+   /fix This method has three bugs:
+   1. reduce() crashes on empty array (no initial value)
+   2. .length() is called as a method instead of a property
+   3. 'pending' is not in quotes - it's a ReferenceError
+   Fix all three.
+   ```
 
-3.  **Update Bug Tracker:** Mark Bugs \#32–#35 with the status.
+   ![Image](./media/image25.png)
 
-## Task 9 — Use Copilot to Generate Fixes  src/middleware/auth.js 
+1. Review and accept the fix.
 
-1.  **Open** auth.js and **select all code**.In Copilot Chat:
+   ![Image](./media/image26.png)
 
-    ```
-    /fix This auth middleware has security issues:
-    1. req.headers\['Authorization'\] should be lowercase 'authorization'
-    2. Returns 403 when it should return 401 (no token = unauthorized,not forbidden)
-    3. No actual token verification — just checks if token exists
-    4. Never extracts user info from token
-    Implement proper JWT token verification using jsonwebtoken library.
-    ```
-    ![](./media/image30.png)
+1. **Update Bug Tracker:** Mark Bugs #17–#31 as fixed.
 
-2.  Review and accept the fix.
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex10-task6-lab10-fix-controller" />
 
-    ![](./media/image31.png)
+### Task 7: Use Copilot to Generate Fixes in src/routes/orderRoutes.js
 
-3.  **Open termina and run below command to Install jsonwebtoken**
+1. **Open** orderRoutes.js and **select all code**. In Copilot Chat, use a comprehensive prompt:
 
-    +++npm install jsonwebtoken+++
+   ```
+   /fix This route file has the following issues:
+    1. GET and POST methods are swapped on the root route
+    2. Route parameter is :orderId but controllers expect :id
+    3. /status route conflicts with /:orderId pattern (Express matches "status" as an orderId)
+    4. Summary route references wrong controller method name (orderSummary vs getOrderSummary)
+    Fix all issues and ensure route ordering prevents conflicts.
+   ```
 
-     ![](./media/image32.png)
+   ![Image](./media/image27.png)
 
- **Update Bug Tracker:** Mark Bugs \#36–#39 withthe status
+1. Review the fix and accept it.
 
-**Note:** Copilot may suggest different JWT configurations. For this
-lab, a simple HS256 token with environment-variable secret is fine. In
-production, you'd use RS256 with key rotation. **This architecture
-decision is yours.**
+   ![Image](./media/image28.png)
 
-## Task 10 — Use Copilot to Generate Fixes src/utils/helpers.js 
+   > **Note:** Notice how route ordering matters in Express. Copilot is recognizing patterns and suggesting solutions based on what it has learned. But understanding **why** /status must come before /:id requires your knowledge of Express route matching.
 
-This file has **11 bugs**. Let's use Copilot agent mode — the next
-evolution in AI-assisted coding that performs multi-step coding tasks at
-your command, analyzing your codebase, reading relevant files, proposing
-file
-edits.​[**3**![](./media/image29.gif)](https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode)​
+1. **Update Bug Tracker:** Mark Bugs #32–#35 as fixed.
 
-**Option A: Using Copilot Agent Mode (Recommended)**
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex10-task7-lab10-fix-routes" />
 
-1.  Select the full code from src/utils/helpers.js toand enter below
-    prompt in Agent mode
-    ```
-    Fix all bugs in helpers.js:
-    1. calculateTotal: uses for...in instead of for...of, multiplies price\*price instead of price\*quantity, has floating point issues
-    2. validateOrderData: validation logic is completely inverted (returns true for invalid, false for valid)
-    3. isValidStatus: has typos ("shiped", "cancled"), and is case-sensitive without toLowerCase()
-    4. paginate: off-by-one error, page should be 1-based for users,slice end index is wrong
-    5. formatOrderResponse: calls toISOString() on a function reference Add input sanitization to formatOrderResponse to prevent XSS.
-    ```
-    ![](./media/image33.png)
+### Task 8: Use Copilot to Generate Fixes in src/middleware/auth.js
 
-2.  Review the proposed changes — every tool invocation is transparently
-    displayed in the UI.​
+1. **Open** auth.js and **select all code**. In Copilot Chat:
 
-    ![](./media/image34.png)
+   ```
+   /fix This auth middleware has security issues:
+   1. req.headers['Authorization'] should be lowercase 'authorization'
+   2. Returns 403 when it should return 401 (no token = unauthorized, not forbidden)
+   3. No actual token verification — just checks if token exists
+   4. Never extracts user info from token
+   Implement proper JWT token verification using jsonwebtoken library.
+   ```
 
-3.  Use +++/fix+++ in Agent mode and fix the pending issues
+   ![Image](./media/image30.png)
 
-4.  Now , run the server
+1. Review and accept the fix.
 
-    +++npm start+++
-    
-    ![](./media/image35.png)
+   ![Image](./media/image31.png)
 
-5.  Duplicate a workspace and run below command to create order
+1. **Open terminal and run the below command to install jsonwebtoken:**
 
-    ```
-    curl -i -X POST http://localhost:3000/api/v1/orders -H "Content-Type:
-    application/json" -d
-    '{"customerName":"Alice","items":\[{"name":"Book","price":10.5,"quantity":2}\],"shippingAddress":"123
-    Main St"}'
-    ```
-    ![](./media/image36.png)
+   +++npm install jsonwebtoken+++
 
-6.  Repalce <<YOUR WORKBENCH PATH>> with your workbenach path and run below command to read all orders
+   ![Image](./media/image32.png)
 
-    ```
-    curl
-     -i [http://localhost:3000/api/v1/orders](vscode-file://vscode-app/c:<<YOUR WROKBENCHURL>>)
-    ```
-    ![](./media/image37.png)
+1. **Update Bug Tracker:** Mark Bugs #36–#39 as fixed.
 
-3.  Validate summary route  
+> **Note:** Copilot may suggest different JWT configurations. For this exercise, a simple HS256 token with environment-variable secret is fine. In production, you'd use RS256 with key rotation. **This architecture decision is yours.**
 
-    +++curl i http://localhost:3000/api/v1/orders/summary+++
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex10-task8-lab10-fix-auth" />
 
-    Expected: 200 OK with totals
-    
-    ![](./media/image38.png)
+### Task 9: Use Copilot to Generate Fixes in src/utils/helpers.js
+
+This file has **11 bugs**. Let's use Copilot Agent mode — the next evolution in AI-assisted coding that performs multi-step coding tasks at your command.
+
+1. Select the full code from src/utils/helpers.js and enter the below prompt in Agent mode:
+
+   ```
+   Fix all bugs in helpers.js:
+   1. calculateTotal: uses for...in instead of for...of, multiplies price*price instead of price*quantity, has floating point issues
+   2. validateOrderData: validation logic is completely inverted (returns true for invalid, false for valid)
+   3. isValidStatus: has typos ("shiped", "cancled"), and is case-sensitive without toLowerCase()
+   4. paginate: off-by-one error, page should be 1-based for users, slice end index is wrong
+   5. formatOrderResponse: calls toISOString() on a function reference. Add input sanitization to formatOrderResponse to prevent XSS.
+   ```
+
+   ![Image](./media/image33.png)
+
+1. Review the proposed changes — every tool invocation is transparently displayed in the UI.
+
+   ![Image](./media/image34.png)
+
+1. Use +++/fix+++ in Agent mode and fix any pending issues.
+
+1. Now run the server:
+
+   +++npm start+++
+
+   ![Image](./media/image35.png)
+
+1. Duplicate a workspace and run the below command to create an order:
+
+   ```
+   curl -i -X POST http://localhost:3000/api/v1/orders -H "Content-Type: application/json" -d '{"customerName":"Alice","items":[{"name":"Book","price":10.5,"quantity":2}],"shippingAddress":"123 Main St"}'
+   ```
+
+   ![Image](./media/image36.png)
+
+1. Run the below command to read all orders:
+
+   ```
+   curl -i http://localhost:3000/api/v1/orders
+   ```
+
+   ![Image](./media/image37.png)
+
+1. Validate the summary route:
+
+   +++curl -i http://localhost:3000/api/v1/orders/summary+++
+
+   Expected: 200 OK with totals.
+
+   ![Image](./media/image38.png)
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex10-task9-lab10-fix-helpers" />
+
+## Review
+
+In this exercise, you have completed the following:
+
+   - Assessed buggy Node.js code as a developer before using Copilot
+   - Used /explain to understand and analyze unfamiliar code and bugs
+   - Used /fix slash command to generate targeted bug fixes across 7 files
+   - Fixed security vulnerabilities in authentication middleware using JWT
+   - Used Agent Mode to fix complex multi-bug files in src/utils/helpers.js
+   - Validated all fixes by running the API and testing endpoints with curl
+
+### You have successfully completed the exercise!
+### In the Lab Guide section, click the **Next >>** button to proceed to Exercise 11.
+
+![](media/up4.png)

@@ -1,8 +1,10 @@
-# Lab 4 – Refactoring Documentation and Technical Design Using GitHub Copilot
+## Exercise 4: Refactoring Documentation and Technical Design Using GitHub Copilot
 
-### Objective
+### Estimated Duration: 75 Minutes
 
-In this lab, you will learn how GitHub Copilot improves **developer productivity** by:
+## Overview
+
+In this exercise, you will learn how GitHub Copilot improves **developer productivity** by:
 
 - Migrating code from documentation into a working project
 
@@ -14,9 +16,21 @@ In this lab, you will learn how GitHub Copilot improves **developer productivity
 
 - Enhancing documentation and tests
 
-This mirrors real‑world development, where **documentation exists before or alongside code**.
+This mirrors real-world development, where **documentation exists before or alongside code**.
 
-### Prerequisites
+## Objectives
+
+In this exercise, you will complete the following tasks:
+
+   - Task 1: Prepare Copilot Instructions
+   - Task 2: Generate Code from Documentation
+   - Task 3: Method Refactoring
+   - Task 4: Add Error Handling
+   - Task 5: Function Extraction
+   - Task 6: Add Repository Features
+   - Task 7: Add Documentation with Copilot
+
+**Prerequisites**
 
 - Visual Studio Code
 
@@ -28,183 +42,219 @@ This mirrors real‑world development, where **documentation exists before or al
 
 - Basic familiarity with Spring Boot concepts
 
-## Task 1 : Prepare Copilot Instructions 
+### Task 1: Prepare Copilot Instructions
 
-1.  Open Visual Studio code and navigate to the folder-
-    **lab-04-refactoring/java** and review below files
+1. Open Visual Studio Code and navigate to the folder **lab-04-refactoring/java** and review the below files:
 
-    - README.md → exercises
+   - README.md → exercises
 
-    - READMEFUNC.md → functional API documentation
+   - READMEFUNC.md → functional API documentation
 
-    - READMETECH.md → technical design documentation
+   - READMETECH.md → technical design documentation
 
-    - copilot-instructions.md → currently empty
+   - copilot-instructions.md → currently empty
 
-    ![](./media/image1.png)
+   ![Image](./media/image1.png)
 
-2.  Open **copilot-instructions.md** under .github folder, add the following content and
-    save the file.
+1. Open **copilot-instructions.md** under the .github folder, add the following content and save the file:
 
-    ```
-    You are building a Spring Boot REST API using layered architecture.
+   ```
+   You are building a Spring Boot REST API using layered architecture.
 
-    Follow this structure:
-    - Controller layer for REST endpoints
-    - Service layer for business logic
-    - Repository layer using Spring Data JPA
-    - Model layer for entity classes
+   Follow this structure:
+   - Controller layer for REST endpoints
+   - Service layer for business logic
+   - Repository layer using Spring Data JPA
+   - Model layer for entity classes
 
-    Follow best practices:
-    - Use dependency injection
-    - Keep methods small and readable
-    - Follow REST conventions
-    - Apply basic error handling
-    - Do not add features not described in the documentation
+   Follow best practices:
+   - Use dependency injection
+   - Keep methods small and readable
+   - Follow REST conventions
+   - Apply basic error handling
+   - Do not add features not described in the documentation
 
-    Use an H2 in-memory database.
-    ```
+   Use an H2 in-memory database.
+   ```
 
-    ![](./media/image2.png)
+   ![Image](./media/image2.png)
 
-## Task 2 : Generate Code from Documentation
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex4-task1-lab04-copilot-instructions" />
+
+### Task 2: Generate Code from Documentation
 
 Migrate documentation as working code using Copilot.
 
-1.  Open **Copilot Chat** (Agent mode-Claude Sonnet 4.5 model) and enter the below prompt:
+1. Open **Copilot Chat** (Agent mode - Claude Sonnet 4.5 model) and enter the below prompt:
 
-    ```
-    Using READMEFUNC.md and READMETECH.md,generate a Spring Boot application for this project.
-    Create the required Controller, Service, Repository, and Model classes.
-    Follow the architecture defined in copilot-instructions.md.
-    Do not add behavior not mentioned in the documentation.
-    ```
+   ```
+   Using READMEFUNC.md and READMETECH.md, generate a Spring Boot application for this project.
+   Create the required Controller, Service, Repository, and Model classes.
+   Follow the architecture defined in copilot-instructions.md.
+   Do not add behavior not mentioned in the documentation.
+   ```
 
-    ![](./media/image3.png)
+   ![Image](./media/image3.png)
 
-2.  Copilot followed instructions and extracted the code from md file
-    and created below files. Review them and click on **Keep** to accept.
+1. Copilot followed instructions and extracted the code from the md file and created the below files. Review them and click on **Keep** to accept:
 
-    - Employee.java
+   - Employee.java
 
-    - EmployeeRepository.java
+   - EmployeeRepository.java
 
-    - EmployeeService.java
+   - EmployeeService.java
 
-    - EmployeeController.java
+   - EmployeeController.java
 
-    - Required package structure
+   - Required package structure
 
-    ![](./media/image4.png)
+   ![Image](./media/image4.png)
 
-3.   Open Powershell and kill if any service running on 8080 port
+1. Open PowerShell and kill any service running on port 8080:
+
    +++netstat -ano | findstr :8080+++
+
    +++taskkill /PID XXXX /F+++ (Replace XXXX with your PID)
 
-5.  Open the **Terminal-Git Bash** and run the app with the below commands. The app
-    will be up and running:
+1. Open the **Terminal -> Git Bash** and run the app with the below commands. The app will be up and running:
 
-    +++cd "github-copilot-workshops-labs-java/lab-04-refactoring/java/"+++
+   +++cd "github-copilot-workshops-labs-java/lab-04-refactoring/java/"+++
 
-    +++mvn spring-boot:run+++
-    
-    ![](./media/image5.png)
+   +++mvn spring-boot:run+++
 
-    Note: if you see any errors use Copilot capabilities /explain and  /fix. Review before accepting fixes.
+   ![Image](./media/image5.png)
 
-## Task 3 : Method Refactoring
+   > **Note:** If you see any errors, use Copilot capabilities /explain and /fix. Review before accepting fixes.
 
-Improve readability without changing behavior. 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex4-task2-lab04-generate-code" />
 
-1.  Navigate to **src/main/java/com/examples/demo/service** and open the
-    file EmployeeService.java.Select the method *getAllEmployees*  and
-    enter below prompt in Copilot Agent mode to refactor.
+### Task 3: Method Refactoring
 
-   +++Refactor this method to use a private helper method   for employee retrieval. Keep behavior unchanged.+++ 
+Improve readability without changing behavior.
 
-   ![](./media/image6.png)
+1. Navigate to **src/main/java/com/examples/demo/service** and open the file **EmployeeService.java**. Select the method *getAllEmployees* and enter the below prompt in Copilot Agent mode to refactor:
 
-2.  Select the method  **saveEmployee** and enter below prompt in copilot to refactor. Review the change and accept.
+   +++Refactor this method to use a private helper method for employee retrieval. Keep behavior unchanged.+++
 
-    +++Refactor this method to extract saving logic into a private method.Keep behavior unchanged.+++
+   ![Image](./media/image6.png)
 
-    ![](./media/image7.png)
+1. Select the method **saveEmployee** and enter the below prompt in Copilot to refactor. Review the change and accept:
 
-## Task 5 – Add Error Handling 
+   +++Refactor this method to extract saving logic into a private method. Keep behavior unchanged.+++
 
-Improve robustness with minimal changes. 
+   ![Image](./media/image7.png)
 
-1.  Select **getEmployeeById** and enter below prompt in Copilot chat.Review and accept the change:
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex4-task3-lab04-method-refactoring" />
 
-    +++Add error handling for the case when the employee does not exist.Do not change external API contracts.+++ 
-   
-    ![](./media/image8.png)
+### Task 4: Add Error Handling
 
-2.  *Select the deleteEmployee* method and enter below prompt in Copilot chat. Review the change and accept:
+Improve robustness with minimal changes.
 
-    +++Add error handling when deleting a non-existent employee. Keep behavior consistent with the current design.+++ 
-   
-    ![](./media/image9.png)
+1. Select **getEmployeeById** and enter the below prompt in Copilot Chat. Review and accept the change:
 
-## Task 6 – Function Extraction 
+   +++Add error handling for the case when the employee does not exist. Do not change external API contracts.+++
+
+   ![Image](./media/image8.png)
+
+1. Select the *deleteEmployee* method and enter the below prompt in Copilot Chat. Review the change and accept:
+
+   +++Add error handling when deleting a non-existent employee. Keep behavior consistent with the current design.+++
+
+   ![Image](./media/image9.png)
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex4-task4-lab04-error-handling" />
+
+### Task 5: Function Extraction
 
 Reduce duplication and improve reuse.
 
-1.  Keep open the **EmployeeService.java** and enter below prompt in copilot chat to reduce duplication and improve reuse in finding employees method.
+1. Keep **EmployeeService.java** open and enter the below prompt in Copilot Chat to reduce duplication and improve reuse in the finding employees method:
 
-    +++Extract the logic for finding employees by email into a reusable private method.+++
-  
-    ![](./media/image10.png)
+   +++Extract the logic for finding employees by email into a reusable private method.+++
 
-2.  Enter below prompt in Copilot chat for sorting employees by last name.review the change and accept.
+   ![Image](./media/image10.png)
 
-    +++Extract the logic for sorting employees by last name into a reusable  private method.+++
-    
-    ![](./media/image11.png)
+1. Enter the below prompt in Copilot Chat for sorting employees by last name. Review the change and accept:
 
-## Step 7 – Add Repository Features 
+   +++Extract the logic for sorting employees by last name into a reusable private method.+++
 
-Extend functionality safely. 
+   ![Image](./media/image11.png)
 
-1.  Open **EmployeeRepository.java** under repository folder and enter below prompt. Review the change and accept:
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex4-task5-lab04-function-extraction" />
 
-    +++Add Spring Data JPA repository methods to search employees by name and  sort by last name.+++
-    
-    ![](./media/image12.png)
+### Task 6: Add Repository Features
 
-2.  Enter below prompt to implement new features. It adds new methods to employeesService.java. Review and accept the features
+Extend functionality safely.
 
-    +++Use these repository methods in the service to implement a new  feature.+++
-    
-    ![](./media/image13.png)
+1. Open **EmployeeRepository.java** under the repository folder and enter the below prompt. Review the change and accept:
 
-##  Task 8 – Add Documentation with Copilot
+   +++Add Spring Data JPA repository methods to search employees by name and sort by last name.+++
 
-JavaDoc for service methods 
+   ![Image](./media/image12.png)
 
-1.  Select **EmployeeService** and enter /doc in Copilot Chat Agent mode  to add Javadoc for all undocumented methods
+1. Enter the below prompt to implement new features. It adds new methods to EmployeeService.java. Review and accept the features:
 
-    +++/doc+++
+   +++Use these repository methods in the service to implement a new feature.+++
 
-    ![](./media/image14.png)
+   ![Image](./media/image13.png)
 
->Note : If tests are missing or failing use +++/setupTests+++ and +++/tests+++
->Close all the Lab 04 files and terminal to continue with Lab 05
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex4-task6-lab04-repository-features" />
 
-## Summary :
+### Task 7: Add Documentation with Copilot
 
-In this lab, learners use GitHub Copilot to transform functional and
-technical documentation into a working Spring Boot application and then
-incrementally improve the code through guided refactoring. Starting from
-existing Markdown files (READMEFUNC.md and READMETECH.md), Copilot is
-instructed to generate a layered application using controllers,
-services, repositories, and models. Once the application is running,
-learners focus on improving code quality by refactoring service methods
-without changing behavior, adding minimal error handling, extracting
-reusable logic, and enhancing repository capabilities using Spring Data
-JPA. The lab concludes with Copilot‑assisted documentation and optional
-test generation. This hands‑on experience demonstrates how GitHub
-Copilot accelerates real‑world development tasks such as
-documentation‑driven coding, safe refactoring, debugging, and
-maintainability improvements—while keeping developers in full control of
-design and behavior.
+#### **JavaDoc for Service Methods**
+
+1. Select **EmployeeService** and enter `/doc` in Copilot Chat Agent mode to add JavaDoc for all undocumented methods:
+
+   +++/doc+++
+
+   ![Image](./media/image14.png)
+
+> **Note:** If tests are missing or failing, use +++/setupTests+++ and +++/tests+++.
+> Close all the Lab 04 files and terminal before continuing with Exercise 5.
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
+<validation step="ex4-task7-lab04-add-documentation" />
+
+## Review
+
+In this exercise, you have completed the following:
+
+   - Prepared Copilot custom instructions using copilot-instructions.md
+   - Generated a Spring Boot application from existing Markdown documentation
+   - Refactored service methods to improve readability without changing behavior
+   - Added minimal error handling and extracted reusable logic
+   - Extended repository capabilities using Spring Data JPA
+   - Generated JavaDoc documentation with Copilot assistance
+
+### You have successfully completed the exercise!
+### In the Lab Guide section, click the **Next >>** button to proceed to Exercise 5.
+
+![](media/up4.png)

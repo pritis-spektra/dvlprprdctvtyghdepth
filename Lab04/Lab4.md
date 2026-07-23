@@ -54,7 +54,7 @@ In this lab, you will complete the following tasks:
 
    - copilot-instructions.md → currently empty
 
-   ![Image](./media/image1.png)
+     ![Image](./media/image1.png)
 
 1. Open **copilot-instructions.md** under the .github folder, add the following content and save the file:
 
@@ -112,19 +112,29 @@ Migrate documentation as working code using Copilot.
 
    - Required package structure
 
-   ![Image](./media/image4.png)
+     ![Image](./media/image4.png)
 
-1. Open PowerShell and kill any service running on port 8080:
+1. Open PowerShell and kill any service running on port 8080: After running the first command, you will receive a Process ID (PID). Copy the Process ID for use in the next step.
 
-   +++netstat -ano | findstr :8080+++
+   ```
+   netstat -ano | findstr :8080
+   ```
+   
+   ```
+   taskkill /PID XXXX /F
+   ```
 
-   +++taskkill /PID XXXX /F+++ (Replace XXXX with your PID)
+   > **Note:** Replace XXXX with your PID
 
 1. Open the **Terminal -> Git Bash** and run the app with the below commands. The app will be up and running:
 
-   +++cd "github-copilot-workshops-labs-java/lab-04-refactoring/java/"+++
+   ```
+   cd "github-copilot-workshops-labs-java/lab-04-refactoring/java/"
+   ```
 
-   +++mvn spring-boot:run+++
+   ```
+   mvn spring-boot:run
+   ```
 
    ![Image](./media/image5.png)
 
@@ -142,13 +152,17 @@ Improve readability without changing behavior.
 
 1. Navigate to **src/main/java/com/examples/demo/service** and open the file **EmployeeService.java**. Select the method *getAllEmployees* and enter the below prompt in Copilot Agent mode to refactor:
 
-   +++Refactor this method to use a private helper method for employee retrieval. Keep behavior unchanged.+++
+   ```
+   Refactor this method to use a private helper method for employee retrieval. Keep behavior unchanged.
+   ```
 
    ![Image](./media/image6.png)
 
 1. Select the method **saveEmployee** and enter the below prompt in Copilot to refactor. Review the change and accept:
 
-   +++Refactor this method to extract saving logic into a private method. Keep behavior unchanged.+++
+   ```
+   Refactor this method to extract saving logic into a private method. Keep behavior unchanged.
+   ```
 
    ![Image](./media/image7.png)
 
@@ -164,15 +178,19 @@ Improve robustness with minimal changes.
 
 1. Select **getEmployeeById** and enter the below prompt in Copilot Chat. Review and accept the change:
 
-   +++Add error handling for the case when the employee does not exist. Do not change external API contracts.+++
+   ```
+   Refactor only the getEmployeeById(Long id) method in EmployeeService to add error handling when an employee does not exist.
+   ```
 
-   ![Image](./media/image8.png)
+   ![Image](./media/l4s6.png)
 
 1. Select the *deleteEmployee* method and enter the below prompt in Copilot Chat. Review the change and accept:
 
-   +++Add error handling when deleting a non-existent employee. Keep behavior consistent with the current design.+++
+   ```
+   Refactor only the deleteEmployee(Long id) method to handle the case where the employee does not exist.
+   ```
 
-   ![Image](./media/image9.png)
+   ![Image](./media/l4s7.png)
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -186,15 +204,19 @@ Reduce duplication and improve reuse.
 
 1. Keep **EmployeeService.java** open and enter the below prompt in Copilot Chat to reduce duplication and improve reuse in the finding employees method:
 
-   +++Extract the logic for finding employees by email into a reusable private method.+++
+   ```
+   Extract the logic for finding employees by email into a reusable private method.
+   ```
 
-   ![Image](./media/image10.png)
+    ![Image](./media/image10.png)
 
 1. Enter the below prompt in Copilot Chat for sorting employees by last name. Review the change and accept:
 
-   +++Extract the logic for sorting employees by last name into a reusable private method.+++
+   ```
+   Extract the logic for sorting employees by last name into a reusable private method.
+   ```
 
-   ![Image](./media/image11.png)
+    ![Image](./media/image11.png)
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -208,13 +230,17 @@ Extend functionality safely.
 
 1. Open **EmployeeRepository.java** under the repository folder and enter the below prompt. Review the change and accept:
 
-   +++Add Spring Data JPA repository methods to search employees by name and sort by last name.+++
+   ```
+   Add Spring Data JPA repository methods to search employees by name and sort by last name.
+   ```
 
    ![Image](./media/image12.png)
 
 1. Enter the below prompt to implement new features. It adds new methods to EmployeeService.java. Review and accept the features:
 
-   +++Use these repository methods in the service to implement a new feature.+++
+   ```
+   Use these repository methods in the service to implement a new feature.
+   ```
 
    ![Image](./media/image13.png)
 
@@ -230,7 +256,9 @@ Extend functionality safely.
 
 1. Select **EmployeeService** and enter `/doc` in Copilot Chat Agent mode to add JavaDoc for all undocumented methods:
 
-   +++/doc+++
+   ```
+   /doc
+   ```
 
    ![Image](./media/image14.png)
 

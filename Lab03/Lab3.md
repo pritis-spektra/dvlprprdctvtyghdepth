@@ -143,12 +143,6 @@ This task demonstrates how Copilot assists in **framework-specific documentation
 
 > **Note:** GitHub Copilot suggests changes but does not automatically apply them. Always verify files such as pom.xml and accept or apply changes explicitly.
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex3-task2-lab03-swagger-docs" />
-
 ### Task 3: Add Code Documentation to Classes with GitHub Copilot Help
 
 Code documentation explains **how the system works internally**, not just what the API does.
@@ -219,12 +213,6 @@ This task shows how **GitHub Copilot helps generate high-quality JavaDoc**, whil
 
    ![Image](./media/image18.png)
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex3-task3-lab03-code-documentation" />
-
 ### Task 4: Update API with Functional and Technical Documentation Structuring
 
 Update the API documentation with the new information. Generate two different markdown files — one with the functional documentation and another with the technical documentation.
@@ -250,12 +238,6 @@ Update the API documentation with the new information. Generate two different ma
    ```
 
    ![Image](./media/image21.png)
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex3-task4-lab03-functional-technical-docs" />
 
 ### Task 5: Testing Employee API with curl
 

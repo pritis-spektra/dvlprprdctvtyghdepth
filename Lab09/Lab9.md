@@ -34,13 +34,12 @@ In this lab, you will complete the following tasks:
 
 1. Open a terminal -> GitBash and run the below commands:
 
-   +++mkdir customer-health-demo && cd customer-health-demo+++
-
-   +++python -m venv venv+++
-
-   +++source venv/Scripts/activate+++
-
-   +++pip install flask+++
+   ```
+      mkdir customer-health-demo && cd customer-health-demo
+      python -m venv venv
+      .\venv\Scripts\Activate.ps1
+      pip install flask
+   ```
 
    ![Image](./media/image2.png)
 

@@ -40,7 +40,9 @@ In this lab, you will complete the following tasks:
 
 1. Open Visual Studio Code -> Terminal -> Git Bash and run the below command to clone the repo:
 
-   +++git clone https://github.com/technofocus-pte/paystream-incident.git+++
+   ```
+   git clone https://github.com/technofocus-pte/paystream-incident.git
+   ```
 
 1. Open **incident_log.txt** and read every line. Before touching Copilot, create a triage list.
 
@@ -118,7 +120,9 @@ In this lab, you will complete the following tasks:
 1. Select the **calculate_fee** function in **payout_models.py.** Type in Copilot Chat:
 
    **Prompt:**
-   +++/explain What happens when an unsupported currency like "GBP" is passed to this function? Trace the downstream impact.+++
+   ```
+   /explain What happens when an unsupported currency like "GBP" is passed to this function? Trace the downstream impact.
+   ```
 
    ![Image](./media/image6.png)
 
@@ -209,7 +213,9 @@ In this lab, you will complete the following tasks:
 
 1. Run tests:
 
-   +++pytest test_payouts.py -v+++
+   ```
+   pytest test_payouts.py -v
+   ```
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -269,7 +275,9 @@ In this lab, you will complete the following tasks:
 
    Run:
 
-   +++pytest test_payouts.py::test_api_missing_fields -v+++
+   ```
+   pytest test_payouts.py::test_api_missing_fields -v
+   ```
 
    ![Image](./media/image18.png)
 

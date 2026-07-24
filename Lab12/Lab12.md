@@ -20,13 +20,12 @@ In this lab, you will complete the following tasks:
 
 1. Create a new project folder **Lab12** in your `C:/` drive and open it in Visual Studio Code. Open Terminal -> GitBash and run the below commands:
 
-   +++mkdir customer-health-dashboard && cd customer-health-dashboard+++
-
-   +++python -m venv venv+++
-
-   +++source venv/Scripts/activate+++
-
-   +++pip install flask+++
+   ```
+   mkdir customer-health-dashboard && cd customer-health-dashboard
+   python -m venv venv
+   source venv/Scripts/activate
+   pip install flask
+   ```
 
    ![Image](./media/image1.png)
 
@@ -54,11 +53,13 @@ In this lab, you will complete the following tasks:
 
 1. Type the following **intent-driven comment** at the top of the file and press **Enter**:
 
-   +++# Mock customer data for a Customer Health Dashboard prototype.+++
+   ```
+   # Mock customer data for a Customer Health Dashboard prototype.
 
-   +++# Each customer has: name (str), industry (str), health_score (int 0-100), and risk_level (one of "healthy", "at-risk", "critical").+++
+   # Each customer has: name (str), industry (str), health_score (int 0-100), and risk_level (one of "healthy", "at-risk", "critical").
 
-   +++# Generate a list of exactly 10 diverse customers across different industries.+++
+   # Generate a list of exactly 10 diverse customers across different industries.
+   ```
 
 1. **Pause and observe.** Copilot offers dimmed ghost text suggestions as you type: sometimes the completion of the current line, sometimes a whole new block of code.
 
@@ -88,11 +89,13 @@ In this lab, you will complete the following tasks:
 
 1. If Copilot's output is incomplete or has inconsistencies, **refine using Copilot Chat**. Press **Ctrl+I** and type:
 
-   +++Fix this customer list: ensure health_score and risk_level are consistent.+++
+   ```
+   Fix this customer list: ensure health_score and risk_level are consistent.
 
-   +++Scores 0-40 should be "critical", 41-70 should be "at-risk", 71-100 should be "healthy".+++
+   Scores 0-40 should be "critical", 41-70 should be "at-risk", 71-100 should be "healthy".
 
-   +++Ensure exactly 10 customers with diverse industries.+++
+   Ensure exactly 10 customers with diverse industries.
+   ```
 
 1. Your final data.py should look similar to this (Copilot's output will vary):
 
@@ -112,15 +115,17 @@ In this lab, you will complete the following tasks:
 
 1. Type the following comment block and let Copilot suggest the implementation:
 
-   +++# Flask application for Customer Health Dashboard+++
+   ```
+   # Flask application for Customer Health Dashboard
 
-   +++# - Import customers from data.py+++
+   # - Import customers from data.py
 
-   +++# - Single route "/" renders dashboard.html with the customer list+++
+   # - Single route "/" renders dashboard.html with the customer list
 
-   +++# - Server-rendered HTML only, no REST API+++
+   # - Server-rendered HTML only, no REST API
 
-   +++# - Run on port 5000 in debug mode+++
+   # - Run on port 5000 in debug mode
+   ```
 
    ![Image](./media/image8.png)
 
@@ -160,7 +165,9 @@ This step uses **Copilot Chat** for a larger, multi-concern generation (HTML + B
 
 1. Create the folder structure in the root folder:
 
-   +++templates/+++
+   ```
+   templates/
+   ```
 
 1. Create a new file: **templates/dashboard.html**.
 
@@ -223,7 +230,9 @@ This step uses **Copilot Chat** for a larger, multi-concern generation (HTML + B
 
 1. Ensure your virtual environment is activated, then run:
 
-   +++python app.py+++
+   ```
+   python app.py
+   ```
 
 1. You should see output similar to:
 
@@ -248,7 +257,9 @@ This step uses **Copilot Chat** for a larger, multi-concern generation (HTML + B
 
 1. **If errors occur**, use Copilot to debug. Select the error in the terminal, press **Ctrl+I**, and type:
 
-   +++/fix Explain this Flask error and suggest a fix+++
+   ```
+   /fix Explain this Flask error and suggest a fix
+   ```
 
    Copilot works even better if you give it an error message or highlight the part of the code that's broken.
 

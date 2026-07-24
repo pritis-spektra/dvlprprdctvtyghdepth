@@ -36,9 +36,10 @@ Before using Copilot, assess the situation as a developer.
 
 1. Attempt to start the server:
 
-   +++cd buggy-order-api/+++
-
-   +++npm start+++
+   ```
+   cd buggy-order-api/
+   npm start
+   ```
 
 1. The server will crash on startup due to route configuration errors.
 
@@ -59,8 +60,10 @@ Before using Copilot, assess the situation as a developer.
 1. Do not move on to endpoint testing until startup-level issues are resolved.
 
 1. Open terminal and run the below command to create a new branch for your fixes:
-
-   +++git checkout -b fix/debug-with-copilot+++
+   
+   ```
+   git checkout -b fix/debug-with-copilot
+   ```
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -74,7 +77,9 @@ Use Copilot Chat as an interactive AI assistant, helping you debug issues with n
 
 1. Open **src/models/order.js** in the editor. Select **all the code** in the file. Open Copilot Chat and type:
 
-   +++/explain+++
+   ```
+   /explain
+   ```
 
    ![Image](./media/image2.png)
 
@@ -94,7 +99,9 @@ Use Copilot Chat as an interactive AI assistant, helping you debug issues with n
 
 1. Highlight the **findByStatus** method in order.js. In Copilot Chat, ask:
 
-   +++Why does this filter method always return an empty array?+++
+   ```
+   Why does this filter method always return an empty array?
+   ```
 
    ![Image](./media/image4.png)
 
@@ -104,7 +111,9 @@ Use Copilot Chat as an interactive AI assistant, helping you debug issues with n
 
 1. Open **src/middleware/auth.js**. In Copilot Chat, type:
 
-   +++Analyze this authentication middleware for security vulnerabilities and best practice violations+++
+   ```
+   Analyze this authentication middleware for security vulnerabilities and best practice violations
+   ```
 
    ![Image](./media/image6.png)
 
@@ -134,7 +143,9 @@ Systematically fix each file using Copilot's /fix command, inline suggestions, a
 
 1. **Open** **src/app.js** in the editor. **Select all code** in the file and type in Copilot Chat in Agent mode:
 
-   +++/fix Review this Express app configuration. It is missing critical middleware and has a route prefix typo. Fix all issues.+++
+   ```
+   /fix Review this Express app configuration. It is missing critical middleware and has a route prefix typo. Fix all issues.
+   ```
 
    ![Image](./media/image8.png)
 
@@ -152,7 +163,9 @@ Systematically fix each file using Copilot's /fix command, inline suggestions, a
 
 1. Open Terminal and install the CORS package if Copilot suggested it:
 
-   +++npm install cors+++
+   ```
+   npm install cors
+   ```
 
    ![Image](./media/image10.png)
 
@@ -170,7 +183,9 @@ Systematically fix each file using Copilot's /fix command, inline suggestions, a
 
 1. Open src/server.js. **Select all code** and use Copilot Chat Agent mode:
 
-   +++/fix This server file has a hardcoded port and no graceful shutdown. Add environment variable support and proper signal handling.+++
+   ```
+   /fix This server file has a hardcoded port and no graceful shutdown. Add environment variable support and proper signal handling.
+   ```
 
    ![Image](./media/image11.png)
 
@@ -196,7 +211,9 @@ This file contains **10 bugs** and is the core of the application. We'll fix it 
 
 1. **Highlight the constructor** of the Order class. In Copilot Chat:
 
-   +++/fix This constructor crashes because uuid is never imported and Date.now is missing parentheses. Also, totalPrice should be calculated from items.+++
+   ```
+   /fix This constructor crashes because uuid is never imported and Date.now is missing parentheses. Also, totalPrice should be calculated from items.
+   ```
 
    ![Image](./media/image14.png)
 
@@ -210,7 +227,9 @@ This file contains **10 bugs** and is the core of the application. We'll fix it 
 
 1. **Highlight** the update method. Use **inline chat** (press Ctrl+I / Cmd+I on the selection):
 
-   +++Fix this: it overwrites the entire order with updateData, losing the original fields like id and createdAt. It should merge properties instead.+++
+   ```
+   Fix this: it overwrites the entire order with updateData, losing the original fields like id and createdAt. It should merge properties instead.
+   ```
 
    ![Image](./media/image17.png)
 
@@ -232,7 +251,9 @@ This file contains **10 bugs** and is the core of the application. We'll fix it 
 
 1. Type the following **comment prompt** to trigger Copilot inline suggestions:
 
-   +++// Calculate the total price of an order by summing price * quantity for each item+++
+   ```
+   // Calculate the total price of an order by summing price * quantity for each item
+   ```
 
 1. **Wait for Copilot's ghost text suggestion** and press Tab to accept if it looks correct.
 
@@ -240,7 +261,9 @@ This file contains **10 bugs** and is the core of the application. We'll fix it 
 
 1. Then type another comment:
 
-   +++// Validate order data: customerName, items (non-empty array), and shippingAddress are required+++
+   ```
+   // Validate order data: customerName, items (non-empty array), and shippingAddress are required
+   ```
 
 1. Accept or refine Copilot's suggestion.
 
@@ -258,7 +281,9 @@ This file contains **10 bugs** and is the core of the application. We'll fix it 
 
 1. **Highlight** the createOrder method. In Copilot Chat:
 
-   +++/fix This createOrder method has no input validation, returns wrong HTTP status code (200 instead of 201), and has incorrect error handling. Fix all issues and add proper validation using the helpers module.+++
+   ```
+   /fix This createOrder method has no input validation, returns wrong HTTP status code (200 instead of 201), and has incorrect error handling. Fix all issues and add proper validation using the helpers module.
+   ```
 
    ![Image](./media/image21.png)
 
@@ -280,7 +305,9 @@ This file contains **10 bugs** and is the core of the application. We'll fix it 
 
 1. **Highlight** the getOrdersByStatus method. In Copilot Chat in Agent mode:
 
-   +++/fix This reads status from req.params but the route sends it as a query parameter. Also add validation for allowed status values: pending, processing, shipped, delivered, cancelled.+++
+   ```
+   /fix This reads status from req.params but the route sends it as a query parameter. Also add validation for allowed status values: pending, processing, shipped, delivered, cancelled.
+   ```
 
    ![Image](./media/image23.png)
 
@@ -401,11 +428,13 @@ This file has **11 bugs**. Let's use Copilot Agent mode — the next evolution i
 
    ![Image](./media/image34.png)
 
-1. Use +++/fix+++ in Agent mode and fix any pending issues.
+1. Use `/fix` in Agent mode and fix any pending issues.
 
 1. Now run the server:
 
-   +++npm start+++
+   ```
+   npm start
+   ```
 
    ![Image](./media/image35.png)
 
@@ -427,7 +456,9 @@ This file has **11 bugs**. Let's use Copilot Agent mode — the next evolution i
 
 1. Validate the summary route:
 
-   +++curl -i http://localhost:3000/api/v1/orders/summary+++
+   ```
+   curl -i http://localhost:3000/api/v1/orders/summary
+   ```
 
    Expected: 200 OK with totals.
 

@@ -49,7 +49,9 @@ Learn how Copilot generates code using **comments as intent**.
 
 1. Scroll to an empty line inside the class. Type the following comment. Press **Enter** and pause for a moment.
 
-   +++//Method to check if a number is prime+++
+   ```
+   //Method to check if a number is prime
+   ```
 
    ![Image](./media/image2.png)
 
@@ -59,7 +61,9 @@ Learn how Copilot generates code using **comments as intent**.
 
 1. Try another function, for instance. Accept the suggested method. Edit the generated code and see if more relevant suggestions appear.
 
-   +++//Method to compute factorial of a number+++
+   ```
+   //Method to compute factorial of a number
+   ```
 
    ![Image](./media/image4.png)
 
@@ -75,17 +79,26 @@ Use Copilot Chat to ask questions, learn concepts, and debug issues.
 
 1. Open Copilot Chat (you can also press Ctrl+Shift+' in VS Code).
 
-1. Ask (select ask mode) the following questions **one by one** and read the responses carefully. Copilot should provide clear explanations and example code.
-
-   +++How can I inject a service into this controller?+++
-
-   +++Why am I getting a NullPointerException on line 25?+++
-
-   +++Show me how to read a file line by line in Java.+++
+1. Ask (select ask mode) the following question and read the response carefully. Copilot should provide clear explanations and example code.
+   ```
+   How can I inject a service into this controller?
+   ```
 
    ![Image](./media/image5.png)
 
+1. Ask (select ask mode) the following question and read the response carefully. Copilot should provide clear explanations and example code.
+
+   ```
+   Why am I getting a NullPointerException on line 25?
+   ```
+
    ![Image](./media/image6.png)
+
+1. Ask (select ask mode) the following question and read the response carefully. Copilot should provide clear explanations and example code.
+
+   ```
+   Show me how to read a file line by line in Java.
+   ```
 
    ![Image](./media/image7.png)
 
@@ -104,13 +117,21 @@ Use Copilot Chat to ask questions, learn concepts, and debug issues.
 
 1. Open terminal -> Git Bash and run the app with the below commands. Application will run:
 
-   +++cd github-copilot-workshops-labs-java/lab-05-agents/java/+++
+   ```
+   cd github-copilot-workshops-labs-java/lab-05-agents/java/
+   ```
 
-   +++mvn spring-boot:run+++
+   ```
+   mvn spring-boot:run
+   ```
 
    ![Image](./media/image9.png)
 
-1. Open a browser and navigate to +++http://localhost:8080/api/employees+++. You can see a **500 Internal Server Error** in the browser.
+1. Open a browser and navigate to the below link. You can see a **500 Internal Server Error** in the browser.
+
+   ```
+   http://localhost:8080/api/employees. 
+   ```
 
    ![Image](./media/image10.png)
 
@@ -118,23 +139,25 @@ Use Copilot Chat to ask questions, learn concepts, and debug issues.
 
    ![Image](./media/image11.png)
 
-1. Select the error message in the terminal or select the buggy method in EmployeeService.java and open Copilot Chat, enter +++/explain+++.
+1. Select the error message in the terminal or select the buggy method in EmployeeService.java and open Copilot Chat, enter `/explain`.
 
    ![Image](./media/image12.png)
 
 1. Copilot explains — what a NullPointerException is, which object is null, why repo.findAll() fails, and where the issue originates.
 
-1. Select the agent mode and ask Copilot to fix it with the command +++/terminalfix+++.
+1. Select the agent mode and ask Copilot to fix it with the command `/terminalfix`.
 
    ![Image](./media/image13.png)
 
 1. Review and accept the fix and then re-run the application to check the fix (stop the server with Ctrl+C in the terminal):
 
-   +++mvn spring-boot:run+++
+   ```
+   mvn spring-boot:run
+   ```
 
    ![Image](./media/image14.png)
 
-1. Open a browser and navigate to +++http://localhost:8080/api/employees+++.
+1. Open a browser and navigate to `http://localhost:8080/api/employees`.
 
    ![Image](./media/image15.png)
 
@@ -154,19 +177,25 @@ Use Copilot Chat to ask questions, learn concepts, and debug issues.
 
 1. Assign a high-level task, for example. Review the **plan** proposed by the Agent. Approve the plan to let Copilot apply changes across files.
 
-   +++Refactor all controllers to use constructor dependency injection.+++
+   ```
+   Refactor all controllers to use constructor dependency injection.
+   ```
 
    ![Image](./media/image18.png)
 
 1. Ask follow-up questions such as:
 
-   +++Explain why this refactor was necessary.+++
+   ```
+   Explain why this refactor was necessary.
+   ```
 
    ![Image](./media/image19.png)
 
 1. Try another Agent task:
 
-   +++Generate unit tests for all public methods in the service package.+++
+   ```
+   Generate unit tests for all public methods in the service package.
+   ```
 
    ![Image](./media/image20.png)
 
@@ -180,11 +209,11 @@ Use Copilot Chat to ask questions, learn concepts, and debug issues.
 
 Learn how to create reusable Markdown files (\*.prompt.md) that define prompts for repetitive tasks such as explaining code, generating tests, or reviewing PRs. These files are typically stored in `.github/prompts/` within your repository. In VS Code, you can open Copilot Chat and execute the slash command `/\<prompt-name\>` that matches the file name (without extension). Prompts can request inputs using `${input:key:label}` and run in agent mode.
 
-1. Navigate to **lab-05-agents/java/.github** and create a folder +++prompts/+++.
+1. Navigate to **lab-05-agents/java/.github** and create a folder `prompts`.
 
    ![Image](./media/image21.png)
 
-1. Create a new file with the name +++explain-java.prompt.md+++ and paste the below prompt:
+1. Create a new file with the name `explain-java.prompt.md` and paste the below prompt:
 
    ```
    ---
@@ -206,7 +235,7 @@ Learn how to create reusable Markdown files (\*.prompt.md) that define prompts f
 
    ![Image](./media/image22.png)
 
-1. Open Copilot Chat and type - +++/explain-java+++ and Copilot will recognize it as a custom prompt:
+1. Open Copilot Chat and type - `/explain-java` and Copilot will recognize it as a custom prompt:
 
    ![Image](./media/image23.png)
 
@@ -220,7 +249,7 @@ Learn how to create reusable Markdown files (\*.prompt.md) that define prompts f
 
    ![Image](./media/image24.png)
 
-1. Create another file named +++review-java.prompt.md+++ and paste the below content:
+1. Create another file named `review-java.prompt.md` and paste the below content:
 
    ```
    ---
@@ -241,7 +270,7 @@ Learn how to create reusable Markdown files (\*.prompt.md) that define prompts f
 
    ![Image](./media/image25.png)
 
-1. Go back to Copilot Chat and run: +++/review-java+++.
+1. Go back to Copilot Chat and run: `/review-java`.
 
    ![Image](./media/image26.png)
 
@@ -263,7 +292,7 @@ Learn how to create reusable Markdown files (\*.prompt.md) that define prompts f
 
    ![Image](./media/image28.png)
 
-1. Create a file called +++generate-tests-java.prompt.md+++ in **.github/prompts/generate-tests-java.prompt.md** and paste the below content:
+1. Create a file called `generate-tests-java.prompt.md` in **.github/prompts/generate-tests-java.prompt.md** and paste the below content:
 
    ```
    ---
@@ -284,7 +313,7 @@ Learn how to create reusable Markdown files (\*.prompt.md) that define prompts f
 
    ![Image](./media/image29.png)
 
-1. Enter in Copilot Chat Agent mode: +++/generate-tests-java+++.
+1. Enter in Copilot Chat Agent mode: `/generate-tests-java`.
 
    ![Image](./media/image30.png)
 
@@ -298,23 +327,27 @@ Learn how to create reusable Markdown files (\*.prompt.md) that define prompts f
 
    ![Image](./media/image31.png)
 
-1. Enter test matrix – +++zero division, negative numbers, large numbers+++.
+1. Enter test matrix – `zero division, negative numbers, large numbers`.
 
    ![Image](./media/image32.png)
 
-1. Create a +++DivideTest.java+++ in **src/test/java** and save the above results.
+1. Create a `DivideTest.java` in **src/test/java** and save the above results.
 
    ![Image](./media/image33.png)
 
 1. Open terminal and run tests with below commands:
 
-   +++cd lab-05-agents\java+++
+   ```
+   cd lab-05-agents\java
+   ```
 
-   +++mvn test+++
+   ```
+   mvn test
+   ```
 
    ![Image](./media/image34.png)
 
-1. If you see any compilation errors, ask Copilot to fix with +++/terminalfix+++ command. Review and accept the fix:
+1. If you see any compilation errors, ask Copilot to fix with `/terminalfix` command. Review and accept the fix:
 
    ![Image](./media/image35.png)
 

@@ -51,7 +51,7 @@ In this task, you will activate GitHub Copilot and configure it within Visual St
 
 > **Note:** This task is intended only for users who have not yet activated or configured GitHub Copilot. If your setup is already complete, you may skip these steps.
 
-1. Open a new tab in your browser and go to Signup to GitHub Copilot - `https://github.com/github-copilot/signup`
+1. Open a new tab in your browser and navigate to the GitHub Copilot sign-up page: `https://github.com/github-copilot/signup`
 
 1. Click on the **"Get access to GitHub Copilot"** button.
 
@@ -67,7 +67,7 @@ In this task, you will activate GitHub Copilot and configure it within Visual St
 
    **IMPORTANT:** Make sure to deactivate the account after you complete the labs to avoid billing for usage.
 
-1. Open Visual Studio Code from the Windows Start menu. Click on **Accounts > Backup and Sync Settings** and select **Sign in.**
+1. Open **Visual Studio Code** from the Windows Start menu. Click on **Accounts → Backup and Sync Settings** and select **Sign in**.
 
    ![Image](./media/image45.png)
 
@@ -75,29 +75,23 @@ In this task, you will activate GitHub Copilot and configure it within Visual St
 
    ![Image](./media/image46.png)
 
-1. Select the Browser and Sign in with your Copilot enabled Github account.
+1. Select the browser option and sign in with your Copilot-enabled GitHub account.
 
    ![Image](./media/image47.png)
 
    ![Image](./media/image48.png)
 
-1. Authenticate and verify with the code to complete Two-factor authentication.
+1. Complete two-factor authentication by entering the verification code sent to your registered email or authenticator app.
 
    ![Image](./media/image49.png)
 
-1. Click on Visual Studio Code.
+1. When prompted in the browser, click **Open Visual Studio Code** to return to the editor.
 
    ![Image](./media/image50.png)
 
-1. Click on Extension from the left navigation menu, search for `GitHub Copilot` chat, select it and click on **Install**.
+1. In VS Code, click the **Extensions** icon in the left navigation bar. Search for `GitHub Copilot Chat`, select the extension from the results, and click **Install**.
 
    ![Image](./media/image51.png)
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex1-task0-lab01-activate-copilot" />
 
 ### Task 1: Understand the API
 
@@ -125,50 +119,44 @@ In this task, you will learn what the application does before writing any tests.
 
    > **Note:** If you already see your GitHub username in VS Code's Accounts menu, you are already signed in and can skip the sign-in steps above.
 
-1. Click on **File -> Open Folder**, navigate to `C:\Labfiles`, and select the folder **github-copilot-workshops-labs-java**.
+1. In VS Code, go to **File → Open Folder**, navigate to `C:\Labfiles`, and select the **github-copilot-workshops-labs-java** folder.
 
    > **Note:** The lab files have already been extracted to `C:\Labfiles` by the lab setup script - no manual extraction is required.
 
    ![Image](./media/image1.png)
 
-1. Open the `01-testing -> java -> src -> main -> controller -> EmployeeController.java` api.
+1. In the Explorer panel, navigate to and open the following file:
+
+   `01-testing → java → src → main → java → controller → EmployeeController.java`
 
    ![Image](./media/image2.png)
 
-1. Read the controller classes (example - @RestController, @RequestMapping, getMapping, etc.) of the API and identify:
+1. Read through the controller annotations (e.g., `@RestController`, `@RequestMapping`, `@GetMapping`) and identify the following for each endpoint:
 
-   - **Base URL** (common path prefix used by all APIs in this controller)
-
-   - **HTTP methods** (HTTP methods describe what you want to do with the resource (Employee))
-
-   - **Request Body** (The Request Body is the data sent by the client to the server, usually in JSON format)
-
-   - **Response** (The Response is what the API sends back to the client)
+   - **Base URL** — the common path prefix shared by all endpoints in this controller
+   - **HTTP methods** — the operation type (GET, POST, PUT, DELETE) for each endpoint
+   - **Request Body** — the JSON data sent by the client to the server (where applicable)
+   - **Response** — the data the API returns to the client
 
    ![Image](./media/image3.png)
 
-1. Below are the base URL, HTTP methods, Request body and response from EmployeeController.java api:
+1. Based on your review, the controller exposes the following API:
 
-   Base URL: **/api/employees**
-
-   Http Methods:
+   **Base URL:** `/api/employees`
 
    | **HTTP Method** | **Purpose** | **Endpoint** |
    |--|--|--|
-   | GET | Retrieve data | /api/employees |
-   | GET | Retrieve one record | /api/employees/{id} |
-   | POST | Create new record | /api/employees |
-   | PUT | Update existing record | /api/employees/{id} |
-   | DELETE | Delete a record | /api/employees/{id} |
+   | GET | Retrieve all employees | /api/employees |
+   | GET | Retrieve one employee by ID | /api/employees/{id} |
+   | POST | Create a new employee | /api/employees |
+   | PUT | Update an existing employee | /api/employees/{id} |
+   | DELETE | Delete an employee | /api/employees/{id} |
 
-   Retrieve all employees - `public List<Employee> getAllEmployees()`
+   Key method signatures:
+   - **Get all:** `public List<Employee> getAllEmployees()` — `@GetMapping`
+   - **Create:** `public Employee createEmployee(@RequestBody Employee employee)` — `@PostMapping`
 
-   Create new employee (PostMapping) - `public Employee createEmployee(@RequestBody Employee employee)`
-
-   - **Request body:** `public Employee createEmployee(@RequestBody Employee employee)` – (PostMapping)
-   - **Response by Endpoint:** Get all employees - `public List<Employee> getAllEmployees()` - (@GetMapping)
-
-1. Select the entire EmployeeController.java file. Open **Copilot Chat in Ask mode with Claude Sonnet 4.5 model selected**. Paste the following prompt:
+1. Select the entire contents of **EmployeeController.java**. Open **Copilot Chat**, ensure **Ask** mode is selected with the **Claude Sonnet 4.5** model, and enter the following prompt:
 
    ```
    Explain this Spring Boot REST controller
@@ -183,7 +171,7 @@ In this task, you will learn what the application does before writing any tests.
 
    ![Image](./media/image4.png)
 
-1. You can see a response similar to the one below. Read the Copilot response and evaluate it:
+1. Copilot will return a structured explanation of the API. Read and evaluate the response. It should include information similar to the following:
 
    - **Base URL:** Employee Model (Request/Response shape) - All endpoints consume and produce Employee objects serialized as JSON
 
@@ -246,19 +234,15 @@ The repository layer is responsible for data persistence. This task focuses on t
 
    ![Image](./media/image12.png)
 
-1. At the top of **EmployeeRepositoryTest.java**, add the below comment manually. Stop typing and wait - Copilot will start suggesting:
+1. At the top of **EmployeeRepositoryTest.java**, manually type the following comment and then stop typing. Copilot will begin suggesting completions such as `@DataJpaTest`, an autowired repository, and sample save/find tests:
 
-   - @DataJpaTest
-   - Autowired repository
-   - Sample save and find tests
-
-   ```
+   ```java
    // Write JUnit tests for EmployeeRepository using @DataJpaTest.
    ```
 
    ![Image](./media/image13.png)
 
-1. Open chat, select agent mode and Claude Sonnet 4.5 model, then enter the below prompt:
+1. Open **Copilot Chat**, switch to **Agent** mode, select the **Claude Sonnet 4.5** model, and enter the following prompt:
 
    ```
    Create JUnit 5 tests for EmployeeRepository
@@ -271,17 +255,17 @@ The repository layer is responsible for data persistence. This task focuses on t
 
    ![Image](./media/image14.png)
 
-1. Copilot will generate and update your test file.
+1. Copilot will generate the test code and update **EmployeeRepositoryTest.java** automatically.
 
    ![Image](./media/image15.png)
 
-1. Review unit tests and click on **Keep** to accept tests.
+1. Review the generated tests to ensure they cover the required CRUD operations, then click **Keep** to accept them.
 
    ![Image](./media/image16.png)
 
    ![Image](./media/image17.png)
 
-1. Open a **Terminal -> Git Bash** from VS Code (go to **Terminal → New Terminal**, then switch to **Git Bash** from the dropdown in the terminal panel).
+1. Open a terminal in VS Code by going to **Terminal → New Terminal**. In the terminal panel, click the dropdown and switch to **Git Bash**.
 
    ![Image](./media/image18a.png)
 
@@ -320,7 +304,7 @@ The repository layer is responsible for data persistence. This task focuses on t
 
 The service layer contains business logic and coordinates interactions with the repository. This task teaches how to test logic independently of infrastructure by mocking dependencies.
 
-1. Navigate to **src/test/java/com/example/demo** and create a file with the name `EmployeeServiceTest.java` and enter the below prompt in Copilot Chat Agent mode:
+1. Navigate to `src/test/java/com/example/demo` and create a new file named `EmployeeServiceTest.java`. Then open **Copilot Chat** in **Agent** mode and enter the following prompt:
 
    ```
    Create unit tests for EmployeeService
@@ -336,23 +320,26 @@ The service layer contains business logic and coordinates interactions with the 
 
    ![Image](./media/image22.png)
 
-1. Review and validate the generated tests and click on **Keep**:
+1. Review the generated tests carefully before accepting. When reviewing Copilot-generated unit tests, always check the following:
 
-   ```
-   When GitHub Copilot generates unit tests
-   - Always verify package declarations
-   - Always verify import statements
-   - Ensure imported classes exist in src/main/java
-   - Fix any mismatches before running tests
-   ```
+   - Package declarations match the main application package
+   - Import statements are correct and reference existing classes
+   - Imported classes exist under `src/main/java`
+   - Any mismatches are fixed before running tests
 
-   Copilot suggestions must be reviewed before execution.
+   Once satisfied, click **Keep** to accept the generated tests.
+
+   > **Note:** Always review Copilot suggestions before executing them. Do not accept changes blindly.
 
    ![Image](./media/image23.png)
 
    ![Image](./media/image24.png)
 
-1. Open the terminal and navigate to the path suggested by Copilot and run `mvn test`.
+1. In the terminal, navigate to the project folder (as suggested by Copilot if prompted) and run the following command to execute the tests:
+
+   ```
+   mvn test
+   ```
 
    ![Image](./media/image25.png)
 
@@ -366,7 +353,7 @@ The controller layer exposes the REST API. This task focuses on verifying HTTP b
 
    ![Image](./media/image27.png)
 
-1. Open Copilot and enter the below prompt:
+1. Open **Copilot Chat** in **Agent** mode and enter the following prompt:
 
    ```
    Create unit tests for EmployeeController
@@ -385,7 +372,7 @@ The controller layer exposes the REST API. This task focuses on verifying HTTP b
 
    ![Image](./media/image28.png)
 
-1. Review the tests and click on **Keep** to add the controller class.
+1. Review the generated controller tests and, once satisfied, click **Keep** to accept them.
 
    ![Image](./media/image29.png)
 
@@ -445,7 +432,7 @@ The controller layer exposes the REST API. This task focuses on verifying HTTP b
 
 This task simulates a real development scenario: extending an existing application with a new feature. You will add a new operation to find an employee by email and ensure it is properly tested at every layer.
 
-1. Open Copilot Chat and enter the below prompt:
+1. Open **Copilot Chat** in **Agent** mode and enter the following prompt:
 
    ```
    Add a new feature to find an employee by email
@@ -459,21 +446,27 @@ This task simulates a real development scenario: extending an existing applicati
 
    ![Image](./media/image35.png)
 
-1. Review the response and accept by clicking on **Keep**.
+1. Review Copilot's response carefully, then click **Keep** to accept the changes.
 
    ![Image](./media/image36.png)
 
-1. **Review and accept the tests**.
+1. Review the generated test files to ensure they cover the new email lookup feature, then click **Keep** to accept them.
 
    ![Image](./media/image37.png)
 
-1. Review and accept the code changes to repository and service classes.
+1. Review the code changes Copilot made to the repository and service classes, then click **Keep** to accept them.
 
    ![Image](./media/image38.png)
 
    ![Image](./media/image39.png)
 
-1. Now run the command `mvn clean test` to clean the build.
+1. Run the following command to clean the build and execute all tests:
+
+   ```
+   mvn clean test
+   ```
+
+   Verify that the build succeeds and all tests — including the new email lookup tests — pass.
 
    ![Image](./media/image40.png)
 

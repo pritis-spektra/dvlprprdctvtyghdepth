@@ -6,7 +6,7 @@
 
 In this lab, you will focus on **troubleshooting, debugging, and validating a Java Spring Boot application** with the assistance of GitHub Copilot. Rather than writing new functionality, the emphasis is on **understanding failures, identifying root causes, and applying fixes responsibly**.
 
-Modern developers spend a significant portion of their time debugging broken builds, failing tests, and incorrect application behavior. This lab demonstrates how **GitHub Copilot can act as a debugging partner** — helping developers analyze errors, explain failures, and propose fixes — while **developers retain decision-making authority**.
+Modern developers spend a significant portion of their time debugging broken builds, failing tests, and incorrect application behavior. This lab demonstrates how **GitHub Copilot can act as a debugging partner** - helping developers analyze errors, explain failures, and propose fixes - while **developers retain decision-making authority**.
 
 ## Objectives
 
@@ -37,27 +37,25 @@ This task reinforces API comprehension using **GitHub Copilot as a code understa
 
 > **Note:** Some API behaviors and documentation issues are intentionally incorrect. Use GitHub Copilot (/explain, /fix) and your own reasoning to identify and correct them.
 
-1. Navigate to **lab-02-debugging -> java/src/main/java/com/example/demo/controllers/** and open **EmployeeController.java**.
+1. Navigate to `lab-02-debugging/java/src/main/java/com/example/demo/controllers/` and open **EmployeeController.java**.
 
    ![Image](./media/image1.png)
 
-1. Use Copilot's `/explain` to understand endpoints.
+1. Select the entire contents of **EmployeeController.java**, then open **Copilot Chat** and use the `/explain` command to understand what each endpoint does.
 
-1. Identify:
+1. From the Copilot explanation, identify the following:
 
-   - Base URL
+   - **Base URL** - the common path prefix shared by all endpoints
+   - **Endpoints** - each route exposed by the controller
+   - **Expected input/output** - the request body and response format for each endpoint
 
-   - Endpoints
-
-   - Expected input/output
-
-1. Open Copilot Chat and enter +++/explain+++ in Ask mode. Read the response and understand the API to prepare the md file.
+1. Open **Copilot Chat**, ensure you are in **Ask (2)** mode, and enter `/explain` **(3)**. Read and review the full response to understand the API before preparing the documentation file.
 
    ![Image](./media/image2.png)
 
    ![Image](./media/image3.png)
 
-1. Create or update API documentation and update with Base URL, Endpoints and Expected input/output. Sample given for your reference but suggest to prepare on your own.
+1. Create or update the API documentation file **api-doc.md**, including the Base URL, Endpoints, and Expected Input/Output for each. A sample is provided for reference, but you're encouraged to prepare your own version, similar to the approach used in Lab 1.
 
    ```
    # Employee Rest API document
@@ -172,165 +170,208 @@ This task reinforces API comprehension using **GitHub Copilot as a code understa
 
    ![Image](./media/image4.png)
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex2-task1-lab02-understand-api" />
-
 ### Task 2: Debug and Solve Compile Errors Using GitHub Copilot
 
 In real-world development, code often **fails to compile** due to syntax errors, incorrect method signatures, mismatched annotations, or package inconsistencies. These errors block progress completely and must be resolved before any testing or validation can occur.
 
 This task focuses on using **GitHub Copilot as a troubleshooting assistant** to:
 
-- Interpret Java and Maven compilation errors
+   - Interpret Java and Maven compilation errors
+   - Identify the **root cause** of failures
+   - Propose **correct and minimal fixes**
+   - Validate fixes through a successful build
+   - Recognize common Java and Spring Boot compile-time errors
+   - Understand Maven error output
+   - Use GitHub Copilot (/explain and /fix) to analyze failures
+   - Validate Copilot's suggestions before applying fixes
+   - Confirm a clean build using Maven
 
-- Identify the **root cause** of failures
+1. Open **Terminal → Git Bash** in VS Code and navigate to the lab folder by running the following command:
 
-- Propose **correct and minimal fixes**
+   ```
+   cd lab-02-debugging/java
+   ```
 
-- Validate fixes through a successful build
-
-- Recognize common Java and Spring Boot compile-time errors
-
-- Understand Maven error output
-
-- Use GitHub Copilot (/explain and /fix) to analyze failures
-
-- Validate Copilot's suggestions before applying fixes
-
-- Confirm a clean build using Maven
-
-1. Open terminal -> Git Bash and navigate to the **lab2** folder with the below command. The build fails as Maven prints one or more **COMPILATION ERROR** messages. Tests do not start running. Do not immediately try to "fix by guessing". First, understand the error.
-
-   +++cd "github-copilot-workshops-labs-java/lab-02-debugging/"+++
+   Then run the Maven build:
 
    ```
    mvn clean test
    ```
 
+   The build will fail - Maven will print one or more **COMPILATION ERROR** messages and tests will not run. Do not attempt to fix the error by guessing. Instead, take time to read and understand the error output first.
+
    ![Image](./media/image5.png)
 
    ![Image](./media/image6.png)
 
-1. Select the Maven error message, open Copilot Chat and enter the command +++/terminalexplain+++ (or you can also copy the maven error message and ask Copilot in chat to explain the error).
+1. Select the Maven error message in the terminal. Open **Copilot Chat** and enter the `/terminalexplain` command to have Copilot explain the error. Alternatively, copy the error message and paste it directly into the Copilot Chat to ask for an explanation.
 
    ![Image](./media/image7.png)
 
-1. To fix the error, you can ask Copilot to fix it by entering the command +++/fix+++ or +++/terminalfix+++. Copilot will provide a fix and also give extra suggestions. Review the response.
+1. To apply a fix, enter `/fix` or `/terminalfix` in Copilot Chat. Copilot will suggest a fix along with additional recommendations. Review the response carefully before accepting any changes.
 
    ![Image](./media/image8.png)
 
    ![Image](./media/image9.png)
 
-1. Developers must first identify the compilation issue and explicitly ask Copilot for assistance if needed.
+   > **Note:** Always identify the compilation issue yourself first, then use Copilot explicitly for assistance when needed. Avoid applying suggestions without understanding what they change.
 
-1. Open **DemoApplication.java** file and add +++; +++ at the end of line 10, save the file and run mvn test again. Now you will see a different error:
+1. Open the **DemoApplication.java** file. Inside the `main` method, add the following line **below** `SpringApplication.run(...)` and save the file:
+
+   ```java
+   int x = "this is not an int";
+   ```
+
+   The method should now look like this:
+
+   ```java
+   public static void main(String[] args) {
+       SpringApplication.run(DemoApplication.class, args);
+       int x = "this is not an int";
+   }
+   ```
+
+   Then run:
+
+   ```
+   mvn clean test
+   ```
+
+   This introduces a **type mismatch** - assigning a `String` to an `int` - which will cause a compilation error:
 
    ![Image](./media/image10.png)
 
-1. Analyze the error and take Copilot's help now. Enter +++/explain+++ to understand why you are getting the error, enter +++/fix+++ to fix the error, or enter +++/refactor+++ — Fixes the constructor, Ensures getters/setters match field types, Cleans up redundant code, and Keeps API intact.
+   ![Image](./media/image10a.png)
 
-   +++/explain+++
+1. Analyze the new error using the following Copilot commands:
+
+   - Enter `/explain` to understand why the error is occurring.
+   - Enter `/fix` to have Copilot propose a targeted fix.
+   - Enter `/refactor` for a broader cleanup - this fixes the constructor, ensures getters/setters match field types, removes redundant code, and keeps the API intact.
+
+   **Using `/explain`:**
 
    ![Image](./media/image11.png)
 
-   Run +++/fix+++
+   **Using `/fix`:**
 
    ![Image](./media/image12.png)
 
-   Copilot found the error and fixed the issue — email field from long to string on setEmail and getEmail methods in **Employee.java** class. You can press Keep to accept the fix. Let's not accept it for now and try the /refactor capability for better understanding.
+   Copilot identifies the issue - **The code has a type mismatch error**. For now, skip the fix and instead try `/refactor` to explore a broader correction.
 
-   ![Image](./media/image13.png)
-
-   ![Image](./media/image14.png)
-
-1. If you undo, Copilot will revert changes back in the class file.
-
-   ![Image](./media/image15.png)
-
-1. Accept the fix or add **private String email;** to the **Employee** class and save the file.
+1. Accept Copilot's fix by clicking **Keep**.
 
    ![Image](./media/image16.png)
 
-1. Now run again +++mvn clean test+++. Tests failed with error. Take Copilot help to fix:
+1. Run the following command:
 
-   ![Image](./media/image17.png)
-
-1. Copilot suggests to compile with the command - +++mvn clean compile+++. Run the command.
-
-   ![Image](./media/image18.png)
-
+   ```
+   mvn clean compile
+   ```
+   
    The build is successful now:
 
    ![Image](./media/image19.png)
 
-1. To see functional errors, run the application with the command - +++mvn spring-boot:run+++. Application will start.
+1. To expose functional (runtime) errors, start the application with the following command:
+
+   ```
+   mvn spring-boot:run
+   ```
+
+   Wait for the application to start successfully.
 
    ![Image](./media/image20.png)
 
    ![Image](./media/image21.png)
 
-1. Open a browser and navigate to +++http://localhost:8080+++. You can see a functional error — it's not a crash, it is a **missing root endpoint**.
+1. Open a browser and navigate to `http://localhost:8080`. You will see a functional error - this is not a crash, but rather a **missing root endpoint** (`/`). The application is running, but no handler is mapped to the base URL.
 
    ![Image](./media/image22.png)
 
-1. Ask Copilot about the Whitelabel error with the prompt below. Copilot will suggest valid endpoints (this is only to show how Copilot helps). Review the response.
+1. In **Copilot Chat**, switch to **Agent** mode and enter the following prompt. This will instruct Copilot to fix the issue by adding a root endpoint that redirects to the employees API:
 
    ```
-   Why am I getting a Whitelabel Error Page when accessing http://localhost:8080? Check this Spring Boot project and explain.
+   I'm getting a Whitelabel Error Page when accessing http://localhost:8080 in this Spring Boot project. Add a root endpoint (GET /) to the EmployeeController that redirects to /api/employees so that accessing the base URL works correctly.
    ```
 
    ![Image](./media/image23.png)
 
    ![Image](./media/image24.png)
 
-1. Review the suggested fix and make necessary changes and save the file.
+1. Review the changes Copilot made to the controller file, then click **Keep** to accept them.
 
    ![Image](./media/image25.png)
 
-1. Now run the application again with the command - +++mvn spring-boot:run+++.
+1. Restart the application to apply the changes:
+
+   ```
+   mvn spring-boot:run
+   ```
 
    ![Image](./media/image26.png)
 
-1. Now open a browser and enter +++http://localhost:8080/api/employees+++. Your application is running and endpoint mapped correctly.
+1. Open a browser and navigate to `http://localhost:8080/api/employees`. The application is now running and the endpoint is correctly mapped.
 
    ![Image](./media/image27.png)
 
-1. Now let's validate the tests. Run +++mvn clean test+++. Build fails — let's fix the issues with the help of Copilot.
+1. Validate the tests by running:
+
+   ```
+   mvn clean test
+   ```
+
+   > **Two outcomes are possible at this point:**
+   >
+   > - **If the build passes (BUILD SUCCESS)** — All tests passed. You can proceed to the next step.
+   >
+   > - **If the build fails** — There are test failures that need to be resolved. Open **EmployeeControllerTest.java**, review the test code, and enter `/fix` in Copilot Chat. Copilot will identify the bug and propose a fix. Review the suggested changes before accepting.
+
+   ![Image](./media/image2a8.png)
 
    ![Image](./media/image28.png)
 
-1. Open **EmployeeControllerTest.java** class and review the tests and ask Copilot `/fix`. Copilot found the bug and fixed it. Review the fix.
-
    ![Image](./media/image29.png)
 
-1. Run test with +++mvn clean test+++ again and take Copilot help to fix the issues.
+1. Re-run the tests and use Copilot to fix any remaining issues:
+
+   ```
+   mvn clean test
+   ```
 
    ![Image](./media/image29.png)
 
    ![Image](./media/image30.png)
 
-1. Review the fix and keep the fix.
+1. Review Copilot's suggested fix and click **Keep** to accept it.
 
    ![Image](./media/image31.png)
 
-1. Now, re-run +++mvn clean test+++. The build is successful now and all tests passed.
+1. Re-run the full test suite to confirm all issues are resolved:
+
+   ```
+   mvn clean test
+   ```
+
+   The build should now succeed and all tests should pass.
 
    ![Image](./media/image32.png)
 
-1. Run the application now with - +++mvn spring-boot:run+++. Application will start up and running.
+1. Start the application to confirm it runs correctly end-to-end:
+
+   ```
+   mvn spring-boot:run
+   ```
+
+   The application should start up without errors.
 
    ![Image](./media/image33.png)
 
-1. On Visual Studio, go **File -> Duplicate workspace**.
+1. In Visual Studio Code, go to **File → Duplicate Workspace** to open a second window alongside your running application.
 
    ![Image](./media/image34.png)
 
-1. Open Git Bash from terminal. Run below command in the terminal and run below commands to create a new employee:
-
-   +++cd Lab-02-debugging\java+++
+1. Open **Git Bash** from the terminal in the duplicated workspace. Navigate to the project folder and run the following command to create a new employee record:
 
    ```
    curl -X POST http://localhost:8080/api/employees \
@@ -344,7 +385,7 @@ This task focuses on using **GitHub Copilot as a troubleshooting assistant** to:
 
    ![Image](./media/image35.png)
 
-1. Add another employee record:
+1. Run the following command to add a second employee record:
 
    ```
    curl -X POST http://localhost:8080/api/employees \
@@ -358,7 +399,7 @@ This task focuses on using **GitHub Copilot as a troubleshooting assistant** to:
 
    ![Image](./media/image36.png)
 
-1. Run below command to get all employees:
+1. Run the following command to retrieve all employee records:
 
    ```
    curl -X GET http://localhost:8080/api/employees
@@ -366,7 +407,7 @@ This task focuses on using **GitHub Copilot as a troubleshooting assistant** to:
 
    ![Image](./media/image37.png)
 
-1. Run below command to update the employee:
+1. Run the following command to update an existing employee record:
 
    ```
    curl -X PUT http://localhost:8080/api/employees/{2} \
@@ -380,7 +421,7 @@ This task focuses on using **GitHub Copilot as a troubleshooting assistant** to:
 
    ![Image](./media/image38.png)
 
-1. Run below command to get employee details by id:
+1. Run the following command to retrieve a specific employee by their ID:
 
    ```
    curl -X GET http://localhost:8080/api/employees/{2}
@@ -388,7 +429,7 @@ This task focuses on using **GitHub Copilot as a troubleshooting assistant** to:
 
    ![Image](./media/image39.png)
 
-1. Run below command to show all employees:
+1. Run the following command to confirm all current employee records:
 
    ```
    curl -X GET http://localhost:8080/api/employees
@@ -396,17 +437,13 @@ This task focuses on using **GitHub Copilot as a troubleshooting assistant** to:
 
    ![Image](./media/image40.png)
 
-1. Run below command to delete the employee record:
+1. Run the following command to delete an employee record:
 
-   +++curl -X DELETE http://localhost:8080/api/employees/{2}+++
+   ```
+   curl -X DELETE http://localhost:8080/api/employees/{2}
+   ```
 
    ![Image](./media/image41.png)
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex2-task2-lab02-debug-compile-errors" />
 
 ## Review
 

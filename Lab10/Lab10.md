@@ -30,7 +30,9 @@ Before using Copilot, assess the situation as a developer.
 
 1. Open the project in VS Code. Open Terminal -> GitBash and run the below command to clone the repo:
 
-   +++git clone https://github.com/technofocus-pte/buggy-order-api-lab.git+++
+   ```
+   git clone https://github.com/technofocus-pte/buggy-order-api-lab.git
+   ```
 
 1. Attempt to start the server:
 

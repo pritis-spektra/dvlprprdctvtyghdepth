@@ -41,7 +41,7 @@ Before starting this lab, make sure you have:
 
 ### Task 1: Basic Copilot Autocomplete
 
-Learn how Copilot generates code using **comments as intent**.
+In this task, you will write comments describing simple functions and observe Copilot's inline autocomplete suggestions. You will accept and edit the generated code to see how suggestions adapt.
 
 1. Navigate to **lab-05-agents\java\src\main\java\com\example\demo** and open the file **EmployeeController.java**.
 
@@ -75,7 +75,7 @@ Learn how Copilot generates code using **comments as intent**.
 
 ### Task 2: Copilot Chat
 
-Use Copilot Chat to ask questions, learn concepts, and debug issues.
+In this task, you will use Copilot Chat's Ask mode to get explanations and code examples for common Java questions. You will intentionally introduce a NullPointerException and use /explain and /terminalfix to diagnose and resolve it.
 
 1. Open Copilot Chat (you can also press Ctrl+Shift+' in VS Code).
 
@@ -169,6 +169,8 @@ Use Copilot Chat to ask questions, learn concepts, and debug issues.
 
 ### Task 3: Copilot Agent Mode
 
+In this task, you will use Copilot Agent mode to refactor controllers for constructor dependency injection across multiple files. You will review the proposed plan and generate unit tests for the service package.
+
 1. Open the Command Palette: Ctrl + Shift + P. Search for **"Copilot Agent"** and activate it (You can also select Agent mode directly).
 
    ![Image](./media/image16.png)
@@ -207,7 +209,7 @@ Use Copilot Chat to ask questions, learn concepts, and debug issues.
 
 ### Task 4: Custom Prompt Files/Instructions
 
-Learn how to create reusable Markdown files (\*.prompt.md) that define prompts for repetitive tasks such as explaining code, generating tests, or reviewing PRs. These files are typically stored in `.github/prompts/` within your repository. In VS Code, you can open Copilot Chat and execute the slash command `<prompt-name\>` that matches the file name (without extension). Prompts can request inputs using `${input:key:label}` and run in agent mode.
+In this task, you will create reusable *.prompt.md files for explaining, reviewing, and generating tests for Java code. You will invoke these custom slash commands in Copilot Chat and use one to generate and run a DivideTest.java test class.
 
 1. Navigate to **lab-05-agents/java/.github** and create a folder `prompts`.
 

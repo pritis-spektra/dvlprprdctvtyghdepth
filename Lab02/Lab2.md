@@ -31,7 +31,7 @@ Before starting this lab, ensure the following are available:
 
 ### Task 1: Understand the API (Reinforcement)
 
-Before debugging or fixing anything, developers must understand **what the application is supposed to do**. Debugging without understanding expected behavior leads to incorrect fixes.
+In this task, you will reinforce your understanding of the EmployeeController API using Copilot's /explain command. You will prepare an api-doc.md documenting each endpoint, including a deliberately flawed sample to correct.
 
 This task reinforces API comprehension using **GitHub Copilot as a code understanding assistant**.
 
@@ -172,7 +172,7 @@ This task reinforces API comprehension using **GitHub Copilot as a code understa
 
 ### Task 2: Debug and Solve Compile Errors Using GitHub Copilot
 
-In real-world development, code often **fails to compile** due to syntax errors, incorrect method signatures, mismatched annotations, or package inconsistencies. These errors block progress completely and must be resolved before any testing or validation can occur.
+In this task, you will introduce and diagnose compile-time and runtime errors using Copilot's /explain and /fix commands. You will resolve a type mismatch, add a missing root endpoint, and validate the app end-to-end with curl.
 
 This task focuses on using **GitHub Copilot as a troubleshooting assistant** to:
 

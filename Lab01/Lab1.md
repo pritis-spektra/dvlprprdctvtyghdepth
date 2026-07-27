@@ -226,7 +226,7 @@ In this task, you will learn what the application does before writing any tests.
 
 ### Task 2: Create Repository Layer Unit Tests
 
-The repository layer is responsible for data persistence. This task focuses on testing data access logic in isolation, without involving business logic or REST endpoints.
+In this task, you will use Copilot to generate JUnit tests for the EmployeeRepository using @DataJpaTest. You will run the tests with Maven to validate basic CRUD data access behavior.
 
 1. Navigate to `src/test/java/com/example/demo` and create the file `EmployeeRepositoryTest.java`.
 
@@ -302,7 +302,7 @@ The repository layer is responsible for data persistence. This task focuses on t
 
 ### Task 3: Create Service Layer Unit Tests
 
-The service layer contains business logic and coordinates interactions with the repository. This task teaches how to test logic independently of infrastructure by mocking dependencies.
+In this task, you will use Copilot and Mockito to create unit tests for EmployeeService with mocked dependencies. You will review the generated tests for correctness and run them with Maven.
 
 1. Navigate to `src/test/java/com/example/demo` and create a new file named `EmployeeServiceTest.java`. Then open **Copilot Chat** in **Agent** mode and enter the following prompt:
 
@@ -347,7 +347,7 @@ The service layer contains business logic and coordinates interactions with the 
 
 ### Task 4: Create Controller Layer Unit Tests
 
-The controller layer exposes the REST API. This task focuses on verifying HTTP behavior without starting the full application.
+In this task, you will use Copilot to generate MockMvc-based tests for EmployeeController without starting the full application. You will verify HTTP status codes and JSON responses, fixing any package mismatch errors.
 
 1. Navigate to `src/test/java/com/example/demo` and create a test class named `EmployeeControllerTest.java`.
 
@@ -430,7 +430,7 @@ The controller layer exposes the REST API. This task focuses on verifying HTTP b
 
 ### Task 5: Add a New API Operation
 
-This task simulates a real development scenario: extending an existing application with a new feature. You will add a new operation to find an employee by email and ensure it is properly tested at every layer.
+In this task, you will use Copilot Agent mode to add a new "find employee by email" feature across the repository, service, and controller layers. You will generate and run tests to confirm the new feature works end-to-end.
 
 1. Open **Copilot Chat** in **Agent** mode and enter the following prompt:
 

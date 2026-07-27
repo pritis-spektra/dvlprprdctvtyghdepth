@@ -44,7 +44,7 @@ Before starting this lab, ensure the following:
 
 ### Task 1: Understand and Document the API
 
-Before generating documentation, you must understand **what the API does**. This task reinforces API comprehension using **GitHub Copilot as a code understanding assistant**, not a replacement for developer reasoning.
+In this task, you will use Copilot Agent mode to analyze the EmployeeController and generate an api-functional.md documentation file. You will verify the documentation accurately reflects the endpoints, methods, and responses.
 
 1. In the Explorer panel, navigate to and open the following file:
 
@@ -73,7 +73,7 @@ Before generating documentation, you must understand **what the API does**. This
 
 ### Task 2: Add Swagger (OpenAPI) Documentation
 
-Swagger (OpenAPI) provides **interactive API documentation**, making it easier to explore and test endpoints without external tools.
+In this task, you will use Copilot to add springdoc-openapi support to the Spring Boot project. You will rebuild and run the application to view interactive API docs via the Swagger UI.
 
 This task demonstrates how Copilot assists in **framework-specific documentation setup**.
 
@@ -145,7 +145,7 @@ This task demonstrates how Copilot assists in **framework-specific documentation
 
 ### Task 3: Add Code Documentation to Classes with GitHub Copilot Help
 
-Code documentation explains **how the system works internally**, not just what the API does.
+In this task, you will use Copilot to generate JavaDoc for the controller, service, model, repository, and test classes. You will validate the generated comments for accuracy before accepting them.
 
 In real projects:
 
@@ -215,7 +215,7 @@ This task shows how **GitHub Copilot helps generate high-quality JavaDoc**, whil
 
 ### Task 4: Update API with Functional and Technical Documentation Structuring
 
-Update the API documentation with the new information. Generate two different markdown files — one with the functional documentation and another with the technical documentation.
+In this task, you will use Copilot to split existing documentation into separate functional and technical Markdown files. You will describe endpoints/usage in one file and internal architecture in the other.
 
 1. In the root of the project, create a `docs/` folder and inside it create two new Markdown files:
    - `api-functional.md`
@@ -240,6 +240,8 @@ Update the API documentation with the new information. Generate two different ma
    ![Image](./media/image21.png)
 
 ### Task 5: Testing Employee API with curl
+
+In this task, you will run the Spring Boot application and use curl commands to exercise all CRUD endpoints. You will use Copilot's /fix command to resolve any errors encountered along the way.
 
 1. Open **Terminal → Git Bash** in VS Code and start the application. If you encounter any errors, use Copilot's `/fix` command to resolve them:
 

@@ -44,6 +44,8 @@ In this lab, you will complete the following tasks:
 
 ### Task 1: Prepare Copilot Instructions
 
+In this task, you will populate the copilot-instructions.md file with the project's architecture and coding conventions. You will ensure Copilot follows a layered Spring Boot structure with best practices.
+
 1. Open Visual Studio Code and navigate to the folder **lab-04-refactoring/java** and review the below files:
 
    - README.md → exercises
@@ -87,7 +89,7 @@ In this lab, you will complete the following tasks:
 
 ### Task 2: Generate Code from Documentation
 
-Migrate documentation as working code using Copilot.
+In this task, you will use Copilot Agent mode to generate the full Spring Boot application from the README functional and technical docs. You will resolve port conflicts and confirm the generated app runs successfully.
 
 1. Open **Copilot Chat** (Agent mode - Claude Sonnet 4.5 model) and enter the below prompt:
 
@@ -148,7 +150,7 @@ Migrate documentation as working code using Copilot.
 
 ### Task 3: Method Refactoring
 
-Improve readability without changing behavior.
+In this task, you will use Copilot to refactor the getAllEmployees and saveEmployee methods for improved readability. You will ensure the refactoring preserves existing behavior.
 
 1. Navigate to **src/main/java/com/examples/demo/service** and open the file **EmployeeService.java**. Select the method *getAllEmployees* and enter the below prompt in Copilot Agent mode to refactor:
 
@@ -174,7 +176,7 @@ Improve readability without changing behavior.
 
 ### Task 4: Add Error Handling
 
-Improve robustness with minimal changes.
+In this task, you will use Copilot to add error handling to getEmployeeById and deleteEmployee for missing employees. You will review each change before accepting it.
 
 1. Select **getEmployeeById** and enter the below prompt in Copilot Chat. Review and accept the change:
 
@@ -200,7 +202,7 @@ Improve robustness with minimal changes.
 
 ### Task 5: Function Extraction
 
-Reduce duplication and improve reuse.
+In this task, you will use Copilot to extract duplicated logic for finding employees by email and sorting by last name into reusable private methods. You will reduce duplication while keeping the public API unchanged.
 
 1. Keep **EmployeeService.java** open and enter the below prompt in Copilot Chat to reduce duplication and improve reuse in the finding employees method:
 
@@ -224,7 +226,9 @@ Reduce duplication and improve reuse.
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 <validation step="ex4-task5-lab04-function-extraction" />
 
-### Task 6: Add Repository Features
+### Task 6: Add Repository Features 
+
+In this task, you will use Copilot to add new Spring Data JPA repository methods for searching and sorting employees. You will wire these methods into the service layer to implement a new feature.
 
 Extend functionality safely.
 
@@ -252,7 +256,7 @@ Extend functionality safely.
 
 ### Task 7: Add Documentation with Copilot
 
-#### **JavaDoc for Service Methods**
+In this task, you will use Copilot's /doc command to generate JavaDoc for all undocumented EmployeeService methods. You will fix any missing or failing tests before closing out the lab.
 
 1. Select **EmployeeService** and enter `/doc` in Copilot Chat Agent mode to add JavaDoc for all undocumented methods:
 

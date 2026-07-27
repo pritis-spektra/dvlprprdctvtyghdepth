@@ -142,7 +142,7 @@ In this task, you will ask Copilot to compare proc() and proc_batch() and identi
 
 ### Task 5: Refactor the Code Using Copilot — Incremental, Validated Changes
 
- In this task, you will build a characterization test safety net, then refactor the code in incremental passes renaming variables, extracting magic numbers into constants, deduplicating proc_batch(), and extracting the discount logic into a helper. You will re-run the test suite after every change to confirm behavior stays identical.
+In this task, you will build a characterization test safety net, then refactor the code in incremental passes renaming variables, extracting magic numbers into constants, deduplicating proc_batch(), and extracting the discount logic into a helper. You will re-run the test suite after every change to confirm behavior stays identical.
 
 We'll refactor in **five incremental passes**, creating a test safety net first, then improving one dimension at a time.
 

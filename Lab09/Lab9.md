@@ -1,4 +1,4 @@
-﻿## Lab 9: Building Rapid Full-Stack Application Prototyping with GitHub Copilot
+﻿# Lab 9: Building Rapid Full-Stack Application Prototyping with GitHub Copilot
 
 ### Estimated Duration: 90 Minutes
 
@@ -24,9 +24,11 @@ In this lab, you will complete the following tasks:
    - Task 5: Iterative Enhancement — Add a Feature with Edit Mode
    - Task 6: Document the Prototype with /doc
 
-> **Note:** This lab starts from a **completely empty folder**. That is the point — we're testing Copilot's ability to scaffold from zero.
+     > **Note:** This lab starts from a **completely empty folder**. That is the point — we're testing Copilot's ability to scaffold from zero.
 
 ### Task 0: Environment Setup
+
+In this task, you will create a new project folder and set up a Python virtual environment with Flask installed. You will prepare the workspace so Copilot can scaffold the application from a completely empty folder.
 
 1. Create a folder **Lab09** in your `C:/` drive and open it in Visual Studio Code.
 
@@ -47,7 +49,7 @@ In this lab, you will complete the following tasks:
 
 ### Task 1: Understand the Problem — Think Before You Prompt
 
-Before opening Copilot, take 2 minutes to sketch the requirements on paper or in a scratch note:
+In this task, you will decompose the VP's vague demo request into concrete requirements, constraints, and tech decisions before touching Copilot. You will decide on Flask, Jinja2, Bootstrap, and mock data as your own architectural choices.
 
 **Decompose the Ask:**
 
@@ -83,9 +85,11 @@ TECH DECISIONS (mine, not Copilot's):
 
 - Two pages: dashboard + customer detail
 
-> **Note:** Before writing a prompt, first give Copilot a broad description of the goal or scenario. Then list any specific requirements. This decomposition step is what separates a productive Copilot session from an aimless one. The developer must **know the destination** before asking Copilot to drive.
+   > **Note:** Before writing a prompt, first give Copilot a broad description of the goal or scenario. Then list any specific requirements. This decomposition step is what separates a productive Copilot session from an aimless one. The developer must **know the destination** before asking Copilot to drive.
 
 ### Task 2: Use Ask Mode for Design Decisions
+
+In this task, you will use Copilot's Ask mode to get pros and cons for implementing color-coded risk levels (backend, template, or CSS). You will choose the approach yourself, using Copilot as a consultant rather than a code generator.
 
 1. Before scaffolding, use **Ask Mode** to validate one design choice. Switch the Copilot Chat dropdown to **Ask** and type:
 
@@ -113,7 +117,7 @@ TECH DECISIONS (mine, not Copilot's):
 
 1. This is a **developer decision** — Copilot advised, you decided.
 
-> **Note:** This step demonstrates using Ask Mode for **design consultation** without generating any code. There's no project commitment, no architectural decisions, and no code changes. Just answers, right when you need them.
+   > **Note:** This step demonstrates using Ask Mode for **design consultation** without generating any code. There's no project commitment, no architectural decisions, and no code changes. Just answers, right when you need them.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -122,6 +126,8 @@ TECH DECISIONS (mine, not Copilot's):
 <validation step="ex9-task2-lab09-design-decisions" />
 
 ### Task 3: Agent Mode — Scaffold the Entire Application
+
+In this task, you will write a detailed, structured prompt for Copilot Agent mode to scaffold the full Flask app — routes, mock data, and templates — in one pass. You will watch Agent mode create the files, run the app, and self-correct any errors.
 
 1. Switch the Copilot Chat dropdown back to **Agent**. Type the following carefully structured prompt:
 
@@ -177,15 +183,15 @@ TECH DECISIONS (mine, not Copilot's):
 
    - **Detect** any errors and self-correct
 
-   ![Image](./media/image9.png)
+      ![Image](./media/image9.png)
 
-   ![Image](./media/image10.png)
+      ![Image](./media/image10.png)
 
-> **IMPORTANT — Do NOT walk away.** Watch the Agent's terminal output. When it runs the app, it will need to confirm that Flask starts on port 5000 without errors.
+      > **IMPORTANT — Do NOT walk away.** Watch the Agent's terminal output. When it runs the app, it will need to confirm that Flask starts on port 5000 without errors.
 
 1. **Review the Generated Files:** While the app runs, quickly scan each file.
 
-> **Note:** Like working with any other developer, the more context you give and the more specific you are about your intended outcome, the better results you'll get from GitHub Copilot — and that's particularly true with agent mode. The detailed prompt structure (project structure → requirements → constraints) is what makes Agent Mode produce a usable result on the first pass.
+   > **Note:** Like working with any other developer, the more context you give and the more specific you are about your intended outcome, the better results you'll get from GitHub Copilot — and that's particularly true with agent mode. The detailed prompt structure (project structure → requirements → constraints) is what makes Agent Mode produce a usable result on the first pass.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -195,7 +201,9 @@ TECH DECISIONS (mine, not Copilot's):
 
 ### Task 4: Validate and Fix — The Developer Is Still the Pilot
 
-1. Open your browser to +++http://localhost:5000+++. Check:
+In this task, you will manually test the running dashboard in the browser and document what works and what's broken. You will use /explain and /fix to diagnose and correct data or visual issues Copilot can't detect on its own.
+
+1. Open your browser to `http://localhost:5000`. Check:
 
    - Dashboard table renders with 10 customers
 
@@ -232,7 +240,7 @@ TECH DECISIONS (mine, not Copilot's):
 
    - risk_class must exactly match Bootstrap class names
 
-   ![Image](./media/image14.png)
+      ![Image](./media/image14.png)
 
 1. Note any mismatches Copilot identifies. We'll fix them next.
 
@@ -254,7 +262,7 @@ TECH DECISIONS (mine, not Copilot's):
 
 ### Task 5: Iterative Enhancement — Add a Feature with Edit Mode
 
-The VP will be more impressed if the dashboard shows a **summary bar** at the top with key metrics. Let's add one using **Agent Mode**.
+In this task, you will prompt Agent mode to add a summary metrics bar with calculated stats to the dashboard. You will review the revenue-parsing logic, correct it with a follow-up prompt, and verify the metrics render correctly.
 
 1. In the Copilot Chat dropdown, select **Agent**. Select **dashboard.html** and **app.py** to the **Working Set** (drag the file tabs into the Edit panel).
 
@@ -303,6 +311,8 @@ The VP will be more impressed if the dashboard shows a **summary bar** at the to
 <validation step="ex9-task5-lab09-iterative-enhancement" />
 
 ### Task 6: Document the Prototype with /doc
+
+In this task, you will select app.py and use Copilot's /doc command to generate module- and function-level documentation. You will review the generated docstrings for accuracy before finalizing them.
 
 1. Select the **entire app.py** file. In Copilot Chat, type:
 

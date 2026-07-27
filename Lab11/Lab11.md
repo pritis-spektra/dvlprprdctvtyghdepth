@@ -1,4 +1,4 @@
-﻿## Lab 11: Fixing a Production Incident Using GitHub Copilot Agent Mode (Optional)
+﻿# Lab 11: Fixing a Production Incident Using GitHub Copilot Agent Mode (Optional)
 
 ### Estimated Duration: 90 Minutes
 

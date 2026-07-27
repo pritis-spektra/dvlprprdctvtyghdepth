@@ -1,10 +1,10 @@
-﻿## Lab 12: Building a Flask Customer Health Dashboard Using GitHub Copilot (Optional)
+﻿# Lab 12: Building a Flask Customer Health Dashboard Using GitHub Copilot (Optional)
 
 ### Estimated Duration: 60 Minutes
 
 ## Overview
 
-You are a developer on a Customer Success team. Your product manager has requested a quick internal prototype: a **Customer Health Dashboard** that displays 10 mock customer accounts with their health scores and risk levels. The dashboard must be a simple, server-rendered Flask app with Bootstrap 5 styling — no database, no REST API, no frontend framework. Your goal is to use **GitHub Copilot** to scaffold and build this prototype as fast as possible while maintaining code quality and ownership.
+You are a developer on a Customer Success team. Your product manager has requested a quick internal prototype: a **Customer Health Dashboard** that displays 10 mock customer accounts with their health scores and risk levels. The dashboard must be a simple, server-rendered Flask app with Bootstrap 5 styling no database, no REST API, no frontend framework. Your goal is to use **GitHub Copilot** to scaffold and build this prototype as fast as possible while maintaining code quality and ownership.
 
 ## Objectives
 
@@ -14,9 +14,11 @@ In this lab, you will complete the following tasks:
    - Task 2: Use GitHub Copilot to Scaffold the Mock Data Module
    - Task 3: Use Copilot to Generate the Flask Application (app.py)
    - Task 4: Use Copilot Chat to Generate the Dashboard Template (dashboard.html)
-   - Task 5: Validate Results — Run the Application
+   - Task 5: Validate Results Run the Application
 
 ### Task 1: Understand the Problem (Human Reasoning)
+
+In this task, you will set up the Flask project environment and think through the architecture no database, no REST API, and how risk levels map to Bootstrap badge colors. You will make these design decisions yourself before writing any code or prompting Copilot.
 
 1. Create a new project folder **Lab12** in your `C:/` drive and open it in Visual Studio Code. Open Terminal -> GitBash and run the below commands:
 
@@ -33,13 +35,13 @@ In this lab, you will complete the following tasks:
 
    **Key design decisions (developer-owned, NOT Copilot's job):**
 
-   - No database — all data lives in a Python list
+   - No database all data lives in a Python list
 
-   - No REST API — the route returns rendered HTML directly
+   - No REST API the route returns rendered HTML directly
 
    - Risk levels map to Bootstrap badge colors: healthy → green, at-risk → warning/yellow, critical → danger/red
 
-   > **Note:** Instead of relying on Copilot to provide suggestions, you can provide hints about what code you expect by using code comments. Defining your architecture first ensures your prompts are precise and your review is informed.
+      > **Note:** Instead of relying on Copilot to provide suggestions, you can provide hints about what code you expect by using code comments. Defining your architecture first ensures your prompts are precise and your review is informed.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -48,6 +50,8 @@ In this lab, you will complete the following tasks:
 <validation step="ex12-task1-lab12-understand-problem" />
 
 ### Task 2: Use GitHub Copilot to Scaffold the Mock Data Module
+
+In this task, you will write an intent-driven comment in data.py to have Copilot generate 10 mock customer records. You will verify the data for correct field count, valid ranges, and that risk_level logically matches each health_score.
 
 1. Create a new file: **data.py** in the root folder.
 
@@ -85,7 +89,7 @@ In this lab, you will complete the following tasks:
 
    - Industries are diverse (not all "Technology")
 
-   ![Image](./media/image6.png)
+      ![Image](./media/image6.png)
 
 1. If Copilot's output is incomplete or has inconsistencies, **refine using Copilot Chat**. Press **Ctrl+I** and type:
 
@@ -101,7 +105,7 @@ In this lab, you will complete the following tasks:
 
    ![Image](./media/image7.png)
 
-> **Note:** Copilot generates plausible data, but it doesn't understand your business rules. A health score of 90 labeled "critical" would mislead stakeholders. **You own the data contract.**
+   > **Note:** Copilot generates plausible data, but it doesn't understand your business rules. A health score of 90 labeled "critical" would mislead stakeholders. **You own the data contract.**
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -110,6 +114,8 @@ In this lab, you will complete the following tasks:
 <validation step="ex12-task2-lab12-scaffold-data-module" />
 
 ### Task 3: Use Copilot to Generate the Flask Application (app.py)
+
+In this task, you will use comment prompts to have Copilot scaffold app.py with a single server-rendered route that passes customer data to a template. You will verify it uses render_template (not jsonify) and runs in debug mode on port 5000.
 
 1. Create a new file: **app.py** in the root folder.
 
@@ -145,13 +151,13 @@ In this lab, you will complete the following tasks:
 
    - Debug mode is True (acceptable for a prototype, never for production)
 
-   ![Image](./media/image11.png)
+      ![Image](./media/image11.png)
 
 1. Your final app.py should look like:
 
    ![Image](./media/image10.png)
 
-> **Note:** Having related files open in VS Code while using Copilot helps set context and lets Copilot get a bigger picture of your project. Keep data.py open in a tab while building app.py — Copilot will cross-reference field names and structure.
+   > **Note:** Having related files open in VS Code while using Copilot helps set context and lets Copilot get a bigger picture of your project. Keep data.py open in a tab while building app.py — Copilot will cross-reference field names and structure.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -161,7 +167,7 @@ In this lab, you will complete the following tasks:
 
 ### Task 4: Use Copilot Chat to Generate the Dashboard Template (dashboard.html)
 
-This step uses **Copilot Chat** for a larger, multi-concern generation (HTML + Bootstrap + Jinja2 logic).
+In this task, you will use a detailed Copilot Chat prompt in Agent mode to generate a Bootstrap 5 Jinja2 dashboard template with color-coded risk badges. You will review the generated HTML against your requirements before accepting it.
 
 1. Create the folder structure in the root folder:
 
@@ -210,13 +216,13 @@ This step uses **Copilot Chat** for a larger, multi-concern generation (HTML + B
 
    - No hardcoded customer data — everything comes from the template variable
 
-   ![Image](./media/image14.png)
+      ![Image](./media/image14.png)
 
 1. Your final templates/dashboard.html should look similar to:
 
    ![Image](./media/image14.png)
 
-> **Note:** The template involves multiple concerns (HTML structure, Bootstrap classes, Jinja2 logic, conditional rendering). Copilot Chat excels at multi-line, multi-concern generation where a single comment prompt would be insufficient.
+   > **Note:** The template involves multiple concerns (HTML structure, Bootstrap classes, Jinja2 logic, conditional rendering). Copilot Chat excels at multi-line, multi-concern generation where a single comment prompt would be insufficient.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -224,7 +230,9 @@ This step uses **Copilot Chat** for a larger, multi-concern generation (HTML + B
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 <validation step="ex12-task4-lab12-generate-dashboard-template" />
 
-### Task 5: Validate Results — Run the Application
+### Task 5: Validate Results Run the Application
+
+In this task, you will run the Flask app and check the dashboard against a validation checklist covering page load, row count, badge colors, and layout. You will use Copilot's /fix to debug any errors that come up.
 
 1. Open the VS Code **integrated terminal** (Ctrl+\` or **Terminal → New Terminal**) -> GitBash.
 

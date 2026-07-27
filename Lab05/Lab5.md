@@ -1,4 +1,4 @@
-﻿## Lab 5: Exploring GitHub Copilot Modes — Autocomplete, Chat, Agent, and Custom Prompts (Optional)
+﻿# Lab 5: Exploring GitHub Copilot Modes — Autocomplete, Chat, Agent, and Custom Prompts (Optional)
 
 ### Estimated Duration: 75 Minutes
 
@@ -207,7 +207,7 @@ Use Copilot Chat to ask questions, learn concepts, and debug issues.
 
 ### Task 4: Custom Prompt Files/Instructions
 
-Learn how to create reusable Markdown files (\*.prompt.md) that define prompts for repetitive tasks such as explaining code, generating tests, or reviewing PRs. These files are typically stored in `.github/prompts/` within your repository. In VS Code, you can open Copilot Chat and execute the slash command `/\<prompt-name\>` that matches the file name (without extension). Prompts can request inputs using `${input:key:label}` and run in agent mode.
+Learn how to create reusable Markdown files (\*.prompt.md) that define prompts for repetitive tasks such as explaining code, generating tests, or reviewing PRs. These files are typically stored in `.github/prompts/` within your repository. In VS Code, you can open Copilot Chat and execute the slash command `<prompt-name\>` that matches the file name (without extension). Prompts can request inputs using `${input:key:label}` and run in agent mode.
 
 1. Navigate to **lab-05-agents/java/.github** and create a folder `prompts`.
 
@@ -351,7 +351,7 @@ Learn how to create reusable Markdown files (\*.prompt.md) that define prompts f
 
    ![Image](./media/image35.png)
 
-1. Save the file and run the test again +++mvn test+++. Tests will run successfully.
+1. Save the file and run the test again `mvn test`. Tests will run successfully.
 
    ![Image](./media/image36.png)
 

@@ -262,7 +262,7 @@ Extend functionality safely.
 
    ![Image](./media/image14.png)
 
-   > **Note:** If tests are missing or failing, use +++/setupTests+++ and +++/tests+++.
+   > **Note:** If tests are missing or failing, use /setupTests and /tests.
    > Close all the Lab 04 files and terminal before continuing with Exercise 5.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:

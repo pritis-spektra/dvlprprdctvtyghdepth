@@ -1,4 +1,4 @@
-## Lab 1: Using GitHub Copilot to Build and Improve Automated Tests for a Java REST API
+# Lab 1: Using GitHub Copilot to Build and Improve Automated Tests for a Java REST API
 
 ### Estimated Duration: 90 Minutes
 
@@ -65,7 +65,7 @@ In this task, you will activate GitHub Copilot and configure it within Visual St
 
    ![Image](./media/image44.png)
 
-   **IMPORTANT:** Make sure to deactivate the account after you complete the labs to avoid billing for usage.
+   > **IMPORTANT:** Make sure to deactivate the account after you complete the labs to avoid billing for usage.
 
 1. Open **Visual Studio Code** from the Windows Start menu. Click on **Accounts → Backup and Sync Settings** and select **Sign in**.
 
@@ -117,7 +117,7 @@ In this task, you will learn what the application does before writing any tests.
 
    1. Return to VS Code - you should see your GitHub username appear in the **Accounts** section at the bottom-left, confirming successful authentication.
 
-   > **Note:** If you already see your GitHub username in VS Code's Accounts menu, you are already signed in and can skip the sign-in steps above.
+      > **Note:** If you already see your GitHub username in VS Code's Accounts menu, you are already signed in and can skip the sign-in steps above.
 
 1. In VS Code, go to **File → Open Folder**, navigate to `C:\Labfiles`, and select the **github-copilot-workshops-labs-java** folder.
 
@@ -138,7 +138,7 @@ In this task, you will learn what the application does before writing any tests.
    - **Request Body** — the JSON data sent by the client to the server (where applicable)
    - **Response** — the data the API returns to the client
 
-   ![Image](./media/image3.png)
+     ![Image](./media/image3.png)
 
 1. Based on your review, the controller exposes the following API:
 
@@ -175,24 +175,24 @@ In this task, you will learn what the application does before writing any tests.
 
    - **Base URL:** Employee Model (Request/Response shape) - All endpoints consume and produce Employee objects serialized as JSON
 
-   | **Field** | **Type** | **Notes** |
-   |--|--|--|
-   | id | Long | Auto-generated (DB identity), not sent on create |
-   | name | string | Required for meaningful data |
-   | Surname | String | Required for meaningful data |
-   | email | String | Required for meaningful data |
+      | **Field** | **Type** | **Notes** |
+      |--|--|--|
+      | id | Long | Auto-generated (DB identity), not sent on create |
+      | name | string | Required for meaningful data |
+      | Surname | String | Required for meaningful data |
+      | email | String | Required for meaningful data |
 
    - **Get All Employees**
 
-   | **Method** | **GET** |
-   |--|--|
-   | URL | /api/employees |
-   | Request body | None |
-   | Response | 200 OK + JSON array of Employee objects (empty array [] if none exist) |
+      | **Method** | **GET** |
+      |--|--|
+      | URL | /api/employees |
+      | Request body | None |
+      | Response | 200 OK + JSON array of Employee objects (empty array [] if none exist) |
 
    - Similarly prepare for all other endpoints as shown in the image.
 
-   ![Image](./media/image5.png)
+     ![Image](./media/image5.png)
 
 1. Now you will use Copilot **Agent mode** to automatically generate and create an `api-docs.md` file documenting all endpoints with curl commands and expected behavior.
 
@@ -412,7 +412,7 @@ The controller layer exposes the REST API. This task focuses on verifying HTTP b
 
    - Select the test class, then in Copilot Chat (Agent mode) type `/fix` and let Copilot suggest the correction.
 
-   ![Image](./media/image32.png)
+     ![Image](./media/image32.png)
 
 1. *(Only if build failed)* GitHub Copilot may suggest improvements beyond fixing the package error, such as recommending better REST semantics (e.g., returning 404 instead of 200). These suggestions are advisory — only apply them if the lab explicitly asks for API refactoring.
 

@@ -36,12 +36,11 @@ Create a minimal MCP server that Copilot can connect to.
    - src/main/java/com/example/mcp directory structure
    - src/test/java/com/example/mcp directory structure
    - Basic McpServer.java main class
-   - Sample tool implementation
    ```
 
 1. Copilot will provide terminal commands or file creation instructions.
 
-1. In Visual Studio Code, navigate to **Lab-06-mcp-java-src/main/java/com/example/mcp/** and create a file +++MCPServer.java+++.
+1. In Visual Studio Code, navigate to **Lab-06-mcp-java-src/main/java/com/example/mcp/** and create a file `MCPServer.java`.
 
    ![Image](./media/image1.png)
 
@@ -59,7 +58,7 @@ Create a minimal MCP server that Copilot can connect to.
    - Handles division by zero as an error
    ```
 
-   ![Image](./media/image2.png)
+    ![Image](./media/image2.png)
 
 1. Keep allowing the response request as Copilot performs:
 
@@ -73,9 +72,9 @@ Create a minimal MCP server that Copilot can connect to.
 
    - Removed .gitkeep placeholders
 
-   ![Image](./media/image3.png)
+     ![Image](./media/image3.png)
 
-   ![Image](./media/image4.png)
+     ![Image](./media/image4.png)
 
 1. Review the response and then allow Copilot to create the below tools:
 
@@ -87,17 +86,21 @@ Create a minimal MCP server that Copilot can connect to.
 
    - divide - divides two numbers (with error handling for division by zero)
 
-   ![Image](./media/image5.png)
+     ![Image](./media/image5.png)
 
 1. Open the **Terminal -> Git Bash** and run the below command to run the server. Make sure the server is up and running:
 
-   +++cd github-copilot-workshops-labs-java/lab-06-mcp/java/+++
+   ```
+   cd github-copilot-workshops-labs-java/lab-06-mcp/java/
+   ```
 
    ```
    mvn exec:java
    ```
 
-   ![Image](./media/image6.png)
+   ![Image](./media/s11.png)
+
+   > **Note:** If you are facing any errors in the terminal, please use copilot to fix the issues.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -125,7 +128,7 @@ Create a minimal MCP server that Copilot can connect to.
 
    ![Image](./media/image9.png)
 
-   ![Image](./media/image10.png)
+   ![Image](./media/s12.png)
 
 1. MCPClient got created. Allow Copilot to compile:
 
@@ -137,7 +140,7 @@ Create a minimal MCP server that Copilot can connect to.
    mvn package -q; mvn exec:java '-Dexec.mainClass=com.example.mcp.MCPClient'
    ```
 
-   ![Image](./media/image12.png)
+   ![Image](./media/s13.png)
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.

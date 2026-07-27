@@ -262,8 +262,8 @@ Extend functionality safely.
 
    ![Image](./media/image14.png)
 
-> **Note:** If tests are missing or failing, use +++/setupTests+++ and +++/tests+++.
-> Close all the Lab 04 files and terminal before continuing with Exercise 5.
+   > **Note:** If tests are missing or failing, use +++/setupTests+++ and +++/tests+++.
+   > Close all the Lab 04 files and terminal before continuing with Exercise 5.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.

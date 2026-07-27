@@ -127,7 +127,7 @@ In this task, you will learn what the application does before writing any tests.
 
 1. In the Explorer panel, navigate to and open the following file:
 
-   `01-testing → java → src → main → java → controller → EmployeeController.java`
+   `lab-01-testing → java → src → main → java → controller → EmployeeController.java`
 
    ![Image](./media/image2.png)
 

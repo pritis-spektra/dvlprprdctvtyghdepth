@@ -4,55 +4,55 @@
     "Language": "English",
     "Files": [
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/README.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/dvlprprdctvtyghdepth/refs/heads/prod/gettingstarted.md",
         "Order": 1
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/01-aml-model-training/README.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/dvlprprdctvtyghdepth/refs/heads/prod/Lab01/Lab1.md",
         "Order": 2
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/03-knowledge-mining/README.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/dvlprprdctvtyghdepth/refs/heads/prod/Lab02/Lab2.md",
         "Order": 3
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/04-conversational-ai/README.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/dvlprprdctvtyghdepth/refs/heads/prod/Lab03/Lab3.md",
         "Order": 4
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/05-metrics-advisor/05-metrics-advisor.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/dvlprprdctvtyghdepth/refs/heads/prod/Lab04/Lab4.md",
         "Order": 5
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/06-ml-in-databricks/README.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/dvlprprdctvtyghdepth/refs/heads/prod/Lab05/Lab5.md",
         "Order": 6
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/06-ml-in-databricks/README.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/dvlprprdctvtyghdepth/refs/heads/prod/Lab06/Lab6.md",
         "Order": 7
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/06-ml-in-databricks/README.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/dvlprprdctvtyghdepth/refs/heads/prod/Lab07/Lab7.md",
         "Order": 8
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/06-ml-in-databricks/README.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/dvlprprdctvtyghdepth/refs/heads/prod/Lab08/Lab8.md",
         "Order": 9
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/06-ml-in-databricks/README.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/dvlprprdctvtyghdepth/refs/heads/prod/Lab09/Lab9.md",
         "Order": 10
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/06-ml-in-databricks/README.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/dvlprprdctvtyghdepth/refs/heads/prod/Lab10/Lab10.md",
         "Order": 11
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/06-ml-in-databricks/README.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/dvlprprdctvtyghdepth/refs/heads/prod/Lab11/Lab11.md",
         "Order": 12
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/06-ml-in-databricks/README.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/dvlprprdctvtyghdepth/refs/heads/prod/Lab12/Lab12.md",
         "Order": 13
       }
     ]

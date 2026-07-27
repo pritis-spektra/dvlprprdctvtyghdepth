@@ -4,6 +4,8 @@
 
 ## Overview
 
+In this lab, you will use GitHub Copilot to systematically identify, understand, and fix bugs, security vulnerabilities, and missing validation across a buggy Node.js Express REST API. You will add test coverage and documentation once all issues are resolved.
+
 You have just joined a mid-size development team as a backend developer. Your team lead has assigned you a **Node.js Express REST API** for an e-commerce **Order Management System** that a junior developer built before leaving the company. The API is riddled with bugs — it crashes on certain endpoints, returns incorrect data, has security vulnerabilities, lacks input validation, and has no unit tests.
 
 Your task is to **use GitHub Copilot** as your AI pair-programming assistant to systematically identify, understand, and fix all the bugs — then add proper test coverage and documentation before the next sprint review.

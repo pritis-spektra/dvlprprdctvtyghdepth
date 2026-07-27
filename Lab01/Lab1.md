@@ -3,8 +3,7 @@
 ### Estimated Duration: 90 Minutes
 
 ## Overview
-
-This Lab helps developers learn how to **use GitHub Copilot effectively and responsibly** while working with an existing Java Spring Boot application. Rather than generating code blindly, learners will practice using Copilot to understand unfamiliar APIs, create unit tests across multiple layers, extend functionality, and improve test quality - while retaining full developer judgment and control.
+In this lab, you will use GitHub Copilot to understand an existing Java Spring Boot REST API and write unit tests across the repository, service, and controller layers. You will also extend the application with a new feature while retaining full control over what Copilot generates, also helps developers learn how to **use GitHub Copilot effectively and responsibly** while working with an existing Java Spring Boot application. Rather than generating code blindly, learners will practice using Copilot to understand unfamiliar APIs, create unit tests across multiple layers, extend functionality, and improve test quality - while retaining full developer judgment and control.
 
 ## Objectives
 

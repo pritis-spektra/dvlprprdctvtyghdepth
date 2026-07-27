@@ -4,6 +4,8 @@
 
 ## Overview
 
+In this lab, you will use GitHub Copilot to scaffold a simple, server-rendered Flask customer health dashboard with mock data and Bootstrap 5 styling. You will validate the generated data, application code, and template against your own architectural decisions and a structured checklist.
+
 You are a developer on a Customer Success team. Your product manager has requested a quick internal prototype: a **Customer Health Dashboard** that displays 10 mock customer accounts with their health scores and risk levels. The dashboard must be a simple, server-rendered Flask app with Bootstrap 5 styling no database, no REST API, no frontend framework. Your goal is to use **GitHub Copilot** to scaffold and build this prototype as fast as possible while maintaining code quality and ownership.
 
 ## Objectives

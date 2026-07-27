@@ -4,6 +4,8 @@
 
 ## Overview
 
+In this lab, you will respond to a simulated production incident at a fintech company, using human triage first and then GitHub Copilot's Agent mode to diagnose and fix critical bugs under time pressure. You will confirm Copilot's fixes align with business-critical correctness requirements rather than accepting them blindly.
+
 It's **9:47 AM on a Monday.** You're an on-call engineer at **ZAVA PayStream Inc.**, a fintech company processing merchant payouts. The #incident-critical Slack channel just fired:
 
 **[SEV-1] Payout Processing Service — Multiple Failures**

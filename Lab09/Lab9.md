@@ -4,6 +4,8 @@
 
 ## Overview
 
+In this lab, you will use GitHub Copilot to rapidly scaffold a demo-ready Flask customer health scoring dashboard from a vague business request. You will steer every design decision yourself, using Copilot's Ask and Agent modes to move from idea to working prototype quickly.
+
 It's **Thursday at 2:15 PM.** Your engineering director drops this into your team's channel:
 
 *"The VP of Sales wants a quick demo of our new customer health scoring idea at tomorrow's 10 AM leadership meeting. Nothing production-grade — just something visual that shows a list of customers with health scores, color-coded risk levels, and a detail view when you click a customer. Can someone throw together a prototype by end-of-day? Doesn't need real data — mock data is fine."*

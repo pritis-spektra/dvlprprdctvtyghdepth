@@ -1,4 +1,4 @@
-﻿# Lab 5: Exploring GitHub Copilot Modes — Autocomplete, Chat, Agent, and Custom Prompts (Optional)
+﻿# Lab 5: Exploring GitHub Copilot Modes - Autocomplete, Chat, Agent, and Custom Prompts (Optional)
 
 ### Estimated Duration: 75 Minutes
 

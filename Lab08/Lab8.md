@@ -4,6 +4,8 @@
 
 ## Overview
 
+In this lab, you will inherit a poorly written order processing module and use GitHub Copilot to understand, refactor, test, and document it. You will maintain a code-review mindset throughout, validating every refactor against a characterization test safety net.
+
 You've just been assigned to the **"OrderFlow"** team at a mid-size e-commerce company. The previous developer has left abruptly. You've inherited **a working but poorly written order processing module** — **order_processor.py**. The code runs, the business depends on it, and **you are now the owner**.
 
 Your tech lead's message reads:

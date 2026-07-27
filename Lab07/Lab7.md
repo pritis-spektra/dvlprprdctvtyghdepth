@@ -4,6 +4,8 @@
 
 ## Overview
 
+In this lab, you will build a Python Flask Task Management REST API from an empty repository, using GitHub Copilot to accelerate scaffolding, feature development, and testing. You will practice deciding when to accept, refine, or reject Copilot's suggestions while owning the quality of every line shipped.
+
 You have just joined **ZavaTask Inc.**, a mid-size SaaS company. Your team lead has assigned you to build a **Task Management REST API** from scratch — a backend microservice that lets users create, retrieve, update, and delete tasks. The codebase is an **empty repository** with no business logic. You are expected to go from zero to a working, tested, and documented service in a single sprint.
 
 Your manager says: *"Use GitHub Copilot to accelerate, but you own the quality. Every line of code ships under your name."*

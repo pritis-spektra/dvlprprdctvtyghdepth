@@ -76,29 +76,128 @@ Use the **slider (three vertical dots)** located between the **Virtual Machine**
 
 ![](./media/gs6.png)
 
-## Let's Get Started with Azure Portal
- 
-1. On your virtual machine, click on the **Azure Portal** icon.
+### Login to GitHub
 
-   ![Image](./media/gs7.png) 
+1. In the **Lab VM**, open the **Microsoft Edge** browser from the desktop.
 
-1. On the **Sign in to Microsoft Azure** tab you will see the login screen, in that enter the following email/username, and click on **Next (2)**. 
+   ![](./media/gg1.png)
 
-   * **Email/Username**: <inject key="AzureAdUserEmail"></inject> **(1)**
-   
-      ![Image](./media/gs8.png "Enter Email")
-     
-1. Now enter the following password and click on **Sign in (2)**.
-   
-   * **Temporary Access Pass**: <inject key="AzureAdUserPassword"></inject> **(1)**
-   
-      ![Image](./media/gs9.png)
+1. Navigate to the **GitHub login** page by copying and pasting the following URL into the address bar:
 
-1. Click **No** on the Stay signed in? page.
+   ```
+   https://github.com/login
+   ```
 
-    ![Image](./media/gs10.png "Enter Password")
+1. On the **Sign in to GitHub** tab, enter the provided **GitHub username** in the input field, and click on **Sign in with your identity provider** **(2)**.
 
-1. If a **Welcome to Microsoft Azure** popup window appears, select **Maybe Later** to skip the tour.
+    - **Email/Username:** <inject key="GitHub User Name" enableCopy="true"/> **(1)**
+
+      ![](./media/gg2.png)
+
+1. Click on **Continue** on the **Single sign-on to CloudLabs Organizations** page to proceed.
+
+   ![](./media/gg3.png)
+
+1. You'll see the **Sign in** tab. Here, enter your Azure Entra credentials and click **Next (2)**.
+
+   - **Email/Username:** <inject key="AzureAdUserEmail"></inject> **(1)**
+
+     ![](./media/gg4.png)
+
+1. Next, provide your Temporary Password and click on **Sign in (2)**
+
+   - **Temporary Access Pass:** <inject key="AzureAdUserPassword"></inject> **(1)**
+
+     ![](./media/gg5.png)
+
+1. On the **Stay Signed in?** pop-up, click on No.
+
+   ![](./media/gg6.png)
+
+1. You are now successfully logged in to **GitHub** and have been redirected to the **GitHub homepage**.
+
+   ![](./media/gg7.png)
+
+   >**Note** : If **Start using Copilot** pop-up appears, click on **X** to close it
+    ![](./media/gg8.png)
+
+### GitHub Copilot is moving to usage-based billing
+
+Instead of counting premium requests, every Copilot plan will include a monthly allotment of **GitHub AI Credits**, with the option for paid plans to purchase additional usage. Usage will be calculated based on token consumption, including input, output, and cached tokens, using the listed API rates for each model.​
+
+​**What's changing**
+
+- Starting June 1, GitHub will replace Premium Request Units with GitHub AI Credits. ​
+- Credits will be consumed based on actual AI token usage. ​
+- Base pricing for all GitHub Copilot plans will remain unchanged. ​
+- Code completions and Next Edit Suggestions will continue to be included at no extra cost. ​
+- The fallback experience to lower-cost AI models will no longer be available after credits are exhausted. ​
+- Copilot Code Review will also consume GitHub Actions minutes in addition to GitHub AI Credits.​
+
+### GitHub Copilot Plan updates and AI Credit changes​
+
+| Plan | Monthly Price | Included Monthly AI Credits | Key Update |
+|:---|:---|:---|:---|
+| **Copilot Pro** | $10/month | $10 AI Credits | Migrates to usage-based billing from June 1 |
+| **Copilot Pro+** | $39/month | $39 AI Credits | Includes higher AI credit allocation |
+| **Copilot Business** | $19/user/month | $19 AI Credits | Includes pooled organizational credits |
+| **Copilot Enterprise** | $39/user/month | $39 AI Credits | Adds advanced budget and spending controls |
+
+### Managing roles and governance via enterprise teams:
+
+GitHub Enterprise Cloud has introduced new enterprise-level governance and management capabilities to help enterprises manage access, security, and policies at scale.
+
+As of today, enterprise owners can use GitHub’s API or the enterprise settings UI to:
+
+- Assign enterprise teams to organizations.
+- Create and assign custom enterprise roles.
+- Assign enterprise roles to both enterprise teams and users, including the new predefined Enterprise Security Manager role.
+- Empower organization and repository owners to assign roles to enterprise teams within their scope.
+- Assign enterprise teams and roles to ruleset bypass lists.
+
+### Copilot Insights:
+
+The Copilot usage metrics dashboard gives enterprise administrators and billing managers clear visibility into Copilot adoption and usage under the Insights tab.
+
+These metrics help you understand:
+
+- **Overall usage and adoption:** Review indicators like weekly usage provide a broad view of Copilot adoption across your enterprise.
+- **Specific model, feature, and language usage:** See which AI models and programming languages are most utilized by your teams, highlighting areas for even greater value.
+- **Agent adoption percentage:** Track how many developers are using Copilot for advanced tasks like refactoring, debugging, and complex problem solving. High agent adoption signals a shift toward truly transformative coding.
+
+![](../../media/copilot-insights.png)
+
+## Setting up IDE
+
+1. Open the **Visual Studio Code** shortcut from the desktop of your **Lab VM**.
+
+   ![](./media/gg9.png)
+
+1. To sign in to **GitHub Copilot**, follow the steps below:
+
+   - In Visual Studio Code, click on the **Icon (1)** in the GitHub Copilot Chat panel located at the bottom-right corner of the window, and select **Use AI Features (2)**.
+
+     ![](./media/gg14.png)
+
+   - On the *Sign in to use GitHub Copilot* screen, select **Continue with GitHub** to sign in.
+  
+     ![](./media/gg10.png)
+
+   - Now, in the browser, click on **Continue** to Authorize Visual Studio Code. 
+
+     ![](./media/gg11.png)
+
+   - On the next window, click on **Authrize Visual-Studio-Code**.
+
+     ![](./media/gg12.png)
+
+   - You will see a pop-up asking **This site is trying to open Visual Studio Code**. Enable the **CheckBox (1)** and then click on **Open (2)**. It will take you to VS Code. 
+
+     ![](./media/gg13.png)
+
+## Summary
+
+In this lab, you successfully set up your development environment, logged into GitHub, created a new repository, and configured Visual Studio Code with GitHub Copilot.  
 
 ## Support Contact
 
@@ -109,7 +208,4 @@ Learner Support Contacts:
 - Email Support: cloudlabs-support@spektrasystems.com
 - Live Chat Support: https://cloudlabs.ai/labs-support
 
-Click **Next >>** from the bottom right corner to embark on your Lab journey!
-
-
-### Happy Learning!!
+#### You have successfully completed the lab. Click on **Next >>** to continue to the next lab.

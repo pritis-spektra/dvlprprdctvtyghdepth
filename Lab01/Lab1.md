@@ -222,7 +222,7 @@ In this task, you will learn what the application does before writing any tests.
 
       ![Image](./media/image10.png)
 
-   > **Note:** Agent mode creates the file for you - no manual copy-pasting needed. If the file appears in the wrong location, you can drag it to the correct folder in Explorer.
+      > **Note:** Agent mode creates the file for you - no manual copy-pasting needed. If the file appears in the wrong location, you can drag it to the correct folder in Explorer.
 
 ### Task 2: Create Repository Layer Unit Tests
 

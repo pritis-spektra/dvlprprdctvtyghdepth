@@ -28,15 +28,18 @@ You open VS Code. You have GitHub Copilot with Agent Mode.
 
 In this lab, you will complete the following tasks:
 
-   - Exercise 1, Task 1: TRIAGE — Human Reasoning: Read the Incident Log First
-   - Exercise 1, Task 2: Use Copilot Chat to Confirm the Diagnosis
-   - Exercise 1, Task 3: Use /explain on the Most Dangerous Code
-   - Exercise 2, Task 1: Agent Mode — Fix the Critical Security Vulnerability
-   - Exercise 2, Task 2: Agent Mode — Fix the Fee Calculation Bug
-   - Exercise 2, Task 3: Agent Mode — Fix the Key Mismatch Bug
-   - Exercise 3, Task 1: Fix the Missing Fields Test
+   - Task 1: TRIAGE Human Reasoning: Read the Incident Log First
 
-### Task 1: TRIAGE — Human Reasoning: Read the Incident Log First
+   - Task 2: Use Copilot Chat to Confirm the Diagnosis
+   - Task 3: Use /explain on the Most Dangerous Code
+   - Task 4: Agent Mode Fix the Critical Security Vulnerability
+   - Task 5: Agent Mode Fix the Fee Calculation Bug
+   - Task 6: Agent Mode Fix the Key Mismatch Bug
+   - Task 7: Fix the Missing Fields Test
+
+### Task 1: TRIAGE Human Reasoning: Read the Incident Log First
+
+In this task, you will clone the incident repo and read incident_log.txt without using Copilot. You will manually triage the reported issues into critical, high, medium, and low severity based on business impact.
 
 1. Open Visual Studio Code -> Terminal -> Git Bash and run the below command to clone the repo:
 
@@ -72,9 +75,9 @@ In this lab, you will complete the following tasks:
 
    - No idempotency on process_payout
 
-   ![Image](./media/image1.png)
+      ![Image](./media/image1.png)
 
-   > **Note:** This triage step is **mandatory and Copilot-free**. In real incidents, developers must think before acting. Copilot's agentic capabilities don't replace your judgment in these situations — they amplify it. The triage order (critical → high → medium → low) mirrors real incident response.
+      > **Note:** This triage step is **mandatory and Copilot-free**. In real incidents, developers must think before acting. Copilot's agentic capabilities don't replace your judgment in these situations — they amplify it. The triage order (critical → high → medium → low) mirrors real incident response.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -83,6 +86,8 @@ In this lab, you will complete the following tasks:
 <validation step="ex11-task1-lab11-triage" />
 
 ### Task 2: Use Copilot Chat to Confirm the Diagnosis
+
+In this task, you will use Copilot Chat's @workspace context to cross-reference the incident log against the source files and produce a root-cause table. You will compare Copilot's diagnosis against your own manual triage to check for gaps.
 
 1. Open Copilot Chat and enter the below prompt in Agent mode:
 
@@ -109,13 +114,15 @@ In this lab, you will complete the following tasks:
 
    - Does Copilot catch the **'amt' vs 'amount' inconsistency** across files?
 
-   ![Image](./media/image4.png)
+      ![Image](./media/image4.png)
 
-   ![Image](./media/image5.png)
+      ![Image](./media/image5.png)
 
-> **Note:** "Once you've identified the problem area, you can turn to GitHub Copilot and ask, 'I'm giving this input but getting this output — what's wrong?' That's where GitHub Copilot really shines." The key learning: Copilot confirms and enriches your diagnosis — but the triage *priority* is a human decision based on business impact.
+      > **Note:** "Once you've identified the problem area, you can turn to GitHub Copilot and ask, 'I'm giving this input but getting this output — what's wrong?' That's where GitHub Copilot really shines." The key learning: Copilot confirms and enriches your diagnosis — but the triage *priority* is a human decision based on business impact.
 
 ### Task 3: Use /explain on the Most Dangerous Code
+
+In this task, you will use Copilot's /explain on the calculate_fee function to trace how an unsupported currency causes a downstream TypeError. You will confirm this root cause matches the incident log before moving to fixes.
 
 1. Select the **calculate_fee** function in **payout_models.py.** Type in Copilot Chat:
 
@@ -138,7 +145,9 @@ In this lab, you will complete the following tasks:
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 <validation step="ex11-task3-lab11-explain-dangerous-code" />
 
-### Task 4: Agent Mode — Fix the Critical Security Vulnerability
+### Task 4: Agent Mode Fix the Critical Security Vulnerability
+
+In this task, you will use Copilot Agent mode to add input validation that rejects negative payout amounts and invalid merchant IDs. You will review Agent's autonomous edits and test run, documenting what it got right versus what needed correction.
 
 1. Open the Copilot Chat panel. Select **"Agent"** from the dropdown and enter the below prompt:
 
@@ -176,7 +185,9 @@ In this lab, you will complete the following tasks:
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 <validation step="ex11-task4-lab11-fix-security-vuln" />
 
-### Task 5: Agent Mode — Fix the Fee Calculation Bug
+### Task 5: Agent Mode Fix the Fee Calculation Bug
+
+In this task, you will use Agent mode to fix calculate_fee so unsupported currencies no longer crash the app. You will evaluate whether Agent's chosen approach (default fee vs. ValueError) is appropriate for a financial system and override it if needed.
 
 1. Run the below Agent mode prompt:
 
@@ -223,7 +234,9 @@ In this lab, you will complete the following tasks:
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
 <validation step="ex11-task5-lab11-fix-fee-calculation" />
 
-### Task 6: Agent Mode — Fix the Key Mismatch Bug (amt vs amount)
+### Task 6: Agent Mode Fix the Key Mismatch Bug (amt vs amount)
+
+In this task, you will use Agent mode to standardize the inconsistent "amt"/"amount" key naming across the models, API, and test files. You will run the full test suite to confirm the KeyError crash is resolved.
 
 1. This is the bug crashing the merchant payouts endpoint. Type in Agent Mode:
 
@@ -270,6 +283,8 @@ In this lab, you will complete the following tasks:
 <validation step="ex11-task6-lab11-fix-key-mismatch" />
 
 ### Task 7: Fix the Missing Fields Test
+
+In this task, you will verify that the missing-fields test now returns 400 instead of 500 after the earlier validation fixes. You will use Copilot's /fix if the test still fails, adjusting either the test or the endpoint as needed.
 
 1. The test test_api_missing_fields expects a 400 response when required fields are missing, but the original code returned 500 (unhandled KeyError). After Phase 2's validation fixes, this should now work.
 

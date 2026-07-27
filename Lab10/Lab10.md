@@ -1,4 +1,4 @@
-﻿## Lab 10: Debugging and Fixing a Buggy Node.js REST API with GitHub Copilot
+﻿# Lab 10: Debugging and Fixing a Buggy Node.js REST API with GitHub Copilot
 
 ### Estimated Duration: 120 Minutes
 
@@ -26,7 +26,7 @@ In this lab, you will complete the following tasks:
 
 ### Task 1: Understand the Problem (Human Reasoning First)
 
-Before using Copilot, assess the situation as a developer.
+In this task, you will clone the buggy Order Management API, attempt to start the server, and diagnose the startup crash yourself before using Copilot. You will note the error, the file it points to, and why Express is rejecting the route definition.
 
 1. Open the project in VS Code. Open Terminal -> GitBash and run the below command to clone the repo:
 
@@ -73,7 +73,7 @@ Before using Copilot, assess the situation as a developer.
 
 ### Task 2: Use GitHub Copilot to Analyze and Explore the Codebase
 
-Use Copilot Chat as an interactive AI assistant, helping you debug issues with natural language queries.
+In this task, you will use Copilot's /explain on order.js and targeted questions on specific methods to understand bugs like a broken findByStatus filter. You will also ask Copilot to review the auth middleware for security vulnerabilities and evaluate its findings.
 
 1. Open **src/models/order.js** in the editor. Select **all the code** in the file. Open Copilot Chat and type:
 
@@ -127,9 +127,9 @@ Use Copilot Chat as an interactive AI assistant, helping you debug issues with n
 
    - No user info extraction from token
 
-   ![Image](./media/image7.png)
+      ![Image](./media/image7.png)
 
-> **Note:** Copilot may suggest implementing full JWT verification. For this exercise, decide whether a simple token check is sufficient for a prototype or if you should implement proper JWT. **This is your call, not Copilot's.**
+      > **Note:** Copilot may suggest implementing full JWT verification. For this exercise, decide whether a simple token check is sufficient for a prototype or if you should implement proper JWT. **This is your call, not Copilot's.**
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -139,7 +139,7 @@ Use Copilot Chat as an interactive AI assistant, helping you debug issues with n
 
 ### Task 3: Use Copilot to Generate Fixes in src/app.js
 
-Systematically fix each file using Copilot's /fix command, inline suggestions, and Copilot Chat prompts. Select the code causing issues, type /fix, and let Copilot Chat generate suggestions.
+In this task, you will use Copilot's /fix to add missing middleware, correct a route prefix typo, and add CORS and global error handling to app.js. You will install any required packages and update your bug tracker once fixed.
 
 1. **Open** **src/app.js** in the editor. **Select all code** in the file and type in Copilot Chat in Agent mode:
 
@@ -159,7 +159,7 @@ Systematically fix each file using Copilot's /fix command, inline suggestions, a
 
    - Adding a global error-handling middleware at the bottom
 
-   ![Image](./media/image9.png)
+      ![Image](./media/image9.png)
 
 1. Open Terminal and install the CORS package if Copilot suggested it:
 
@@ -171,7 +171,7 @@ Systematically fix each file using Copilot's /fix command, inline suggestions, a
 
 1. **Update your Bug Tracker:** Mark Bugs #1–#4 as fixed and note which Copilot feature you used.
 
-> **Note:** Copilot may suggest various CORS configurations. For a development API, permissive CORS is fine. For production, you'd restrict origins. **This decision is yours**, not Copilot's.
+   > **Note:** Copilot may suggest various CORS configurations. For a development API, permissive CORS is fine. For production, you'd restrict origins. **This decision is yours**, not Copilot's.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -180,6 +180,8 @@ Systematically fix each file using Copilot's /fix command, inline suggestions, a
 <validation step="ex10-task3-lab10-fix-appjs" />
 
 ### Task 4: Use Copilot to Generate Fixes in src/server.js
+
+In this task, you will use Copilot to replace the hardcoded port with environment variable support and add graceful shutdown/signal handling. You will review and apply the fix, then mark the corresponding bugs resolved.
 
 1. Open src/server.js. **Select all code** and use Copilot Chat Agent mode:
 
@@ -205,7 +207,7 @@ Systematically fix each file using Copilot's /fix command, inline suggestions, a
 
 ### Task 5: Use Copilot to Generate Fixes in src/models/order.js
 
-This file contains **10 bugs** and is the core of the application. We'll fix it in stages.
+In this task, you will use Copilot's /fix and inline chat to resolve the constructor crash, a broken update method, and a faulty findByStatus filter across several stages. You will also use comment prompts to add missing calculateTotal and validateOrderData methods.
 
 #### **Fix Critical Crashes (Bugs #7, #8)**
 
@@ -277,6 +279,8 @@ This file contains **10 bugs** and is the core of the application. We'll fix it 
 
 ### Task 6: Use Copilot to Generate Fixes in src/controllers/orderController.js
 
+In this task, you will use Copilot to add input validation, fix incorrect HTTP status codes, and correct error handling in createOrder, getOrdersByStatus, and getOrderSummary. You will review each fix against the specific bugs called out in your prompts.
+
 #### **Fix createOrder (Bugs #20–#23)**
 
 1. **Highlight** the createOrder method. In Copilot Chat:
@@ -345,6 +349,8 @@ This file contains **10 bugs** and is the core of the application. We'll fix it 
 
 ### Task 7: Use Copilot to Generate Fixes in src/routes/orderRoutes.js
 
+In this task, you will use Copilot to fix swapped HTTP methods, mismatched route parameters, a route-ordering conflict, and a wrong controller method reference. You will verify route ordering is corrected so specific routes don't get shadowed by dynamic ones.
+
 1. **Open** orderRoutes.js and **select all code**. In Copilot Chat, use a comprehensive prompt:
 
    ```
@@ -374,6 +380,8 @@ This file contains **10 bugs** and is the core of the application. We'll fix it 
 
 ### Task 8: Use Copilot to Generate Fixes in src/middleware/auth.js
 
+In this task, you will use Copilot to fix the case-sensitive header bug, correct the HTTP status code, and implement real JWT token verification. You will install the jsonwebtoken package and update your bug tracker.
+
 1. **Open** auth.js and **select all code**. In Copilot Chat:
 
    ```
@@ -393,13 +401,15 @@ This file contains **10 bugs** and is the core of the application. We'll fix it 
 
 1. **Open terminal and run the below command to install jsonwebtoken:**
 
-   +++npm install jsonwebtoken+++
+   ```
+   npm install jsonwebtoken
+   ```
 
    ![Image](./media/image32.png)
 
 1. **Update Bug Tracker:** Mark Bugs #36–#39 as fixed.
 
-> **Note:** Copilot may suggest different JWT configurations. For this exercise, a simple HS256 token with environment-variable secret is fine. In production, you'd use RS256 with key rotation. **This architecture decision is yours.**
+   > **Note:** Copilot may suggest different JWT configurations. For this exercise, a simple HS256 token with environment-variable secret is fine. In production, you'd use RS256 with key rotation. **This architecture decision is yours.**
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -409,7 +419,7 @@ This file contains **10 bugs** and is the core of the application. We'll fix it 
 
 ### Task 9: Use Copilot to Generate Fixes in src/utils/helpers.js
 
-This file has **11 bugs**. Let's use Copilot Agent mode — the next evolution in AI-assisted coding that performs multi-step coding tasks at your command.
+In this task, you will use Copilot Agent mode to fix multiple bugs at once calculation errors, inverted validation logic, status typos, pagination off-by-one issues, and missing XSS sanitization. You will start the server and validate all fixes by exercising the API endpoints with curl.
 
 1. Select the full code from src/utils/helpers.js and enter the below prompt in Agent mode:
 

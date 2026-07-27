@@ -32,7 +32,9 @@ Before asking Copilot anything, **read the code yourself** and note what's wrong
 
 1. Run the below command and clone the repo:
 
-   +++git clone https://github.com/technofocus-pte/GitHub-Copilot-orderflow-cleanup+++
+   ```
+   git clone https://github.com/technofocus-pte/GitHub-Copilot-orderflow-cleanup
+   ```
 
    ![Image](./media/image2.png)
 
@@ -144,11 +146,17 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
 1. Create a new file: +++test_order_processor.py+++ in the root folder. Type the following comment at the top and let Copilot help:
 
-   +++# Characterization tests for order_processor.py+++
+   ```
+   # Characterization tests for order_processor.py
+   ```
 
-   +++# These tests capture the CURRENT behavior of the code before refactoring+++
+   ```
+   # These tests capture the CURRENT behavior of the code before refactoring
+   ```
 
-   +++# Purpose: ensure refactoring does not change observable behavior+++
+   ```
+   # Purpose: ensure refactoring does not change observable behavior
+   ```
 
    ![Image](./media/image11.png)
 
@@ -192,9 +200,13 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
 1. **Open Terminal and run the tests:**
 
-   +++cd GitHub-Copilot-orderflow-cleanup/+++
+   ```
+   cd GitHub-Copilot-orderflow-cleanup/
+   ```
 
-   +++pytest test_order_processor.py -v+++
+   ```
+   pytest test_order_processor.py -v
+   ```
 
    ![Image](./media/image15.png)
 
@@ -234,7 +246,9 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
 1. Then immediately **run tests:**
 
-   +++pytest test_order_processor.py -v+++
+   ```
+   pytest test_order_processor.py -v
+   ```
 
    ![Image](./media/image18.png)
 
@@ -244,17 +258,14 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
 1. At the top of order_processor.py, type the following comment and let Copilot suggest:
 
-   +++# Constants for discount rates and tax+++
-
-   +++# VIP customers get 10% discount+++
-
-   +++# Employee customers get 20% discount+++
-
-   +++# Wholesale customers get 25% discount+++
-
-   +++# Tax rate is 8%+++
-
-   +++# Orders over $1000 require review+++
+   ```
+   # Constants for discount rates and tax
+   # VIP customers get 10% discount
+   # Employee customers get 20% discount
+   # Wholesale customers get 25% discount
+   # Tax rate is 8%
+   # Orders over $1000 require review
+   ```
 
    ![Image](./media/image19.png)
 
@@ -331,7 +342,9 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
 1. Add the generated test to test_order_processor.py, review it, and run:
 
-   +++pytest test_order_processor.py -v+++
+   ```
+   pytest test_order_processor.py -v
+   ```
 
    ![Image](./media/image27.png)
 

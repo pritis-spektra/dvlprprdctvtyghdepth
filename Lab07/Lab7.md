@@ -1,4 +1,4 @@
-﻿## Lab 7: Building a Task Management REST API with GitHub Copilot as an AI Pair Programmer
+﻿# Lab 7: Building a Task Management REST API with GitHub Copilot as an AI Pair Programmer
 
 ### Estimated Duration: 120 Minutes
 
@@ -71,7 +71,7 @@ In this lab, you will complete the following tasks:
 
 ### Task 1: Understand the Problem (Human Reasoning — No Copilot Yet)
 
-Before touching Copilot, take a moment to reason about the architecture. Answer these questions in your OneNote/Notebook:
+In this task, you will reason through the API's architecture without Copilot, answering questions about endpoints, data fields, framework, and testing tools. You will decide on Flask and pytest before writing any code.
 
 1. What endpoints does a Task Management API need?
 
@@ -105,11 +105,11 @@ Before touching Copilot, take a moment to reason about the architecture. Answer 
 
    - **pytest**
 
-> **Note:** This task is intentionally Copilot-free. The goal is to establish that developers must *think first*. A prompt is a request that you make to GitHub Copilot. In addition to your prompt, Copilot uses additional context, like the code in your current file and the chat history, to generate a response. The *quality* of that context starts with the developer's understanding of the problem.
+      > **Note:** This task is intentionally Copilot-free. The goal is to establish that developers must *think first*. A prompt is a request that you make to GitHub Copilot. In addition to your prompt, Copilot uses additional context, like the code in your current file and the chat history, to generate a response. The *quality* of that context starts with the developer's understanding of the problem.
 
 ### Task 2: Scaffold the Project Using Natural Language Comments
 
-Now let's use Copilot to scaffold the project structure.
+In this task, you will use Copilot Agent mode to generate a requirements.txt for a production-ready Flask REST API. You will review the suggested packages, remove anything unnecessary, and install the dependencies.
 
 1. Open Copilot Chat (Ctrl+Shift+I / Cmd+Shift+I), select Agent mode and Claude Sonnet 4.6 model and type the following prompt:
 
@@ -147,6 +147,8 @@ Now let's use Copilot to scaffold the project structure.
 <validation step="ex7-task2-lab07-scaffold-project" />
 
 ### Task 3: Add a Helper Function via Comment Prompt
+
+In this task, you will write a natural-language comment to prompt Copilot into generating a find_task helper function. You will review the suggestion and refine your comment if Copilot produces redundant logic.
 
 1. Below the data store, type the following comment and wait for Copilot. Press Tab to accept the suggestions:
 
@@ -187,7 +189,7 @@ Now let's use Copilot to scaffold the project structure.
 
 ### Task 4: Build Application Features Using Intent-Driven Prompts
 
-Now we build the core CRUD endpoints. We will alternate between **inline comment prompts** and **Copilot Chat prompts** to demonstrate both surfaces.
+In this task, you will use inline comment prompts to have Copilot generate the POST /tasks create-task endpoint with validation and auto-generated fields. You will review the code for correctness and manually add any missing imports.
 
 #### **Create Task Endpoint (Inline Comment)**
 
@@ -219,7 +221,7 @@ Now we build the core CRUD endpoints. We will alternate between **inline comment
 
    - Accept the function if it meets requirements.
 
-   > **Note:** Copilot may generate code using uuid4 and datetime but may **not** add the import statements at the top of the file. **This is intentional.**
+      > **Note:** Copilot may generate code using uuid4 and datetime but may **not** add the import statements at the top of the file. **This is intentional.**
 
 1. Add the missing imports manually:
 
@@ -235,6 +237,8 @@ Now we build the core CRUD endpoints. We will alternate between **inline comment
 <validation step="ex7-task4-lab07-crud-endpoints" />
 
 ### Task 5: Get All Tasks Endpoint (Copilot Chat)
+
+In this task, you will use Copilot Chat's @workspace context to generate a GET /tasks endpoint that returns all tasks as JSON. You will verify it matches the style and patterns of the existing code.
 
 1. Open Copilot Chat (agent mode) and enter the below prompt:
 
@@ -258,6 +262,8 @@ Now we build the core CRUD endpoints. We will alternate between **inline comment
 
 ### Task 6: Get Single Task Endpoint (Inline Comment)
 
+In this task, you will write inline comments to prompt Copilot into generating a GET /tasks/<task_id> endpoint using the find_task helper. You will accept the generated function if it correctly handles the not-found case.
+
 1. Type the below comments manually in app.py:
 
    ```
@@ -277,6 +283,8 @@ Now we build the core CRUD endpoints. We will alternate between **inline comment
 1. Let Copilot generate the function. Accept if correct.
 
 ### Task 7: Update Task Endpoint
+
+In this task, you will use Copilot Chat to generate a PUT /tasks/<task_id> endpoint that validates status values and updates only provided fields. You will critically review the validation logic and refactor hardcoded statuses into a constant.
 
 1. Enter the below prompt in Copilot Chat:
 
@@ -314,9 +322,11 @@ Now we build the core CRUD endpoints. We will alternate between **inline comment
 
 1. Move this constant to the top of the file. This is **your** architectural decision, not Copilot's.
 
-> **Note:** This is the "Balancing speed, ownership, and code quality" objective in action. Start general, then get specific. When writing a prompt for Copilot, first give Copilot a broad description of the goal or scenario. Then list any specific requirements. Notice how the detailed prompt produced a more accurate result than a vague one would.
+   > **Note:** This is the "Balancing speed, ownership, and code quality" objective in action. Start general, then get specific. When writing a prompt for Copilot, first give Copilot a broad description of the goal or scenario. Then list any specific requirements. Notice how the detailed prompt produced a more accurate result than a vague one would.
 
 ### Task 8: Delete Task Endpoint
+
+In this task, you will write your own comment-driven prompt to have Copilot generate a DELETE /tasks/<task_id> endpoint. You will verify it removes the task, returns 404 when not found, and returns 204 on success.
 
 1. Write the comment-driven prompt yourself for a DELETE /tasks/\<task_id\> endpoint.
 
@@ -342,6 +352,8 @@ Now we build the core CRUD endpoints. We will alternate between **inline comment
 
 ### Task 9: Add the Application Entry Point
 
+In this task, you will prompt Copilot to generate the `if __name__ == '__main__':` block to run the Flask app in debug mode on port 5000. You will start the app and test it with curl to confirm the endpoints work.
+
 1. Type at the bottom of app.py. Accept Copilot's suggestion for the `if __name__ == '__main__':` block:
 
    ```
@@ -356,9 +368,13 @@ Now we build the core CRUD endpoints. We will alternate between **inline comment
 
 1. Save the file and open terminal and run the App:
 
+   ```
    cd cloudtask-api/
+   ```
 
+   ```
    python app.py
+   ```
 
    ![Image](./media/image32.png)
 
@@ -383,7 +399,7 @@ Now we build the core CRUD endpoints. We will alternate between **inline comment
 
 ### Task 10: Review and Refine Copilot Output — Refactoring
 
-Now let's use Copilot to improve what we've built.
+In this task, you will ask Copilot to review the full app.py for code quality and suggest refactors like shared error-response helpers. You will accept improvements that reduce duplication while rejecting any that change the API contract.
 
 1. Select all the code in app.py, then open Copilot Chat and enter the below prompt:
 
@@ -407,13 +423,15 @@ Now let's use Copilot to improve what we've built.
 
    - Consistent JSON error format like `{"error": "message"}`
 
-   ![Image](./media/image37.png)
+      ![Image](./media/image37.png)
 
 1. Accept helpers that **reduce duplication**. **Reject** any suggestion that changes the API contract (e.g., changing route paths or HTTP methods).
 
 1. Apply changes incrementally — one refactor at a time.
 
 ### Task 11: Use /fix for Any Issues
+
+In this task, you will highlight any buggy or warning-flagged code and use Copilot's /fix command to get a proposed correction. You will review each fix carefully before applying it, since Copilot may alter intentional behavior.
 
 1. If you notice any linter warnings or bugs, highlight the code and type in Copilot Chat:
 
@@ -425,7 +443,9 @@ Now let's use Copilot to improve what we've built.
 
 ### Task 12: Generate Unit Tests with Copilot
 
-1. Create a new file +++test_app.py+++ in the root folder. Type the following comment manually at the top. Pause and observe Copilot's suggestions. It may try to generate all tests at once:
+In this task, you will create test_app.py and use comment prompts to have Copilot generate pytest-based unit tests for the CRUD operations and edge cases. You will accept the tests incrementally rather than all at once.
+
+1. Create a new file `test_app.py` in the root folder. Type the following comment manually at the top. Pause and observe Copilot's suggestions. It may try to generate all tests at once:
 
    ```
    # Unit tests for the Task Management REST API
@@ -454,6 +474,8 @@ Now let's use Copilot to improve what we've built.
 1. Do **NOT** accept the full block. Instead, proceed with one test at a time.
 
 ### Task 13: Generate Tests Using Copilot Chat /tests
+
+In this task, you will select the create_task function and use Copilot Chat's /tests command to generate targeted pytest cases for it. You will review each test's assertions before copying the accepted ones into test_app.py.
 
 1. Open app.py, select the **Create Task** endpoint function. Then in Copilot Chat:
 
@@ -493,6 +515,8 @@ Now let's use Copilot to improve what we've built.
 
 ### Task 14: Generate Remaining Tests
 
+In this task, you will use Copilot Chat's /tests command to generate tests for the remaining endpoints, such as GET /tasks. You will run the full test suite with pytest and use /fix to resolve any failures.
+
 1. Use Copilot Chat to generate tests for additional endpoints using prompts like:
 
    ```
@@ -502,7 +526,7 @@ Now let's use Copilot to improve what we've built.
 
    ![Image](./media/image45.png)
 
-1. Run tests with command +++pytest test_app.py -v+++. All tests should pass.
+1. Run tests with command `pytest test_app.py -v`. All tests should pass.
 
    ![Image](./media/image46.png)
 

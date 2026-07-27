@@ -1,4 +1,4 @@
-﻿## Lab 6: Building and Using MCP Servers with GitHub Copilot (Optional)
+﻿# Lab 6: Building and Using MCP Servers with GitHub Copilot (Optional)
 
 ### Estimated Duration: 60 Minutes
 
@@ -25,7 +25,7 @@ In this lab, you will complete the following tasks:
 
 ### Task 1: Create Your First MCP Server using GitHub Copilot
 
-Create a minimal MCP server that Copilot can connect to.
+In this task, you will use Copilot Agent mode to scaffold a Java MCP server project and implement math tools (add, subtract, multiply, divide) using the MCP Java SDK with STDIO transport. You will build and run the server, ensuring division-by-zero is handled as an error.
 
 1. Navigate to **lab-06-MCP** and then open GitHub Copilot Chat and ask Copilot the below prompt in Agent mode + Claude Sonnet 4.6 model:
 
@@ -109,6 +109,8 @@ Create a minimal MCP server that Copilot can connect to.
 <validation step="ex6-task1-lab06-mcp-server" />
 
 ### Task 2: Create MCPClient.java
+
+In this task, you will use Copilot to generate an MCP client that connects to the server over STDIO, lists its available tools, and calls each math tool. You will run the client to confirm it invokes the tools correctly and demonstrates the division-by-zero error handling.
 
 1. Enter the below prompt in Copilot:
 

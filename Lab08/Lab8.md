@@ -1,4 +1,4 @@
-﻿## Lab 8: Improving Code Quality and Maintainability with GitHub Copilot
+﻿# Lab 8: Improving Code Quality and Maintainability with GitHub Copilot
 
 ### Estimated Duration: 90 Minutes
 
@@ -24,7 +24,7 @@ In this lab, you will complete the following tasks:
 
 ### Task 1: Understand the Problem — Human Reasoning First
 
-Before asking Copilot anything, **read the code yourself** and note what's wrong. This trains the code review mindset.
+In this task, you will clone the inherited order_processor.py codebase and manually read through it without Copilot's help. You will list out code smells you spot on your own to build a code-review mindset first.
 
 1. Create a folder in your `C:/Lab08` and open it in Visual Studio Code and sign in with your GitHub account with Copilot license. Open terminal -> GitBash.
 
@@ -65,7 +65,7 @@ Before asking Copilot anything, **read the code yourself** and note what's wrong
 
 ### Task 2: Use GitHub Copilot to Analyze and Explain the Code
 
-Now let's validate and deepen your understanding using Copilot.
+In this task, you will select the proc() function and use Copilot's /explain command to get a plain-English breakdown of its behavior. You will check whether Copilot catches the empty-order ordering bug, learning that /explain describes current behavior, not correct behavior.
 
 1. Select the **entire proc() function** in the editor. Open Copilot Chat (Ctrl+Shift+I / Cmd+Shift+I) and type:
 
@@ -81,9 +81,11 @@ Now let's validate and deepen your understanding using Copilot.
 
 1. Read the explanation carefully. Does Copilot identify the **empty-order bug** (the empty check happens after calculation)? If not, note this — Copilot explained what the code *does*, not what it *should* do. **This is a critical distinction.**
 
-> **Note:** /explain describes *current behavior*, not *intended behavior*. The developer must judge correctness.
+   > **Note:** /explain describes *current behavior*, not *intended behavior*. The developer must judge correctness.
 
 ### Task 3: Ask Copilot to Identify Code Smells
+
+In this task, you will use Copilot Chat in Agent mode to review order_processor.py and list code smells ranked by severity. You will compare Copilot's findings against your own notes to see what each of you caught that the other missed.
 
 1. With **order_processor.py** open, type in Copilot Chat in Agent mode with Claude Sonnet 4.6 model:
 
@@ -106,11 +108,11 @@ Now let's validate and deepen your understanding using Copilot.
 
    - Did you find anything Copilot missed? (Possibly: the **logical ordering bug** — the empty check happens too late.)
 
-   ![Image](./media/image7.png)
+      ![Image](./media/image7.png)
 
-   ![Image](./media/image8.png)
+      ![Image](./media/image8.png)
 
-> **Note:** This comparison exercise demonstrates the **human-AI collaboration** model. Neither alone catches everything. Together, coverage is far more complete.
+      > **Note:** This comparison exercise demonstrates the **human-AI collaboration** model. Neither alone catches everything. Together, coverage is far more complete.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
@@ -119,6 +121,8 @@ Now let's validate and deepen your understanding using Copilot.
 <validation step="ex8-task3-lab08-code-smells" />
 
 ### Task 4: Ask Copilot to Compare the Two Functions
+
+In this task, you will ask Copilot to compare proc() and proc_batch() and identify their duplicated logic. You will confirm Copilot's suggestion that proc_batch() should simply call proc() for each order.
 
 1. Enter the below prompt to compare the two functions and understand the response:
 
@@ -138,13 +142,15 @@ Now let's validate and deepen your understanding using Copilot.
 
 ### Task 5: Refactor the Code Using Copilot — Incremental, Validated Changes
 
+ In this task, you will build a characterization test safety net, then refactor the code in incremental passes renaming variables, extracting magic numbers into constants, deduplicating proc_batch(), and extracting the discount logic into a helper. You will re-run the test suite after every change to confirm behavior stays identical.
+
 We'll refactor in **five incremental passes**, creating a test safety net first, then improving one dimension at a time.
 
 > Never refactor without tests. We'll write a "characterization test" first — a test that locks in the *current* behavior, even if it's imperfect.
 
 #### **Create a Characterization Test (Safety Net)**
 
-1. Create a new file: +++test_order_processor.py+++ in the root folder. Type the following comment at the top and let Copilot help:
+1. Create a new file: `test_order_processor.py` in the root folder. Type the following comment at the top and let Copilot help:
 
    ```
    # Characterization tests for order_processor.py
@@ -299,7 +305,9 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
 1. **Review and accept.** Then immediately run:
 
-   +++pytest test_order_processor.py -v+++
+   ```
+   pytest test_order_processor.py -v
+   ```
 
    ![Image](./media/image23.png)
 

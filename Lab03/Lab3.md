@@ -1,4 +1,4 @@
-﻿# Lab 3: Creating and Improving Documentation with GitHub Copilot
+# Lab 3: Creating and Improving Documentation with GitHub Copilot
 
 ### Estimated Duration: 75 Minutes
 

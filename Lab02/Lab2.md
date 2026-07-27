@@ -1,4 +1,4 @@
-﻿# Lab 2: Diagnosing and Fixing Java Application Errors Using GitHub Copilot
+# Lab 2: Diagnosing and Fixing Java Application Errors Using GitHub Copilot
 
 ### Estimated Duration: 90 Minutes
 

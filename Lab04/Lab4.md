@@ -1,4 +1,4 @@
-﻿# Lab 4: Refactoring Documentation and Technical Design Using GitHub Copilot
+# Lab 4: Refactoring Documentation and Technical Design Using GitHub Copilot
 
 ### Estimated Duration: 75 Minutes
 

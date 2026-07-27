@@ -1,4 +1,4 @@
-﻿## Lab 3: Creating and Improving Documentation with GitHub Copilot
+﻿# Lab 3: Creating and Improving Documentation with GitHub Copilot
 
 ### Estimated Duration: 75 Minutes
 
@@ -141,7 +141,7 @@ This task demonstrates how Copilot assists in **framework-specific documentation
 
    ![Image](./media/image10.png)
 
-> **Note:** GitHub Copilot suggests changes but does not automatically apply them. Always verify files such as pom.xml and accept or apply changes explicitly.
+   > **Note:** GitHub Copilot suggests changes but does not automatically apply them. Always verify files such as pom.xml and accept or apply changes explicitly.
 
 ### Task 3: Add Code Documentation to Classes with GitHub Copilot Help
 
@@ -175,7 +175,7 @@ This task shows how **GitHub Copilot helps generate high-quality JavaDoc**, whil
    - Are all parameter names correct and consistent with the method signature?
    - Does it avoid claiming behavior that doesn't exist (e.g., 404 handling that isn't implemented)?
 
-   ![Image](./media/image12.png)
+      ![Image](./media/image12.png)
 
 1. Repeat the process for the following classes. For each, select the entire class, open **Copilot Chat** in **Agent** mode, and enter the prompt below:
 
@@ -221,7 +221,7 @@ Update the API documentation with the new information. Generate two different ma
    - `api-functional.md`
    - `api-technical.md`
 
-   ![Image](./media/image19.png)
+      ![Image](./media/image19.png)
 
 1. Open **api-functional.md**. Select all existing content in the file, then open **Copilot Chat** in **Agent** mode and enter the following prompt. Review the response and click **Keep** to accept:
 

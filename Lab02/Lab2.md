@@ -1,4 +1,4 @@
-﻿## Lab 2: Diagnosing and Fixing Java Application Errors Using GitHub Copilot
+﻿# Lab 2: Diagnosing and Fixing Java Application Errors Using GitHub Copilot
 
 ### Estimated Duration: 90 Minutes
 
@@ -249,15 +249,15 @@ This task focuses on using **GitHub Copilot as a troubleshooting assistant** to:
    - Enter `/fix` to have Copilot propose a targeted fix.
    - Enter `/refactor` for a broader cleanup - this fixes the constructor, ensures getters/setters match field types, removes redundant code, and keeps the API intact.
 
-   **Using `/explain`:**
+   - **Using `/explain`:**
 
-   ![Image](./media/image11.png)
+      ![Image](./media/image11.png)
 
-   **Using `/fix`:**
+   - **Using `/fix`:**
 
-   ![Image](./media/image12.png)
+      ![Image](./media/image12.png)
 
-   Copilot identifies the issue - **The code has a type mismatch error**. For now, skip the fix and instead try `/refactor` to explore a broader correction.
+   - Copilot identifies the issue - **The code has a type mismatch error**. For now, skip the fix and instead try `/refactor` to explore a broader correction.
 
 1. Accept Copilot's fix by clicking **Keep**.
 

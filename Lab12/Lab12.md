@@ -292,4 +292,4 @@ In this lab, you have completed the following:
 
 ### You have successfully completed the lab!
 
-![](media/up4.png)
+![](./media/nx.png) 

@@ -331,4 +331,4 @@ In this lab, you have completed the following:
 ### You have successfully completed the lab!
 ### In the Lab Guide section, click the **Next >>** button to proceed to Lab 12.
 
-![](media/up4.png)
+![](./media/nx.png) 

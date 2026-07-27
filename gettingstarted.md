@@ -209,3 +209,5 @@ Learner Support Contacts:
 - Live Chat Support: https://cloudlabs.ai/labs-support
 
 #### You have successfully completed the lab. Click on **Next >>** to continue to the next lab.
+
+![](./media/nx.png)

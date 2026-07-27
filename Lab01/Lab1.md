@@ -484,4 +484,4 @@ In this Lab, you have completed the following:
 ### You have successfully completed the Lab!
 ### In the Lab Guide section, click the **Next >>** button to proceed to Lab 2.
 
-![](media/up4.png)
+![](./media/nx.png) 

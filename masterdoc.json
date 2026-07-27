@@ -1,0 +1,60 @@
+[
+  {
+    "Name": "Azure Immersion Workshop : AI",
+    "Language": "English",
+    "Files": [
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/README.md",
+        "Order": 1
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/01-aml-model-training/README.md",
+        "Order": 2
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/03-knowledge-mining/README.md",
+        "Order": 3
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/04-conversational-ai/README.md",
+        "Order": 4
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/05-metrics-advisor/05-metrics-advisor.md",
+        "Order": 5
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/06-ml-in-databricks/README.md",
+        "Order": 6
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/06-ml-in-databricks/README.md",
+        "Order": 7
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/06-ml-in-databricks/README.md",
+        "Order": 8
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/06-ml-in-databricks/README.md",
+        "Order": 9
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/06-ml-in-databricks/README.md",
+        "Order": 10
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/06-ml-in-databricks/README.md",
+        "Order": 11
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/06-ml-in-databricks/README.md",
+        "Order": 12
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/ai-in-a-day/main/06-ml-in-databricks/README.md",
+        "Order": 13
+      }
+    ]
+  }
+]

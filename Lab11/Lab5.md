@@ -1,0 +1,290 @@
+# Lab 5: Fixing a Production Incident Using GitHub Copilot Agent Mode
+
+### Estimated Duration: 90 Minutes
+
+## Overview
+
+In this lab, you will respond to a simulated production incident at a fintech company, using human triage first and then GitHub Copilot's Agent mode to diagnose and fix critical bugs under time pressure. You will confirm Copilot's fixes align with business-critical correctness requirements rather than accepting them blindly.
+
+It's **9:47 AM on a Monday.** You're an on-call engineer at **ZAVA PayStream Inc.**, a fintech company processing merchant payouts. The #incident-critical Slack channel just fired:
+
+**[SEV-1] Payout Processing Service — Multiple Failures**
+
+- Merchants report: payouts not arriving
+
+- Monitoring: 37% of payout requests returning 500 errors
+
+- Logs: TypeError, KeyError, and malformed amounts in database
+
+- QA: 4 of 9 unit tests now failing after Friday's deploy
+
+- Security team flagged: one endpoint may accept negative payout amounts
+
+- **Business impact: $42K/hour in delayed merchant settlements**
+
+Your TIM says: *"We need this fixed in the next 90 minutes. Use every tool you have."*
+
+You open VS Code. You have GitHub Copilot with Agent Mode.
+
+## Objectives
+
+In this lab, you will complete the following tasks:
+
+   - Task 1: TRIAGE Human Reasoning: Read the Incident Log First
+
+   - Task 2: Use Copilot Chat to Confirm the Diagnosis
+   - Task 3: Use /explain on the Most Dangerous Code
+   - Task 4: Agent Mode Fix the Critical Security Vulnerability
+   - Task 5: Agent Mode Fix the Fee Calculation Bug
+   - Task 6: Agent Mode Fix the Key Mismatch Bug
+   - Task 7: Fix the Missing Fields Test
+
+### Task 1: TRIAGE Human Reasoning: Read the Incident Log First
+
+In this task, you will clone the incident repo and read incident_log.txt without using Copilot. You will manually triage the reported issues into critical, high, medium, and low severity based on business impact.
+
+1. Open Visual Studio Code. Open **Terminal → New Terminal** and click the dropdown to select **Git Bash**. Run the below command to clone the repo:
+
+   ```
+   git clone https://github.com/technofocus-pte/paystream-incident.git
+   ```
+
+1. Open **incident_log.txt** from the cloned repository and read every line. **Before touching Copilot**, create a triage list.
+
+   Categorize the issues by severity:
+
+   **CRITICAL (fix first — financial loss):**
+
+   - Negative payout amounts accepted → credits merchant instead of debiting
+
+   - calculate_fee returns None for GBP → TypeError crashes processing
+
+   **HIGH (fix next — service availability):**
+
+   - POST /payouts crashes with KeyError when fields are missing
+
+   - GET /merchants/\<id\>/payouts crashes — 'amount' vs 'amt' key mismatch
+
+   **MEDIUM (fix after — test reliability):**
+
+   - 4 failing tests
+
+   - Missing test coverage for GBP fees and duplicate processing
+
+   **LOW (fix last — code quality):**
+
+   - Inconsistent key naming ('amt' vs 'amount')
+
+   - No idempotency on process_payout
+
+      ![Image](./media/image1.png)
+
+      > **Note:** This triage step is **mandatory and Copilot-free**. In real incidents, developers must think before acting. Copilot's agentic capabilities don't replace your judgment in these situations — they amplify it. The triage order (critical → high → medium → low) mirrors real incident response.
+
+### Task 2: Use Copilot Chat to Confirm the Diagnosis
+
+In this task, you will use Copilot Chat's @workspace context to cross-reference the incident log against the source files and produce a root-cause table. You will compare Copilot's diagnosis against your own manual triage to check for gaps.
+
+1. Open **Copilot Chat** and enter the below prompt in **Agent** mode with the **Claude Sonnet 4.6** model selected:
+
+   ```
+   @workspace I'm investigating a production incident. Read incident_log.txt and cross-reference it with payout_models.py and payout_api.py.
+   For each error in the log, identify:
+   1. The exact line of code causing the error
+   2. The root cause
+   3. Suggested severity (critical/high/medium/low)
+   Present as a table.
+   ```
+
+   ![Image](./media/image3.png)
+
+1. Copilot should produce a table mapping each log entry to specific code lines and root causes.
+
+   **Developer Action:**
+
+   - Compare Copilot's table against your manual triage.
+
+   - Does Copilot correctly identify the **negative amount security issue** as critical?
+
+   - Does Copilot catch the **'amt' vs 'amount' inconsistency** across files?
+
+      ![Image](./media/image4.png)
+
+      ![Image](./media/image5.png)
+
+      > **Note:** "Once you've identified the problem area, you can turn to GitHub Copilot and ask, 'I'm giving this input but getting this output — what's wrong?' That's where GitHub Copilot really shines." The key learning: Copilot confirms and enriches your diagnosis — but the triage *priority* is a human decision based on business impact.
+
+### Task 3: Use /explain on the Most Dangerous Code
+
+In this task, you will use Copilot's /explain on the calculate_fee function to trace how an unsupported currency causes a downstream TypeError. You will confirm this root cause matches the incident log before moving to fixes.
+
+1. Select the **calculate_fee** function in **payout_models.py.** Type in **Copilot Chat**:
+
+   ```
+   /explain What happens when an unsupported currency like "GBP" is passed to this function? Trace the downstream impact.
+   ```
+
+   ![Image](./media/image6.png)
+
+1. Copilot should explain that the function returns None, which then causes `p["amt"] - None` to raise a TypeError in process_payout(). Confirm this matches log entry #4. Root cause confirmed — now we fix.
+
+   ![Image](./media/image7.png)
+
+   ![Image](./media/image8.png)
+
+### Task 4: Agent Mode Fix the Critical Security Vulnerability
+
+In this task, you will use Copilot Agent mode to add input validation that rejects negative payout amounts and invalid merchant IDs. You will review Agent's autonomous edits and test run, documenting what it got right versus what needed correction.
+
+1. Open the **Copilot Chat** panel. Select **"Agent"** from the dropdown and enter the below prompt:
+
+   ```
+   INCIDENT FIX - CRITICAL PRIORITY
+   In payout_models.py, the create_payout function accepts negative
+   amounts.
+   This is a security vulnerability — negative payouts credit merchants
+   instead of debiting them (see incident_log.txt).
+   Fix this by:
+   1. Adding input validation in create_payout() to reject amounts <= 0
+   2. Adding input validation to reject empty or None merchant_id
+   3. Raising a ValueError with clear messages for invalid inputs
+   4. In payout_api.py, catching ValueError in the POST /payouts endpoint and returning a 400 response with the error message
+   5. Do NOT change any existing test expectations
+   6. After making changes, run: pytest test_payouts.py -v
+   ```
+
+   ![Image](./media/image9.png)
+
+1. Watch Agent Mode's process carefully. Agent mode autonomously uses various tools to get to the end result. After it runs commands and applies edits, Agent mode works to detect syntax errors, terminal output, test results, and build errors. Based on the results, it then determines how to correct.
+
+1. **Review Agent's Work:** In a notepad, document what Agent got right vs. what needed correction.
+
+   ![Image](./media/image10.png)
+
+1. Allow Copilot to continue running until it completes.
+
+   ![Image](./media/image11.png)
+
+### Task 5: Agent Mode Fix the Fee Calculation Bug
+
+In this task, you will use Agent mode to fix calculate_fee so unsupported currencies no longer crash the app. You will evaluate whether Agent's chosen approach (default fee vs. ValueError) is appropriate for a financial system and override it if needed.
+
+1. Run the below Agent mode prompt:
+
+   ```
+   INCIDENT FIX - CRITICAL
+   The calculate_fee function in payout_models.py returns None for
+   unsupported currencies (like GBP). This causes a TypeError downstream in
+   process_payout().
+   Fix this by:
+   1. Adding a default fee calculation for unsupported currencies (4% + 1.00)
+   2. OR raising a ValueError for unsupported currencies
+   3. Handling this error gracefully in process_payout()
+   4. Update the POST /payouts/<id>/process endpoint in payout_api.py
+   to return a 400 error if the fee calculation fails
+   ```
+
+   ![Image](./media/image12.png)
+
+1. Run tests after changes are applied.
+
+   ![Image](./media/image13.png)
+
+1. **Accept or Refine:** Agent Mode may choose Option 1 (default fee) or Option 2 (raise ValueError). **Which is correct?**
+
+   ![Image](./media/image14.png)
+
+1. **If Agent chose the default fee:** Override and ask it to use ValueError instead. In fintech, **correctness > availability** for financial calculations.
+
+   **Follow-up Prompt:**
+   ```
+   Actually, for a financial system, it's safer to reject unknown currencies with a ValueError rather than applying a default fee. Please change the
+   approach to raise ValueError for unsupported currencies and handle it in the API layer with a 400 response.
+   ```
+
+1. Run the full test suite to confirm:
+
+   ```
+   pytest test_payouts.py -v
+   ```
+
+### Task 6: Agent Mode Fix the Key Mismatch Bug (amt vs amount)
+
+In this task, you will use Agent mode to standardize the inconsistent "amt"/"amount" key naming across the models, API, and test files. You will run the full test suite to confirm the KeyError crash is resolved.
+
+1. This is the bug crashing the merchant payouts endpoint. Type in **Agent Mode**:
+
+   ```
+   INCIDENT FIX - HIGH PRIORITY
+   There is a key naming inconsistency across the codebase:
+   - payout_models.py stores the amount as "amt"
+   - payout_api.py references "amount" in the merchant_payouts endpoint
+   - This causes a KeyError crash on GET /merchants/<id>/payouts
+   Fix this across ALL files consistently. The canonical key should be
+   "amount" (not "amt") because it is more readable. Update:
+   1. payout_models.py - change "amt" to "amount" everywhere
+   2. payout_api.py - verify all references use "amount"
+   3. test_payouts.py - update any test assertions referencing "amt"
+   4. Run all tests after changes.
+   ```
+
+   ![Image](./media/image15.png)
+
+   ![Image](./media/image16.png)
+
+1. Agent Mode should:
+
+   1. Read all 3 files to understand the scope
+
+   1. Rename "amt" → "amount" in payout_models.py
+
+   1. Update process_payout() where it references `p["amt"]`
+
+   1. Update test assertions (e.g., `assert p["amt"]` → `assert p["amount"]`)
+
+   1. Run tests
+
+1. `test_api_merchant_payouts` should now pass.
+
+   ![Image](./media/image17.png)
+
+### Task 7: Fix the Missing Fields Test
+
+In this task, you will verify that the missing-fields test now returns 400 instead of 500 after the earlier validation fixes. You will use Copilot's /fix if the test still fails, adjusting either the test or the endpoint as needed.
+
+1. The test `test_api_missing_fields` expects a 400 response when required fields are missing, but the original code returned 500 (unhandled KeyError). After the validation fixes in Task 4, this should now work correctly.
+
+   Run:
+
+   ```
+   pytest test_payouts.py::test_api_missing_fields -v
+   ```
+
+   ![Image](./media/image18.png)
+
+   ![Image](./media/image19.png)
+
+1. If the test still fails, select the test and the relevant API code, then use the following prompt in **Copilot Chat**:
+
+   ```
+   /fix This test expects a 400 status code when 'currency' is missing from
+   the POST /payouts request body. The endpoint should validate required
+   fields and return 400 with a descriptive error. Fix either the test or the endpoint as needed.
+   ```
+
+## Review
+
+In this lab, you have completed the following:
+
+   - Applied a triage-first approach to prioritize fixes by business impact
+   - Used Copilot Chat to confirm the diagnosis by cross-referencing incident logs with source code
+   - Used /explain to trace the downstream impact of dangerous code paths
+   - Used Agent Mode to fix a critical security vulnerability (negative payout amounts)
+   - Fixed a financial calculation bug (GBP currency support) with human override of Agent's approach
+   - Fixed a key naming inconsistency across multiple files using Agent Mode's multi-file awareness
+   - Restored failing unit tests after all fixes were applied
+
+### You have successfully completed the lab!
+### In the Lab Guide section, click the **Next >>** button to proceed to Lab 6.
+
+![](./media/nx.png) 

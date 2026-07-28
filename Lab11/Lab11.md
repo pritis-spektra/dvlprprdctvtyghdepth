@@ -1,4 +1,4 @@
-﻿# Lab 11: Fixing a Production Incident Using GitHub Copilot Agent Mode (Optional)
+# Lab 11: Fixing a Production Incident Using GitHub Copilot Agent Mode (Optional)
 
 ### Estimated Duration: 90 Minutes
 
@@ -43,13 +43,13 @@ In this lab, you will complete the following tasks:
 
 In this task, you will clone the incident repo and read incident_log.txt without using Copilot. You will manually triage the reported issues into critical, high, medium, and low severity based on business impact.
 
-1. Open Visual Studio Code -> Terminal -> Git Bash and run the below command to clone the repo:
+1. Open Visual Studio Code. Open **Terminal → New Terminal** and click the dropdown to select **Git Bash**. Run the below command to clone the repo:
 
    ```
    git clone https://github.com/technofocus-pte/paystream-incident.git
    ```
 
-1. Open **incident_log.txt** and read every line. Before touching Copilot, create a triage list.
+1. Open **incident_log.txt** from the cloned repository and read every line. **Before touching Copilot**, create a triage list.
 
    Categorize the issues by severity:
 
@@ -81,19 +81,11 @@ In this task, you will clone the incident repo and read incident_log.txt without
 
       > **Note:** This triage step is **mandatory and Copilot-free**. In real incidents, developers must think before acting. Copilot's agentic capabilities don't replace your judgment in these situations — they amplify it. The triage order (critical → high → medium → low) mirrors real incident response.
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex11-task1-lab11-triage" />
-
 ### Task 2: Use Copilot Chat to Confirm the Diagnosis
 
 In this task, you will use Copilot Chat's @workspace context to cross-reference the incident log against the source files and produce a root-cause table. You will compare Copilot's diagnosis against your own manual triage to check for gaps.
 
-1. Open Copilot Chat and enter the below prompt in Agent mode:
-
-   **Prompt:**
+1. Open **Copilot Chat** and enter the below prompt in **Agent** mode with the **Claude Sonnet 4.6** model selected:
 
    ```
    @workspace I'm investigating a production incident. Read incident_log.txt and cross-reference it with payout_models.py and payout_api.py.
@@ -126,34 +118,26 @@ In this task, you will use Copilot Chat's @workspace context to cross-reference 
 
 In this task, you will use Copilot's /explain on the calculate_fee function to trace how an unsupported currency causes a downstream TypeError. You will confirm this root cause matches the incident log before moving to fixes.
 
-1. Select the **calculate_fee** function in **payout_models.py.** Type in Copilot Chat:
+1. Select the **calculate_fee** function in **payout_models.py.** Type in **Copilot Chat**:
 
-   **Prompt:**
    ```
    /explain What happens when an unsupported currency like "GBP" is passed to this function? Trace the downstream impact.
    ```
 
    ![Image](./media/image6.png)
 
-1. Copilot should explain that the function returns None, which then causes `p["amt"] - None` to raise a TypeError in process_payout(). Confirm this matches log entry #4. Root cause confirmed. Now we fix.
+1. Copilot should explain that the function returns None, which then causes `p["amt"] - None` to raise a TypeError in process_payout(). Confirm this matches log entry #4. Root cause confirmed — now we fix.
 
    ![Image](./media/image7.png)
 
    ![Image](./media/image8.png)
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex11-task3-lab11-explain-dangerous-code" />
-
 ### Task 4: Agent Mode Fix the Critical Security Vulnerability
 
 In this task, you will use Copilot Agent mode to add input validation that rejects negative payout amounts and invalid merchant IDs. You will review Agent's autonomous edits and test run, documenting what it got right versus what needed correction.
 
-1. Open the Copilot Chat panel. Select **"Agent"** from the dropdown and enter the below prompt:
+1. Open the **Copilot Chat** panel. Select **"Agent"** from the dropdown and enter the below prompt:
 
-   **Prompt:**
    ```
    INCIDENT FIX - CRITICAL PRIORITY
    In payout_models.py, the create_payout function accepts negative
@@ -173,19 +157,13 @@ In this task, you will use Copilot Agent mode to add input validation that rejec
 
 1. Watch Agent Mode's process carefully. Agent mode autonomously uses various tools to get to the end result. After it runs commands and applies edits, Agent mode works to detect syntax errors, terminal output, test results, and build errors. Based on the results, it then determines how to correct.
 
-1. Review Agent's Work: Document in a notepad what Agent got right vs. what needed correction.
+1. **Review Agent's Work:** In a notepad, document what Agent got right vs. what needed correction.
 
    ![Image](./media/image10.png)
 
-1. Allow Copilot to run.
+1. Allow Copilot to continue running until it completes.
 
    ![Image](./media/image11.png)
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex11-task4-lab11-fix-security-vuln" />
 
 ### Task 5: Agent Mode Fix the Fee Calculation Bug
 
@@ -208,11 +186,11 @@ In this task, you will use Agent mode to fix calculate_fee so unsupported curren
 
    ![Image](./media/image12.png)
 
-1. Run tests after changes.
+1. Run tests after changes are applied.
 
    ![Image](./media/image13.png)
 
-1. Accept or Refine: Agent Mode may choose Option 1 (default fee) or Option 2 (raise ValueError). **Which is correct?**
+1. **Accept or Refine:** Agent Mode may choose Option 1 (default fee) or Option 2 (raise ValueError). **Which is correct?**
 
    ![Image](./media/image14.png)
 
@@ -224,25 +202,17 @@ In this task, you will use Agent mode to fix calculate_fee so unsupported curren
    approach to raise ValueError for unsupported currencies and handle it in the API layer with a 400 response.
    ```
 
-1. Run tests:
+1. Run the full test suite to confirm:
 
    ```
    pytest test_payouts.py -v
    ```
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex11-task5-lab11-fix-fee-calculation" />
-
 ### Task 6: Agent Mode Fix the Key Mismatch Bug (amt vs amount)
 
 In this task, you will use Agent mode to standardize the inconsistent "amt"/"amount" key naming across the models, API, and test files. You will run the full test suite to confirm the KeyError crash is resolved.
 
-1. This is the bug crashing the merchant payouts endpoint. Type in Agent Mode:
-
-   **Agent Mode Prompt:**
+1. This is the bug crashing the merchant payouts endpoint. Type in **Agent Mode**:
 
    ```
    INCIDENT FIX - HIGH PRIORITY
@@ -274,21 +244,15 @@ In this task, you will use Agent mode to standardize the inconsistent "amt"/"amo
 
    1. Run tests
 
-1. test_api_merchant_payouts should now pass.
+1. `test_api_merchant_payouts` should now pass.
 
    ![Image](./media/image17.png)
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex11-task6-lab11-fix-key-mismatch" />
 
 ### Task 7: Fix the Missing Fields Test
 
 In this task, you will verify that the missing-fields test now returns 400 instead of 500 after the earlier validation fixes. You will use Copilot's /fix if the test still fails, adjusting either the test or the endpoint as needed.
 
-1. The test test_api_missing_fields expects a 400 response when required fields are missing, but the original code returned 500 (unhandled KeyError). After Phase 2's validation fixes, this should now work.
+1. The test `test_api_missing_fields` expects a 400 response when required fields are missing, but the original code returned 500 (unhandled KeyError). After the validation fixes in Task 4, this should now work correctly.
 
    Run:
 
@@ -300,21 +264,13 @@ In this task, you will verify that the missing-fields test now returns 400 inste
 
    ![Image](./media/image19.png)
 
-1. If it still fails, select the test and the relevant API code, then:
-
-   **Prompt:**
+1. If the test still fails, select the test and the relevant API code, then use the following prompt in **Copilot Chat**:
 
    ```
    /fix This test expects a 400 status code when 'currency' is missing from
    the POST /payouts request body. The endpoint should validate required
    fields and return 400 with a descriptive error. Fix either the test or the endpoint as needed.
    ```
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex11-task7-lab11-fix-missing-fields-test" />
 
 ## Review
 

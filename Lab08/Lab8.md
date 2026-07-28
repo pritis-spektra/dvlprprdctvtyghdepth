@@ -1,4 +1,4 @@
-﻿# Lab 8: Improving Code Quality and Maintainability with GitHub Copilot
+# Lab 8: Improving Code Quality and Maintainability with GitHub Copilot
 
 ### Estimated Duration: 90 Minutes
 
@@ -28,11 +28,11 @@ In this lab, you will complete the following tasks:
 
 In this task, you will clone the inherited order_processor.py codebase and manually read through it without Copilot's help. You will list out code smells you spot on your own to build a code-review mindset first.
 
-1. Create a folder in your `C:/Lab08` and open it in Visual Studio Code and sign in with your GitHub account with Copilot license. Open terminal -> GitBash.
+1. Create a new folder named **Lab08** in your `C:\` drive and open it in Visual Studio Code. Sign in with your GitHub account with Copilot license.
 
    ![Image](./media/image1.png)
 
-1. Run the below command and clone the repo:
+1. Open **Terminal → New Terminal** in VS Code and click the dropdown to select **Git Bash**. Run the below command to clone the repo:
 
    ```
    git clone https://github.com/technofocus-pte/GitHub-Copilot-orderflow-cleanup
@@ -40,9 +40,7 @@ In this task, you will clone the inherited order_processor.py codebase and manua
 
    ![Image](./media/image2.png)
 
-1. Open **order_processor.py** and create a list of code smells on paper or in a scratch comment block at the bottom of the file.
-
-   > **Note:** Spend 5 minutes and identify as many issues as you can.
+1. Open **order_processor.py** from the cloned repository. Spend 5 minutes reading through the code and create a list of code smells on paper or in a scratch comment block at the bottom of the file:
 
    ```
    # === CODE REVIEW NOTES ===
@@ -59,17 +57,13 @@ In this task, you will clone the inherited order_processor.py codebase and manua
 
    ![Image](./media/image3.png)
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex8-task1-lab08-code-review" />
+   > **Note:** Spend at least 5 minutes identifying issues yourself before using Copilot. The goal is to develop your own code-review mindset first.
 
 ### Task 2: Use GitHub Copilot to Analyze and Explain the Code
 
 In this task, you will select the proc() function and use Copilot's /explain command to get a plain-English breakdown of its behavior. You will check whether Copilot catches the empty-order ordering bug, learning that /explain describes current behavior, not correct behavior.
 
-1. Select the **entire proc() function** in the editor. Open Copilot Chat (Ctrl+Shift+I / Cmd+Shift+I) and type:
+1. Select the **entire proc() function** in the editor. Open **Copilot Chat** (**Ctrl+Shift+I** / **Cmd+Shift+I**) and type:
 
    ```
    /explain
@@ -83,15 +77,14 @@ In this task, you will select the proc() function and use Copilot's /explain com
 
 1. Read the explanation carefully. Does Copilot identify the **empty-order bug** (the empty check happens after calculation)? If not, note this — Copilot explained what the code *does*, not what it *should* do. **This is a critical distinction.**
 
-   > **Note:** /explain describes *current behavior*, not *intended behavior*. The developer must judge correctness.
+   > **Note:** `/explain` describes *current behavior*, not *intended behavior*. The developer must judge correctness.
 
 ### Task 3: Ask Copilot to Identify Code Smells
 
 In this task, you will use Copilot Chat in Agent mode to review order_processor.py and list code smells ranked by severity. You will compare Copilot's findings against your own notes to see what each of you caught that the other missed.
 
-1. With **order_processor.py** open, type in Copilot Chat in Agent mode with Claude Sonnet 4.6 model:
+1. With **order_processor.py** open, type the following prompt in **Copilot Chat** in **Agent** mode with the **Claude Sonnet 4.6** model selected:
 
-   **Prompt:**
    ```
    @workspace Review order_processor.py for code quality issues.
    List all code smells including: poor naming, duplication, magic numbers,
@@ -104,7 +97,7 @@ In this task, you will use Copilot Chat in Agent mode to review order_processor.
 
 1. Copilot should identify most (or all) of the issues you noted in Step 1, possibly organized by category and severity.
 
-1. Compare Copilot's list against your own notes from Step 1:
+1. Compare Copilot's list against your own notes from Task 1:
 
    - Did Copilot find anything you missed? (Possibly: the lack of input validation on `o["id"]`, or no error handling if `items` key is missing.)
 
@@ -116,19 +109,12 @@ In this task, you will use Copilot Chat in Agent mode to review order_processor.
 
       > **Note:** This comparison exercise demonstrates the **human-AI collaboration** model. Neither alone catches everything. Together, coverage is far more complete.
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex8-task3-lab08-code-smells" />
-
 ### Task 4: Ask Copilot to Compare the Two Functions
 
 In this task, you will ask Copilot to compare proc() and proc_batch() and identify their duplicated logic. You will confirm Copilot's suggestion that proc_batch() should simply call proc() for each order.
 
-1. Enter the below prompt to compare the two functions and understand the response:
+1. Enter the below prompt in **Copilot Chat** to compare the two functions and understand the response:
 
-   **Prompt:**
    ```
    Compare the proc() and proc_batch() functions in order_processor.py.
    Identify duplicated logic and explain how they could be consolidated.
@@ -148,11 +134,11 @@ In this task, you will build a characterization test safety net, then refactor t
 
 We'll refactor in **five incremental passes**, creating a test safety net first, then improving one dimension at a time.
 
-> Never refactor without tests. We'll write a "characterization test" first — a test that locks in the *current* behavior, even if it's imperfect.
+> **Important:** Never refactor without tests. We'll write a "characterization test" first — a test that locks in the *current* behavior, even if it's imperfect. This ensures your refactoring doesn't accidentally break existing functionality.
 
 #### **Create a Characterization Test (Safety Net)**
 
-1. Create a new file: `test_order_processor.py` in the root folder. Type the following comment at the top and let Copilot help:
+1. Create a new file: `test_order_processor.py` in the root folder. Type the following comments at the top and let Copilot help with suggestions:
 
    ```
    # Characterization tests for order_processor.py
@@ -170,9 +156,8 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
    ![Image](./media/image12.png)
 
-1. Now open Copilot Chat, and type:
+1. Now open **Copilot Chat** and type:
 
-   **Prompt:**
    ```
    @workspace Generate characterization tests for the proc() function
    in order_processor.py. These tests should capture the current behavior,
@@ -206,7 +191,7 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
    - Verify the "st" (status) field assertions match the threshold logic.
 
-1. **Open Terminal and run the tests:**
+1. **Open the terminal and run the tests:**
 
    ```
    cd GitHub-Copilot-orderflow-cleanup/
@@ -218,15 +203,14 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
    ![Image](./media/image15.png)
 
-1. All 5 tests pass. If any fail, the expected values need correction — fix them now. These tests are your safety net.
+1. All 5 tests should pass. If any fail, the expected values need correction — fix them now. These tests are your safety net.
 
    > **Note:** Review suggestions carefully. This is especially important for characterization tests — wrong expected values mean your safety net has holes.
 
 #### **Refactor 1: Fix Variable Names**
 
-1. Open order_processor.py file and select the **entire proc() function**. Open **Copilot inline chat** (Ctrl+I / Cmd+I) and type:
+1. Open `order_processor.py` and select the **entire proc() function**. Open **Copilot inline chat** (**Ctrl+I** / **Cmd+I**) and type:
 
-   **Prompt:**
    ```
    Improve all variable names in this function to be descriptive and
    readable.
@@ -236,7 +220,7 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
    ![Image](./media/image16.png)
 
-1. It should rename all single-letter variables to descriptive names while preserving exact logic.
+1. Copilot should rename all single-letter variables to descriptive names while preserving exact logic.
 
 1. VS Code will show you an inline diff. Check:
 
@@ -252,7 +236,7 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
    ![Image](./media/image17.png)
 
-1. Then immediately **run tests:**
+1. Then immediately **run the tests:**
 
    ```
    pytest test_order_processor.py -v
@@ -260,11 +244,11 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
    ![Image](./media/image18.png)
 
-1. All tests still pass. If any fail, **reject the refactor**, undo (Ctrl+Z), and re-prompt with more specificity.
+1. All tests should still pass. If any fail, **reject the refactor**, undo with **Ctrl+Z**, and re-prompt with more specificity.
 
 #### **Refactor 2: Extract Magic Numbers into Constants**
 
-1. At the top of order_processor.py, type the following comment and let Copilot suggest:
+1. At the top of `order_processor.py`, type the following comments and let Copilot suggest the constant values:
 
    ```
    # Constants for discount rates and tax
@@ -279,7 +263,7 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
 1. Copilot should suggest:
 
-   ```
+   ```python
    VIP_DISCOUNT_RATE = 0.10
    EMPLOYEE_DISCOUNT_RATE = 0.20
    WHOLESALE_DISCOUNT_RATE = 0.25
@@ -291,9 +275,8 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
 1. Accept this suggestion — it's clean and follows Python conventions (UPPER_SNAKE_CASE).
 
-1. Now use inline chat to ask Copilot to help replace magic numbers in proc(). Select the proc() function:
+1. Now use inline chat to replace magic numbers in `proc()`. Select the proc() function and press **Ctrl+I**:
 
-   **Prompt:**
    ```
    Replace all magic numbers in this function with the constants defined
    at the top of the file: VIP_DISCOUNT_RATE, EMPLOYEE_DISCOUNT_RATE,
@@ -313,13 +296,12 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
    ![Image](./media/image23.png)
 
-1. All tests pass.
+1. All tests should pass.
 
 #### **Refactor 3: Eliminate Duplication Between proc() and proc_batch()**
 
-1. This is the most impactful refactor. Enter the below prompt in the chat:
+1. This is the most impactful refactor. Enter the below prompt in **Copilot Chat**:
 
-   **Prompt:**
    ```
    @workspace The proc_batch() function in order_processor.py contains
    duplicated logic from proc(). Refactor proc_batch() so it simply calls
@@ -332,16 +314,15 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
 1. Copilot should suggest:
 
-   ```
+   ```python
    def proc_batch(orders):
        return [proc(order) for order in orders]
    ```
 
    ![Image](./media/image25.png)
 
-1. Accept the suggestion. But we need a **test for proc_batch()** too. In Copilot Chat:
+1. Accept the suggestion. Now add a **test for proc_batch()** too. In **Copilot Chat**:
 
-   **Prompt:**
    ```
    /tests Generate a pytest test for proc_batch() that processes 3 orders
    (one standard, one VIP, one EMPLOYEE) and verifies that the result is a
@@ -350,7 +331,7 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
    ![Image](./media/image26.png)
 
-1. Add the generated test to test_order_processor.py, review it, and run:
+1. Add the generated test to `test_order_processor.py`, review it, and run:
 
    ```
    pytest test_order_processor.py -v
@@ -358,15 +339,14 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
    ![Image](./media/image27.png)
 
-   All tests pass, including the new batch test.
+   All tests should pass, including the new batch test.
 
 #### **Refactor 4: Extract Discount Calculation into a Helper**
 
-1. The discount logic inside proc() uses an if/elif chain that will grow as new customer types are added. Let's extract it.
+1. The discount logic inside proc() uses an if/elif chain that will grow as new customer types are added. Let's extract it into its own function.
 
-1. Select the discount if/elif block inside proc() and open inline chat:
+1. Select the discount if/elif block inside proc() and open **inline chat** (**Ctrl+I**):
 
-   **Prompt:**
    ```
    Extract the discount calculation into a separate function called
    calculate_discount(subtotal, customer_type) that returns the discounted
@@ -375,15 +355,9 @@ We'll refactor in **five incremental passes**, creating a test safety net first,
 
    ![Image](./media/image28.png)
 
-1. Copilot suggests using a dictionary to map customer types to their corresponding discount rates.
+1. Copilot suggests using a dictionary to map customer types to their corresponding discount rates — a cleaner and more extensible approach.
 
    ![Image](./media/image29.png)
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex8-task5-lab08-refactoring" />
 
 ## Review
 

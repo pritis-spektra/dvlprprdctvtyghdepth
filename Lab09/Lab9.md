@@ -1,4 +1,4 @@
-﻿# Lab 9: Building Rapid Full-Stack Application Prototyping with GitHub Copilot
+# Lab 9: Building Rapid Full-Stack Application Prototyping with GitHub Copilot
 
 ### Estimated Duration: 90 Minutes
 
@@ -32,20 +32,22 @@ In this lab, you will complete the following tasks:
 
 In this task, you will create a new project folder and set up a Python virtual environment with Flask installed. You will prepare the workspace so Copilot can scaffold the application from a completely empty folder.
 
-1. Create a folder **Lab09** in your `C:/` drive and open it in Visual Studio Code.
+1. Create a new folder named **Lab09** in your `C:\` drive and open it in Visual Studio Code.
 
    ![Image](./media/image1.png)
 
-1. Open a terminal -> GitBash and run the below commands:
+1. Open **Terminal → New Terminal** in VS Code and click the dropdown to select **Git Bash**. Run the below commands to set up the project:
 
    ```
-      mkdir customer-health-demo && cd customer-health-demo
-      python -m venv venv
-      .\venv\Scripts\Activate.ps1
-      pip install flask
+   mkdir customer-health-demo && cd customer-health-demo
+   python -m venv venv
+   source venv/Scripts/activate
+   pip install flask
    ```
 
    ![Image](./media/image2.png)
+
+   > **Note:** The `source venv/Scripts/activate` command is the correct syntax for activating a Python virtual environment in Git Bash on Windows. You should see `(venv)` prepended to your terminal prompt after activation.
 
 1. Switch to **Agent Mode** in the Copilot Chat panel dropdown.
 
@@ -95,8 +97,6 @@ In this task, you will use Copilot's Ask mode to get pros and cons for implement
 
 1. Before scaffolding, use **Ask Mode** to validate one design choice. Switch the Copilot Chat dropdown to **Ask** and type:
 
-   **Ask Mode Prompt:**
-
    ```
    I'm building a Flask prototype with a customer health score dashboard.
    Each customer has a health score from 0-100.
@@ -121,19 +121,12 @@ In this task, you will use Copilot's Ask mode to get pros and cons for implement
 
    > **Note:** This step demonstrates using Ask Mode for **design consultation** without generating any code. There's no project commitment, no architectural decisions, and no code changes. Just answers, right when you need them.
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex9-task2-lab09-design-decisions" />
-
 ### Task 3: Agent Mode — Scaffold the Entire Application
 
 In this task, you will write a detailed, structured prompt for Copilot Agent mode to scaffold the full Flask app — routes, mock data, and templates — in one pass. You will watch Agent mode create the files, run the app, and self-correct any errors.
 
 1. Switch the Copilot Chat dropdown back to **Agent**. Type the following carefully structured prompt:
 
-   **Prompt:**
    ```
    Build a Flask web application prototype for a Customer Health Score
    Dashboard.
@@ -167,7 +160,13 @@ In this task, you will write a detailed, structured prompt for Copilot Agent mod
 
    ![Image](./media/image7.png)
 
-1. After creating all files, run the app with: `python app.py` in the terminal, or you can ask Copilot to start the app.
+1. After Copilot creates all files, run the app in the terminal:
+
+   ```
+   python app.py
+   ```
+
+   Or ask Copilot to start the app for you.
 
    ![Image](./media/image8.png)
 
@@ -189,23 +188,17 @@ In this task, you will write a detailed, structured prompt for Copilot Agent mod
 
       ![Image](./media/image10.png)
 
-      > **IMPORTANT — Do NOT walk away.** Watch the Agent's terminal output. When it runs the app, it will need to confirm that Flask starts on port 5000 without errors.
+      > **IMPORTANT — Do NOT walk away.** Watch the Agent's terminal output. When it runs the app, confirm that Flask starts on port 5000 without errors before proceeding.
 
-1. **Review the Generated Files:** While the app runs, quickly scan each file.
+1. **Review the Generated Files:** While the app runs, quickly scan each file to verify the content matches the requirements you specified.
 
    > **Note:** Like working with any other developer, the more context you give and the more specific you are about your intended outcome, the better results you'll get from GitHub Copilot — and that's particularly true with agent mode. The detailed prompt structure (project structure → requirements → constraints) is what makes Agent Mode produce a usable result on the first pass.
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex9-task3-lab09-scaffold-app" />
 
 ### Task 4: Validate and Fix — The Developer Is Still the Pilot
 
 In this task, you will manually test the running dashboard in the browser and document what works and what's broken. You will use /explain and /fix to diagnose and correct data or visual issues Copilot can't detect on its own.
 
-1. Open your browser to `http://localhost:5000`. Check:
+1. Open your browser to `http://localhost:5000`. Check the following:
 
    - Dashboard table renders with 10 customers
 
@@ -225,9 +218,8 @@ In this task, you will manually test the running dashboard in the browser and do
 
    ![Image](./media/image12.png)
 
-1. Select the customer list in **data.py**. In Copilot Chat (Ask Mode), type the standardized prompt:
+1. Select the customer list in **data.py**. In **Copilot Chat** (**Ask Mode**), type:
 
-   **Prompt:**
    ```
    /explain What does this code do and why might it fail?
    ```
@@ -248,7 +240,6 @@ In this task, you will manually test the running dashboard in the browser and do
 
 1. If the dashboard has visual bugs (e.g., badges aren't colored, links are broken), select the problematic template and type:
 
-   **Prompt — Fix Code:**
    ```
    /fix Identify and fix only the issues causing this failure. Do not
    rewrite unrelated logic.
@@ -256,7 +247,7 @@ In this task, you will manually test the running dashboard in the browser and do
 
    ![Image](./media/image15.png)
 
-1. **Common fixes needed:**
+1. Common fixes needed:
 
    ![Image](./media/image16.png)
 
@@ -266,9 +257,10 @@ In this task, you will manually test the running dashboard in the browser and do
 
 In this task, you will prompt Agent mode to add a summary metrics bar with calculated stats to the dashboard. You will review the revenue-parsing logic, correct it with a follow-up prompt, and verify the metrics render correctly.
 
-1. In the Copilot Chat dropdown, select **Agent**. Select **dashboard.html** and **app.py** to the **Working Set** (drag the file tabs into the Edit panel).
+1. In the Copilot Chat dropdown, select **Agent**. In the Chat panel, drag **dashboard.html** and **app.py** into the **Working Set** to give Copilot focused context on these two files.
 
-   **Prompt:**
+   Enter the following prompt:
+
    ```
    Add a summary metrics bar at the top of the dashboard page, above the
    table.
@@ -290,9 +282,8 @@ In this task, you will prompt Agent mode to add a summary metrics bar with calcu
 
    ![Image](./media/image18.png)
 
-1. If the revenue calculation looks wrong, **this is your moment to exercise developer judgment:**
+1. If the revenue calculation looks wrong, **this is your moment to exercise developer judgment.** Use the following follow-up prompt:
 
-   **Follow-up Edit Prompt:**
    ```
    The revenue parsing is incorrect. Revenue strings are formatted like
    "$1.2M" or "$850K". Parse them by:
@@ -306,19 +297,12 @@ In this task, you will prompt Agent mode to add a summary metrics bar with calcu
 
    ![Image](./media/image19.png)
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex9-task5-lab09-iterative-enhancement" />
-
 ### Task 6: Document the Prototype with /doc
 
 In this task, you will select app.py and use Copilot's /doc command to generate module- and function-level documentation. You will review the generated docstrings for accuracy before finalizing them.
 
-1. Select the **entire app.py** file. In Copilot Chat, type:
+1. Select the **entire app.py** file. In **Copilot Chat**, type:
 
-   **Prompt — Documentation:**
    ```
    /doc Generate clear documentation explaining this module's behavior.
    ```
@@ -333,15 +317,9 @@ In this task, you will select app.py and use Copilot's /doc command to generate 
 
    - Parameter descriptions for the detail route's customer_id
 
-   /doc quickly generates documentation for a single method or entire file. Best for quick, no-fuss documentation. May need edits for accuracy.
+   The `/doc` command quickly generates documentation for a single method or entire file. It may need edits for accuracy — always review before accepting.
 
    ![Image](./media/image21.png)
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex9-task6-lab09-documentation" />
 
 ## Review
 

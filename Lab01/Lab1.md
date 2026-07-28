@@ -9,7 +9,7 @@ In this lab, you will use GitHub Copilot to understand an existing Java Spring B
 
 In this Lab, you will complete the following tasks:
 
-   - Task 0: Activate and Configure GitHub Copilot Subscription
+   - Task 0: Activate and Configure GitHub Copilot Subscription (READ-ONLY)
    - Task 1: Understand the API
    - Task 2: Create Repository Layer Unit Tests
    - Task 3: Create Service Layer Unit Tests
@@ -42,7 +42,7 @@ Before starting this Lab, ensure the following are installed and configured:
 
 - Testing Libraries: JUnit, Mockito
 
-### Task 0: Activate and Configure GitHub Copilot Subscription
+### Task 0: Activate and Configure GitHub Copilot Subscription (READ-ONLY)
 
 In this task, you will activate GitHub Copilot and configure it within Visual Studio Code to enable AI-assisted software development. You will sign in with your GitHub account, authenticate your access, and install the GitHub Copilot Chat extension in VS Code.
 

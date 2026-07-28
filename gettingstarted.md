@@ -1,6 +1,6 @@
 # Accelerating day-to-day development tasks with GitHub Copilot
 
-### Overall Estimated Duration: 17 Hours 15 Minutes
+### Overall Estimated Duration: 18 Hours
 
 ## Overview
 

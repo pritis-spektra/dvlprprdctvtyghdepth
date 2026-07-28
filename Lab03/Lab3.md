@@ -44,7 +44,7 @@ Before starting this lab, ensure the following:
 
 ### Task 1: Understand and Document the API
 
-In this task, you will use Copilot Agent mode to analyze the EmployeeController and generate an api-functional.md documentation file. You will verify the documentation accurately reflects the endpoints, methods, and responses.
+In this task, you will use Copilot Agent mode to analyze the EmployeeController and generate an `api-functional.md` documentation file. You will verify the documentation accurately reflects the endpoints, methods, and responses.
 
 1. In the Explorer panel, navigate to and open the following file:
 
@@ -52,7 +52,7 @@ In this task, you will use Copilot Agent mode to analyze the EmployeeController 
 
    ![Image](./media/image1.png)
 
-1. Select the entire contents of **EmployeeController.java**. Open **Copilot Chat** in **Agent** mode and enter the following prompt to generate the `api-functional.md` documentation file:
+1. Select the entire contents of **EmployeeController.java**. Open **Copilot Chat** in **Agent** mode with the **Claude Sonnet 4.5** model selected and enter the following prompt to generate the `api-functional.md` documentation file:
 
    ```
    Using the EmployeeController.java file in this project, create a new file called api-functional.md in the lab-03-documentation/java folder.
@@ -91,13 +91,25 @@ This task demonstrates how Copilot assists in **framework-specific documentation
 
    ![Image](./media/image5.png)
 
-1. Open **Terminal → Git Bash** in VS Code and navigate to the lab folder:
+1. Open **Terminal → New Terminal** in VS Code and click the dropdown to switch to **Git Bash**. Navigate to the lab folder:
 
    ```
    cd github-copilot-workshops-labs-java/lab-03-documentation/java/
    ```
 
    ![Image](./media/image6.png)
+
+1. Set up Maven for this terminal session. Maven is pre-installed on the lab VM — run both commands to configure it:
+
+   ```
+   export MAVEN_HOME="/c/Users/Admin/Documents/maven-mvnd-1.0.5-windows-amd64/maven-mvnd-1.0.5-windows-amd64"
+   ```
+
+   ```
+   export PATH="$MAVEN_HOME/bin:$PATH"
+   ```
+
+   > **Note:** These two commands only need to be run once per terminal session. If you open a new terminal later, run them again before using `mvn`.
 
 1. Reload Maven to pick up the new dependency by running:
 
@@ -243,6 +255,8 @@ In this task, you will use Copilot to split existing documentation into separate
 
 In this task, you will run the Spring Boot application and use curl commands to exercise all CRUD endpoints. You will use Copilot's /fix command to resolve any errors encountered along the way.
 
+> **Note:** If the application from Task 2 is still running, press **Ctrl+C** in the terminal to stop it before continuing. Then restart it with the command below.
+
 1. Open **Terminal → Git Bash** in VS Code and start the application. If you encounter any errors, use Copilot's `/fix` command to resolve them:
 
    ```
@@ -300,12 +314,6 @@ In this task, you will run the Spring Boot application and use curl commands to 
    ![Image](./media/image27.png)
 
 1. Once you have finished testing, close all open files in VS Code.
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help you out.
-<validation step="ex3-task5-lab03-curl-testing" />
 
 ## Review
 

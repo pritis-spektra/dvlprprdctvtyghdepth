@@ -83,7 +83,7 @@ Use the **slider (three vertical dots)** located between the **Virtual Machine**
 
 1. On the **Sign in to GitHub** tab, enter the provided **GitHub username** in the input field, and click on **Sign in with your identity provider** **(2)**.
 
-    - **Email/Username:** <inject key="GitHub User Name" enableCopy="true"/> **(1)**
+    - **Email/Username:** <inject key="githubUsername" enableCopy="true"/> **(1)**
 
       ![](./media/gg2.png)
 
@@ -93,13 +93,13 @@ Use the **slider (three vertical dots)** located between the **Virtual Machine**
 
 1. You'll see the **Sign in** tab. Here, enter your Azure Entra credentials and click **Next (2)**.
 
-   - **Email/Username:** <inject key="AzureAdUserEmail"></inject> **(1)**
+   - **Email/Username:** <inject key="githubEmail"></inject> **(1)**
 
      ![](./media/gg4.png)
 
 1. Next, provide your Temporary Password and click on **Sign in (2)**
 
-   - **Temporary Access Pass:** <inject key="AzureAdUserPassword"></inject> **(1)**
+   - **Temporary Access Pass:** <inject key="githubPassword"></inject> **(1)**
 
      ![](./media/gg5.png)
 
